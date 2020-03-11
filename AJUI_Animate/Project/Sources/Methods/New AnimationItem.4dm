@@ -26,7 +26,6 @@ $animationItem:=New object:C1471
   //global
 $animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 $animationItem.target:=""
-$animationItem.position:=1
 $animationItem.hideAtTheEnd:=False:C215
 
 
@@ -34,7 +33,7 @@ $animationItem.hideAtTheEnd:=False:C215
 $animationItem.timingAnimation:="linear"  // ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier
 $animationItem.duration:=0
 $animationItem.delay:=0
-$animationItem.iteration:=0
+$animationItem.iteration:=1
 
   //move
 $animationItem.direction:="right"

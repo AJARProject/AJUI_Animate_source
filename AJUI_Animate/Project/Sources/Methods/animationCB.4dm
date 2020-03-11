@@ -37,7 +37,7 @@ If ($operation="@Font@")
 	End if 
 	
 	If ($animationItem.fontSize#Null:C1517)
-		OBJECT SET FONT SIZE:C165(*;$target,$animationItem.fontSize)
+		OBJECT SET FONT SIZE:C165(*;$target;$animationItem.fontSize)
 	End if 
 	
 	If ($animationItem.fontStyle#Null:C1517)

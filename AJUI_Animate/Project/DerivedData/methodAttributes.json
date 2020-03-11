@@ -1,22 +1,31 @@
 ﻿{
 	"methods": {
+		"animationCheckOperation": {
+			"timeStamp": "2020-03-11T14:24:36.682Z"
+		},
 		"animate": {
-			"timeStamp": "2020-03-06T14:19:02.725Z"
+			"timeStamp": "2020-03-11T12:51:26.278Z"
 		},
 		"New AnimationItem": {
-			"timeStamp": "2020-03-06T14:43:25.203Z"
+			"timeStamp": "2020-03-11T10:30:55.925Z"
 		},
 		"animationController": {
-			"timeStamp": "2020-03-06T14:19:02.737Z"
+			"timeStamp": "2020-03-11T14:47:22.347Z"
 		},
 		"checkStopProcess": {
-			"timeStamp": "2020-03-06T09:19:50.013Z"
+			"timeStamp": "2020-03-06T14:54:09.473Z"
 		},
 		"stopAnimation": {
-			"timeStamp": "2020-03-06T08:57:46.540Z"
+			"timeStamp": "2020-03-06T15:01:08.967Z"
+		},
+		"visibleCB": {
+			"timeStamp": "2020-03-11T10:09:32.228Z"
+		},
+		"buildAnimationItem": {
+			"timeStamp": "2020-03-11T12:50:21.985Z"
 		},
 		"animationCB": {
-			"timeStamp": "2020-03-06T11:34:42.951Z"
+			"timeStamp": "2020-03-11T12:50:49.608Z"
 		}
 	}
 }

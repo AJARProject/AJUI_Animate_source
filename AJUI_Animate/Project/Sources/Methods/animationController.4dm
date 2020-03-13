@@ -22,12 +22,14 @@ End if
 C_COLLECTION:C1488($1;$operations_col;$executions_col)
 C_LONGINT:C283($2;$currentForm)
 C_LONGINT:C283($nbOperation)
-C_OBJECT:C1216($currentOperation;$animationItem)
+C_OBJECT:C1216($currentOperation;$animationItem;$test)
 C_REAL:C285($delay;$refresh)
 
 
 $operations_col:=$1
 $currentForm:=$2
+$test:=New object:C1471
+CALL FORM:C1391($currentForm;"animationGetInfoObject";$test)
 
 $nbOperation:=0
 

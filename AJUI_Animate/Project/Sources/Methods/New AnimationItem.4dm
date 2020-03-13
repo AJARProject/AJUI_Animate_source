@@ -36,7 +36,6 @@ $animationItem.delay:=0
 $animationItem.iteration:=1
 
   //move
-$animationItem.direction:="right"
 $animationItem.coordX:=0  //pixel
 $animationItem.coordY:=0  //pixel
 $animationItem.animationDirection:="normal"  //normal, reverse, alternate, alternate-reverse

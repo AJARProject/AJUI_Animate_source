@@ -20,6 +20,8 @@ If (False:C215)
 End if 
 C_COLLECTION:C1488($1)
 
+$operations_col:=$1.copy()
+
 C_COLLECTION:C1488(<>AJ_Animate_process_infos)
 C_LONGINT:C283($0;$processID)
 
@@ -29,9 +31,10 @@ If (<>AJ_Animate_process_infos=Null:C1517)
 End if 
 
   //starts the new process only if there is at least one operation.
-If ($1#Null:C1517)
-	If ($1.length>0)
-		$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);$1;Current form window:C827)
+If ($operations_col#Null:C1517)
+	If ($operations_col.length>0)
+		animationGetInfosTargets ($operations_col)
+		$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);$operations_col;Current form window:C827)
 		<>AJ_Animate_process_infos.push($processID)
 	End if 
 End if 

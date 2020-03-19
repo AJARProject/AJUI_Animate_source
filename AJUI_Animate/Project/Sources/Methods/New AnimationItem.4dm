@@ -33,7 +33,7 @@ $animationItem.hideAtTheEnd:=False:C215
 $animationItem.timingAnimation:="linear"  // ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier
 $animationItem.duration:=0
 $animationItem.delay:=0
-$animationItem.iteration:=1
+$animationItem.frequency:=1
 
   //move
 $animationItem.coordX:=0  //pixel

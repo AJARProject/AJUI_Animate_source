@@ -35,24 +35,25 @@ Else
 	If ($operation_obj.delay<0)
 		$operation_obj.delay:=0
 	End if 
-	If ($operation_obj.iteration<0)
-		$operation_obj.iteration:=0
+	If ($operation_obj.frequency<0)
+		$operation_obj.frequency:=0
 	End if 
 	
 	  //move
 	If ($operation="@Move@")
 		$process:=True:C214
-		
+		If (Not:C34($operation="@Resize@"))
+			$operation_obj.resizeV:=0
+			$operation_obj.resizeH:=0
+		End if 
 	End if 
 	
 	  //resize
 	If ($operation="@Resize@")
 		$process:=True:C214
-		If ($operation_obj.resizeH<0)
-			$operation_obj.resizeH:=0
-		End if 
-		If ($operation_obj.resizeV<0)
-			$operation_obj.resizeV:=0
+		If (Not:C34($operation="@Move@"))
+			$operation_obj.moveH:=0
+			$operation_obj.moveV:=0
 		End if 
 	End if 
 	
@@ -73,6 +74,15 @@ Else
 	  //BGColor
 	If ($operation="@BGColor@")
 		$process:=True:C214
+		If ($operation_obj.foregroundColor="")
+			$operation_obj.foregroundColor:=$operation_obj.infosTarget.foregroundColor
+		End if 
+		If ($operation_obj.backgroundColor="")
+			$operation_obj.backgroundColor:=$operation_obj.infosTarget.backgroundColor
+		End if 
+		If ($operation_obj.altBackgroundColor="")
+			$operation_obj.altBackgroundColor:=$operation_obj.infosTarget.altBackgroundColor
+		End if 
 	End if 
 	
 	  //CRadius

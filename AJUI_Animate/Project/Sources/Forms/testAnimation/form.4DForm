@@ -9,8 +9,8 @@
 	"windowMinHeight": 0,
 	"windowMaxWidth": 32767,
 	"windowMaxHeight": 32767,
-	"rightMargin": 20,
-	"bottomMargin": 20,
+	"rightMargin": 0,
+	"bottomMargin": 0,
 	"events": [
 		"onLoad",
 		"onPageChange",
@@ -36,18 +36,48 @@
 		},
 		{
 			"objects": {
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 628,
+					"height": 391,
+					"fill": "#6495ed"
+				},
 				"test": {
 					"type": "input",
-					"left": 92,
-					"top": 59,
+					"left": 810,
+					"top": 125,
 					"width": 87,
 					"height": 17,
 					"method": "ObjectMethods/test.4dm",
 					"events": [
 						"onLoad"
 					]
+				},
+				"RectTest": {
+					"type": "rectangle",
+					"top": 43,
+					"left": 52,
+					"width": 27,
+					"height": 30,
+					"borderRadius": 0
+				},
+				"Bouton": {
+					"type": "button",
+					"text": "Button",
+					"top": 335,
+					"left": 488,
+					"width": 96,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/Bouton.4dm"
 				}
 			}
 		}
-	]
+	],
+	"formSizeAnchor": "Rectangle"
 }

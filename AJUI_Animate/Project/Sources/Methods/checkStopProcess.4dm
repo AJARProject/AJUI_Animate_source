@@ -21,6 +21,8 @@ End if
 C_LONGINT:C283($1;$processID)
 C_BOOLEAN:C305($0)  //True = stop
 
+$processID:=$1
+
 $position:=<>AJ_Animate_process_infos.indexOf($processID)
 
 If ($position>=0)

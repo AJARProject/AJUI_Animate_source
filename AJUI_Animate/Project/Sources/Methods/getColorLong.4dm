@@ -21,6 +21,8 @@ End if
 C_TEXT:C284($1;$color_t)
 C_LONGINT:C283($0;$color_l)
 
+$color_t:=$1
+
 If (Position:C15("0x";$color_t;1)=1)
 	$color_l:=hexa2dec ($color_t)
 Else 

@@ -26,7 +26,7 @@ C_BOOLEAN:C305($lastIteration)
 $currentOperation:=$1
 $animationItem:=$2
 $currentIteration:=$3
-$nbIteration:=$currentOperation.iteration
+$nbIteration:=$currentOperation.frequency
 $duration:=$currentOperation.duration
 $infosTarget:=$currentOperation.infosTarget
 
@@ -58,10 +58,10 @@ If ($currentIteration=1)
 End if 
 
   //move or/and resize
-If (($animationItem.operation="@Move@") | ($operation="@Resize@"))
+If (($animationItem.operation="@Move@") | ($animationItem.operation="@Resize@"))
 	
-	$animationItem.moveH:=$currentOperation.moveH/$nbIteration
-	$animationItem.moveV:=$currentOperation.moveV/$nbIteration
+	$animationItem.moveH:=$currentOperation.coordX/$nbIteration
+	$animationItem.moveV:=$currentOperation.coordY/$nbIteration
 	$animationItem.resizeH:=$currentOperation.resizeH/$nbIteration
 	$animationItem.resizeV:=$currentOperation.resizeV/$nbIteration
 	

@@ -29,9 +29,10 @@ C_REAL:C285($delay;$refresh)
 $operations_col:=$1
 $currentForm:=$2
 $test:=New object:C1471
-CALL FORM:C1391($currentForm;"animationGetInfoObject";$test)
+
 
 $nbOperation:=0
+
 
   //main animation loop
 Repeat 
@@ -40,7 +41,7 @@ Repeat
 	
 	If (animationCheckOperation ($currentOperation))  //at least one operation
 		  //1.1 calculation refresh
-		$refresh:=$currentOperation.duration/$currentOperation.iteration
+		$refresh:=$currentOperation.duration/$currentOperation.frequency
 		
 		  //1.2 delay
 		If ($currentOperation.delay>0)
@@ -62,13 +63,19 @@ Repeat
 			CALL FORM:C1391($currentForm;"animationCB";$animationItem)
 			$currentIteration:=$currentIteration+1
 			
-		Until ((checkStopProcess (Current process:C322)) | ($currentIteration>$currentOperation.iteration))
+		Until ((checkStopProcess (Current process:C322)) | ($currentIteration>$currentOperation.frequency))
 		
 		  //1.4 hide at end
 		If ($currentOperation.hideAtTheEnd)
 			CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;False:C215)
 		End if 
+		
+		If ($nbOperation<$operations_col.length)
+			updateSameTargetInfos ($currentOperation.target;$operations_col;$animationItem)  //update with last value
+		End if 
+		
 	End if 
+	
 	
 	$nbOperation:=$nbOperation+1
 Until ((checkStopProcess (Current process:C322)) | ($nbOperation>=$operations_col.length))

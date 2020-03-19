@@ -23,6 +23,8 @@ C_COLLECTION:C1488($1;$operations_col)
 C_OBJECT:C1216($operation_obj)
 C_TEXT:C284($target;$operation)
 
+$operations_col:=$1
+
 For each ($operation_obj;$operations_col)
 	$target:=$operation_obj.target
 	If ($target#Null:C1517)
@@ -32,7 +34,11 @@ For each ($operation_obj;$operations_col)
 			$operation:=$operation_obj.operation
 			
 			If (($operation="@Move@") | ($operation="@Resize@"))
-				OBJECT GET COORDINATES:C663(*;$target;$operation_obj.infosTarget.left;$operation_obj.infosTarget.top;$operation_obj.infosTarget.right;$operation_obj.infosTarget.bottom)
+				OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+				$operation_obj.infosTarget.left:=$left
+				$operation_obj.infosTarget.top:=$top
+				$operation_obj.infosTarget.right:=$right
+				$operation_obj.infosTarget.bottom:=$bottom
 			End if 
 			
 			If ($operation="@Font@")
@@ -48,7 +54,11 @@ For each ($operation_obj;$operations_col)
 			End if 
 			
 			If ($operation="@BGColor@")
-				OBJECT GET RGB COLORS:C1074(*;$target;$operation_obj.infosTarget.foregroundColor;$operation_obj.infosTarget.backgroundColor;$operation_obj.infosTarget.altBackgroundColor)
+				C_TEXT:C284($foregroundColor;$backgroundColor;$altBackgroundColor)
+				OBJECT GET RGB COLORS:C1074(*;$target;$foregroundColor;$backgroundColor;$altBackgroundColor)
+				$operation_obj.infosTarget.foregroundColor:=$foregroundColor
+				$operation_obj.infosTarget.backgroundColor:=$backgroundColor
+				$operation_obj.infosTarget.altBackgroundColor:=$altBackgroundColor
 			End if 
 			
 			If ($operation="@BStyle@")
@@ -58,6 +68,8 @@ For each ($operation_obj;$operations_col)
 			If ($operation="@CRadius@")
 				$operation_obj.infosTarget.radius:=OBJECT Get corner radius:C1324(*;$target)
 			End if 
+			
+			
 			
 		End if 
 	End if 

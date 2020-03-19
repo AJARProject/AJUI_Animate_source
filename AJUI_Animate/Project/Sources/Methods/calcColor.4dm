@@ -68,9 +68,9 @@ If (Count parameters:C259>1)
 		$color_obj.B2:=$rgb_col[2]
 		
 		
-		$r:=Round:C94($color_obj.R1+(($color_obj.R2-$color_obj.R1)/$nbIteration*$currentIteration);0)
-		$g:=Round:C94($color_obj.G1+(($color_obj.G2-$color_obj.G1)/$nbIteration*$currentIteration);0)
-		$b:=Round:C94($color_obj.B1+(($color_obj.B2-$color_obj.B1)/$nbIteration*$currentIteration);0)
+		$r:=Round:C94(Num:C11($color_obj.R1)+((Num:C11($color_obj.R2)-Num:C11($color_obj.R1))/$nbIteration*$currentIteration);0)
+		$g:=Round:C94(Num:C11($color_obj.G1)+((Num:C11($color_obj.G2)-Num:C11($color_obj.G1))/$nbIteration*$currentIteration);0)
+		$b:=Round:C94(Num:C11($color_obj.B1)+((Num:C11($color_obj.B2)-Num:C11($color_obj.B1))/$nbIteration*$currentIteration);0)
 		
 		  // calc RGB
 		$0:=((65536*$r)+(256*$g)+$b)

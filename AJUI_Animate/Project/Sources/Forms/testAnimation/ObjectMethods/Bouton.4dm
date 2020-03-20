@@ -5,10 +5,10 @@ Case of
 		Form:C1466.colTest:=New collection:C1472()
 		$animationItem:=New AnimationItem 
 		
-		$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle,Blink"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
+		$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:="RectTest"
 		
-		$animationItem.duration:=180
+		$animationItem.duration:=1000
 		$animationItem.delay:=0
 		$animationItem.frequency:=20
 		

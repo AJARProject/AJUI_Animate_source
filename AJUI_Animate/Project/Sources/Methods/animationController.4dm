@@ -25,14 +25,11 @@ C_LONGINT:C283($nbOperation)
 C_OBJECT:C1216($currentOperation;$animationItem;$test)
 C_REAL:C285($delay;$refresh)
 
-
 $operations_col:=$1
 $currentForm:=$2
 $test:=New object:C1471
 
-
 $nbOperation:=0
-
 
   //main animation loop
 Repeat 
@@ -41,7 +38,8 @@ Repeat
 	
 	If (animationCheckOperation ($currentOperation))  //at least one operation
 		  //1.1 calculation refresh
-		$refresh:=$currentOperation.duration/$currentOperation.frequency
+		$steps:=Round:C94($currentOperation.duration/1000*$currentOperation.frequency;0)
+		$refresh:=60/$currentOperation.frequency
 		
 		  //1.2 delay
 		If ($currentOperation.delay>0)
@@ -51,19 +49,21 @@ Repeat
 		  //1.3 executions
 		CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
 		
-		$currentIteration:=1
-		$animationItem:=New object:C1471
+		
+		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
+		$currentStep:=1
 		
 		Repeat 
-			If ($currentIteration>1)
+			If ($currentStep>1)
 				DELAY PROCESS:C323(Current process:C322;$refresh)
 			End if 
 			
-			buildAnimationItem ($currentOperation;$animationItem;$currentIteration)
+			$animationItem:=$animationItems_col[$currentStep-1]
 			CALL FORM:C1391($currentForm;"animationCB";$animationItem)
-			$currentIteration:=$currentIteration+1
 			
-		Until ((checkStopProcess (Current process:C322)) | ($currentIteration>$currentOperation.frequency))
+			$currentStep:=$currentStep+1
+			
+		Until ((checkStopProcess (Current process:C322)) | ($currentStep>$steps))
 		
 		  //1.4 hide at end
 		If ($currentOperation.hideAtTheEnd)

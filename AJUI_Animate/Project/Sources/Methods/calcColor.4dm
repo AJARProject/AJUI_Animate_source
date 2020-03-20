@@ -1,10 +1,9 @@
 //%attributes = {}
-  // calcColor ( $operationColor { ; $originColor ; $currentIteration ; $nbIteration } ) -> $colorToApplied
+  // calcColor ( $operationColor { ; $originColor ; $animationTiming_obj } ) -> $colorToApplied
   //
   // $operationColor : (variant) operation color
   // $originColor : (variant) (optional) old color of the target
-  // $currentIteration : (longint) (optional) actual number of the iteration
-  // $nbIteration : (longint) (optional) total of iteration
+  // $animationTiming_obj : (object) (optional) used to calc the animation timing
   // $colorToApplied : (longint) (return) color to applied
   //
   // Calc the color to applied
@@ -16,13 +15,14 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: calcColor
 	  // Description
-	  // this method returns the color that should be applied depending on the current iteration and 
+	  // this method returns the color that should be applied depending on the current step and 
 	  // whether the animation is gradient or not.
 	  //
 	  // ----------------------------------------------------
 End if 
 C_VARIANT:C1683($1;$2)
-C_LONGINT:C283($0;$3;$4;$currentIteration;$nbIteration;$colorToApplied)
+C_OBJECT:C1216($3;$animationTiming_obj)
+C_LONGINT:C283($0;$currentStep;$steps;$colorToApplied)
 C_LONGINT:C283($operationColor;$originColor;$colorToApply)
 
 If (Value type:C1509($1)=Is text:K8:3)
@@ -32,11 +32,11 @@ Else
 End if 
 
 If (Count parameters:C259>1)
+	$animationTiming_obj:=$3
+	$steps:=$animationTiming_obj.steps
+	$currentStep:=$animationTiming_obj.current_step
 	
-	$currentIteration:=$3
-	$nbIteration:=$4
-	
-	If ($currentIteration=$nbIteration)
+	If ($currentStep=$steps)
 		$colorToApplied:=$operationColor
 	Else 
 		If (Value type:C1509($2)=Is text:K8:3)
@@ -71,9 +71,24 @@ If (Count parameters:C259>1)
 		$color_obj.B2:=$rgb_col[2]
 		
 		
-		$r:=Round:C94(Num:C11($color_obj.R1)+((Num:C11($color_obj.R2)-Num:C11($color_obj.R1))/$nbIteration*$currentIteration);0)
-		$g:=Round:C94(Num:C11($color_obj.G1)+((Num:C11($color_obj.G2)-Num:C11($color_obj.G1))/$nbIteration*$currentIteration);0)
-		$b:=Round:C94(Num:C11($color_obj.B1)+((Num:C11($color_obj.B2)-Num:C11($color_obj.B1))/$nbIteration*$currentIteration);0)
+		  //$r:=Round(Num($color_obj.R1)+((Num($color_obj.R2)-Num($color_obj.R1))/$steps*$currentStep);0)
+		  //$g:=Round(Num($color_obj.G1)+((Num($color_obj.G2)-Num($color_obj.G1))/$steps*$currentStep);0)
+		  //$b:=Round(Num($color_obj.B1)+((Num($color_obj.B2)-Num($color_obj.B1))/$steps*$currentStep);0)
+		
+		  //R
+		$animationTiming_obj.minValue:=Num:C11($color_obj.R1)
+		$animationTiming_obj.maxValue:=Num:C11($color_obj.R2)
+		$r:=Round:C94(animationTiming ($animationTiming_obj);0)
+		
+		  //G
+		$animationTiming_obj.minValue:=Num:C11($color_obj.G1)
+		$animationTiming_obj.maxValue:=Num:C11($color_obj.G2)
+		$g:=Round:C94(animationTiming ($animationTiming_obj);0)
+		
+		  //B
+		$animationTiming_obj.minValue:=Num:C11($color_obj.B1)
+		$animationTiming_obj.maxValue:=Num:C11($color_obj.B2)
+		$b:=Round:C94(animationTiming ($animationTiming_obj);0)
 		
 		  // calc RGB
 		$colorToApplied:=((65536*$r)+(256*$g)+$b)

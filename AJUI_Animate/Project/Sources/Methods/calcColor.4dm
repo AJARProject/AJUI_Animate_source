@@ -1,11 +1,13 @@
 //%attributes = {}
-  // calcColor ( param1 { ; param2 } ) -> return
+  // calcColor ( $operationColor { ; $originColor ; $currentIteration ; $nbIteration } ) -> $colorToApplied
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $operationColor : (variant) operation color
+  // $originColor : (variant) (optional) old color of the target
+  // $currentIteration : (longint) (optional) actual number of the iteration
+  // $nbIteration : (longint) (optional) total of iteration
+  // $colorToApplied : (longint) (return) color to applied
   //
-  // short_description
+  // Calc the color to applied
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,12 +16,13 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: calcColor
 	  // Description
-	  // 
+	  // this method returns the color that should be applied depending on the current iteration and 
+	  // whether the animation is gradient or not.
 	  //
 	  // ----------------------------------------------------
 End if 
 C_VARIANT:C1683($1;$2)
-C_LONGINT:C283($3;$4;$currentIteration;$nbIteration)
+C_LONGINT:C283($0;$3;$4;$currentIteration;$nbIteration;$colorToApplied)
 C_LONGINT:C283($operationColor;$originColor;$colorToApply)
 
 If (Value type:C1509($1)=Is text:K8:3)
@@ -34,7 +37,7 @@ If (Count parameters:C259>1)
 	$nbIteration:=$4
 	
 	If ($currentIteration=$nbIteration)
-		$0:=$operationColor
+		$colorToApplied:=$operationColor
 	Else 
 		If (Value type:C1509($2)=Is text:K8:3)
 			$originColor:=getColorLong ($2)
@@ -73,10 +76,12 @@ If (Count parameters:C259>1)
 		$b:=Round:C94(Num:C11($color_obj.B1)+((Num:C11($color_obj.B2)-Num:C11($color_obj.B1))/$nbIteration*$currentIteration);0)
 		
 		  // calc RGB
-		$0:=((65536*$r)+(256*$g)+$b)
+		$colorToApplied:=((65536*$r)+(256*$g)+$b)
 		
 	End if 
 	
 Else 
-	$0:=$operationColor
+	$colorToApplied:=$operationColor
 End if 
+
+$0:=$colorToApplied

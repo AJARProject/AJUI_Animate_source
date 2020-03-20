@@ -1,11 +1,11 @@
 //%attributes = {}
-  // buildAnimationItem ( param1 { ; param2 } ) -> return
+  // buildAnimationItem ( $currentOperation ; $animationItem ; $currentIteration ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $currentOperation : (object) actual operation to handle
+  // $animationItem : (object) animation item to prepare
+  // $currentIteration : (longint) number of the current iteration
   //
-  // short_description
+  // this method builds up the animation item to send to the call form
 
 If (False:C215)
 	  // ----------------------------------------------------

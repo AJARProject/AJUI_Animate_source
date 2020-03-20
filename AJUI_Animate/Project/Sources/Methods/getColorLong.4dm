@@ -1,11 +1,10 @@
 //%attributes = {}
-  // getColorLong ( param1 { ; param2 } ) -> return
+  // getColorLong ( $color_t ) -> $color_l
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $color_t : (text) text color value
+  // $color_l : (longint) (return) longint color value
   //
-  // short_description
+  // Transform a text color value into a longint value
 
 If (False:C215)
 	  // ----------------------------------------------------

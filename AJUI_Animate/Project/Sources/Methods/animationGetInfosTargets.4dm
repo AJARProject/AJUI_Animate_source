@@ -1,11 +1,9 @@
 //%attributes = {}
-  // animationGetInfosTargets ( param1 { ; param2 } ) -> return
+  // animationGetInfosTargets ( $operations_col ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $operations_col : (collections) operations
   //
-  // short_description
+  // collects the original informations of each target in the operation collection.
 
 If (False:C215)
 	  // ----------------------------------------------------

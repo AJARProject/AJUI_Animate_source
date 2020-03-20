@@ -1,11 +1,10 @@
 //%attributes = {}
-  // checkStopProcess ( param1 { ; param2 } ) -> return
+  // checkStopProcess ( $processID ) -> $stop
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $processID : (longint) process ID to check
+  // $stop : (bolean) (return) stop process ? True = stop
   //
-  // short_description
+  // controls process shutdown
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,12 +13,13 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: checkStopProcess
 	  // Description
-	  // 
+	  // checks if the process id is still present in the list of running processes. 
+	  // If not, signals that the process must be stopped.
 	  //
 	  // ----------------------------------------------------
 End if 
 C_LONGINT:C283($1;$processID)
-C_BOOLEAN:C305($0)  //True = stop
+C_BOOLEAN:C305($0)
 
 $processID:=$1
 

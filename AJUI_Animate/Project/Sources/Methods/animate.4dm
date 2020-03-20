@@ -1,11 +1,9 @@
 //%attributes = {}
-  // animate ( param1 { ; param2 } ) -> return
+  // animate ( $operations_col ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $operations_col : (collection) operations
   //
-  // short_description
+  // Launch the animations
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,7 +12,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: animate
 	  // Description
-	  // 
+	  // this method controls the collection of operations, retrieves data from targets and starts the animation process.
 	  //
 	  // ----------------------------------------------------
 End if 

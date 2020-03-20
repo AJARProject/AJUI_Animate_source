@@ -1,11 +1,9 @@
 //%attributes = {}
-  // New AnimationItem ( param1 { ; param2 } ) -> return
+  // New AnimationItem (  ) -> $operationItem
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $operationItem : (object) (return) operation item
   //
-  // short_description
+  // Get an object containing all available animation properties
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -19,48 +17,48 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$animationItem)
+C_OBJECT:C1216($0;$operationItem)
 
-$animationItem:=New object:C1471
+$operationItem:=New object:C1471
 
   //global
-$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
-$animationItem.target:=""
-$animationItem.hideAtTheEnd:=False:C215
+$operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
+$operationItem.target:=""
+$operationItem.hideAtTheEnd:=False:C215
 
 
   //timing
-$animationItem.timingAnimation:="linear"  // ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier
-$animationItem.duration:=0
-$animationItem.delay:=0
-$animationItem.frequency:=1
+$operationItem.timingAnimation:="linear"  // ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier
+$operationItem.duration:=0
+$operationItem.delay:=0
+$operationItem.frequency:=1
 
   //move
-$animationItem.coordX:=0  //pixel
-$animationItem.coordY:=0  //pixel
-$animationItem.animationDirection:="normal"  //normal, reverse, alternate, alternate-reverse
+$operationItem.coordX:=0  //pixel
+$operationItem.coordY:=0  //pixel
+$operationItem.animationDirection:="normal"  //normal, reverse, alternate, alternate-reverse
 
   //resize
-$animationItem.resizeH:=0
-$animationItem.resizeV:=0
+$operationItem.resizeH:=0
+$operationItem.resizeV:=0
 
   //font
-$animationItem.fontName:="Arial"
-$animationItem.fontSize:=12
-$animationItem.fontStyle:=0  // 0=plain, 1=bold, 2=italic, 4=underline
-$animationItem.styleSheet:=""
+$operationItem.fontName:="Arial"
+$operationItem.fontSize:=12
+$operationItem.fontStyle:=0  // 0=plain, 1=bold, 2=italic, 4=underline
+$operationItem.styleSheet:=""
 
   //BGColor
-$animationItem.foregroundColor:=""
-$animationItem.backgroundColor:=""
-$animationItem.altBackgroundColor:=""
-$animationItem.colorTransition:=True:C214
+$operationItem.foregroundColor:=""
+$operationItem.backgroundColor:=""
+$operationItem.altBackgroundColor:=""
+$operationItem.colorTransition:=True:C214
 
   //CRadius
-$animationItem.radius:=0
+$operationItem.radius:=0
 
   //BStyle
-$animationItem.borderStyle:=6
+$operationItem.borderStyle:=6
 
 
-$0:=$animationItem
+$0:=$operationItem

@@ -1,11 +1,9 @@
 //%attributes = {}
-  // stopAnimation ( param1 { ; param2 } ) -> return
+  // stopAnimation ( $processID ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $processID : (longint) ID process
   //
-  // short_description
+  // Allows you to remove the process from the list of running processes
 
 If (False:C215)
 	  // ----------------------------------------------------

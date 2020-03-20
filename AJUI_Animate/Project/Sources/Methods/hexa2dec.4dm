@@ -1,8 +1,8 @@
 //%attributes = {}
-  // hexa2dec ( $hexaText ) -> return
+  // hexa2dec ( $hexaText ) -> $result
   //
-  // $1 : (text) hexa in text
-  // $2 : (longint) (return) hexa in longint
+  // $hexaText : (text) hexa in text
+  // $result : (longint) (return) hexa in longint
   //
   // Transform hexadecimal form text to longint
 

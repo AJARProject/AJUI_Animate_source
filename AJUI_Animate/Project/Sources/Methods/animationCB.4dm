@@ -1,11 +1,9 @@
 //%attributes = {}
-  // animationCB ( param1 { ; param2 } ) -> return
+  // animationCB ( $animationItem ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $animationItem : (object) description
   //
-  // short_description
+  // this method executes the 4D commands corresponding to the animations indicated in the item
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,7 +12,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: animationCB
 	  // Description
-	  // 
+	  // This method is launched from the animation process by a call form
 	  //
 	  // ----------------------------------------------------
 End if 

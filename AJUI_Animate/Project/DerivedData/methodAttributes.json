@@ -1,46 +1,46 @@
 ﻿{
 	"methods": {
 		"animationCheckOperation": {
-			"timeStamp": "2020-03-19T15:37:05.614Z"
+			"timeStamp": "2020-03-20T09:52:23.880Z"
 		},
 		"animate": {
-			"timeStamp": "2020-03-13T08:30:52.804Z"
+			"timeStamp": "2020-03-20T09:46:29.958Z"
 		},
 		"New AnimationItem": {
-			"timeStamp": "2020-03-19T15:38:40.675Z"
+			"timeStamp": "2020-03-20T10:26:09.683Z"
 		},
 		"animationController": {
-			"timeStamp": "2020-03-19T15:38:00.669Z"
+			"timeStamp": "2020-03-20T09:57:20.618Z"
 		},
 		"checkStopProcess": {
-			"timeStamp": "2020-03-19T07:26:56.264Z"
+			"timeStamp": "2020-03-20T10:17:10.775Z"
 		},
 		"stopAnimation": {
-			"timeStamp": "2020-03-06T15:01:08.967Z"
+			"timeStamp": "2020-03-20T10:27:57.730Z"
 		},
 		"visibleCB": {
-			"timeStamp": "2020-03-11T10:09:32.228Z"
+			"timeStamp": "2020-03-20T10:36:26.279Z"
 		},
 		"buildAnimationItem": {
-			"timeStamp": "2020-03-19T15:38:22.216Z"
+			"timeStamp": "2020-03-20T10:03:44.273Z"
 		},
 		"calcColor": {
-			"timeStamp": "2020-03-19T07:36:48.865Z"
+			"timeStamp": "2020-03-20T10:21:20.777Z"
 		},
 		"animationCB": {
-			"timeStamp": "2020-03-13T10:07:46.402Z"
+			"timeStamp": "2020-03-20T09:48:27.121Z"
 		},
 		"getColorLong": {
-			"timeStamp": "2020-03-19T07:38:14.646Z"
+			"timeStamp": "2020-03-20T10:19:19.906Z"
 		},
 		"hexa2dec": {
-			"timeStamp": "2020-03-13T09:51:48.351Z"
+			"timeStamp": "2020-03-20T10:23:04.490Z"
 		},
 		"updateSameTargetInfos": {
-			"timeStamp": "2020-03-19T08:38:10.572Z"
+			"timeStamp": "2020-03-20T10:35:07.997Z"
 		},
 		"animationGetInfosTargets": {
-			"timeStamp": "2020-03-19T08:21:05.833Z"
+			"timeStamp": "2020-03-20T09:59:48.554Z"
 		}
 	}
 }

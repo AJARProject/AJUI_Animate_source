@@ -1,11 +1,10 @@
 //%attributes = {}
-  // visibleCB ( param1 { ; param2 } ) -> return
+  // visibleCB ( $targetName ) -> $visible
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $targetName : (text) target name
+  // $visible : (boolean) (return) visible ?
   //
-  // short_description
+  // Callback used to show/hide an object
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,7 +13,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: visibleCB
 	  // Description
-	  // 
+	  // Should be called by a process via a call form
 	  //
 	  // ----------------------------------------------------
 End if 

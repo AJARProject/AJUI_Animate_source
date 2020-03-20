@@ -1,11 +1,9 @@
 //%attributes = {}
-  // animationCheckOperation ( param1 { ; param2 } ) -> return
+  // animationCheckOperation ( $operation_obj ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $operation_obj : (object) operation
   //
-  // short_description
+  // Check the operation object
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,7 +12,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: animationCheckOperation
 	  // Description
-	  // 
+	  // This method checks that the values contained in the operation object are correct 
+	  // and replaces them with default values if necessary.
 	  //
 	  // ----------------------------------------------------
 End if 

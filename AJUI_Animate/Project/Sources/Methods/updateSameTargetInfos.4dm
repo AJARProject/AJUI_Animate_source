@@ -1,11 +1,11 @@
 //%attributes = {}
-  // updateSameTargetInfos ( param1 { ; param2 } ) -> return
+  // updateSameTargetInfos ( $currentTarget ; $operations_col ; $lastAnimationItem  ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $currentTarget : (text target of the current operation
+  // $operations_col : (collection) operations
+  // $lastAnimationItem : (object) last animation item executed 
   //
-  // short_description
+  // Updates the target informations for next operations.
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,7 +14,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: updateSameTargetInfos
 	  // Description
-	  // 
+	  // At the end of an operation, this method updates the information 
+	  // for next operations (same collection/process) using the same target as the current one. 
 	  //
 	  // ----------------------------------------------------
 End if 

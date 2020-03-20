@@ -1,11 +1,10 @@
 //%attributes = {}
-  // animationController ( param1 { ; param2 } ) -> return
+  // animationController ( $operations_col  ; $currentForm  ) 
   //
-  // param1 : (text) description
-  // param2 : (text) (optional) description
-  // return : (text) (return) return value
+  // $operations_col : (collection) operations
+  // $currentForm : (longint)  form to use with the call form
   //
-  // short_description
+  // Handle the operations
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,7 +13,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: animationController
 	  // Description
-	  // 
+	  // this method is called by the animation process and 
+	  // will manage operation cycles, calculation management and call forms.
 	  //
 	  // ----------------------------------------------------
 End if 

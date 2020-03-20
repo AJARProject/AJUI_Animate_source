@@ -92,6 +92,8 @@ Case of
 		$y2:=0.5
 End case 
 
+  // -----
+  // Pourquoi ne pas mettre ce code dans le else en dessous?
 $t:=$current_step/$steps
 
 $a:=((1-$t)^3)*$x0
@@ -100,6 +102,7 @@ $c:=3*($t^2)*(1-$t)*$x2
 $d:=($t^3)*$x3
 $factor:=$a+$b+$c+$d
 $transitionValue:=($maxValue-$minValue)*$factor
+  // -----
 
 If ($current_step>1) & ($relative)
 	$t:=($current_step-1)/$steps

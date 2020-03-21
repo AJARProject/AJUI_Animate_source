@@ -49,7 +49,6 @@ Repeat
 		  //1.3 executions
 		CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
 		
-		
 		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
 		$currentStep:=1
 		

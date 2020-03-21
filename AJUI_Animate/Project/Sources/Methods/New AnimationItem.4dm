@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // New AnimationItem (  ) -> $operationItem
   //
   // $operationItem : (object) (return) operation item

@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // animationTiming ($animation_obj {; $relative }) -> transitionValue
   //
   // $animation_obj : (Object)
@@ -109,7 +109,6 @@ End if
 
 If ($current_step>1) & ($relative)
 	$t:=($current_step-1)/$steps
-	
 	$a:=((1-$t)^3)*$x0
 	$b:=3*$t*((1-$t)^2)*$x1
 	$c:=3*($t^2)*(1-$t)*$x2

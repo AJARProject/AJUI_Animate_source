@@ -46,8 +46,8 @@
 				},
 				"test": {
 					"type": "input",
-					"left": 810,
-					"top": 125,
+					"left": 739,
+					"top": 79,
 					"width": 87,
 					"height": 17,
 					"method": "ObjectMethods/test.4dm",
@@ -87,5 +87,6 @@
 			}
 		}
 	],
-	"formSizeAnchor": "Rectangle"
+	"formSizeAnchor": "Rectangle",
+	"method": "method.4dm"
 }

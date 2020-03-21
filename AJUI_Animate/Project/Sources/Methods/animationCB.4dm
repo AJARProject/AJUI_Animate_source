@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // animationCB ( $animationItem ) 
   //
   // $animationItem : (object) description

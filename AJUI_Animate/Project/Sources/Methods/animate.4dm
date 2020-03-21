@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // animate ( $operations_col ) 
   //
   // $operations_col : (collection) operations

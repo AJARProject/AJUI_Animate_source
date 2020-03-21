@@ -99,7 +99,12 @@ $b:=3*$t*((1-$t)^2)*$x1
 $c:=3*($t^2)*(1-$t)*$x2
 $d:=($t^3)*$x3
 $factor:=$a+$b+$c+$d
-$transitionValue:=($maxValue-$minValue)*$factor
+If ($maxValue<$minValue)
+	$transitionValue:=$minValue+(($maxValue-$minValue)*$factor)
+Else 
+	$transitionValue:=($maxValue-$minValue)*$factor
+End if 
+
 
 If ($current_step>1) & ($relative)
 	$t:=($current_step-1)/$steps

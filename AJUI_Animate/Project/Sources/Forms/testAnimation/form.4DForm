@@ -59,7 +59,7 @@
 					"type": "rectangle",
 					"top": 43,
 					"left": 52,
-					"width": 27,
+					"width": 30,
 					"height": 30,
 					"borderRadius": 0
 				},
@@ -75,6 +75,14 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Bouton.4dm"
+				},
+				"RectTest1": {
+					"type": "rectangle",
+					"top": 43,
+					"left": 276,
+					"width": 30,
+					"height": 30,
+					"borderRadius": 0
 				}
 			}
 		}

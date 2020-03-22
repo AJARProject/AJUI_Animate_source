@@ -10,6 +10,6 @@
 
 C_TEXT:C284($0)
 
-$version_t:="0.9-Build10"  // Sun, 22 Mar 2020 08:40:46 GMT
+$version_t:="0.9-Build11"  // Sun, 22 Mar 2020 12:31:00 GMT
 
 $0:="AJUI_Animate (v18) : "+$version_t

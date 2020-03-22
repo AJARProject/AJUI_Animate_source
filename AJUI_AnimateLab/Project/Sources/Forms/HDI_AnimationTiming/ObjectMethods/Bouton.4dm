@@ -80,10 +80,10 @@ Case of
 	: ($evt=On Clicked:K2:4)
 		
 		animate (Form:C1466.linear;Current form window:C827)
-		  //animate (Form.ease;Current form window)
-		  //animate (Form.easeIn;Current form window)
-		  //animate (Form.easeOut;Current form window)
-		  //animate (Form.easeInOut;Current form window)
-		  //animate (Form.step;Current form window)
+		animate (Form:C1466.ease;Current form window:C827)
+		animate (Form:C1466.easeIn;Current form window:C827)
+		animate (Form:C1466.easeOut;Current form window:C827)
+		animate (Form:C1466.easeInOut;Current form window:C827)
+		animate (Form:C1466.step;Current form window:C827)
 		
 End case 

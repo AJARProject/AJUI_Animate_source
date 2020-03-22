@@ -79,7 +79,8 @@
 					"top": 105,
 					"left": 30,
 					"width": 50,
-					"height": 50
+					"height": 50,
+					"fill": "#c0c0c0"
 				},
 				"background3": {
 					"type": "rectangle",
@@ -105,7 +106,8 @@
 					"top": 180,
 					"left": 30,
 					"width": 50,
-					"height": 50
+					"height": 50,
+					"fill": "#c0c0c0"
 				},
 				"background4": {
 					"type": "rectangle",
@@ -131,7 +133,8 @@
 					"top": 255,
 					"left": 30,
 					"width": 50,
-					"height": 50
+					"height": 50,
+					"fill": "#c0c0c0"
 				},
 				"background5": {
 					"type": "rectangle",
@@ -157,7 +160,8 @@
 					"top": 330,
 					"left": 30,
 					"width": 50,
-					"height": 50
+					"height": 50,
+					"fill": "#c0c0c0"
 				},
 				"background6": {
 					"type": "rectangle",
@@ -183,7 +187,8 @@
 					"top": 405,
 					"left": 30,
 					"width": 50,
-					"height": 50
+					"height": 50,
+					"fill": "#c0c0c0"
 				},
 				"Bouton": {
 					"type": "button",
@@ -203,7 +208,8 @@
 					"top": 28,
 					"left": 30,
 					"width": 50,
-					"height": 50
+					"height": 50,
+					"fill": "#c0c0c0"
 				}
 			}
 		}

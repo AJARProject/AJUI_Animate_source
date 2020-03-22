@@ -24,6 +24,7 @@ C_LONGINT:C283($2;$currentForm)
 C_LONGINT:C283($nbOperation)
 C_OBJECT:C1216($currentOperation;$animationItem;$test)
 C_REAL:C285($delay;$refresh)
+C_REAL:C285($steps)
 
 $operations_col:=$1
 $currentForm:=$2
@@ -48,13 +49,7 @@ Repeat
 		
 		  //1.3 executions
 		
-		  //animate_callForm($currentForm;"visibleCB";$currentOperation.target;True)
-		If (isComponentContext )
-			  //CALL FORM($currentForm;"visibleCB";$currentOperation.target;True)
-			EXECUTE METHOD:C1007("animate_callForm";*;$currentForm;"visibleCB";$currentOperation.target;True:C214)
-		Else 
-			CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
-		End if 
+		CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
 		
 		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
 		$currentStep:=1

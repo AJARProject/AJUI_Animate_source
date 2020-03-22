@@ -22,6 +22,15 @@
 			"title": ":xliff:CommonMenuFile",
 			"items": [
 				{
+					"title": "Launch test",
+					"method": "LaunchFormTest",
+					"startNewProcess": true
+				},
+				{
+					"title": "Item 1",
+					"isSeparator": true
+				},
+				{
 					"title": ":xliff:CommonMenuItemQuit",
 					"shortcutAccel": true,
 					"shortcutKey": "Q",

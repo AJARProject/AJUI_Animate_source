@@ -37,6 +37,10 @@ C_REAL:C285($0;$transitionValue)
 C_LONGINT:C283($steps;$current_step)
 C_BOOLEAN:C305($2;$relative)
 C_REAL:C285($minValue;$maxValue)
+C_REAL:C285($a;$b;$c;$d;$t)
+C_REAL:C285($x0;$x1;$x2;$x3)
+C_REAL:C285($y0;$y1;$y2;$y3)
+C_TEXT:C284($type)
 
 $animation_obj:=$1
 $current_step:=$animation_obj.current_step
@@ -115,6 +119,8 @@ If ($current_step>1) & ($relative)
 	$d:=($t^3)*$x3
 	$factor:=$a+$b+$c+$d
 	$transitionValue:=$transitionValue-(($maxValue-$minValue)*$factor)
+Else 
+	
 End if 
 
 $0:=$transitionValue

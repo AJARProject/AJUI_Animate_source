@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // animationController ( $operations_col  ; $currentForm  ) 
   //
   // $operations_col : (collection) operations
@@ -20,13 +20,14 @@ If (False:C215)
 End if 
 
 C_COLLECTION:C1488($1;$operations_col;$executions_col)
-C_LONGINT:C283($2;$currentForm)
-C_LONGINT:C283($nbOperation)
+C_LONGINT:C283($2;$form_winRef)
+C_LONGINT:C283($nbOperation;$steps;$currentStep)
 C_OBJECT:C1216($currentOperation;$animationItem;$test)
 C_REAL:C285($delay;$refresh)
+C_COLLECTION:C1488($animationItems_col)
 
 $operations_col:=$1
-$currentForm:=$2
+$form_winRef:=$2
 $test:=New object:C1471
 
 $nbOperation:=0
@@ -48,13 +49,7 @@ Repeat
 		
 		  //1.3 executions
 		
-		  //animate_callForm($currentForm;"visibleCB";$currentOperation.target;True)
-		If (isComponentContext )
-			  //CALL FORM($currentForm;"visibleCB";$currentOperation.target;True)
-			EXECUTE METHOD:C1007("animate_callForm";*;$currentForm;"visibleCB";$currentOperation.target;True:C214)
-		Else 
-			CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
-		End if 
+		CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
 		
 		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
 		$currentStep:=1
@@ -65,7 +60,7 @@ Repeat
 			End if 
 			
 			$animationItem:=$animationItems_col[$currentStep-1]
-			CALL FORM:C1391($currentForm;"animationCB";$animationItem)
+			CALL FORM:C1391($form_winRef;"animationCB";$animationItem)
 			
 			$currentStep:=$currentStep+1
 			
@@ -73,7 +68,7 @@ Repeat
 		
 		  //1.4 hide at end
 		If ($currentOperation.hideAtTheEnd)
-			CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;False:C215)
+			CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;False:C215)
 		End if 
 		
 		If ($nbOperation<$operations_col.length)

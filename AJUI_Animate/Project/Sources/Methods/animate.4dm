@@ -17,10 +17,10 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_COLLECTION:C1488($1)
+
+C_COLLECTION:C1488($1;$operations_col)
 
 $operations_col:=$1.copy()
-$winRef:=$2
 
 C_COLLECTION:C1488(<>AJ_Animate_process_infos)
 C_LONGINT:C283($0;$processID)

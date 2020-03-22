@@ -1,3 +1,5 @@
+C_LONGINT:C283($evt)
+C_OBJECT:C1216($animationItem;$animationItem2;$animationItem3;$animationItem4;$animationItem5;$animationItem6)
 $evt:=Form event code:C388
 
 Case of 
@@ -74,6 +76,6 @@ Case of
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (Form:C1466.colTest;Current form window:C827)
+		animate (Form:C1466.colTest)
 		
 End case 

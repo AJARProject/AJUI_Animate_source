@@ -20,6 +20,7 @@ End if
 C_OBJECT:C1216($1;$operation_obj)
 C_TEXT:C284($operation)
 C_BOOLEAN:C305($0;$process)
+C_LONGINT:C283($frequency)
 
 $operation_obj:=$1
 
@@ -46,7 +47,7 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		End if 
 		
 		If ($operation_obj.frequency#Null:C1517)
-			If ($operation_obj.frequency<0)
+			If ($operation_obj.frequency<=0)
 				$operation_obj.frequency:=20
 			End if 
 		Else 

@@ -19,6 +19,7 @@ If (False:C215)
 End if 
 C_TEXT:C284($1;$color_t)
 C_LONGINT:C283($0;$color_l)
+C_OBJECT:C1216($color_obj)
 
 $color_t:=$1
 

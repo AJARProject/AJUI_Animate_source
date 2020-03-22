@@ -23,7 +23,7 @@
 			"items": [
 				{
 					"title": "Launch test",
-					"method": "LaunchFormTest",
+					"method": "_launch_test",
 					"startNewProcess": true
 				},
 				{

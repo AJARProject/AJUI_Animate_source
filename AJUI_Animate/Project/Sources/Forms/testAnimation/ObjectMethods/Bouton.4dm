@@ -74,6 +74,6 @@ Case of
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (Form:C1466.colTest)
+		animate (Form:C1466.colTest;Current form window:C827)
 		
 End case 

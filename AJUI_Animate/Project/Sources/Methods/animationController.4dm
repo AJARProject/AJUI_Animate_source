@@ -47,7 +47,14 @@ Repeat
 		End if 
 		
 		  //1.3 executions
-		CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
+		
+		  //animate_callForm($currentForm;"visibleCB";$currentOperation.target;True)
+		If (isComponentContext )
+			  //CALL FORM($currentForm;"visibleCB";$currentOperation.target;True)
+			EXECUTE METHOD:C1007("animate_callForm";*;$currentForm;"visibleCB";$currentOperation.target;True:C214)
+		Else 
+			CALL FORM:C1391($currentForm;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
+		End if 
 		
 		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
 		$currentStep:=1

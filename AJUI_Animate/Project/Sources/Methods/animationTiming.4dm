@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {}
   // animationTiming ($animation_obj {; $relative }) -> transitionValue
   //
   // $animation_obj : (Object)
@@ -34,9 +34,11 @@ End if
 
 C_OBJECT:C1216($animation_obj;$1)
 C_REAL:C285($0;$transitionValue)
+C_REAL:C285($x;$x1;$x2;$y1;$y2;$x0;$y0;$x3;$y3;$a;$b;$c;$d;$factor;$t)
 C_LONGINT:C283($steps;$current_step)
 C_BOOLEAN:C305($2;$relative)
 C_REAL:C285($minValue;$maxValue)
+C_TEXT:C284($type)
 
 $animation_obj:=$1
 $current_step:=$animation_obj.current_step
@@ -92,7 +94,6 @@ Case of
 		$y2:=0.5
 End case 
 
-  // -----
 $t:=$current_step/$steps
 $a:=((1-$t)^3)*$x0
 $b:=3*$t*((1-$t)^2)*$x1
@@ -104,8 +105,6 @@ If ($maxValue<$minValue)
 Else 
 	$transitionValue:=($maxValue-$minValue)*$factor
 End if 
-
-  // -----
 
 If ($current_step>1) & ($relative)
 	$t:=($current_step-1)/$steps

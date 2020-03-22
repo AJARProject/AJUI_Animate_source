@@ -19,7 +19,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 C_OBJECT:C1216($1;$currentOperation;$animationItem)
-C_LONGINT:C283($2;$steps)
+C_LONGINT:C283($2;$steps;$i)
 C_COLLECTION:C1488($0;$animationItems_col)
 C_OBJECT:C1216($animationTiming_obj)
 C_OBJECT:C1216($infosTarget)
@@ -91,7 +91,7 @@ For ($i;1;$steps)
 		If ($currentOperation.colorTransition)
 			$animationItem.foregroundColor:=calcColor ($currentOperation.foregroundColor;$infosTarget.foregroundColor;$animationTiming_obj)
 			$animationItem.backgroundColor:=calcColor ($currentOperation.backgroundColor;$infosTarget.backgroundColor;$animationTiming_obj)
-			$animationItem.altBackgroundColor:=calcColor ($currentOperation.altBackgroundColor;$infosTarget.altBackgroundColor;$animationTiming_objs)
+			$animationItem.altBackgroundColor:=calcColor ($currentOperation.altBackgroundColor;$infosTarget.altBackgroundColor;$animationTiming_obj)
 		Else 
 			If ($i=1)
 				$animationItem.foregroundColor:=calcColor ($currentOperation.foregroundColor)

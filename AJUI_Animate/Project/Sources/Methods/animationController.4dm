@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {}
   // animationController ( $operations_col  ; $currentForm  ) 
   //
   // $operations_col : (collection) operations

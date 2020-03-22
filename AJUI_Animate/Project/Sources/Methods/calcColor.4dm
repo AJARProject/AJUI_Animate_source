@@ -22,8 +22,9 @@ If (False:C215)
 End if 
 C_VARIANT:C1683($1;$2)
 C_OBJECT:C1216($3;$animationTiming_obj)
-C_LONGINT:C283($0;$currentStep;$steps;$colorToApplied)
+C_LONGINT:C283($0;$currentStep;$steps;$r;$g;$b;$colorToApplied)
 C_LONGINT:C283($operationColor;$originColor;$colorToApply)
+C_TEXT:C284($colorRGB_t)
 
 If (Value type:C1509($1)=Is text:K8:3)
 	$operationColor:=getColorLong ($1)

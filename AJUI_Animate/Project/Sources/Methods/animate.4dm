@@ -17,11 +17,9 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_COLLECTION:C1488($1)
-C_LONGINT:C283($2)
+C_COLLECTION:C1488($1;$operations_col)
 
 $operations_col:=$1.copy()
-$winRef:=$2
 
 C_COLLECTION:C1488(<>AJ_Animate_process_infos)
 C_LONGINT:C283($0;$processID)
@@ -35,7 +33,7 @@ End if
 If ($operations_col#Null:C1517)
 	If ($operations_col.length>0)
 		animationGetInfosTargets ($operations_col)
-		$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);$operations_col;$winRef)
+		$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);$operations_col;Current form window:C827)
 		<>AJ_Animate_process_infos.push($processID)
 	End if 
 End if 

@@ -8,14 +8,14 @@ Case of
 		$animItemLinear.target:="rect1"
 		$animItemLinear.duration:=4000
 		$animItemLinear.delay:=0
-		$animItemLinear.frequency:=20
+		$animItemLinear.frequency:=30
 		$animItemLinear.type:="linear"
 		$animItemLinear.backgroundColor:="red"
 		$animItemLinear.coordX:=640-50-10
 		$animItemLinear.coordY:=0
 		Form:C1466.linear.push($animItemLinear)
 		$animItemLinear2:=OB Copy:C1225($animItemLinear)
-		$animItemLinear2.delay:=60
+		$animItemLinear2.delay:=60*3
 		$animItemLinear2.coordX:=-(640-50-10)
 		$animItemLinear2.coordY:=0
 		$animItemLinear2.backgroundColor:="blue"
@@ -27,7 +27,7 @@ Case of
 		$animItemEase.type:="ease"
 		Form:C1466.ease.push($animItemEase)
 		$animItemEase2:=OB Copy:C1225($animItemEase)
-		$animItemEase2.delay:=60
+		$animItemEase2.delay:=60*3
 		$animItemEase2.coordX:=-(640-50-10)
 		$animItemEase2.coordY:=0
 		Form:C1466.ease.push($animItemEase2)
@@ -38,7 +38,7 @@ Case of
 		$animItemEaseIn.type:="ease-in"
 		Form:C1466.easeIn.push($animItemEaseIn)
 		$animItemEaseIn2:=OB Copy:C1225($animItemEaseIn)
-		$animItemEaseIn2.delay:=60
+		$animItemEaseIn2.delay:=60*3
 		$animItemEaseIn2.coordX:=-(640-50-10)
 		$animItemEaseIn2.coordY:=0
 		Form:C1466.easeIn.push($animItemEaseIn2)
@@ -49,7 +49,7 @@ Case of
 		$animItemEaseOut.type:="ease-out"
 		Form:C1466.easeOut.push($animItemEaseOut)
 		$animItemEaseOut2:=OB Copy:C1225($animItemEaseOut)
-		$animItemEaseOut2.delay:=60
+		$animItemEaseOut2.delay:=60*3
 		$animItemEaseOut2.coordX:=-(640-50-10)
 		$animItemEaseOut2.coordY:=0
 		Form:C1466.easeOut.push($animItemEaseOut2)
@@ -60,7 +60,7 @@ Case of
 		$animItemEaseInOut.type:="ease-in-out"
 		Form:C1466.easeInOut.push($animItemEaseInOut)
 		$animItemEaseInOut2:=OB Copy:C1225($animItemEaseInOut)
-		$animItemEaseInOut2.delay:=60
+		$animItemEaseInOut2.delay:=60*3
 		$animItemEaseInOut2.coordX:=-(640-50-10)
 		$animItemEaseInOut2.coordY:=0
 		Form:C1466.easeInOut.push($animItemEaseInOut2)
@@ -72,18 +72,18 @@ Case of
 		$animItemStep.frequency:=5
 		Form:C1466.step.push($animItemStep)
 		$animItemStep2:=OB Copy:C1225($animItemStep)
-		$animItemStep2.delay:=60
+		$animItemStep2.delay:=60*3
 		$animItemStep2.coordX:=-(640-50-10)
 		$animItemStep2.coordY:=0
 		Form:C1466.step.push($animItemStep2)
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (Form:C1466.linear;Current form window:C827)
-		animate (Form:C1466.ease;Current form window:C827)
-		animate (Form:C1466.easeIn;Current form window:C827)
-		animate (Form:C1466.easeOut;Current form window:C827)
-		animate (Form:C1466.easeInOut;Current form window:C827)
-		animate (Form:C1466.step;Current form window:C827)
+		animate (Form:C1466.linear)
+		animate (Form:C1466.ease)
+		animate (Form:C1466.easeIn)
+		animate (Form:C1466.easeOut)
+		animate (Form:C1466.easeInOut)
+		animate (Form:C1466.step)
 		
 End case 

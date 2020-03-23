@@ -57,9 +57,9 @@ If (Count parameters:C259>1)
 		$colorRGB_t:=Replace string:C233($colorRGB_t;"rgb(";"")
 		$colorRGB_t:=Replace string:C233($colorRGB_t;")";"")
 		$rgb_col:=Split string:C1554($colorRGB_t;",")
-		$color_obj.R1:=$rgb_col[0]
-		$color_obj.G1:=$rgb_col[1]
-		$color_obj.B1:=$rgb_col[2]
+		$color_obj.r1:=Num:C11($rgb_col[0])
+		$color_obj.g1:=Num:C11($rgb_col[1])
+		$color_obj.b1:=Num:C11($rgb_col[2])
 		
 		  //operation
 		$colorRGB_t:=SVG_Color_RGB_from_long ($operationColor)
@@ -67,30 +67,39 @@ If (Count parameters:C259>1)
 		$colorRGB_t:=Replace string:C233($colorRGB_t;"rgb(";"")
 		$colorRGB_t:=Replace string:C233($colorRGB_t;")";"")
 		$rgb_col:=Split string:C1554($colorRGB_t;",")
-		$color_obj.R2:=$rgb_col[0]
-		$color_obj.G2:=$rgb_col[1]
-		$color_obj.B2:=$rgb_col[2]
+		$color_obj.r2:=Num:C11($rgb_col[0])
+		$color_obj.g2:=Num:C11($rgb_col[1])
+		$color_obj.b2:=Num:C11($rgb_col[2])
 		
 		
-		  //$r:=Round(Num($color_obj.R1)+((Num($color_obj.R2)-Num($color_obj.R1))/$steps*$currentStep);0)
-		  //$g:=Round(Num($color_obj.G1)+((Num($color_obj.G2)-Num($color_obj.G1))/$steps*$currentStep);0)
-		  //$b:=Round(Num($color_obj.B1)+((Num($color_obj.B2)-Num($color_obj.B1))/$steps*$currentStep);0)
+		  //$r:=Round(Num($color_obj.r1)+((Num($color_obj.r2)-Num($color_obj.r1))/$steps*$currentStep);0)
+		  //$g:=Round(Num($color_obj.g1)+((Num($color_obj.g2)-Num($color_obj.g1))/$steps*$currentStep);0)
+		  //$b:=Round(Num($color_obj.b1)+((Num($color_obj.b2)-Num($color_obj.b1))/$steps*$currentStep);0)
 		
-		  //R
-		$animationTiming_obj.minValue:=Num:C11($color_obj.R1)
-		$animationTiming_obj.maxValue:=Num:C11($color_obj.R2)
-		$r:=Round:C94(animationTiming ($animationTiming_obj);0)
-		
-		  //G
-		$animationTiming_obj.minValue:=Num:C11($color_obj.G1)
-		$animationTiming_obj.maxValue:=Num:C11($color_obj.G2)
-		$g:=Round:C94(animationTiming ($animationTiming_obj);0)
-		
-		  //B
-		$animationTiming_obj.minValue:=Num:C11($color_obj.B1)
-		$animationTiming_obj.maxValue:=Num:C11($color_obj.B2)
-		$b:=Round:C94(animationTiming ($animationTiming_obj);0)
-		
+		If (1=1)
+			  //R
+			$animationTiming_obj.minValue:=Num:C11($color_obj.r1)
+			$animationTiming_obj.maxValue:=Num:C11($color_obj.r2)
+			$r:=Round:C94(animationTiming ($animationTiming_obj);0)
+			
+			  //G
+			$animationTiming_obj.minValue:=Num:C11($color_obj.g1)
+			$animationTiming_obj.maxValue:=Num:C11($color_obj.g2)
+			$g:=Round:C94(animationTiming ($animationTiming_obj);0)
+			
+			  //B
+			$animationTiming_obj.minValue:=Num:C11($color_obj.b1)
+			$animationTiming_obj.maxValue:=Num:C11($color_obj.b2)
+			$b:=Round:C94(animationTiming ($animationTiming_obj);0)
+		Else 
+			$stepFactor:=1/($steps-1)
+			$factor:=$stepFactor*$currentStep
+			
+			$r:=Round:C94($color_obj.r1+($factor*($color_obj.r2-$color_obj.r1));0)
+			$g:=Round:C94($color_obj.g1+($factor*($color_obj.g2-$color_obj.g1));0)
+			$b:=Round:C94($color_obj.b1+($factor*($color_obj.b2-$color_obj.b1));0)
+			
+		End if 
 		  // calc RGB
 		$colorToApplied:=((65536*$r)+(256*$g)+$b)
 		

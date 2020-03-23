@@ -31,6 +31,13 @@ $lastAnimationItem:=$3
 For each ($operation;$operations_col)
 	If ($operation.target=$currentTarget)
 		
+		If ($lastAnimationItem.operation="@Move@") | ($lastAnimationItem.operation="@Resize@")
+			$operation.infosTarget.left:=$lastAnimationItem.left
+			$operation.infosTarget.top:=$lastAnimationItem.top
+			$operation.infosTarget.right:=$lastAnimationItem.right
+			$operation.infosTarget.bottom:=$lastAnimationItem.bottom
+		End if 
+		
 		If ($lastAnimationItem.operation="@Font@")
 			$operation.infosTarget.fontSize:=$lastAnimationItem.fontSize
 		End if 

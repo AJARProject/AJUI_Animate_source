@@ -21,13 +21,14 @@ C_OBJECT:C1216($1;$animationItem)
 C_TEXT:C284($operation;$target)
 
 $animationItem:=$1
-
 $operation:=$animationItem.operation
 $target:=$animationItem.target
 
 If (($operation="@Move@") | ($operation="@Resize@"))
-	OBJECT MOVE:C664(*;$target;$animationItem.moveH;$animationItem.moveV;$animationItem.resizeH;$animationItem.resizeV)
-	  //OBJECT SET COORDINATES(*;$target;$animationItem.moveH;$animationItem.moveV;$animationItem.resizeH;$animationItem.resizeV)
+	  // Object Move is not precise enough because 4D will always round the decimal when working with coordinates, so we can end up with wrong values.
+	  //OBJECT MOVE(*;$target;$animationItem.moveX;$animationItem.moveY;$animationItem.resizeX;$animationItem.resizeY)
+	  // We must use object set coordinates to be precise!
+	OBJECT SET COORDINATES:C1248(*;$target;$animationItem.left;$animationItem.top;$animationItem.right;$animationItem.bottom)
 End if 
 
 If ($operation="@Font@")

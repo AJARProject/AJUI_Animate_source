@@ -8,18 +8,18 @@ Case of
 		$animationItem:=New AnimationItem 
 		
 		$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
-		$animationItem.target:="RectTest@"
+		$animationItem.target:="RectTest"
 		
 		$animationItem.duration:=1000
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		
-		$animationItem.coordX:=200
-		$animationItem.coordY:=100
-		$animationItem.resizeH:=30
-		$animationItem.resizeV:=30
+		$animationItem.moveX:=200
+		$animationItem.moveY:=100
+		$animationItem.resizeH:=60
+		$animationItem.resizeV:=60
 		
-		$animationItem.backgroundColor:="blue"
+		$animationItem.backgroundColor:="#F79459"
 		
 		$animationItem.radius:=30
 		
@@ -29,14 +29,14 @@ Case of
 		
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.delay:=60
-		$animationItem2.coordX:=-200
-		$animationItem2.coordY:=-100
+		$animationItem2.moveX:=-200
+		$animationItem2.moveY:=-100
 		$animationItem2.resizeH:=-30
 		$animationItem2.resizeV:=-30
 		
 		$animationItem2.radius:=5
 		
-		$animationItem2.backgroundColor:="white"
+		$animationItem2.backgroundColor:="#5E4FA2"
 		
 		$animationItem2.borderStyle:=6
 		Form:C1466.colTest.push($animationItem2)
@@ -44,33 +44,33 @@ Case of
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.delay:=60
 		$animationItem3.operation:="Move,BGColor"
-		$animationItem3.coordX:=200
-		$animationItem3.coordY:=0
+		$animationItem3.moveX:=200
+		$animationItem3.moveY:=0
 		$animationItem3.backgroundColor:="red"
 		Form:C1466.colTest.push($animationItem3)
 		
 		$animationItem4:=OB Copy:C1225($animationItem)
 		$animationItem4.delay:=60
 		$animationItem4.operation:="Move,BGColor"
-		$animationItem4.coordX:=0
-		$animationItem4.coordY:=100
+		$animationItem4.moveX:=0
+		$animationItem4.moveY:=100
 		$animationItem4.backgroundColor:="yellow"
 		Form:C1466.colTest.push($animationItem4)
 		
 		$animationItem5:=OB Copy:C1225($animationItem)
 		$animationItem5.delay:=60
 		$animationItem5.operation:="Move,BGColor"
-		$animationItem5.coordX:=-200
-		$animationItem5.coordY:=0
+		$animationItem5.moveX:=-200
+		$animationItem5.moveY:=0
 		$animationItem5.backgroundColor:="purple"
 		Form:C1466.colTest.push($animationItem5)
 		
 		$animationItem6:=OB Copy:C1225($animationItem)
 		$animationItem6.delay:=60
 		$animationItem6.operation:="Move,BGColor"
-		$animationItem6.coordX:=0
-		$animationItem6.coordY:=-100
-		$animationItem6.backgroundColor:="green"
+		$animationItem6.moveX:=0
+		$animationItem6.moveY:=-100
+		$animationItem6.backgroundColor:="#5E4FA2"
 		Form:C1466.colTest.push($animationItem6)
 		
 		

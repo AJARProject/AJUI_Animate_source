@@ -4,6 +4,7 @@
   // $operations_col : (collections) operations
   //
   // collects the original informations of each target in the operation collection.
+  // infosTarget object will contains all the properties of the target before the animation starts
 
 If (False:C215)
 	  // ----------------------------------------------------

@@ -1,4 +1,8 @@
 //%attributes = {}
+
+
+  ////-------------------------------------
+
   // animationTiming ($animation_obj {; $relative }) -> transitionValue
   //
   // $animation_obj : (Object)
@@ -29,6 +33,7 @@ If (False:C215)
 	  // Ref
 	  // https://cubic-bezier.com/#.17,.67,.83,.51
 	  // http://stylescss.free.fr/v2-functions/cubic-bezier.php
+	  // https://javascript.info/bezier-curve
 	  // ----------------------------------------------------
 End if 
 
@@ -66,7 +71,7 @@ $x0:=0
 $y0:=0
   // ending point
 $x3:=1
-$y3:=0
+$y3:=1
 
 Case of 
 	: ($type="ease")
@@ -81,7 +86,7 @@ Case of
 		$y2:=1
 	: ($type="ease-out")
 		$x1:=0
-		$y1:=0
+		$y1:=0.9
 		$x2:=0.58
 		$y2:=1
 	: ($type="ease-in-out")
@@ -91,32 +96,35 @@ Case of
 		$y2:=1
 	Else 
 		  //  "linear"
-		$x1:=0.5
-		$y1:=0.5
-		$x2:=0.5
-		$y2:=0.5
+		$x1:=0.3333
+		$y1:=0.3333
+		$x2:=0.6666
+		$y2:=0.6666
+		
+		  //$x1:=0.5
+		  //$y1:=3.29
+		  //$x2:=0.5
+		  //$y2:=-0.56
 End case 
 
 $t:=$current_step/$steps
-$a:=((1-$t)^3)*$x0
-$b:=3*$t*((1-$t)^2)*$x1
-$c:=3*($t^2)*(1-$t)*$x2
-$d:=($t^3)*$x3
-$factor:=$a+$b+$c+$d
-If ($maxValue<$minValue)
-	$transitionValue:=$minValue+(($maxValue-$minValue)*$factor)
-Else 
-	$transitionValue:=($maxValue-$minValue)*$factor
-End if 
+  //$t:=(1/($steps-1))*$current_step
+  //P = (1−t)3P1 + 3(1−t)2tP2 +3(1−t)t2P3 + t3P4
 
-If ($current_step>1) & ($relative)
-	$t:=($current_step-1)/$steps
-	$a:=((1-$t)^3)*$x0
-	$b:=3*$t*((1-$t)^2)*$x1
-	$c:=3*($t^2)*(1-$t)*$x2
-	$d:=($t^3)*$x3
-	$factor:=$a+$b+$c+$d
-	$transitionValue:=$transitionValue-(($maxValue-$minValue)*$factor)
-End if 
+$ax:=((1-$t)^3)*$x0
+$bx:=((3*((1-$t)^2))*$t)*$x1
+$cx:=((3*(1-$t))*($t^2))*$x2
+$dx:=($t^3)*$x3
+$factorx:=($ax+$bx+$cx+$dx)
+
+  //$t:=$t*$factor
+
+$ay:=((1-$t)^3)*$y0
+$by:=((3*((1-$t)^2))*$t)*$y1
+$cy:=((3*(1-$t))*($t^2))*$y2
+$dy:=($t^3)*$y3
+$factory:=$ay+$by+$cy+$dy
+
+$transitionValue:=$minValue+($factory*($maxValue-$minValue))
 
 $0:=$transitionValue

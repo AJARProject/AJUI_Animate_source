@@ -53,19 +53,19 @@ Repeat
 		
 		
 		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
-		$currentStep:=1
+		$currentStep:=0
 		
 		Repeat 
-			If ($currentStep>1)
+			If ($currentStep>0)
 				DELAY PROCESS:C323(Current process:C322;$refresh)
 			End if 
 			
-			$animationItem:=$animationItems_col[$currentStep-1]
+			$animationItem:=$animationItems_col[$currentStep]
 			CALL FORM:C1391($form_winRef;"animationCB";$animationItem)
 			
 			$currentStep:=$currentStep+1
 			
-		Until ((checkStopProcess (Current process:C322)) | ($currentStep>$steps))
+		Until ((checkStopProcess (Current process:C322)) | ($currentStep>=$steps))
 		
 		  //1.4 hide at end
 		If ($currentOperation.hideAtTheEnd)

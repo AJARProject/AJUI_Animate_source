@@ -23,7 +23,7 @@ C_LONGINT:C283($2;$steps;$i)
 C_COLLECTION:C1488($0;$animationItems_col)
 C_OBJECT:C1216($animationTiming_obj)
 C_OBJECT:C1216($infosTarget)
-
+C_REAL:C285($previousLeft;$previousTop;$previousRight;$previousBottom)
 
 $currentOperation:=$1
 $steps:=$2
@@ -61,17 +61,24 @@ For ($i;1;$steps)
 	If (($animationItem.operation="@Move@") | ($animationItem.operation="@Resize@"))
 		$animationTiming_obj.minValue:=0
 		
-		$animationTiming_obj.maxValue:=$currentOperation.coordX
-		$animationItem.moveH:=animationTiming ($animationTiming_obj;True:C214)
+		$animationTiming_obj.maxValue:=$currentOperation.moveX
+		$moveX:=animationTiming ($animationTiming_obj)
 		
-		$animationTiming_obj.maxValue:=$currentOperation.coordY
-		$animationItem.moveV:=animationTiming ($animationTiming_obj;True:C214)
+		$animationTiming_obj.maxValue:=$currentOperation.moveY
+		$moveY:=animationTiming ($animationTiming_obj)
 		
 		$animationTiming_obj.maxValue:=$currentOperation.resizeH
-		$animationItem.resizeH:=animationTiming ($animationTiming_obj;True:C214)
+		$resizeX:=animationTiming ($animationTiming_obj)
 		
 		$animationTiming_obj.maxValue:=$currentOperation.resizeV
-		$animationItem.resizeV:=animationTiming ($animationTiming_obj;True:C214)
+		$resizeY:=animationTiming ($animationTiming_obj)
+		
+		  // Absolute Values
+		$animationItem.left:=$currentOperation.infosTarget.left+$moveX
+		$animationItem.top:=$currentOperation.infosTarget.top+$moveY
+		$animationItem.right:=$currentOperation.infosTarget.right+$moveX+$resizeX
+		$animationItem.bottom:=$currentOperation.infosTarget.bottom+$moveY+$resizeY
+		
 		
 	End if 
 	

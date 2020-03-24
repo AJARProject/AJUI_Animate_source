@@ -29,6 +29,8 @@ If (False:C215)
 	  // Method: transitionTiming
 	  // Description
 	  // 
+	  // Formule utiliser
+	  //P = (1−t)3P1 + 3(1−t)2tP2 +3(1−t)t2P3 + t3P4
 	  //
 	  // Ref
 	  // https://cubic-bezier.com/#.17,.67,.83,.51
@@ -86,7 +88,7 @@ Case of
 		$y2:=1
 	: ($type="ease-out")
 		$x1:=0
-		$y1:=0.9
+		$y1:=0
 		$x2:=0.58
 		$y2:=1
 	: ($type="ease-in-out")
@@ -96,28 +98,20 @@ Case of
 		$y2:=1
 	Else 
 		  //  "linear"
-		$x1:=0.3333
-		$y1:=0.3333
-		$x2:=0.6666
-		$y2:=0.6666
+		$x1:=0.5
+		$y1:=0.5
+		$x2:=0.5
+		$y2:=0.5
 		
-		  //$x1:=0.5
-		  //$y1:=3.29
-		  //$x2:=0.5
-		  //$y2:=-0.56
 End case 
 
 $t:=$current_step/$steps
-  //$t:=(1/($steps-1))*$current_step
-  //P = (1−t)3P1 + 3(1−t)2tP2 +3(1−t)t2P3 + t3P4
 
 $ax:=((1-$t)^3)*$x0
 $bx:=((3*((1-$t)^2))*$t)*$x1
 $cx:=((3*(1-$t))*($t^2))*$x2
 $dx:=($t^3)*$x3
-$factorx:=($ax+$bx+$cx+$dx)
-
-  //$t:=$t*$factor
+$factorx:=$ax+$bx+$cx+$dx
 
 $ay:=((1-$t)^3)*$y0
 $by:=((3*((1-$t)^2))*$t)*$y1
@@ -125,6 +119,8 @@ $cy:=((3*(1-$t))*($t^2))*$y2
 $dy:=($t^3)*$y3
 $factory:=$ay+$by+$cy+$dy
 
-$transitionValue:=$minValue+($factory*($maxValue-$minValue))
+$factor:=($factory/$factorx)*$t
+
+$transitionValue:=$minValue+($factor*($maxValue-$minValue))
 
 $0:=$transitionValue

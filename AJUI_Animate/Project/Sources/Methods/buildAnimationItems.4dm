@@ -67,10 +67,10 @@ For ($i;1;$steps)
 		$animationTiming_obj.maxValue:=$currentOperation.moveY
 		$moveY:=animationTiming ($animationTiming_obj)
 		
-		$animationTiming_obj.maxValue:=$currentOperation.resizeH
+		$animationTiming_obj.maxValue:=$currentOperation.resizeX
 		$resizeX:=animationTiming ($animationTiming_obj)
 		
-		$animationTiming_obj.maxValue:=$currentOperation.resizeV
+		$animationTiming_obj.maxValue:=$currentOperation.resizeY
 		$resizeY:=animationTiming ($animationTiming_obj)
 		
 		  // Absolute Values

@@ -66,8 +66,8 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		If ($operation="@Move@")
 			$process:=True:C214
 			If (Not:C34($operation="@Resize@"))
-				$operation_obj.resizeV:=0
-				$operation_obj.resizeH:=0
+				$operation_obj.resizeX:=0
+				$operation_obj.resizeY:=0
 			End if 
 		End if 
 		

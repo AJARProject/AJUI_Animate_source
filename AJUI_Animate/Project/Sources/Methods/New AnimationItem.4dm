@@ -39,8 +39,8 @@ $operationItem.coordY:=0  //pixel
 $operationItem.animationDirection:="normal"  //normal, reverse, alternate, alternate-reverse
 
   //resize
-$operationItem.resizeH:=0
-$operationItem.resizeV:=0
+$operationItem.resizeX:=0
+$operationItem.resizeY:=0
 
   //font
 $operationItem.fontName:="Arial"

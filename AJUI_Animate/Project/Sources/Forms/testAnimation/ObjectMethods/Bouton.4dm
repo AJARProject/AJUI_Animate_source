@@ -16,8 +16,8 @@ Case of
 		
 		$animationItem.moveX:=200
 		$animationItem.moveY:=100
-		$animationItem.resizeH:=60
-		$animationItem.resizeV:=60
+		$animationItem.resizeX:=60
+		$animationItem.resizeY:=60
 		
 		$animationItem.backgroundColor:="#F79459"
 		
@@ -31,8 +31,8 @@ Case of
 		$animationItem2.delay:=60
 		$animationItem2.moveX:=-200
 		$animationItem2.moveY:=-100
-		$animationItem2.resizeH:=-30
-		$animationItem2.resizeV:=-30
+		$animationItem2.resizeX:=-30
+		$animationItem2.resizeY:=-30
 		
 		$animationItem2.radius:=5
 		

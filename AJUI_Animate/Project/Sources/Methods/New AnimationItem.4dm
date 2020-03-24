@@ -34,8 +34,8 @@ $operationItem.delay:=0
 $operationItem.frequency:=1
 
   //move
-$operationItem.coordX:=0  //pixel
-$operationItem.coordY:=0  //pixel
+$operationItem.moveX:=0  //pixel
+$operationItem.moveY:=0  //pixel
 $operationItem.animationDirection:="normal"  //normal, reverse, alternate, alternate-reverse
 
   //resize

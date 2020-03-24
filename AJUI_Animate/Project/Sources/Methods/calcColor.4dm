@@ -76,7 +76,7 @@ If (Count parameters:C259>1)
 		  //$g:=Round(Num($color_obj.g1)+((Num($color_obj.g2)-Num($color_obj.g1))/$steps*$currentStep);0)
 		  //$b:=Round(Num($color_obj.b1)+((Num($color_obj.b2)-Num($color_obj.b1))/$steps*$currentStep);0)
 		
-		If (1=1)
+		If (1=2)
 			  //R
 			$animationTiming_obj.minValue:=Num:C11($color_obj.r1)
 			$animationTiming_obj.maxValue:=Num:C11($color_obj.r2)

@@ -44,6 +44,7 @@ Case of
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.delay:=60
 		$animationItem3.operation:="Move,BGColor"
+		$animationItem3.type:="ease-in-out"
 		$animationItem3.moveX:=200
 		$animationItem3.moveY:=0
 		$animationItem3.backgroundColor:="red"

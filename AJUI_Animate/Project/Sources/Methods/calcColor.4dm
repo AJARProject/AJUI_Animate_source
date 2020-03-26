@@ -72,34 +72,40 @@ If (Count parameters:C259>1)
 		$color_obj.b2:=Num:C11($rgb_col[2])
 		
 		
-		  //$r:=Round(Num($color_obj.r1)+((Num($color_obj.r2)-Num($color_obj.r1))/$steps*$currentStep);0)
-		  //$g:=Round(Num($color_obj.g1)+((Num($color_obj.g2)-Num($color_obj.g1))/$steps*$currentStep);0)
-		  //$b:=Round(Num($color_obj.b1)+((Num($color_obj.b2)-Num($color_obj.b1))/$steps*$currentStep);0)
-		
-		If (1=2)
-			  //R
-			$animationTiming_obj.minValue:=Num:C11($color_obj.r1)
-			$animationTiming_obj.maxValue:=Num:C11($color_obj.r2)
-			$r:=Round:C94(animationTiming ($animationTiming_obj);0)
-			
-			  //G
-			$animationTiming_obj.minValue:=Num:C11($color_obj.g1)
-			$animationTiming_obj.maxValue:=Num:C11($color_obj.g2)
-			$g:=Round:C94(animationTiming ($animationTiming_obj);0)
-			
-			  //B
-			$animationTiming_obj.minValue:=Num:C11($color_obj.b1)
-			$animationTiming_obj.maxValue:=Num:C11($color_obj.b2)
-			$b:=Round:C94(animationTiming ($animationTiming_obj);0)
-		Else 
-			$stepFactor:=1/($steps-1)
-			$factor:=$stepFactor*$currentStep
-			
-			$r:=Round:C94($color_obj.r1+($factor*($color_obj.r2-$color_obj.r1));0)
-			$g:=Round:C94($color_obj.g1+($factor*($color_obj.g2-$color_obj.g1));0)
-			$b:=Round:C94($color_obj.b1+($factor*($color_obj.b2-$color_obj.b1));0)
-			
+		  //R
+		$animationTiming_obj.minValue:=Num:C11($color_obj.r1)
+		$animationTiming_obj.maxValue:=Num:C11($color_obj.r2)
+		$r:=Round:C94(animationTiming ($animationTiming_obj);0)
+		If ($r>255)
+			$r:=255
 		End if 
+		If ($r<0)
+			$r:=0
+		End if 
+		
+		  //G
+		$animationTiming_obj.minValue:=Num:C11($color_obj.g1)
+		$animationTiming_obj.maxValue:=Num:C11($color_obj.g2)
+		$g:=Round:C94(animationTiming ($animationTiming_obj);0)
+		If ($g>255)
+			$g:=255
+		End if 
+		If ($g<0)
+			$g:=0
+		End if 
+		
+		  //B
+		$animationTiming_obj.minValue:=Num:C11($color_obj.b1)
+		$animationTiming_obj.maxValue:=Num:C11($color_obj.b2)
+		$b:=Round:C94(animationTiming ($animationTiming_obj);0)
+		If ($b>255)
+			$b:=255
+		End if 
+		If ($b<0)
+			$b:=0
+		End if 
+		
+		
 		  // calc RGB
 		$colorToApplied:=((65536*$r)+(256*$g)+$b)
 		

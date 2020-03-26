@@ -29,9 +29,9 @@ $operationItem.hideAtTheEnd:=False:C215
 
   //timing
 $operationItem.type:="linear"  // ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier
-$operationItem.duration:=0
+$operationItem.duration:=1
 $operationItem.delay:=0
-$operationItem.frequency:=1
+$operationItem.frequency:=30
 
   //move
 $operationItem.moveX:=0  //pixel

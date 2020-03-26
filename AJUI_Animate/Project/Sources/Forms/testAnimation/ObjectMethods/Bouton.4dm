@@ -44,10 +44,11 @@ Case of
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.delay:=60
 		$animationItem3.operation:="Move,BGColor"
-		$animationItem3.type:="ease-in-out"
+		$animationItem3.type:="ease"
 		$animationItem3.moveX:=200
 		$animationItem3.moveY:=0
 		$animationItem3.backgroundColor:="red"
+		$animationItem3.backgroundColorType:="ease"
 		Form:C1466.colTest.push($animationItem3)
 		
 		$animationItem4:=OB Copy:C1225($animationItem)

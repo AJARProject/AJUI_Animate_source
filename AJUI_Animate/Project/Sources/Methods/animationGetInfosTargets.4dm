@@ -19,17 +19,28 @@ If (False:C215)
 End if 
 
 C_COLLECTION:C1488($1;$operations_col)
-C_OBJECT:C1216($operation_obj)
+C_OBJECT:C1216($operation_obj;$targets_obj)
 C_TEXT:C284($target;$operation)
 
 $operations_col:=$1
 
+  // Object containing all the targets properties.
+  // We use this object in case we have many operation with the same target to not execute the same code many time for the same result
+  // Ex. 10 operations with the same target. The target initial value are the ten time the same. It will be updated after each animation in the updateSameTargetInfos method
+$targets_obj:=New object:C1471()
+
 For each ($operation_obj;$operations_col)
-	$target:=$operation_obj.target
-	If ($target#Null:C1517)
-		If ($target#"")
+	
+	If (String:C10($operation_obj.target)#"")
+		$target:=$operation_obj.target
+		
+		If ($targets_obj[$target]#Null:C1517)
+			$operation_obj.infosTarget:=OB Copy:C1225($targets_obj[$target])
+		Else 
 			
 			$operation_obj.infosTarget:=New object:C1471
+			$targets_obj[$target]:=$operation_obj.infosTarget
+			
 			$operation:=$operation_obj.operation
 			
 			If (($operation="@Move@") | ($operation="@Resize@"))
@@ -41,15 +52,10 @@ For each ($operation_obj;$operations_col)
 			End if 
 			
 			If ($operation="@Font@")
-				
 				$operation_obj.infosTarget.font:=OBJECT Get font:C1069(*;$target)
-				
 				$operation_obj.infosTarget.fontSize:=OBJECT Get font size:C1070(*;$target)
-				
 				$operation_obj.infosTarget.fontStyle:=OBJECT Get font style:C1071(*;$target)
-				
 				$operation_obj.infosTarget.styleSheet:=OBJECT Get style sheet:C1258(*;$target)
-				
 			End if 
 			
 			If ($operation="@BGColor@")
@@ -68,8 +74,7 @@ For each ($operation_obj;$operations_col)
 				$operation_obj.infosTarget.radius:=OBJECT Get corner radius:C1324(*;$target)
 			End if 
 			
-			
-			
 		End if 
 	End if 
+	
 End for each 

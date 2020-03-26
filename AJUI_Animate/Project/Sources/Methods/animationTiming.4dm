@@ -29,13 +29,19 @@ If (False:C215)
 	  // Method: transitionTiming
 	  // Description
 	  // 
-	  // Formule utiliser
-	  //P = (1−t)3P1 + 3(1−t)2tP2 +3(1−t)t2P3 + t3P4
+	  // Formules to use
+	  // P = (1-t)P1 + tP2
+	  // P = (1−t)2P1 + 2(1−t)tP2 + t2P3
+	  // P = (1−t)3P1 + 3(1−t)2tP2 +3(1−t)t2P3 + t3P4
 	  //
-	  // Ref
+	  // Refs
 	  // https://cubic-bezier.com/#.17,.67,.83,.51
 	  // http://stylescss.free.fr/v2-functions/cubic-bezier.php
 	  // https://javascript.info/bezier-curve
+	  // https://dev.wgao19.cc/cubic-bezier/
+	  // http://morrow.github.io/css-reference/html/partial/timing-function.html
+	  // https://math.stackexchange.com/questions/2571471/understanding-of-cubic-bézier-curves-in-one-dimension
+	  // https://developer.mozilla.org/fr/docs/Web/CSS/timing-function
 	  // ----------------------------------------------------
 End if 
 
@@ -60,20 +66,13 @@ Else
 	$relative:=False:C215
 End if 
 
-If ($animation_obj.minValue#Null:C1517)
-	$minValue:=$animation_obj.minValue
-Else 
-	$minValue:=0
-End if 
+$minValue:=Num:C11($animation_obj.minValue)
 $maxValue:=$animation_obj.maxValue
-$type:=$animation_obj.type
+$type:=$animation_obj.type  // Todo check if we pass some specific cubic-bezier values
 
   // starting point
 $x0:=0
 $y0:=0
-  // ending point
-$x3:=1
-$y3:=1
 
 Case of 
 	: ($type="ease")
@@ -81,46 +80,88 @@ Case of
 		$y1:=0.1
 		$x2:=0.25
 		$y2:=1
+		
 	: ($type="ease-in")
 		$x1:=0.42
 		$y1:=0
 		$x2:=1
 		$y2:=1
+		
 	: ($type="ease-out")
 		$x1:=0
 		$y1:=0
 		$x2:=0.58
 		$y2:=1
+		
 	: ($type="ease-in-out")
 		$x1:=0.42
 		$y1:=0
 		$x2:=0.58
 		$y2:=1
+		
 	Else 
 		  //  "linear"
 		$x1:=0.5
 		$y1:=0.5
 		$x2:=0.5
 		$y2:=0.5
+End case 
+
+  // ending point
+$x3:=1
+$y3:=1
+
+$choose_x1:=False:C215
+Case of 
+	: (($x1=$y1) & ($x2=$y2))  // Linear
+		$bezier_nbPoint:=2
 		
+	: (($x1=$x2) & ($y1=$y2))  // 3 points bezier curve
+		$bezier_nbPoint:=3
+		$choose_x1:=True:C214
+		
+	: ($x1=0) & ($y1=0)  // 3 points bezier curve
+		$bezier_nbPoint:=3
+		$choose_x1:=False:C215
+		
+	: ($x2=1) & ($y2=1)  // 3 points bezier curve
+		$bezier_nbPoint:=3
+		$choose_x1:=True:C214
+		
+	Else   // 4 points bezier curve
+		$bezier_nbPoint:=4
 End case 
 
 $t:=$current_step/$steps
 
-$ax:=((1-$t)^3)*$x0
-$bx:=((3*((1-$t)^2))*$t)*$x1
-$cx:=((3*(1-$t))*($t^2))*$x2
-$dx:=($t^3)*$x3
-$factorx:=$ax+$bx+$cx+$dx
+Case of 
+	: ($bezier_nbPoint=2)
+		  //P = (1-t)P1 + tP2
+		$ay:=(1-$t)*$y0
+		$by:=$t*$y3
+		
+		$factory:=$ay+$by
+		
+	: ($bezier_nbPoint=3)
+		  //P = (1−t)2P1 + 2(1−t)tP2 + t2P3
+		$ay:=((1-$t)^2)*$y0
+		$by:=2*(1-$t)*$t*Choose:C955($choose_x1;$y1;$y2)
+		$cy:=($t^2)*$y3
+		
+		$factory:=$ay+$by+$cy
+		
+		
+	: ($bezier_nbPoint=4)
+		  //P = (1−t)3P1 + 3(1−t)2tP2 +3(1−t)t2P3 + t3P4
+		$ay:=((1-$t)^3)*$y0
+		$by:=((3*((1-$t)^2))*$t)*$y1
+		$cy:=((3*(1-$t))*($t^2))*$y2
+		$dy:=($t^3)*$y3
+		
+		$factory:=$ay+$by+$cy+$dy
+		
+End case 
 
-$ay:=((1-$t)^3)*$y0
-$by:=((3*((1-$t)^2))*$t)*$y1
-$cy:=((3*(1-$t))*($t^2))*$y2
-$dy:=($t^3)*$y3
-$factory:=$ay+$by+$cy+$dy
-
-$factor:=($factory/$factorx)*$t
-
-$transitionValue:=$minValue+($factor*($maxValue-$minValue))
+$transitionValue:=$minValue+($factory*($maxValue-$minValue))
 
 $0:=$transitionValue

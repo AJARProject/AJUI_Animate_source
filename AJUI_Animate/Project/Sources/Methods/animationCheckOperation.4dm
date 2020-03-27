@@ -34,21 +34,21 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$operation_obj.animationDirection:="normal"
 		End if 
 		
-		If ($operation_obj.iterationCount<=0) | (String:C10($operation_obj.iterationCount)="")
+		If (Num:C11($operation_obj.iterationCount)<=0)
 			$operation_obj.iterationCount:=1
 		End if 
 		
 		
 		  //timing
-		If ($operation_obj.duration<=0) | (String:C10($operation_obj.duration)="")
+		If (Num:C11($operation_obj.duration)<=0)
 			$operation_obj.duration:=1
 		End if 
 		
-		If ($operation_obj.delay<0) | (String:C10($operation_obj.delay)="")
+		If (Num:C11($operation_obj.delay)<0)
 			$operation_obj.delay:=0
 		End if 
 		
-		If ($operation_obj.frequency<=0) | (String:C10($operation_obj.frequency)="")
+		If (Num:C11($operation_obj.frequency)<=0)
 			$operation_obj.frequency:=30
 		End if 
 		
@@ -93,11 +93,11 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 				$operation_obj.fontName:=$operation_obj.infosTarget.fontName
 			End if 
 			
-			If ($operation_obj.fontSize<=0) | (String:C10($operation_obj.fontSize)="")
+			If (Num:C11($operation_obj.fontSize)<=0)
 				$operation_obj.fontSize:=$operation_obj.infosTarget.fontSize
 			End if 
 			
-			If ($operation_obj.fontStyle<0) | (String:C10($operation_obj.fontStyle)="")
+			If (Num:C11($operation_obj.fontStyle)<0)
 				$operation_obj.fontStyle:=$operation_obj.infosTarget.fontStyle
 			End if 
 		End if 
@@ -123,7 +123,7 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		If ($operation="@CRadius@")
 			$process:=True:C214
 			
-			If ($operation_obj.radius<0) | (String:C10($operation_obj.radius)="")
+			If (Num:C11($operation_obj.radius)<0)
 				$operation_obj.radius:=$operation_obj.infosTarget.radius
 			End if 
 		End if 
@@ -132,7 +132,7 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		If ($operation="@BStyle@")
 			$process:=True:C214
 			
-			If ($operation_obj.borderStyle<0) | (String:C10($operation_obj.borderStyle)="")
+			If (Num:C11($operation_obj.borderStyle)<0)
 				$operation_obj.borderStyle:=$operation_obj.infosTarget.borderStyle
 			End if 
 		End if 

@@ -1,11 +1,31 @@
 .animationTypeTxt {
 	font-family: Helvetica Neue;
-	font-size: 64px;
+	font-size: 54px;
     color: white;
-    justify-items: center ;
+    text-align: center;
 }
 
+.HDI {
+	font-family: Helvetica Neue;
+    font-size: 36px;
+    font-weight: bold;
+	color: white;
+	text-align: center;
+}
 
+.subTitle{
+   	font-family: Helvetica Neue;
+   	font-size: 24px;
+   	color: #3498DB;
+   	text-align: center;
+}
+
+.subSubTitle{
+   	font-family: Helvetica Neue;
+   	font-size: 18px;
+   	color: #005EA8;
+   	text-align: center;
+}
 .buttonAction {
     iconFrames: 4;
     style: toolbar;

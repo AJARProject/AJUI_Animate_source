@@ -3,14 +3,14 @@
 		"version": "1",
 		"kind": "form"
 	},
-	"windowSizingX": "variable",
+	"windowSizingX": "fixed",
 	"windowSizingY": "variable",
 	"windowMinWidth": 0,
 	"windowMinHeight": 0,
 	"windowMaxWidth": 32767,
 	"windowMaxHeight": 32767,
-	"rightMargin": 20,
-	"bottomMargin": 20,
+	"rightMargin": 0,
+	"bottomMargin": 0,
 	"events": [
 		"onLoad",
 		"onPageChange",
@@ -38,8 +38,8 @@
 			"objects": {
 				"background1": {
 					"type": "rectangle",
-					"top": 18,
-					"left": 20,
+					"top": 122,
+					"left": 16,
 					"width": 650,
 					"height": 70,
 					"fill": "#dda0dd",
@@ -47,9 +47,9 @@
 				},
 				"Text": {
 					"type": "text",
-					"text": "linear",
-					"top": 18,
-					"left": 20,
+					"text": "linear - move",
+					"top": 122,
+					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
@@ -57,8 +57,8 @@
 				},
 				"background2": {
 					"type": "rectangle",
-					"top": 93,
-					"left": 20,
+					"top": 197,
+					"left": 16,
 					"width": 650,
 					"height": 70,
 					"fill": "#dda0dd",
@@ -66,9 +66,9 @@
 				},
 				"Text1": {
 					"type": "text",
-					"text": "ease",
-					"top": 93,
-					"left": 20,
+					"text": "ease - move",
+					"top": 197,
+					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
@@ -76,16 +76,18 @@
 				},
 				"rect2": {
 					"type": "rectangle",
-					"top": 105,
-					"left": 30,
+					"top": 209,
+					"left": 26,
 					"width": 50,
 					"height": 50,
-					"fill": "#c0c0c0"
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
 				},
 				"background3": {
 					"type": "rectangle",
-					"top": 168,
-					"left": 20,
+					"top": 272,
+					"left": 16,
 					"width": 650,
 					"height": 70,
 					"fill": "#dda0dd",
@@ -93,9 +95,9 @@
 				},
 				"Text2": {
 					"type": "text",
-					"text": "ease-in",
-					"top": 168,
-					"left": 20,
+					"text": "ease-in - move",
+					"top": 272,
+					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
@@ -103,16 +105,18 @@
 				},
 				"rect3": {
 					"type": "rectangle",
-					"top": 180,
-					"left": 30,
+					"top": 284,
+					"left": 26,
 					"width": 50,
 					"height": 50,
-					"fill": "#c0c0c0"
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
 				},
 				"background4": {
 					"type": "rectangle",
-					"top": 243,
-					"left": 20,
+					"top": 347,
+					"left": 16,
 					"width": 650,
 					"height": 70,
 					"fill": "#dda0dd",
@@ -120,9 +124,9 @@
 				},
 				"Text3": {
 					"type": "text",
-					"text": "ease-out",
-					"top": 243,
-					"left": 20,
+					"text": "ease-out - move",
+					"top": 347,
+					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
@@ -130,16 +134,18 @@
 				},
 				"rect4": {
 					"type": "rectangle",
-					"top": 255,
-					"left": 30,
+					"top": 359,
+					"left": 26,
 					"width": 50,
 					"height": 50,
-					"fill": "#c0c0c0"
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
 				},
 				"background5": {
 					"type": "rectangle",
-					"top": 318,
-					"left": 20,
+					"top": 422,
+					"left": 16,
 					"width": 650,
 					"height": 70,
 					"fill": "#dda0dd",
@@ -147,9 +153,9 @@
 				},
 				"Text4": {
 					"type": "text",
-					"text": "ease-in-out",
-					"top": 318,
-					"left": 20,
+					"text": "ease-in-out - move",
+					"top": 422,
+					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
@@ -157,16 +163,18 @@
 				},
 				"rect5": {
 					"type": "rectangle",
-					"top": 330,
-					"left": 30,
+					"top": 434,
+					"left": 26,
 					"width": 50,
 					"height": 50,
-					"fill": "#c0c0c0"
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
 				},
 				"background6": {
 					"type": "rectangle",
-					"top": 393,
-					"left": 20,
+					"top": 497,
+					"left": 16,
 					"width": 650,
 					"height": 70,
 					"fill": "#dda0dd",
@@ -174,9 +182,9 @@
 				},
 				"Text5": {
 					"type": "text",
-					"text": "step",
-					"top": 387,
-					"left": 20,
+					"text": "step - move",
+					"top": 491,
+					"left": 16,
 					"width": 626,
 					"height": 16,
 					"class": "animationTypeTxt",
@@ -184,17 +192,19 @@
 				},
 				"rect6": {
 					"type": "rectangle",
-					"top": 405,
-					"left": 30,
+					"top": 509,
+					"left": 26,
 					"width": 50,
 					"height": 50,
-					"fill": "#c0c0c0"
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
 				},
 				"Bouton": {
 					"type": "button",
 					"text": "Start animation",
-					"top": 483,
-					"left": 483,
+					"top": 678,
+					"left": 508,
 					"width": 158,
 					"height": 33,
 					"events": [
@@ -205,14 +215,108 @@
 				},
 				"rect1": {
 					"type": "rectangle",
-					"top": 28,
-					"left": 30,
+					"top": 132,
+					"left": 26,
 					"width": 50,
 					"height": 50,
-					"fill": "#c0c0c0"
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
+				},
+				"rectsizeform": {
+					"type": "rectangle",
+					"top": 713,
+					"left": 666,
+					"width": 20,
+					"height": 20,
+					"stroke": "#ff0000",
+					"fill": "#ff0000",
+					"visibility": "hidden"
+				},
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 686,
+					"height": 59,
+					"fill": "#005EA8",
+					"stroke": "transparent"
+				},
+				"Picture1": {
+					"type": "picture",
+					"top": 627,
+					"left": 14,
+					"width": 96,
+					"height": 96,
+					"pictureFormat": "scaled",
+					"picture": "Images/Picture1.png"
+				},
+				"HDI": {
+					"type": "text",
+					"top": 12,
+					"left": 0,
+					"width": 686,
+					"height": 36,
+					"text": "How Do I",
+					"class": "HDI"
+				},
+				"Title": {
+					"type": "text",
+					"top": 62,
+					"left": 0,
+					"width": 686,
+					"height": 30,
+					"text": "AJUI_Animate",
+					"class": "subTitle"
+				},
+				"Subtitle": {
+					"type": "text",
+					"top": 93,
+					"left": 0,
+					"width": 686,
+					"height": 23,
+					"text": "Animation Timing function\t",
+					"class": "subSubTitle"
+				},
+				"Variable": {
+					"type": "input",
+					"top": 706,
+					"left": 130,
+					"width": 277,
+					"height": 17,
+					"dataSource": "AJUI_Animate_info",
+					"textAlign": "left",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom"
+				},
+				"Invisible Button2": {
+					"type": "button",
+					"top": 627,
+					"left": 7,
+					"width": 109,
+					"height": 96,
+					"display": false,
+					"method": "ObjectMethods/Invisible Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Text6": {
+					"type": "text",
+					"text": "The animation timing function property (animType) sets how an animation progresses through the duration of each cycle. You can define a specific timing function for each animate attribute of the current 4D object (BGColorAnimType, FontAnimType, CRadiusAnimType) . So you can set an ease funtion for the color and a linear for the move of the 4D object.",
+					"top": 578,
+					"left": 124,
+					"width": 541,
+					"height": 108
 				}
 			}
 		}
 	],
-	"method": "method.4dm"
+	"method": "method.4dm",
+	"formSizeAnchor": "rectsizeform"
 }

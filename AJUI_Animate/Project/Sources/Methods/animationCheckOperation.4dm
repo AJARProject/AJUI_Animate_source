@@ -30,37 +30,23 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 	Else 
 		$operation:=$operation_obj.operation
 		  //timing
-		If ($operation_obj.duration#Null:C1517)
-			If ($operation_obj.duration<0)
-				$operation_obj.duration:=0
-			End if 
-		Else 
-			$operation_obj.duration:=0
+		
+		If ($operation_obj.duration<=0) | (String:C10($operation_obj.duration)="")
+			$operation_obj.duration:=1
 		End if 
 		
-		If ($operation_obj.delay#Null:C1517)
-			If ($operation_obj.delay<0)
-				$operation_obj.delay:=0
-			End if 
-		Else 
+		If ($operation_obj.delay<0) | (String:C10($operation_obj.delay)="")
 			$operation_obj.delay:=0
 		End if 
 		
-		If ($operation_obj.frequency#Null:C1517)
-			If ($operation_obj.frequency<=0)
-				$operation_obj.frequency:=20
-			End if 
-		Else 
-			$frequency:=20
+		If ($operation_obj.frequency<=0) | (String:C10($operation_obj.frequency)="")
+			$operation_obj.frequency:=30
 		End if 
 		
-		If ($operation_obj.type#Null:C1517)
-			If ($operation_obj.type="")
-				$operation_obj.type:="linear"
-			End if 
-		Else 
+		If (String:C10($operation_obj.type)="")
 			$operation_obj.type:="linear"
 		End if 
+		
 		
 		  //move
 		If ($operation="@Move@")
@@ -69,11 +55,21 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 				$operation_obj.resizeX:=0
 				$operation_obj.resizeY:=0
 			End if 
+			
+			If (String:C10($operation_obj.moveH)="")
+				$operation_obj.moveH:=0
+			End if 
+			
+			If (String:C10($operation_obj.moveV)="")
+				$operation_obj.moveV:=0
+			End if 
+			
 		End if 
 		
 		  //resize
 		If ($operation="@Resize@")
 			$process:=True:C214
+			
 			If (Not:C34($operation="@Move@"))
 				$operation_obj.moveH:=0
 				$operation_obj.moveV:=0
@@ -83,27 +79,33 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		  //font
 		If ($operation="@Font@")
 			$process:=True:C214
-			If ($operation_obj.fontName="")
-				$operation_obj.fontName:="Arial"
+			
+			If (String:C10($operation_obj.fontName)="")
+				$operation_obj.fontName:=$operation_obj.infosTarget.fontName
 			End if 
-			If ($operation_obj.fontSize<=0)
-				$operation_obj.fontSize:=1
+			
+			If ($operation_obj.fontSize<=0) | (String:C10($operation_obj.fontSize)="")
+				$operation_obj.fontSize:=$operation_obj.infosTarget.fontSize
 			End if 
-			If ($operation_obj.fontStyle<0)
-				$operation_obj.fontStyle:=0
+			
+			If ($operation_obj.fontStyle<0) | (String:C10($operation_obj.fontStyle)="")
+				$operation_obj.fontStyle:=$operation_obj.infosTarget.fontStyle
 			End if 
 		End if 
 		
 		  //BGColor
 		If ($operation="@BGColor@")
 			$process:=True:C214
-			If ($operation_obj.foregroundColor="")
+			
+			If (String:C10($operation_obj.foregroundColor)="")
 				$operation_obj.foregroundColor:=$operation_obj.infosTarget.foregroundColor
 			End if 
-			If ($operation_obj.backgroundColor="")
+			
+			If (String:C10($operation_obj.backgroundColor)="")
 				$operation_obj.backgroundColor:=$operation_obj.infosTarget.backgroundColor
 			End if 
-			If ($operation_obj.altBackgroundColor="")
+			
+			If (String:C10($operation_obj.altBackgroundColor)="")
 				$operation_obj.altBackgroundColor:=$operation_obj.infosTarget.altBackgroundColor
 			End if 
 		End if 
@@ -111,16 +113,18 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		  //CRadius
 		If ($operation="@CRadius@")
 			$process:=True:C214
-			If ($operation_obj.radius<0)
-				$operation_obj.radius:=0
+			
+			If ($operation_obj.radius<0) | (String:C10($operation_obj.radius)="")
+				$operation_obj.radius:=$operation_obj.infosTarget.radius
 			End if 
 		End if 
 		
 		  //BStyle
 		If ($operation="@BStyle@")
 			$process:=True:C214
-			If ($operation_obj.borderStyle<0)
-				$operation_obj.borderStyle:=6
+			
+			If ($operation_obj.borderStyle<0) | (String:C10($operation_obj.borderStyle)="")
+				$operation_obj.borderStyle:=$operation_obj.infosTarget.borderStyle
 			End if 
 		End if 
 		

@@ -51,7 +51,6 @@ End if
   //setup animation timing object
 $animationTiming_obj:=New object:C1471
 $animationTiming_obj.steps:=$steps
-$animationTiming_obj.type:=$currentOperation.type
 
   //property that  evolve during steps
 For ($i;1;$steps)
@@ -60,6 +59,7 @@ For ($i;1;$steps)
 	  //move or/and resize
 	If (($animationItem.operation="@Move@") | ($animationItem.operation="@Resize@"))
 		$animationTiming_obj.minValue:=0
+		$animationTiming_obj.type:=checkSpecificType ($currentOperation;"Move")  //move or resize use same type
 		
 		$animationTiming_obj.maxValue:=$currentOperation.moveX
 		$moveX:=animationTiming ($animationTiming_obj)
@@ -84,17 +84,19 @@ For ($i;1;$steps)
 	
 	  //font
 	If ($animationItem.operation="@Font@")
-		$animationTiming_obj.minValue:=$infosTarget.fontSize
-		$animationTiming_obj.maxValue:=$currentOperation.fontSize
 		If ($i=$steps)
 			$animationItem.fontSize:=$currentOperation.fontSize
 		Else 
+			$animationTiming_obj.minValue:=$infosTarget.fontSize
+			$animationTiming_obj.maxValue:=$currentOperation.fontSize
+			$animationTiming_obj.type:=checkSpecificType ($currentOperation;"Font")
 			$animationItem.fontSize:=Round:C94(animationTiming ($animationTiming_obj);0)
 		End if 
 	End if 
 	
 	  //BGColor
 	If ($animationItem.operation="@BGColor@")
+		$animationTiming_obj.type:=checkSpecificType ($currentOperation;"BGColor")
 		If ($currentOperation.colorTransition)
 			$animationItem.foregroundColor:=calcColor ($currentOperation.foregroundColor;$infosTarget.foregroundColor;$animationTiming_obj)
 			$animationItem.backgroundColor:=calcColor ($currentOperation.backgroundColor;$infosTarget.backgroundColor;$animationTiming_obj)
@@ -110,11 +112,12 @@ For ($i;1;$steps)
 	
 	  //CRadius
 	If ($animationItem.operation="@CRadius@")
-		$animationTiming_obj.minValue:=$infosTarget.radius
-		$animationTiming_obj.maxValue:=$currentOperation.radius
 		If ($i=$steps)
 			$animationItem.radius:=$currentOperation.radius
 		Else 
+			$animationTiming_obj.minValue:=$infosTarget.radius
+			$animationTiming_obj.maxValue:=$currentOperation.radius
+			$animationTiming_obj.type:=checkSpecificType ($currentOperation;"CRadius")
 			$animationItem.radius:=Round:C94(animationTiming ($animationTiming_obj);0)
 		End if 
 	End if 

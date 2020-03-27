@@ -52,7 +52,7 @@ For each ($operation_obj;$operations_col)
 			End if 
 			
 			If ($operation="@Font@")
-				$operation_obj.infosTarget.font:=OBJECT Get font:C1069(*;$target)
+				$operation_obj.infosTarget.fontName:=OBJECT Get font:C1069(*;$target)
 				$operation_obj.infosTarget.fontSize:=OBJECT Get font size:C1070(*;$target)
 				$operation_obj.infosTarget.fontStyle:=OBJECT Get font style:C1071(*;$target)
 				$operation_obj.infosTarget.styleSheet:=OBJECT Get style sheet:C1258(*;$target)

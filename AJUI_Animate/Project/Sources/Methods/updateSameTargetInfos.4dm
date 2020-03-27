@@ -39,13 +39,20 @@ For each ($operation;$operations_col)
 		End if 
 		
 		If ($lastAnimationItem.operation="@Font@")
+			$operation.infosTarget.fontName:=$lastAnimationItem.fontName
 			$operation.infosTarget.fontSize:=$lastAnimationItem.fontSize
+			$operation.infosTarget.fontStyle:=$lastAnimationItem.fontStyle
+			$operation.infosTarget.styleSheet:=$lastAnimationItem.styleSheet
 		End if 
 		
 		If ($lastAnimationItem.operation="@BGColor@")
 			$operation.infosTarget.foregroundColor:=$lastAnimationItem.foregroundColor
 			$operation.infosTarget.backgroundColor:=$lastAnimationItem.backgroundColor
 			$operation.infosTarget.altBackgroundColor:=$lastAnimationItem.altBackgroundColor
+		End if 
+		
+		If ($lastAnimationItem.operation="@BStyle@")
+			$operation.infosTarget.borderStyle:=$lastAnimationItem.borderStyle
 		End if 
 		
 		If ($lastAnimationItem.operation="@CRadius@")

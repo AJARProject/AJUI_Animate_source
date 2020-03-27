@@ -29,8 +29,17 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		$process:=False:C215
 	Else 
 		$operation:=$operation_obj.operation
-		  //timing
+		  //global
+		If (String:C10($operation_obj.animationDirection)="")
+			$operation_obj.animationDirection:="normal"
+		End if 
 		
+		If ($operation_obj.iterationCount<=0) | (String:C10($operation_obj.iterationCount)="")
+			$operation_obj.iterationCount:=1
+		End if 
+		
+		
+		  //timing
 		If ($operation_obj.duration<=0) | (String:C10($operation_obj.duration)="")
 			$operation_obj.duration:=1
 		End if 
@@ -56,12 +65,12 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 				$operation_obj.resizeY:=0
 			End if 
 			
-			If (String:C10($operation_obj.moveH)="")
-				$operation_obj.moveH:=0
+			If (String:C10($operation_obj.moveX)="")
+				$operation_obj.moveX:=0
 			End if 
 			
-			If (String:C10($operation_obj.moveV)="")
-				$operation_obj.moveV:=0
+			If (String:C10($operation_obj.moveY)="")
+				$operation_obj.moveY:=0
 			End if 
 			
 		End if 
@@ -71,8 +80,8 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$process:=True:C214
 			
 			If (Not:C34($operation="@Move@"))
-				$operation_obj.moveH:=0
-				$operation_obj.moveV:=0
+				$operation_obj.moveX:=0
+				$operation_obj.moveY:=0
 			End if 
 		End if 
 		

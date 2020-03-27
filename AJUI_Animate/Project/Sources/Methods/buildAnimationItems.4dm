@@ -48,6 +48,11 @@ If ($animationItem.operation="@BStyle@")
 	$animationItem.borderStyle:=$currentOperation.borderStyle
 End if 
 
+  //count/countdown
+If ($animationItem.operation="@Count@")
+	$animationItem.currentNumber:=$currentOperation.currentNumber
+End if 
+
   //setup animation timing object
 $animationTiming_obj:=New object:C1471
 $animationTiming_obj.steps:=$steps

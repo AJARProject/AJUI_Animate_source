@@ -21,7 +21,7 @@ End if
 
 C_COLLECTION:C1488($1;$operations_col;$executions_col)
 C_LONGINT:C283($2;$form_winRef)
-C_LONGINT:C283($nbOperation;$steps;$currentStep)
+C_LONGINT:C283($nbOperation;$nbIteration;$steps;$currentStep)
 C_OBJECT:C1216($currentOperation;$animationItem;$test)
 C_REAL:C285($delay;$refresh)
 C_COLLECTION:C1488($animationItems_col)
@@ -47,39 +47,87 @@ Repeat
 			DELAY PROCESS:C323(Current process:C322;$currentOperation.delay)
 		End if 
 		
-		  //1.3 executions
+		  //animation direction
+		Case of 
+			: ($currentOperation.animationDirection="normal")
+				$operationIteration:=$currentOperation.iterationCount
+				
+			: ($currentOperation.animationDirection="reverse")
+				$operationIteration:=$currentOperation.iterationCount
+				reverseOperationProperties ($currentOperation)
+				
+			: ($currentOperation.animationDirection="alternate")
+				$operationIteration:=$currentOperation.iterationCount*2
+				
+			: ($currentOperation.animationDirection="alternate-reverse")
+				$operationIteration:=$currentOperation.iterationCount*2
+				reverseOperationProperties ($currentOperation)
+				
+			Else 
+				$operationIteration:=$currentOperation.iterationCount
+		End case 
 		
+		  //prebuilded animation count/countdown setup
+		If ($currentOperation.operation="@countdown@")
+			$currentOperation.currentNumber:=$operationIteration
+		Else 
+			$currentOperation.currentNumber:=1
+		End if 
+		
+		
+		
+		  //1.3 executions
+		$nbIteration:=0
 		CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
 		
-		
-		$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
-		$currentStep:=0
-		
 		Repeat 
-			If ($currentStep>0)
-				DELAY PROCESS:C323(Current process:C322;$refresh)
+			
+			$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
+			$currentStep:=0
+			
+			Repeat 
+				If ($currentStep>0)
+					DELAY PROCESS:C323(Current process:C322;$refresh)
+				End if 
+				
+				$animationItem:=$animationItems_col[$currentStep]
+				CALL FORM:C1391($form_winRef;"animationCB";$animationItem)
+				
+				$currentStep:=$currentStep+1
+				
+			Until ((checkStopProcess (Current process:C322)) | ($currentStep>=$steps))
+			
+			  //1.4 hide at end
+			If ($currentOperation.hideAtTheEnd)
+				CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;False:C215)
 			End if 
 			
-			$animationItem:=$animationItems_col[$currentStep]
-			CALL FORM:C1391($form_winRef;"animationCB";$animationItem)
 			
-			$currentStep:=$currentStep+1
+			$nbIteration:=$nbIteration+1
 			
-		Until ((checkStopProcess (Current process:C322)) | ($currentStep>=$steps))
-		
-		  //1.4 hide at end
-		If ($currentOperation.hideAtTheEnd)
-			CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;False:C215)
-		End if 
+			  //alternate cases
+			If ($currentOperation.animationDirection="alternate") | ($currentOperation.animationDirection="alternate-reverse")
+				If ($nbIteration<$operationIteration)
+					reverseOperationProperties ($currentOperation)
+				End if 
+			End if 
+			
+			  //prebuilded animation count/countdown setup
+			If ($currentOperation.operation="@countdown@")
+				$currentOperation.currentNumber:=$currentOperation.currentNumber-1
+			Else 
+				$currentOperation.currentNumber:=$currentOperation.currentNumber+1
+			End if 
+			
+		Until ((checkStopProcess (Current process:C322)) | ($nbIteration=$operationIteration))
 		
 		If ($nbOperation<$operations_col.length)
 			updateSameTargetInfos ($currentOperation.target;$operations_col;$animationItem)  //update with last value
 		End if 
 		
 	End if 
-	
-	
 	$nbOperation:=$nbOperation+1
+	
 Until ((checkStopProcess (Current process:C322)) | ($nbOperation>=$operations_col.length))
 
   //case after stopProcess

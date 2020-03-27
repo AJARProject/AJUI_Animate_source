@@ -25,36 +25,21 @@ C_TEXT:C284($0;$2;$type;$operation)
 $operation_obj:=$1
 $operation:=$2
 
+$type:=$operation_obj.animType
 
 Case of 
-	: ($operation="Move") | ($operation="Resize")
-		$type:=$operation_obj.animType
+	: ($operation="Resize") & (String:C10($operation_obj.ResizeAnimType)#"")
+		$type:=$operation_obj.ResizeAnimType
 		
-	: ($operation="BGColor")
-		If (String:C10($operation_obj.BGColorAnimType)="")
-			$type:=$operation_obj.animType
-		Else 
-			$type:=$operation_obj.BGColorAnimType
-		End if 
+	: ($operation="BGColor") & (String:C10($operation_obj.BGColorAnimType)#"")
+		$type:=$operation_obj.BGColorAnimType
 		
-	: ($operation="Font")
-		If (String:C10($operation_obj.FontAnimType)="")
-			$type:=$operation_obj.animType
-		Else 
-			$type:=$operation_obj.FontAnimType
-		End if 
+	: ($operation="Font") & (String:C10($operation_obj.FontAnimType)#"")
+		$type:=$operation_obj.FontAnimType
 		
+	: ($operation="CRadius") & (String:C10($operation_obj.CRadiusAnimType)#"")
+		$type:=$operation_obj.CRadiusAnimType
 		
-	: ($operation="CRadius")
-		If (String:C10($operation_obj.CRadiusAnimType)="")
-			$type:=$operation_obj.animType
-		Else 
-			$type:=$operation_obj.CRadiusAnimType
-		End if 
-		
-		
-	Else 
-		$type:=$operation_obj.animType
 End case 
 
 $0:=$type

@@ -10,6 +10,10 @@ Case of
 		$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:="RectTest"
 		
+		$animationItem.animType:="ease-in"
+		$animationItem.BGColorAnimType:="easy-out"
+		$animationItem.CRadiusAnimType:="linear"
+		
 		$animationItem.duration:=1000
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
@@ -44,7 +48,7 @@ Case of
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.delay:=60
 		$animationItem3.operation:="Move,BGColor"
-		$animationItem3.type:="ease"
+		$animationItem3.animType:="ease"
 		$animationItem3.moveX:=200
 		$animationItem3.moveY:=0
 		$animationItem3.backgroundColor:="red"

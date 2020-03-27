@@ -59,7 +59,7 @@ For ($i;1;$steps)
 	  //move or/and resize
 	If (($animationItem.operation="@Move@") | ($animationItem.operation="@Resize@"))
 		$animationTiming_obj.minValue:=0
-		$animationTiming_obj.type:=checkSpecificType ($currentOperation;"Move")  //move or resize use same type
+		$animationTiming_obj.animType:=checkSpecificType ($currentOperation;"Move")  //move or resize use same type
 		
 		$animationTiming_obj.maxValue:=$currentOperation.moveX
 		$moveX:=animationTiming ($animationTiming_obj)
@@ -89,14 +89,14 @@ For ($i;1;$steps)
 		Else 
 			$animationTiming_obj.minValue:=$infosTarget.fontSize
 			$animationTiming_obj.maxValue:=$currentOperation.fontSize
-			$animationTiming_obj.type:=checkSpecificType ($currentOperation;"Font")
+			$animationTiming_obj.animType:=checkSpecificType ($currentOperation;"Font")
 			$animationItem.fontSize:=Round:C94(animationTiming ($animationTiming_obj);0)
 		End if 
 	End if 
 	
 	  //BGColor
 	If ($animationItem.operation="@BGColor@")
-		$animationTiming_obj.type:=checkSpecificType ($currentOperation;"BGColor")
+		$animationTiming_obj.animType:=checkSpecificType ($currentOperation;"BGColor")
 		If ($currentOperation.colorTransition)
 			$animationItem.foregroundColor:=calcColor ($currentOperation.foregroundColor;$infosTarget.foregroundColor;$animationTiming_obj)
 			$animationItem.backgroundColor:=calcColor ($currentOperation.backgroundColor;$infosTarget.backgroundColor;$animationTiming_obj)
@@ -117,7 +117,7 @@ For ($i;1;$steps)
 		Else 
 			$animationTiming_obj.minValue:=$infosTarget.radius
 			$animationTiming_obj.maxValue:=$currentOperation.radius
-			$animationTiming_obj.type:=checkSpecificType ($currentOperation;"CRadius")
+			$animationTiming_obj.animType:=checkSpecificType ($currentOperation;"CRadius")
 			$animationItem.radius:=Round:C94(animationTiming ($animationTiming_obj);0)
 		End if 
 	End if 

@@ -68,7 +68,7 @@ End if
 
 $minValue:=Num:C11($animation_obj.minValue)
 $maxValue:=$animation_obj.maxValue
-$type:=$animation_obj.type  // Todo check if we pass some specific cubic-bezier values
+$type:=$animation_obj.animType  // Todo check if we pass some specific cubic-bezier values
 
   // starting point
 $x0:=0

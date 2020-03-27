@@ -28,33 +28,33 @@ $operation:=$2
 
 Case of 
 	: ($operation="Move") | ($operation="Resize")
-		$type:=$operation_obj.type
+		$type:=$operation_obj.animType
 		
 	: ($operation="BGColor")
-		If (String:C10($operation_obj.BGColorType)="")
-			$type:=$operation_obj.type
+		If (String:C10($operation_obj.BGColorAnimType)="")
+			$type:=$operation_obj.animType
 		Else 
-			$type:=$operation_obj.BGColorType
+			$type:=$operation_obj.BGColorAnimType
 		End if 
 		
 	: ($operation="Font")
-		If (String:C10($operation_obj.FontType)="")
-			$type:=$operation_obj.type
+		If (String:C10($operation_obj.FontAnimType)="")
+			$type:=$operation_obj.animType
 		Else 
-			$type:=$operation_obj.FontType
+			$type:=$operation_obj.FontAnimType
 		End if 
 		
 		
 	: ($operation="CRadius")
-		If (String:C10($operation_obj.CRadiusType)="")
-			$type:=$operation_obj.type
+		If (String:C10($operation_obj.CRadiusAnimType)="")
+			$type:=$operation_obj.animType
 		Else 
-			$type:=$operation_obj.CRadiusType
+			$type:=$operation_obj.CRadiusAnimType
 		End if 
 		
 		
 	Else 
-		$type:=$operation_obj.type
+		$type:=$operation_obj.animType
 End case 
 
 $0:=$type

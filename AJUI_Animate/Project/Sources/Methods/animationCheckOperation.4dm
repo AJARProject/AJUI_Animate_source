@@ -43,8 +43,8 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$operation_obj.frequency:=30
 		End if 
 		
-		If (String:C10($operation_obj.type)="")
-			$operation_obj.type:="linear"
+		If (String:C10($operation_obj.animType)="")
+			$operation_obj.animType:="linear"
 		End if 
 		
 		

@@ -9,7 +9,7 @@ Case of
 		$animItemLinear.duration:=3000
 		$animItemLinear.delay:=0
 		$animItemLinear.frequency:=30
-		$animItemLinear.type:="linear"
+		$animItemLinear.animType:="linear"
 		$animItemLinear.backgroundColor:="red"
 		$animItemLinear.moveX:=640-50-10
 		$animItemLinear.moveY:=0
@@ -24,7 +24,7 @@ Case of
 		Form:C1466.ease:=New collection:C1472()  // ease
 		$animItemEase:=OB Copy:C1225($animItemLinear)
 		$animItemEase.target:="rect2"
-		$animItemEase.type:="ease"
+		$animItemEase.animType:="ease"
 		Form:C1466.ease.push($animItemEase)
 		$animItemEase2:=OB Copy:C1225($animItemEase)
 		$animItemEase2.delay:=60*2
@@ -36,7 +36,7 @@ Case of
 		Form:C1466.easeIn:=New collection:C1472()  // ease-in
 		$animItemEaseIn:=OB Copy:C1225($animItemLinear)
 		$animItemEaseIn.target:="rect3"
-		$animItemEaseIn.type:="ease-in"
+		$animItemEaseIn.animType:="ease-in"
 		Form:C1466.easeIn.push($animItemEaseIn)
 		$animItemEaseIn2:=OB Copy:C1225($animItemEaseIn)
 		$animItemEaseIn2.delay:=60*2
@@ -48,7 +48,7 @@ Case of
 		Form:C1466.easeOut:=New collection:C1472()  // ease-out
 		$animItemEaseOut:=OB Copy:C1225($animItemLinear)
 		$animItemEaseOut.target:="rect4"
-		$animItemEaseOut.type:="ease-out"
+		$animItemEaseOut.animType:="ease-out"
 		Form:C1466.easeOut.push($animItemEaseOut)
 		$animItemEaseOut2:=OB Copy:C1225($animItemEaseOut)
 		$animItemEaseOut2.delay:=60*2
@@ -60,7 +60,7 @@ Case of
 		Form:C1466.easeInOut:=New collection:C1472()  // ease-in-out
 		$animItemEaseInOut:=OB Copy:C1225($animItemLinear)
 		$animItemEaseInOut.target:="rect5"
-		$animItemEaseInOut.type:="ease-in-out"
+		$animItemEaseInOut.animType:="ease-in-out"
 		Form:C1466.easeInOut.push($animItemEaseInOut)
 		$animItemEaseInOut2:=OB Copy:C1225($animItemEaseInOut)
 		$animItemEaseInOut2.delay:=60*2
@@ -72,7 +72,7 @@ Case of
 		Form:C1466.step:=New collection:C1472()  // step
 		$animItemStep:=OB Copy:C1225($animItemLinear)
 		$animItemStep.target:="rect6"
-		$animItemStep.type:="linear"
+		$animItemStep.animType:="linear"
 		$animItemStep.frequency:=5
 		Form:C1466.step.push($animItemStep)
 		$animItemStep2:=OB Copy:C1225($animItemStep)

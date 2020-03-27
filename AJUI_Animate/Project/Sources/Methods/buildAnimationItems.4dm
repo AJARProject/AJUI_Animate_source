@@ -72,6 +72,7 @@ For ($i;1;$steps)
 		$animationTiming_obj.maxValue:=$currentOperation.moveY
 		$moveY:=animationTiming ($animationTiming_obj)
 		
+		$animationTiming_obj.animType:=checkSpecificType ($currentOperation;"Resize")  //move or resize use same type
 		$animationTiming_obj.maxValue:=$currentOperation.resizeX
 		$resizeX:=animationTiming ($animationTiming_obj)
 		

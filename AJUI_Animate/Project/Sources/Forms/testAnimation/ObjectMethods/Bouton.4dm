@@ -11,10 +11,11 @@ Case of
 		$animationItem.target:="RectTest"
 		
 		$animationItem.animType:="ease-in"
+		$animationItem.ResizeAnimType:="ease"
 		$animationItem.BGColorAnimType:="easy-out"
 		$animationItem.CRadiusAnimType:="linear"
 		
-		$animationItem.duration:=1000
+		$animationItem.duration:=3000
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		

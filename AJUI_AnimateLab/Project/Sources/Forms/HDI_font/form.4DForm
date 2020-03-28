@@ -49,15 +49,6 @@
 					],
 					"stroke": "#808080"
 				},
-				"RectTest": {
-					"type": "rectangle",
-					"top": 130,
-					"left": 50,
-					"width": 30,
-					"height": 30,
-					"borderRadius": 0,
-					"fill": "#5E4FA2"
-				},
 				"Bouton": {
 					"type": "button",
 					"text": "Start animation",
@@ -200,6 +191,22 @@
 					"left": 55,
 					"width": 172,
 					"height": 16
+				},
+				"text_obj": {
+					"type": "input",
+					"left": 267,
+					"top": 351,
+					"width": 87,
+					"height": 17,
+					"method": "ObjectMethods/text_obj.4dm",
+					"events": [
+						"onLoad"
+					],
+					"dataSource": "Form:C1466.name",
+					"dataSourceTypeHint": "text",
+					"enterable": false,
+					"fill": "transparent",
+					"borderStyle": "none"
 				}
 			}
 		}

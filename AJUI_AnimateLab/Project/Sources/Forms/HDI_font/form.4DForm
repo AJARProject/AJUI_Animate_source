@@ -194,10 +194,10 @@
 				},
 				"text_obj": {
 					"type": "input",
-					"left": 267,
-					"top": 351,
-					"width": 87,
-					"height": 17,
+					"left": 50,
+					"top": 344,
+					"width": 570,
+					"height": 65,
 					"method": "ObjectMethods/text_obj.4dm",
 					"events": [
 						"onLoad"
@@ -206,7 +206,14 @@
 					"dataSourceTypeHint": "text",
 					"enterable": false,
 					"fill": "transparent",
-					"borderStyle": "none"
+					"borderStyle": "none",
+					"textAlign": "center",
+					"styledText": false,
+					"focusable": false,
+					"contextMenu": "none",
+					"stroke": "#ff0000",
+					"sizingX": "grow",
+					"sizingY": "grow"
 				}
 			}
 		}

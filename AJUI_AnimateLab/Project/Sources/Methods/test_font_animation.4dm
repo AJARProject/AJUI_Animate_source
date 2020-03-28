@@ -8,10 +8,10 @@ Case of
 		
 		C_COLLECTION:C1488(Form:C1466.colTest)
 		Form:C1466.colTest:=New collection:C1472()
-		OBJECT Get pointer:C1124(Object current:K67:2)->:=10  // countdown ???
+		Form:C1466.name:="Hello world"
 		$animationItem:=New AnimationItem 
 		
-		$animationItem.operation:="Move,Resize,BGColor,Font,Countdown"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
+		$animationItem.operation:="Move,Resize,BGColor,Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:="text_obj"
 		
 		$animationItem.animationDirection:="alternate"
@@ -25,16 +25,17 @@ Case of
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		
-		$animationItem.moveX:=200
-		$animationItem.moveY:=100
-		$animationItem.resizeX:=300
-		$animationItem.resizeY:=50
+		$animationItem.moveX:=0
+		$animationItem.moveY:=0
+		$animationItem.resizeX:=0
+		$animationItem.resizeY:=0
 		
-		$animationItem.backgroundColor:="white"
+		$animationItem.backgroundColor:=Background color none:K23:10
+		$animationItem.foregroundColor:="blue"
 		
 		$animationItem.fontSize:=50
 		$animationItem.fontName:="Arial"
-		$animationItem.fontStyle:=5
+		  //$animationItem.fontStyle:=2
 		
 		Form:C1466.colTest.push($animationItem)
 		

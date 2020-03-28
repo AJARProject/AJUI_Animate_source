@@ -7,11 +7,10 @@ Case of
 	: ($evt=On Load:K2:1)
 		Form:C1466.direction:="normal"
 		Form:C1466.iteration:=1
-		Form:C1466.name:="Hello World"
+		
 		
 	: ($evt=On Clicked:K2:4)
-		
-		Form:C1466.name:="of animation with 4D"
+		Form:C1466.name:="Hello World"
 		animate (Form:C1466.colTest)
-		
+		Form:C1466.name:="of animation with 4D"
 End case 

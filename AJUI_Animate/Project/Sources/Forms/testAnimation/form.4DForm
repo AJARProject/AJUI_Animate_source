@@ -88,6 +88,6 @@
 			}
 		}
 	],
-	"formSizeAnchor": "Rectangle",
-	"method": "method.4dm"
+	"method": "method.4dm",
+	"formSizeAnchor": "Rectangle"
 }

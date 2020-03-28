@@ -1,0 +1,27 @@
+﻿{
+	"animation-direction": {
+		"editable": true,
+		"items": [
+			{
+				"text": "normal",
+				"ref": 1,
+				"editable": false
+			},
+			{
+				"text": "reverse",
+				"ref": 2,
+				"editable": false
+			},
+			{
+				"text": "alternate",
+				"ref": 3,
+				"editable": false
+			},
+			{
+				"text": "alternate-reverse",
+				"ref": 4,
+				"editable": false
+			}
+		]
+	}
+}

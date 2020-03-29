@@ -8,7 +8,7 @@ Case of
 	: ($evt=On Load:K2:1)
 		Form:C1466.direction:="normal"
 		Form:C1466.iteration:=1
-		test_direction_cycle 
+		test_btn 
 		
 	: ($evt=On Clicked:K2:4)
 		

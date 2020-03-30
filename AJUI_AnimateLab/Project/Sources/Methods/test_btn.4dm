@@ -5,45 +5,42 @@
 Form:C1466.colTest:=New collection:C1472()
 $animationItem:=New AnimationItem 
 
-$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
+$animationItem.operation:="Move,Resize,Font,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 $animationItem.target:="btn_obj"
 
 $animationItem.animationDirection:=Form:C1466.direction
 $animationItem.iterationCount:=Form:C1466.iteration
 $animationItem.animType:="ease-in"
-$animationItem.ResizeAnimType:="ease"
-$animationItem.BGColorAnimType:="easy-out"
-$animationItem.CRadiusAnimType:="linear"
+  //$animationItem.ResizeAnimType:="ease-in"
+  //$animationItem.BGColorAnimType:="easy-out"
+  //$animationItem.CRadiusAnimType:="linear"
 
-$animationItem.duration:=2000
-$animationItem.delay:=0
+$animationItem.duration:=250
+$animationItem.delay:=2
 $animationItem.frequency:=30
 
-OBJECT GET COORDINATES:C663(*;"btn_obj";$left;$top;$right;$bottom)
-$width:=$right-$left
-$height:=$bottom-$top
-$new_width:=$width+30
-$new_height:=$height+10
-$animationItem.resizeX:=$new_width
-$animationItem.resizeY:=$new_height
-$animationItem.moveX:=($width-$new_width)/2
-$animationItem.moveY:=($height-$new_height)/2
-
-$animationItem.backgroundColor:="#F79459"
-$animationItem.radius:=40
+$growWidth:=20
+$growHeight:=20
+$animationItem.resizeX:=$growWidth
+$animationItem.resizeY:=$growHeight
+$animationItem.moveX:=-($growWidth/2)
+$animationItem.moveY:=-($growHeight/2)
+$animationItem.fontStyle:=Bold:K14:2
+$animationItem.fontSize:=13
 $animationItem.borderStyle:=2
-
 Form:C1466.colTest.push($animationItem)
 
 $animationItem2:=OB Copy:C1225($animationItem)
-OBJECT GET COORDINATES:C663(*;"btn_obj";$left;$top;$right;$bottom)
-$width:=$right-$left
-$height:=$bottom-$top
-$new_width:=$width-30
-$new_height:=$height-10
-$animationItem2.resizeX:=$new_width
-$animationItem2.resizeY:=$new_height
-$animationItem2.moveX:=($width-$new_width)/2
-$animationItem2.moveY:=($height-$new_height)/2
+$animationItem.delay:=2
+$growWidth:=-20
+$growHeight:=-20
+$animationItem2.resizeX:=$growWidth
+$animationItem2.resizeY:=$growHeight
+$animationItem2.moveX:=-($growWidth/2)
+$animationItem2.moveY:=-($growHeight/2)
+$animationItem2.fontStyle:=Plain:K14:1
+$animationItem.fontSize:=18
+Form:C1466.colTest.push($animationItem2)
 
+Form:C1466.colTest.push($animationItem)
 Form:C1466.colTest.push($animationItem2)

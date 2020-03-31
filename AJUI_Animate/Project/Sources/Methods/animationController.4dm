@@ -81,8 +81,10 @@ Repeat
 		CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
 		
 		Repeat 
-			
+			$start_ms:=Milliseconds:C459
 			$animationItems_col:=buildAnimationItems ($currentOperation;$steps)
+			$total_ms:=Milliseconds:C459-$start_ms
+			ALERT:C41(String:C10($total_ms)+" - "+String:C10($total_ms/$steps))
 			$currentStep:=0
 			
 			Repeat 

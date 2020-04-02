@@ -46,6 +46,15 @@ If (Count parameters:C259>1)
 			$originColor:=$2
 		End if 
 		
+		  //transparent = white except for operation color when last step
+		If ($operationColor<0)
+			$operationColor:=16777215  //white
+		End if 
+		
+		If ($originColor<0)
+			$originColor:=16777215  //white
+		End if 
+		
 		C_OBJECT:C1216($color_obj)
 		C_COLLECTION:C1488($rgb_col)
 		

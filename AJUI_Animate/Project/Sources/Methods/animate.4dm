@@ -63,7 +63,6 @@ If ($animation_col#Null:C1517)
 		End for each 
 		For each ($animation;$animation_col)
 			$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);New object:C1471("operations";$animation;"startMS";$start_ms;"winRef";Current form window:C827))
-			Form:C1466.AJUI_ANIMATE_processList
 			
 			<>AJ_Animate_process_infos.push($processID)
 		End for each 

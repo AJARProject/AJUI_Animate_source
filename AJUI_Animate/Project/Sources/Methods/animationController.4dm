@@ -110,7 +110,7 @@ Repeat
 				$previousStep:=Milliseconds:C459
 				
 			End if 
-			CALL FORM:C1391($form_winRef;"animationCB";$animationItem;$msRestTilNextStep)
+			CALL FORM:C1391($form_winRef;"animationCB";$animationItem)
 			  //trace
 			$currentStep:=$currentStep+1
 			$ms_counter:=$ms_counter+1

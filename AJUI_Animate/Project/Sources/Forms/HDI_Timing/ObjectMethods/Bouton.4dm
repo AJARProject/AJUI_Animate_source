@@ -8,7 +8,7 @@ Case of
 		$animItemLinear.target:="rect1"
 		$animItemLinear.duration:=4000
 		$animItemLinear.delay:=0
-		$animItemLinear.frequency:=60
+		$animItemLinear.frequency:=30
 		$animItemLinear.animType:="linear"
 		$animItemLinear.backgroundColor:="red"
 		$animItemLinear.moveX:=640-50-10

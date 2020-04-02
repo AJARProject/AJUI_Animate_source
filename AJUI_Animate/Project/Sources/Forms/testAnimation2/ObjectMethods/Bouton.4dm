@@ -23,8 +23,8 @@ Case of
 		
 		$animationItem.moveX:=200
 		$animationItem.moveY:=100
-		$animationItem.growX:=60
-		$animationItem.growY:=60
+		$animationItem.resizeX:=60
+		$animationItem.resizeY:=60
 		
 		$animationItem.backgroundColor:="#F79459"
 		
@@ -37,7 +37,6 @@ Case of
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (Form:C1466.colTest)
-		animate (Form:C1466.colTest2)
+		animate (New collection:C1472(Form:C1466.colTest;Form:C1466.colTest2))
 		
 End case 

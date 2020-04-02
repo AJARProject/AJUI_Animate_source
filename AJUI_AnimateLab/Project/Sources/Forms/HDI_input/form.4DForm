@@ -201,7 +201,8 @@
 					"height": 25,
 					"events": [
 						"onClick"
-					]
+					],
+					"visibility": "hidden"
 				},
 				"Background1": {
 					"type": "rectangle",

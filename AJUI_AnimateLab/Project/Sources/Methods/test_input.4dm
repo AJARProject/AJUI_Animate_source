@@ -132,4 +132,5 @@ $growHeight:=0
 $animationItem9.resizeX:=$growWidth
 $animationItem9.resizeY:=$growHeight
 $animationItem9.radius:=5
+$animationItem9.hideAtTheEnd:=True:C214
 Form:C1466.colTest4.push($animationItem9)

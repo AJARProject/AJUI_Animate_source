@@ -17,20 +17,20 @@ Case of
 		$animationItem.animationDirection:="alternate"
 		$animationItem.iterationCount:=1
 		
-		$animationItem.animType:="ease-in"
-		$animationItem.BGColorAnimType:="easy-out"
-		$animationItem.FontAnimType:="linear"
+		$animationItem.animType:="linear"
+		  //$animationItem.BGColorAnimType:="linear"
+		  //$animationItem.FontAnimType:="linear"
 		
 		$animationItem.duration:=1000
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		
-		$animationItem.moveX:=0
-		$animationItem.moveY:=0
-		$animationItem.resizeX:=0
-		$animationItem.resizeY:=0
+		$animationItem.moveX:=-100
+		$animationItem.moveY:=-50
+		$animationItem.resizeX:=200
+		$animationItem.resizeY:=100
 		
-		$animationItem.backgroundColor:=Background color none:K23:10
+		$animationItem.backgroundColor:="none"
 		$animationItem.foregroundColor:="blue"
 		
 		$animationItem.fontSize:=50

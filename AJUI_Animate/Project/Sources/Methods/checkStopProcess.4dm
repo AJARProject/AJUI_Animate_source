@@ -23,7 +23,7 @@ C_BOOLEAN:C305($0)
 
 $processID:=$1
 
-$position:=<>AJ_Animate_process_infos.indexOf($processID)
+  //$position:=<>AJ_Animate_process_infos.indexOf($processID)
 
 If ($position>=0)
 	$0:=False:C215

@@ -41,8 +41,8 @@ $operationItem.moveX:=0  //pixel
 $operationItem.moveY:=0  //pixel
 
   //resize
-$operationItem.growX:=0
-$operationItem.growY:=0
+$operationItem.resizeX:=0
+$operationItem.resizeY:=0
 
   //font
 $operationItem.fontName:="Arial"

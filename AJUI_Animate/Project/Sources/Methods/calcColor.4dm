@@ -105,7 +105,6 @@ If (Count parameters:C259>1)
 			$b:=0
 		End if 
 		
-		
 		  // calc RGB
 		$colorToApplied:=((65536*$r)+(256*$g)+$b)
 		

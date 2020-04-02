@@ -51,7 +51,7 @@
 					"width": 30,
 					"height": 30,
 					"borderRadius": 0,
-					"fill": "#5E4FA2"
+					"fill": "transparent"
 				},
 				"Bouton": {
 					"type": "button",

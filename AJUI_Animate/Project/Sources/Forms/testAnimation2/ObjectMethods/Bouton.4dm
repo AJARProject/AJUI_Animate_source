@@ -26,7 +26,7 @@ Case of
 		$animationItem.resizeX:=60
 		$animationItem.resizeY:=60
 		
-		$animationItem.backgroundColor:="#F79459"
+		$animationItem.backgroundColor:="none"
 		
 		$animationItem.radius:=30
 		

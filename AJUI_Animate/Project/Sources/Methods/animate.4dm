@@ -22,9 +22,12 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
+$start_ms:=Milliseconds:C459
+
 C_VARIANT:C1683($1)
-C_COLLECTION:C1488($operations_col)
+C_COLLECTION:C1488($animation_col;$operations_col)
 $operations_col:=New collection:C1472()
+$animation_col:=New collection:C1472()
 
 If (Value type:C1509($1)=Is object:K8:27)
 	$operations_col.push(OB Copy:C1225($1))
@@ -35,28 +38,34 @@ If (Value type:C1509($1)=Is collection:K8:32)
 	If ($operations_col#Null:C1517)
 		If ($operations_col.length>0)
 			$operations_col:=$1.copy()
+			If (Value type:C1509($operations_col[0])=Is object:K8:27)
+				$animation_col.push($operations_col)
+			Else 
+				$animation_col:=$operations_col
+			End if 
 		End if 
 	End if 
 End if 
 
-
 C_COLLECTION:C1488(<>AJ_Animate_process_infos)
-C_LONGINT:C283($0;$processID)
 
   //new collection if null
 If (<>AJ_Animate_process_infos=Null:C1517)
 	<>AJ_Animate_process_infos:=New collection:C1472
 End if 
 
-
-
   //starts the new process only if there is at least one operation.
-If ($operations_col#Null:C1517)
-	If ($operations_col.length>0)
-		animationGetInfosTargets ($operations_col)
-		$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);$operations_col;Current form window:C827)
-		<>AJ_Animate_process_infos.push($processID)
+If ($animation_col#Null:C1517)
+	If ($animation_col.length>0)
+		  // Get the target infos for every animations operations
+		For each ($animation;$animation_col)
+			animationGetInfosTargets ($animation)
+		End for each 
+		For each ($animation;$animation_col)
+			$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);New object:C1471("operations";$animation;"startMS";$start_ms;"winRef";Current form window:C827))
+			Form:C1466.AJUI_ANIMATE_processList
+			
+			<>AJ_Animate_process_infos.push($processID)
+		End for each 
 	End if 
 End if 
-
-$0:=$processID

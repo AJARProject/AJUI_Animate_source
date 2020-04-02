@@ -13,20 +13,21 @@
 	"bottomMargin": 20,
 	"events": [
 		"onLoad",
-		"onPageChange",
 		"onValidate",
 		"onClick",
-		"onDoubleClick",
 		"onOutsideCall",
-		"onBeginDragOver",
-		"onDragOver",
+		"onDoubleClick",
 		"onDrop",
-		"onAfterKeystroke",
 		"onMenuSelect",
 		"onPluginArea",
-		"onAfterEdit",
+		"onDragOver",
+		"onUnload",
 		"onTimer",
-		"onBoundVariableChange"
+		"onAfterKeystroke",
+		"onAfterEdit",
+		"onBeginDragOver",
+		"onBoundVariableChange",
+		"onPageChange"
 	],
 	"windowTitle": "window title",
 	"destination": "detailScreen",
@@ -218,8 +219,35 @@
 					"width": 0,
 					"height": 470,
 					"startPoint": "topLeft"
+				},
+				"Bouton1": {
+					"type": "button",
+					"text": "Start animation",
+					"top": 535,
+					"left": 483,
+					"width": 158,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/Bouton1.4dm"
+				},
+				"Bouton2": {
+					"type": "button",
+					"text": "Start animation",
+					"top": 587,
+					"left": 483,
+					"width": 158,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/Bouton2.4dm"
 				}
 			}
 		}
-	]
+	],
+	"method": "method.4dm"
 }

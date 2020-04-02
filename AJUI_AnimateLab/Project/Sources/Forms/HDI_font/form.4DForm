@@ -194,10 +194,10 @@
 				},
 				"text_obj": {
 					"type": "input",
-					"left": 50,
-					"top": 344,
-					"width": 570,
-					"height": 65,
+					"left": 256,
+					"top": 351,
+					"width": 180,
+					"height": 17,
 					"method": "ObjectMethods/text_obj.4dm",
 					"events": [
 						"onLoad"

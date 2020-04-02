@@ -10,14 +10,14 @@ Case of
 		Form:C1466.iteration:=1
 		formGetObjectsCoordinates 
 		
-		OBJECT SET VISIBLE:C603(*;"background@";False:C215)
+		  //OBJECT SET VISIBLE(*;"background@";False)
 		
 		
 		
 		
 	: ($evt=On Clicked:K2:4)
 		test_input 
-		OBJECT SET VISIBLE:C603(*;"background@";True:C214)
+		  //OBJECT SET VISIBLE(*;"background@";True)
 		animate (Form:C1466.colTest)
 		animate (Form:C1466.colTest2)
 		animate (Form:C1466.colTest3)

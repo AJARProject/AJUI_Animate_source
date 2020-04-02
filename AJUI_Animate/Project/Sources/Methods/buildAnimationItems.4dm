@@ -73,17 +73,17 @@ For ($i;1;$steps)
 		$moveY:=animationTiming ($animationTiming_obj)
 		
 		$animationTiming_obj.animType:=checkSpecificType ($currentOperation;"Resize")  //move or resize use same type
-		$animationTiming_obj.maxValue:=$currentOperation.resizeX
-		$resizeX:=animationTiming ($animationTiming_obj)
+		$animationTiming_obj.maxValue:=$currentOperation.growX
+		$growX:=animationTiming ($animationTiming_obj)
 		
-		$animationTiming_obj.maxValue:=$currentOperation.resizeY
-		$resizeY:=animationTiming ($animationTiming_obj)
+		$animationTiming_obj.maxValue:=$currentOperation.growY
+		$growY:=animationTiming ($animationTiming_obj)
 		
 		  // Absolute Values
 		$animationItem.left:=$currentOperation.infosTarget.left+$moveX
 		$animationItem.top:=$currentOperation.infosTarget.top+$moveY
-		$animationItem.right:=$currentOperation.infosTarget.right+$moveX+$resizeX
-		$animationItem.bottom:=$currentOperation.infosTarget.bottom+$moveY+$resizeY
+		$animationItem.right:=$currentOperation.infosTarget.right+$moveX+$growX
+		$animationItem.bottom:=$currentOperation.infosTarget.bottom+$moveY+$growY
 		
 		
 	End if 

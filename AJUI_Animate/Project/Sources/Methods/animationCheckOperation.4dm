@@ -61,8 +61,8 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		If ($operation="@Move@")
 			$process:=True:C214
 			If (Not:C34($operation="@Resize@"))
-				$operation_obj.resizeX:=0
-				$operation_obj.resizeY:=0
+				$operation_obj.growX:=0
+				$operation_obj.growY:=0
 			End if 
 			
 			If (String:C10($operation_obj.moveX)="")

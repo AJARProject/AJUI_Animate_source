@@ -23,8 +23,8 @@ Case of
 		
 		$animationItem.moveX:=200
 		$animationItem.moveY:=100
-		$animationItem.resizeX:=60
-		$animationItem.resizeY:=60
+		$animationItem.growX:=60
+		$animationItem.growY:=60
 		
 		$animationItem.backgroundColor:="#F79459"
 		

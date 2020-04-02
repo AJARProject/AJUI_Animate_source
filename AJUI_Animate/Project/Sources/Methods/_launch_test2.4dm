@@ -7,8 +7,8 @@ If (Count parameters:C259=0)
 	BRING TO FRONT:C326($ref_process)
 Else 
 	
-	$ref_win:=Open form window:C675("Test2";Plain form window:K39:10)
-	DIALOG:C40("Test2")
+	$ref_win:=Open form window:C675("HDI_Timing";Plain form window:K39:10)
+	DIALOG:C40("HDI_Timing")
 	CLOSE WINDOW:C154($ref_win)
 	
 End if 

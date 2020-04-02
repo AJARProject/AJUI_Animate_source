@@ -1,7 +1,7 @@
 //%attributes = {"shared":true}
-  // animate ( $operations_col ; $winRef ) 
+  // animate ( $operations ; $winRef ) 
   //
-  // $operations_col : (collection) operations
+  // $operations : (variant) Operation as an object or a collection of operation or a collection of collection
   // $winRef : (longint) current windows form ID
   //
   // Launch the animations
@@ -15,12 +15,30 @@ If (False:C215)
 	  // Description
 	  // this method controls the collection of operations, retrieves data from targets and starts the animation process.
 	  //
+	  // The $operations variable can contain on of those :
+	  // (Object) : must be created via the "New AnimationItem" method
+	  // (Collection) : collection of object created via the "New AnimationItem" method 
+	  // (Collection) : can be a collection of the above collection. In this case it mean many animation will be launch simultaneously
 	  // ----------------------------------------------------
 End if 
 
-C_COLLECTION:C1488($1;$operations_col)
+C_VARIANT:C1683($1)
+C_COLLECTION:C1488($operations_col)
+$operations_col:=New collection:C1472()
 
-$operations_col:=$1.copy()
+If (Value type:C1509($1)=Is object:K8:27)
+	$operations_col.push(OB Copy:C1225($1))
+End if 
+
+If (Value type:C1509($1)=Is collection:K8:32)
+	$operations_col:=$1
+	If ($operations_col#Null:C1517)
+		If ($operations_col.length>0)
+			$operations_col:=$1.copy()
+		End if 
+	End if 
+End if 
+
 
 C_COLLECTION:C1488(<>AJ_Animate_process_infos)
 C_LONGINT:C283($0;$processID)
@@ -29,6 +47,8 @@ C_LONGINT:C283($0;$processID)
 If (<>AJ_Animate_process_infos=Null:C1517)
 	<>AJ_Animate_process_infos:=New collection:C1472
 End if 
+
+
 
   //starts the new process only if there is at least one operation.
 If ($operations_col#Null:C1517)

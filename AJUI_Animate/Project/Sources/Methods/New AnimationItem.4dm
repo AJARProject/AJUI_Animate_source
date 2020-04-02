@@ -21,6 +21,8 @@ C_OBJECT:C1216($0;$operationItem)
 
 $operationItem:=New object:C1471
 
+$operationItem[""]:="AnimationItem"
+
   //global
 $operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink, BStyle , Count, Countdown
 $operationItem.target:=""
@@ -38,10 +40,9 @@ $operationItem.frequency:=30
 $operationItem.moveX:=0  //pixel
 $operationItem.moveY:=0  //pixel
 
-
   //resize
-$operationItem.resizeX:=0
-$operationItem.resizeY:=0
+$operationItem.growX:=0
+$operationItem.growY:=0
 
   //font
 $operationItem.fontName:="Arial"

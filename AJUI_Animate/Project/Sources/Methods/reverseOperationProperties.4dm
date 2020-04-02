@@ -28,13 +28,13 @@ $operation:=$operation_obj.operation
 If (($operation="@Move@") | ($operation="@Resize@"))
 	$operation_obj.infosTarget.left:=$operation_obj.infosTarget.left+$operation_obj.moveX
 	$operation_obj.infosTarget.top:=$operation_obj.infosTarget.top+$operation_obj.moveY
-	$operation_obj.infosTarget.right:=$operation_obj.infosTarget.right+$operation_obj.growX+$operation_obj.moveX
-	$operation_obj.infosTarget.bottom:=$operation_obj.infosTarget.bottom+$operation_obj.growY+$operation_obj.moveY
+	$operation_obj.infosTarget.right:=$operation_obj.infosTarget.right+$operation_obj.resizeX+$operation_obj.moveX
+	$operation_obj.infosTarget.bottom:=$operation_obj.infosTarget.bottom+$operation_obj.resizeY+$operation_obj.moveY
 	
 	$operation_obj.moveX:=-$operation_obj.moveX
 	$operation_obj.moveY:=-$operation_obj.moveY
-	$operation_obj.growX:=-$operation_obj.growX
-	$operation_obj.growY:=-$operation_obj.growY
+	$operation_obj.resizeX:=-$operation_obj.resizeX
+	$operation_obj.resizeY:=-$operation_obj.resizeY
 	
 	
 	Case of 

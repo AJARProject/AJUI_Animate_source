@@ -1,9 +1,8 @@
-//%attributes = {}
-  // stopAnimation ( $processID ) 
+//%attributes = {"shared":true}
+  // stopAnimation (  ) 
   //
-  // $processID : (longint) ID process
   //
-  // Allows you to remove the process from the list of running processes
+  // stops all animation processes
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -12,20 +11,13 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: stopAnimation
 	  // Description
-	  // 
+	  // Clean all the process ids in the storage (AJUI_AnimateProcess_col)
 	  //
 	  // ----------------------------------------------------
 End if 
 
-C_LONGINT:C283($1;$processID)
-C_LONGINT:C283($position)
-C_COLLECTION:C1488(<>AJ_Animate_process_infos)
-
-$processID:=$1
-
-If (<>AJ_Animate_process_infos#Null:C1517)
-	$position:=<>AJ_Animate_process_infos.indexOf($processID)
-	If ($position>=0)
-		<>AJ_Animate_process_infos.remove($position)
+Use (Storage:C1525.AJUI_AnimateProcess_col)
+	If (Storage:C1525.AJUI_AnimateProcess_col.length>0)
+		Storage:C1525.AJUI_AnimateProcess_col.clear()
 	End if 
-End if 
+End use 

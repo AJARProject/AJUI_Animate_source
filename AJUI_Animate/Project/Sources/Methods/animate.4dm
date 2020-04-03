@@ -47,11 +47,11 @@ If (Value type:C1509($1)=Is collection:K8:32)
 	End if 
 End if 
 
-C_COLLECTION:C1488(<>AJ_Animate_process_infos)
-
-  //new collection if null
-If (<>AJ_Animate_process_infos=Null:C1517)
-	<>AJ_Animate_process_infos:=New collection:C1472
+  //storage : new collection if null
+If (Storage:C1525.AJUI_AnimateProcess_col=Null:C1517)
+	Use (Storage:C1525)
+		Storage:C1525.AJUI_AnimateProcess_col:=New shared collection:C1527
+	End use 
 End if 
 
   //starts the new process only if there is at least one operation.
@@ -64,7 +64,10 @@ If ($animation_col#Null:C1517)
 		For each ($animation;$animation_col)
 			$processID:=New process:C317("animationController";0;"$AJ_Animate"+String:C10(Generate UUID:C1066);New object:C1471("operations";$animation;"startMS";$start_ms;"winRef";Current form window:C827))
 			
-			<>AJ_Animate_process_infos.push($processID)
+			Use (Storage:C1525.AJUI_AnimateProcess_col)
+				Storage:C1525.AJUI_AnimateProcess_col.push($processID)
+			End use 
+			
 		End for each 
 	End if 
 End if 

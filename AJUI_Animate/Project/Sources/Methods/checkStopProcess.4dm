@@ -13,7 +13,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: checkStopProcess
 	  // Description
-	  // checks if the process id is still present in the list of running processes. 
+	  // checks if the process id is still present in the storage (AJUI_AnimateProcess_col). 
 	  // If not, signals that the process must be stopped.
 	  //
 	  // ----------------------------------------------------
@@ -23,7 +23,7 @@ C_BOOLEAN:C305($0)
 
 $processID:=$1
 
-  //$position:=<>AJ_Animate_process_infos.indexOf($processID)
+$position:=Storage:C1525.AJUI_AnimateProcess_col.indexOf($processID)
 
 If ($position>=0)
 	$0:=False:C215

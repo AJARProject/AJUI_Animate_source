@@ -78,6 +78,19 @@
 					],
 					"dataSource": "",
 					"dataSourceTypeHint": "integer"
+				},
+				"Bouton1": {
+					"type": "button",
+					"text": "Clean",
+					"top": 335,
+					"left": 289,
+					"width": 96,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/Bouton1.4dm"
 				}
 			}
 		}

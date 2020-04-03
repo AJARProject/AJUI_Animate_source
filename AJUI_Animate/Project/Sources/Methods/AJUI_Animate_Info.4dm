@@ -1,4 +1,4 @@
-//%attributes = {"lang":"en"}
+//%attributes = {"shared":true}
   // AJUI_Animate_info( ) -> return
   //
   // return : (text) (return) version

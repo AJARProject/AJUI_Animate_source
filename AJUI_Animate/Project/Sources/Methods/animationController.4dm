@@ -150,7 +150,10 @@ Repeat
 	
 Until ((checkStopProcess (Current process:C322)) | ($nbOperation>=$operations_col.length))
 
-  //case after stopProcess
-If (checkStopProcess (Current process:C322))
-	  //todo
-End if 
+  //remove the id of the process from the storage when done
+Use (Storage:C1525.AJUI_AnimateProcess_col)
+	$pos:=Storage:C1525.AJUI_AnimateProcess_col.indexOf(Current process:C322)
+	If ($pos>-1)
+		Storage:C1525.AJUI_AnimateProcess_col.remove($pos)
+	End if 
+End use 

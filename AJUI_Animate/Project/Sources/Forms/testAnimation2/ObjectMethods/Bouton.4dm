@@ -10,8 +10,6 @@ Case of
 		$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:="RectTest"
 		
-		$animationItem.animationDirection:="alternate"
-		$animationItem.iterationCount:=2
 		
 		$animationItem.animType:="ease-in"
 		$animationItem.BGColorAnimType:="easy-out"
@@ -37,6 +35,10 @@ Case of
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (New collection:C1472(Form:C1466.colTest;Form:C1466.colTest2))
+		C_OBJECT:C1216($animation1;$animation2)
+		$animation1:=New object:C1471("animationDirection";"alternate-reverse";"iterationCount";2;"operations";Form:C1466.colTest)
+		$animation2:=New object:C1471("animationDirection";"alternate";"iterationCount";3;"operations";Form:C1466.colTest2)
+		
+		animate (New collection:C1472($animation1;$animation2))
 		
 End case 

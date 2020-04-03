@@ -72,7 +72,4 @@ If ($operation="@Blink@")
 	OBJECT SET VISIBLE:C603(*;$target;$animationItem.visible)
 End if 
 
-If ($operation="@count@")  // count or countdown
-	OBJECT Get pointer:C1124(Object named:K67:5;$target)->:=$animationItem.currentNumber
-End if 
 

@@ -110,12 +110,24 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 				$operation_obj.foregroundColor:=$operation_obj.infosTarget.foregroundColor
 			End if 
 			
+			If (String:C10($operation_obj.infosTarget.foregroundColor)="")
+				$operation_obj.infosTarget.foregroundColor:=$operation_obj.foregroundColor
+			End if 
+			
 			If (String:C10($operation_obj.backgroundColor)="")
 				$operation_obj.backgroundColor:=$operation_obj.infosTarget.backgroundColor
 			End if 
 			
+			If (String:C10($operation_obj.infosTarget.backgroundColor)="")
+				$operation_obj.infosTarget.backgroundColor:=$operation_obj.backgroundColor
+			End if 
+			
 			If (String:C10($operation_obj.altBackgroundColor)="")
 				$operation_obj.altBackgroundColor:=$operation_obj.infosTarget.altBackgroundColor
+			End if 
+			
+			If (String:C10($operation_obj.infosTarget.altBackgroundColor)="")
+				$operation_obj.infosTarget.altBackgroundColor:=$operation_obj.altBackgroundColor
 			End if 
 		End if 
 		

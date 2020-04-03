@@ -24,11 +24,9 @@ $operationItem:=New object:C1471
 $operationItem[""]:="AnimationItem"
 
   //global
-$operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink, BStyle , Count, Countdown
+$operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink, BStyle 
 $operationItem.target:=""
 $operationItem.hideAtTheEnd:=False:C215
-$operationItem.animationDirection:="normal"  //normal, reverse, alternate, alternate-reverse
-$operationItem.iterationCount:=1
 
   //timing
 $operationItem.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out

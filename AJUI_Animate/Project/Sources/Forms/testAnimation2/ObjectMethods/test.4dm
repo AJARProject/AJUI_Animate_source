@@ -8,11 +8,8 @@ Case of
 		Form:C1466.colTest2:=New collection:C1472()
 		$animationItem:=New AnimationItem 
 		
-		$animationItem.operation:="Move,Resize,BGColor,Font,Countdown"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
+		$animationItem.operation:="Move,Resize,BGColor,Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:="test"
-		
-		$animationItem.animationDirection:="alternate"
-		$animationItem.iterationCount:=5
 		
 		$animationItem.animType:="ease-in"
 		$animationItem.BGColorAnimType:="easy-out"

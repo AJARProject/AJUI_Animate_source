@@ -48,7 +48,3 @@ If ($animationItem.operation="@BStyle@")
 	$animationItem.borderStyle:=$operation.borderStyle
 End if 
 
-  //count/countdown
-If ($animationItem.operation="@Count@")
-	$animationItem.currentNumber:=$operation.currentNumber
-End if 

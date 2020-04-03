@@ -83,6 +83,6 @@ Case of
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (Form:C1466.colTest)
+		animate (New object:C1471("animationDirection";"reverse";"iterationCount";1;"operations";Form:C1466.colTest))
 		
 End case 

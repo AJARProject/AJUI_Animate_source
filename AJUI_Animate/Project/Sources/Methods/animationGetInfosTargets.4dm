@@ -18,11 +18,11 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_COLLECTION:C1488($1;$operations_col)
-C_OBJECT:C1216($operation_obj;$targets_obj)
+C_COLLECTION:C1488($operations_col)
+C_OBJECT:C1216($1;$operation_obj;$targets_obj)
 C_TEXT:C284($target;$operation)
 
-$operations_col:=$1
+$operations_col:=$1.operations
 
   // Object containing all the targets properties.
   // We use this object in case we have many operation with the same target to not execute the same code many time for the same result

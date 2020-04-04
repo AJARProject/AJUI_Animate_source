@@ -8,7 +8,7 @@ Case of
 		
 		HDI_Timing 
 		
-		C_OBJECT:C1216($animation1)
+		C_OBJECT:C1216($animation)
 		C_COLLECTION:C1488($operations)
 		$animation:=New object:C1471("animationDirection";Form:C1466.direction;"iterationCount";Form:C1466.iteration)
 		$animation.operations:=Form:C1466.linear

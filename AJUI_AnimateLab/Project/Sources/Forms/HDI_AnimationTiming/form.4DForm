@@ -203,7 +203,7 @@
 				"Bouton": {
 					"type": "button",
 					"text": "Start animation",
-					"top": 678,
+					"top": 826,
 					"left": 508,
 					"width": 158,
 					"height": 33,
@@ -225,7 +225,7 @@
 				},
 				"rectsizeform": {
 					"type": "rectangle",
-					"top": 713,
+					"top": 861,
 					"left": 666,
 					"width": 20,
 					"height": 20,
@@ -244,7 +244,7 @@
 				},
 				"Picture1": {
 					"type": "picture",
-					"top": 627,
+					"top": 775,
 					"left": 14,
 					"width": 96,
 					"height": 96,
@@ -280,7 +280,7 @@
 				},
 				"Variable": {
 					"type": "input",
-					"top": 706,
+					"top": 854,
 					"left": 130,
 					"width": 277,
 					"height": 17,
@@ -296,7 +296,7 @@
 				},
 				"Invisible Button2": {
 					"type": "button",
-					"top": 627,
+					"top": 775,
 					"left": 7,
 					"width": 109,
 					"height": 96,
@@ -308,11 +308,101 @@
 				},
 				"Text6": {
 					"type": "text",
-					"text": "The animation timing function property (animType) sets how an animation progresses through the duration of each cycle. You can define a specific timing function for each animate attribute of the current 4D object (BGColorAnimType, FontAnimType, CRadiusAnimType) . So you can set an ease funtion for the color and a linear for the move of the 4D object.",
+					"text": "The animation timing function property (animType) sets how an animation progresses through the duration of each cycle. You can define a specific timing function for each animate attribute of the current 4D object (BGColorAnimType, FontAnimType, CRadiusAnimType) . For example, you can set an ease funtion for the color and a linear for the move of the 4D object.",
 					"top": 578,
-					"left": 124,
-					"width": 541,
-					"height": 108
+					"left": 16,
+					"width": 649,
+					"height": 77
+				},
+				"iteration_input": {
+					"type": "input",
+					"left": 285,
+					"top": 666,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.iteration",
+					"dataSourceTypeHint": "number"
+				},
+				"iterations_label": {
+					"type": "text",
+					"text": "Iterations",
+					"top": 666,
+					"left": 171,
+					"width": 104,
+					"height": 16
+				},
+				"direction_popup_input": {
+					"type": "dropdown",
+					"left": 285,
+					"top": 694,
+					"width": 183,
+					"height": 21,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.direction",
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/direction"
+					}
+				},
+				"direction_label": {
+					"type": "text",
+					"text": "Direction",
+					"top": 695,
+					"left": 171,
+					"width": 104,
+					"height": 16
+				},
+				"duration_label": {
+					"type": "text",
+					"text": "Duration",
+					"top": 724,
+					"left": 171,
+					"width": 104,
+					"height": 16
+				},
+				"duration_input": {
+					"type": "input",
+					"left": 285,
+					"top": 726,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.duration",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label": {
+					"type": "text",
+					"text": "Delay",
+					"top": 753,
+					"left": 171,
+					"width": 104,
+					"height": 16
+				},
+				"delay_input": {
+					"type": "input",
+					"left": 285,
+					"top": 754,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.delay",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label1": {
+					"type": "text",
+					"text": "Frequency",
+					"top": 781,
+					"left": 171,
+					"width": 104,
+					"height": 16
+				},
+				"frequency_input": {
+					"type": "input",
+					"left": 285,
+					"top": 782,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.frequency",
+					"dataSourceTypeHint": "number"
 				}
 			}
 		}

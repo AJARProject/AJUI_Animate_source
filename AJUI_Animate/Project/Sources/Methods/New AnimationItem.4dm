@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {"shared":true,"preemptive":"capable"}
   // New AnimationItem (  ) -> $operationItem
   //
   // $operationItem : (object) (return) operation item
@@ -30,7 +30,7 @@ $operationItem.hideAtTheEnd:=False:C215
 
   //timing
 $operationItem.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
-$operationItem.duration:=1
+$operationItem.duration:=1000  // millisec
 $operationItem.delay:=0
 $operationItem.frequency:=30
 

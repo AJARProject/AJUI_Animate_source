@@ -245,6 +245,118 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Bouton2.4dm"
+				},
+				"iteration_input": {
+					"type": "input",
+					"left": 144,
+					"top": 475,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.iteration",
+					"dataSourceTypeHint": "number"
+				},
+				"iterations_label": {
+					"type": "text",
+					"text": "Iterations",
+					"top": 475,
+					"left": 30,
+					"width": 104,
+					"height": 16
+				},
+				"direction_popup_input": {
+					"type": "dropdown",
+					"left": 144,
+					"top": 503,
+					"width": 183,
+					"height": 21,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.direction",
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/direction"
+					}
+				},
+				"direction_label": {
+					"type": "text",
+					"text": "Direction",
+					"top": 504,
+					"left": 30,
+					"width": 104,
+					"height": 16
+				},
+				"duration_label": {
+					"type": "text",
+					"text": "Duration",
+					"top": 533,
+					"left": 30,
+					"width": 104,
+					"height": 16
+				},
+				"duration_input": {
+					"type": "input",
+					"left": 144,
+					"top": 535,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.duration",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label": {
+					"type": "text",
+					"text": "Delay",
+					"top": 562,
+					"left": 30,
+					"width": 104,
+					"height": 16
+				},
+				"delay_input": {
+					"type": "input",
+					"left": 144,
+					"top": 563,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.delay",
+					"dataSourceTypeHint": "number"
+				},
+				"animationType_popup_input": {
+					"type": "dropdown",
+					"left": 144,
+					"top": 591,
+					"width": 183,
+					"height": 21,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.animationType",
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/animationtype"
+					}
+				},
+				"animationType_label": {
+					"type": "text",
+					"text": "Animation type",
+					"top": 591,
+					"left": 30,
+					"width": 104,
+					"height": 16
+				},
+				"delay_label1": {
+					"type": "text",
+					"text": "Frequency",
+					"top": 621,
+					"left": 30,
+					"width": 104,
+					"height": 16
+				},
+				"frequency_input": {
+					"type": "input",
+					"left": 144,
+					"top": 622,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.frequency",
+					"dataSourceTypeHint": "number"
 				}
 			}
 		}

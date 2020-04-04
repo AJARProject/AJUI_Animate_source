@@ -1,0 +1,62 @@
+﻿{
+	"direction": {
+		"editable": true,
+		"items": [
+			{
+				"text": "normal",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "reverse",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "alternate",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "reverse-alternate",
+				"ref": 4,
+				"editable": true
+			}
+		]
+	},
+	"animationtype": {
+		"editable": true,
+		"items": [
+			{
+				"text": "linear",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "ease",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "ease-in",
+				"ref": 3,
+				"editable": false
+			},
+			{
+				"text": "ease-out",
+				"ref": 5,
+				"editable": false
+			},
+			{
+				"text": "ease-in-out",
+				"ref": 4,
+				"editable": false
+			},
+			{
+				"text": "step",
+				"ref": 6,
+				"editable": false
+			}
+		]
+	}
+}

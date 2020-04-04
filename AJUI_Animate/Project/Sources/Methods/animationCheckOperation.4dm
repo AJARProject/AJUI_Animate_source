@@ -41,7 +41,7 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		
 		  //timing
 		If (Num:C11($operation_obj.duration)<=0)
-			$operation_obj.duration:=1
+			$operation_obj.duration:=1000  // millisec
 		End if 
 		
 		If (Num:C11($operation_obj.delay)<0)

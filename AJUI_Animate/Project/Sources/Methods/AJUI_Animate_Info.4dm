@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {"shared":true,"lang":"en"}
   // AJUI_Animate_info( ) -> return
   //
   // return : (text) (return) version
@@ -10,6 +10,6 @@
 
 C_TEXT:C284($0;$version_t)
 
-$version_t:="0.9-Build21"  // Sat, 28 Mar 2020 08:46:45 GMT
+$version_t:="0.9-Build22"  // Sat, 04 Apr 2020 11:47:45 GMT
 
 $0:="AJUI_Animate (v18) : "+$version_t

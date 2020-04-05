@@ -77,7 +77,7 @@
 				"Bouton": {
 					"type": "button",
 					"text": "Start animation",
-					"top": 760,
+					"top": 761,
 					"left": 507,
 					"width": 158,
 					"height": 33,
@@ -107,22 +107,6 @@
 					"events": [
 						"onClick"
 					]
-				},
-				"Variable": {
-					"type": "input",
-					"top": 786,
-					"left": 130,
-					"width": 277,
-					"height": 17,
-					"dataSource": "AJUI_Animate_info",
-					"textAlign": "left",
-					"focusable": false,
-					"fill": "transparent",
-					"borderStyle": "none",
-					"enterable": false,
-					"contextMenu": "none",
-					"dragging": "none",
-					"dropping": "custom"
 				},
 				"rectsizeform": {
 					"type": "rectangle",
@@ -216,6 +200,35 @@
 					"left": 55,
 					"width": 172,
 					"height": 16
+				},
+				"Variable1": {
+					"type": "input",
+					"top": 0,
+					"left": 0,
+					"width": 277,
+					"height": 17,
+					"dataSource": "AJUI_Animate_info",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"class": "info"
+				},
+				"btn_reset": {
+					"type": "button",
+					"text": "Reset",
+					"top": 761,
+					"left": 386,
+					"width": 101,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/btn_reset.4dm"
 				}
 			}
 		}

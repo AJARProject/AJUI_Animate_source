@@ -23,5 +23,65 @@
 				"editable": false
 			}
 		]
+	},
+	"jump-direction": {
+		"editable": true,
+		"items": [
+			{
+				"text": "top",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "bottom",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "left",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "right",
+				"ref": 4,
+				"editable": true
+			}
+		]
+	},
+	"timing-function": {
+		"editable": true,
+		"items": [
+			{
+				"text": "linear",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "ease",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "ease-in",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "ease-out",
+				"ref": 4,
+				"editable": true
+			},
+			{
+				"text": "ease-in-out",
+				"ref": 5,
+				"editable": true
+			},
+			{
+				"text": "step",
+				"ref": 6,
+				"editable": true
+			}
+		]
 	}
 }

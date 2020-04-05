@@ -20,6 +20,13 @@
    	text-align: center;
 }
 
+.info{
+   	font-family: Helvetica Neue;
+   	font-size: 10px;
+   	color: white;
+   	text-align: left;
+}
+
 .subSubTitle{
    	font-family: Helvetica Neue;
    	font-size: 18px;
@@ -31,4 +38,32 @@
     style: toolbar;
     stroke: grey;
     focusable: false;
+}
+
+.button1 {
+	font-family: Helvetica Neue;
+	font-size: 14px;
+	font-weight: bold;
+	stroke: grey;
+	focusable: true;
+}
+
+.placeholder{
+	font-family: Helvetica Neue;
+	font-size: 14px;
+	stroke: lightgrey;
+	focusable: false;
+}
+.input_field {
+	font-family: Helvetica Neue;
+	font-size: 14px;
+	stroke: black;
+	focusable: true;
+}
+
+.floatinglabel {
+	font-family: Helvetica Neue;
+	font-size: 9px;
+	stroke: blue;
+	focusable: false;
 }

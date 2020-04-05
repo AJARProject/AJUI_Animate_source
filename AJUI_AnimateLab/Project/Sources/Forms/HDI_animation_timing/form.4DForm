@@ -203,7 +203,7 @@
 				"Bouton": {
 					"type": "button",
 					"text": "Start animation",
-					"top": 826,
+					"top": 829,
 					"left": 508,
 					"width": 158,
 					"height": 33,
@@ -277,22 +277,6 @@
 					"height": 23,
 					"text": "Animation Timing function\t",
 					"class": "subSubTitle"
-				},
-				"Variable": {
-					"type": "input",
-					"top": 854,
-					"left": 130,
-					"width": 277,
-					"height": 17,
-					"dataSource": "AJUI_Animate_info",
-					"textAlign": "left",
-					"focusable": false,
-					"fill": "transparent",
-					"borderStyle": "none",
-					"enterable": false,
-					"contextMenu": "none",
-					"dragging": "none",
-					"dropping": "custom"
 				},
 				"Invisible Button2": {
 					"type": "button",
@@ -403,6 +387,35 @@
 					"height": 17,
 					"dataSource": "Form:C1466.frequency",
 					"dataSourceTypeHint": "number"
+				},
+				"Variable1": {
+					"type": "input",
+					"top": 0,
+					"left": 0,
+					"width": 277,
+					"height": 17,
+					"dataSource": "AJUI_Animate_info",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"class": "info"
+				},
+				"btn_reset": {
+					"type": "button",
+					"text": "Reset",
+					"top": 829,
+					"left": 387,
+					"width": 101,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/btn_reset.4dm"
 				}
 			}
 		}

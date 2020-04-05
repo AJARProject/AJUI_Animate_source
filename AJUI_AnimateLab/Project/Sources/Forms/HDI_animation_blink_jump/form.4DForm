@@ -1,0 +1,414 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"events": [
+		"onLoad",
+		"onPageChange",
+		"onValidate",
+		"onClick",
+		"onDoubleClick",
+		"onOutsideCall",
+		"onBeginDragOver",
+		"onDragOver",
+		"onDrop",
+		"onAfterKeystroke",
+		"onMenuSelect",
+		"onPluginArea",
+		"onAfterEdit",
+		"onTimer",
+		"onBoundVariableChange"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {}
+		},
+		{
+			"objects": {
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 130,
+					"left": 378,
+					"width": 265,
+					"height": 249,
+					"fill": "#dda0dd",
+					"strokeDashArray": [
+						6,
+						2
+					],
+					"stroke": "#808080"
+				},
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 130,
+					"left": 50,
+					"width": 265,
+					"height": 249,
+					"fill": "#dda0dd",
+					"strokeDashArray": [
+						6,
+						2
+					],
+					"stroke": "#808080"
+				},
+				"btn_jump": {
+					"type": "button",
+					"text": "Jump",
+					"top": 635,
+					"left": 508,
+					"width": 158,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/btn_jump.4dm"
+				},
+				"Picture1": {
+					"type": "picture",
+					"top": 581,
+					"left": 14,
+					"width": 96,
+					"height": 96,
+					"pictureFormat": "scaled",
+					"picture": "Images/Picture1.png"
+				},
+				"Invisible Button2": {
+					"type": "button",
+					"top": 581,
+					"left": 7,
+					"width": 109,
+					"height": 96,
+					"display": false,
+					"method": "ObjectMethods/Invisible Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"rectsizeform": {
+					"type": "rectangle",
+					"top": 667,
+					"left": 666,
+					"width": 20,
+					"height": 20,
+					"stroke": "#ff0000",
+					"fill": "#ff0000",
+					"visibility": "hidden"
+				},
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 686,
+					"height": 59,
+					"fill": "#005EA8",
+					"stroke": "transparent"
+				},
+				"HDI": {
+					"type": "text",
+					"top": 12,
+					"left": 0,
+					"width": 686,
+					"height": 36,
+					"text": "How Do I",
+					"class": "HDI"
+				},
+				"Title": {
+					"type": "text",
+					"top": 62,
+					"left": 0,
+					"width": 686,
+					"height": 30,
+					"text": "AJUI_Animate",
+					"class": "subTitle"
+				},
+				"Subtitle": {
+					"type": "text",
+					"top": 93,
+					"left": 0,
+					"width": 686,
+					"height": 23,
+					"text": "Blink and Jump",
+					"class": "subSubTitle"
+				},
+				"btn_blink_obj": {
+					"type": "button",
+					"text": "Blink Button",
+					"top": 223,
+					"left": 101,
+					"width": 132,
+					"height": 39,
+					"events": [
+						"onClick"
+					],
+					"class": "button1",
+					"method": "ObjectMethods/btn_blink_obj.4dm"
+				},
+				"btn_blink": {
+					"type": "button",
+					"text": "Blink",
+					"top": 635,
+					"left": 321,
+					"width": 158,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/btn_blink.4dm"
+				},
+				"iteration_blink_input": {
+					"type": "input",
+					"left": 164,
+					"top": 399,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.blink.iteration",
+					"dataSourceTypeHint": "number"
+				},
+				"iterations_label": {
+					"type": "text",
+					"text": "Iterations",
+					"top": 399,
+					"left": 50,
+					"width": 104,
+					"height": 16
+				},
+				"duration_label": {
+					"type": "text",
+					"text": "Duration",
+					"top": 424,
+					"left": 50,
+					"width": 104,
+					"height": 16
+				},
+				"duration_blink_input": {
+					"type": "input",
+					"left": 164,
+					"top": 426,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.blink.duration",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label": {
+					"type": "text",
+					"text": "Delay",
+					"top": 453,
+					"left": 50,
+					"width": 104,
+					"height": 16
+				},
+				"delay_blink_input": {
+					"type": "input",
+					"left": 164,
+					"top": 454,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.blink.delay",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label1": {
+					"type": "text",
+					"text": "Frequency",
+					"top": 481,
+					"left": 50,
+					"width": 104,
+					"height": 16
+				},
+				"frequency_blink_input": {
+					"type": "input",
+					"left": 164,
+					"top": 482,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.blink.frequency",
+					"dataSourceTypeHint": "number"
+				},
+				"btn_jump_obj": {
+					"type": "button",
+					"text": "Jump Button",
+					"top": 223,
+					"left": 450,
+					"width": 132,
+					"height": 39,
+					"events": [
+						"onClick"
+					],
+					"class": "button1",
+					"method": "ObjectMethods/btn_jump_obj.4dm"
+				},
+				"iteration_jump_input": {
+					"type": "input",
+					"left": 492,
+					"top": 399,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.jump.iteration",
+					"dataSourceTypeHint": "number"
+				},
+				"iterations_label1": {
+					"type": "text",
+					"text": "Iterations",
+					"top": 399,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"duration_label1": {
+					"type": "text",
+					"text": "Duration",
+					"top": 424,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"duration_jump_input": {
+					"type": "input",
+					"left": 492,
+					"top": 426,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.jump.duration",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label2": {
+					"type": "text",
+					"text": "Delay",
+					"top": 453,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"delay_jump_input": {
+					"type": "input",
+					"left": 492,
+					"top": 454,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.jump.delay",
+					"dataSourceTypeHint": "number"
+				},
+				"delay_label3": {
+					"type": "text",
+					"text": "Frequency",
+					"top": 481,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"frequency_jump.input": {
+					"type": "input",
+					"left": 492,
+					"top": 482,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.jump.frequency",
+					"dataSourceTypeHint": "number"
+				},
+				"offset_jump_label": {
+					"type": "text",
+					"text": "Offset",
+					"top": 509,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"offset_jump_input": {
+					"type": "input",
+					"left": 492,
+					"top": 510,
+					"width": 144,
+					"height": 17,
+					"dataSource": "Form:C1466.jump.offset",
+					"dataSourceTypeHint": "number"
+				},
+				"direction_jump_label": {
+					"type": "text",
+					"text": "Direction",
+					"top": 537,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"direction_jump_popup": {
+					"type": "dropdown",
+					"left": 492,
+					"top": 537,
+					"width": 87,
+					"height": 25,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.jump.direction",
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/jump-direction"
+					}
+				},
+				"animType_jump_label": {
+					"type": "text",
+					"text": "Animation type",
+					"top": 572,
+					"left": 378,
+					"width": 104,
+					"height": 16
+				},
+				"animType_jump_popup": {
+					"type": "dropdown",
+					"left": 492,
+					"top": 568,
+					"width": 87,
+					"height": 25,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.jump.animType",
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/timing-function"
+					}
+				},
+				"btn_reset": {
+					"type": "button",
+					"text": "Reset",
+					"top": 635,
+					"left": 200,
+					"width": 101,
+					"height": 33,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/btn_reset.4dm"
+				},
+				"Variable": {
+					"type": "input",
+					"top": 0,
+					"left": 0,
+					"width": 277,
+					"height": 17,
+					"dataSource": "AJUI_Animate_info",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"class": "info"
+				}
+			}
+		}
+	],
+	"formSizeAnchor": "rectsizeform"
+}

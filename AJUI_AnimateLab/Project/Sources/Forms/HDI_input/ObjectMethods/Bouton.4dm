@@ -8,7 +8,6 @@ Case of
 	: ($evt=On Load:K2:1)
 		Form:C1466.direction:="normal"
 		Form:C1466.iteration:=1
-		formGetObjectsCoordinates 
 		
 		  //OBJECT SET VISIBLE(*;"background@";False)
 		

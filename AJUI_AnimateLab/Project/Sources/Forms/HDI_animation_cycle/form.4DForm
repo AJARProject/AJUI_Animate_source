@@ -49,6 +49,22 @@
 					],
 					"stroke": "#808080"
 				},
+				"Input1": {
+					"type": "input",
+					"left": 80,
+					"top": 160,
+					"width": 510,
+					"height": 430,
+					"dataSource": "Form:C1466.description",
+					"scrollbarVertical": "hidden",
+					"styledText": true,
+					"allowFontColorPicker": true,
+					"enterable": false,
+					"focusable": false,
+					"contextMenu": "automatic",
+					"fill": "transparent",
+					"borderStyle": "none"
+				},
 				"RectTest": {
 					"type": "rectangle",
 					"top": 130,
@@ -151,7 +167,7 @@
 					"left": 0,
 					"width": 686,
 					"height": 23,
-					"text": "Animation Direction and Cycle function\t",
+					"text": "Animation direction and iteration-count properties\t",
 					"class": "subSubTitle"
 				},
 				"Input": {
@@ -204,5 +220,6 @@
 			}
 		}
 	],
-	"formSizeAnchor": "rectsizeform"
+	"formSizeAnchor": "rectsizeform",
+	"method": "method.4dm"
 }

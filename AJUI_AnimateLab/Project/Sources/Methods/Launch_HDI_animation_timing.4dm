@@ -14,8 +14,8 @@ Else
 	$o.duration:=2000
 	$o.frequency:=30
 	
-	$ref_win:=Open form window:C675("HDI_AnimationTiming";Plain form window:K39:10)
-	DIALOG:C40("HDI_AnimationTiming";$o)
+	$ref_win:=Open form window:C675("HDI_animation_timing";Plain form window:K39:10)
+	DIALOG:C40("HDI_animation_timing";$o)
 	CLOSE WINDOW:C154($ref_win)
 	
 End if 

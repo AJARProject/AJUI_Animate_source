@@ -11,8 +11,6 @@ $animationItem:=New AnimationItem
 $animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 $animationItem.target:="RectTest"
 
-$animationItem.animationDirection:=Form:C1466.direction
-$animationItem.iterationCount:=Form:C1466.iteration
 $animationItem.animType:="ease-in"
 $animationItem.ResizeAnimType:="ease"
 $animationItem.BGColorAnimType:="easy-out"
@@ -91,4 +89,5 @@ $animationItem6.moveX:=0
 $animationItem6.moveY:=-$area_height+60
 $animationItem6.backgroundColor:="#5E4FA2"
 Form:C1466.colTest.push($animationItem6)
+
 

@@ -2,6 +2,8 @@ $evt:=Form event code:C388
 
 Case of 
 	: ($evt=On Load:K2:1)
+		
+		  // ---- rectangle
 		Form:C1466.linear:=New collection:C1472()  // linear
 		$animItemLinear:=New AnimationItem 
 		$animItemLinear.operation:="Move, BGColor"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
@@ -82,6 +84,67 @@ Case of
 		$animItemStep2.backgroundColor:="blue"
 		Form:C1466.step.push($animItemStep2)
 		
+		  // ---- Background
+		Form:C1466.backgroundLinear:=New collection:C1472()  // linear
+		$animbackgroundLinear:=New AnimationItem 
+		$animbackgroundLinear.operation:="BGColor"  //BGColor only
+		$animbackgroundLinear.target:="background-linear"
+		$animbackgroundLinear.animType:="linear"
+		$animbackgroundLinear.backgroundColor:="blue"
+		$animbackgroundLinear.duration:=Form:C1466.duration
+		$animbackgroundLinear.delay:=Form:C1466.delay
+		$animbackgroundLinear.frequency:=Form:C1466.frequency
+		Form:C1466.backgroundLinear.push($animbackgroundLinear)
+		$animbackgroundLinear2:=OB Copy:C1225($animbackgroundLinear)
+		$animbackgroundLinear2.backgroundColor:="red"
+		Form:C1466.backgroundLinear.push($animbackgroundLinear2)
+		
+		Form:C1466.backgroundEase:=New collection:C1472()  // ease
+		$animbackgroundEase:=OB Copy:C1225($animbackgroundLinear)
+		$animbackgroundEase.target:="background-ease"
+		$animbackgroundEase.animType:="ease"
+		Form:C1466.backgroundEase.push($animbackgroundEase)
+		$animbackgroundEase2:=OB Copy:C1225($animbackgroundEase)
+		$animbackgroundEase2.backgroundColor:="red"
+		Form:C1466.backgroundEase.push($animbackgroundEase2)
+		
+		Form:C1466.backgroundEaseIn:=New collection:C1472()  // ease-in
+		$animbackgroundEaseIn:=OB Copy:C1225($animbackgroundLinear)
+		$animbackgroundEaseIn.target:="background-ease-in"
+		$animbackgroundEaseIn.animType:="ease-in"
+		Form:C1466.backgroundEaseIn.push($animbackgroundEaseIn)
+		$animbackgroundEaseIn2:=OB Copy:C1225($animbackgroundEaseIn)
+		$animbackgroundEaseIn2.backgroundColor:="red"
+		Form:C1466.backgroundEaseIn.push($animbackgroundEaseIn2)
+		
+		Form:C1466.backgroundEaseOut:=New collection:C1472()  // ease-out
+		$animbackgroundEaseOut:=OB Copy:C1225($animbackgroundLinear)
+		$animbackgroundEaseOut.target:="background-ease-out"
+		$animbackgroundEaseOut.animType:="ease-out"
+		Form:C1466.backgroundEaseOut.push($animbackgroundEaseOut)
+		$animbackgroundEaseOut2:=OB Copy:C1225($animbackgroundEaseOut)
+		$animbackgroundEaseOut2.backgroundColor:="red"
+		Form:C1466.backgroundEaseOut.push($animbackgroundEaseOut2)
+		
+		Form:C1466.backgroundEaseInOut:=New collection:C1472()  // ease-out
+		$animbackgroundEaseInOut:=OB Copy:C1225($animbackgroundLinear)
+		$animbackgroundEaseInOut.target:="background-ease-in-out"
+		$animbackgroundEaseInOut.animType:="ease-in-out"
+		Form:C1466.backgroundEaseInOut.push($animbackgroundEaseInOut)
+		$animbackgroundEaseInOut2:=OB Copy:C1225($animbackgroundEaseInOut)
+		$animbackgroundEaseInOut2.backgroundColor:="red"
+		Form:C1466.backgroundEaseInOut.push($animbackgroundEaseInOut2)
+		
+		Form:C1466.backgroundStep:=New collection:C1472()  // ease-in-out
+		$animbackgroundStep:=OB Copy:C1225($animbackgroundLinear)
+		$animbackgroundStep.target:="background-step"
+		$animItemStep.animType:="step"
+		$animItemStep.frequency:=5
+		Form:C1466.backgroundStep.push($animbackgroundStep)
+		$animbackgroundStep2:=OB Copy:C1225($animbackgroundStep)
+		$animbackgroundStep2.backgroundColor:="red"
+		Form:C1466.backgroundStep.push($animbackgroundStep2)
+		
 	: ($evt=On Clicked:K2:4)
 		
 		C_OBJECT:C1216($animation)
@@ -99,6 +162,18 @@ Case of
 		$animation.operations:=Form:C1466.easeInOut
 		$operations.push(OB Copy:C1225($animation))
 		$animation.operations:=Form:C1466.step
+		$operations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form:C1466.backgroundLinear
+		$operations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form:C1466.backgroundEase
+		$operations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form:C1466.backgroundEaseIn
+		$operations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form:C1466.backgroundEaseOut
+		$operations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form:C1466.backgroundEaseInOut
+		$operations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form:C1466.backgroundStep
 		$operations.push(OB Copy:C1225($animation))
 		animate ($operations)
 		

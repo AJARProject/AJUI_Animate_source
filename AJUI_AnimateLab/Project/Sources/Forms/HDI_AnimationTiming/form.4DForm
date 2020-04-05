@@ -36,7 +36,7 @@
 		},
 		{
 			"objects": {
-				"background1": {
+				"background-linear": {
 					"type": "rectangle",
 					"top": 122,
 					"left": 16,
@@ -55,7 +55,7 @@
 					"class": "animationTypeTxt",
 					"textAlign": "center"
 				},
-				"background2": {
+				"background-ease": {
 					"type": "rectangle",
 					"top": 197,
 					"left": 16,
@@ -84,7 +84,7 @@
 					"strokeWidth": 2,
 					"stroke": "#808080"
 				},
-				"background3": {
+				"background-ease-in": {
 					"type": "rectangle",
 					"top": 272,
 					"left": 16,
@@ -113,7 +113,7 @@
 					"strokeWidth": 2,
 					"stroke": "#808080"
 				},
-				"background4": {
+				"background-ease-out": {
 					"type": "rectangle",
 					"top": 347,
 					"left": 16,
@@ -142,7 +142,7 @@
 					"strokeWidth": 2,
 					"stroke": "#808080"
 				},
-				"background5": {
+				"background-ease-in-out": {
 					"type": "rectangle",
 					"top": 422,
 					"left": 16,
@@ -171,7 +171,7 @@
 					"strokeWidth": 2,
 					"stroke": "#808080"
 				},
-				"background6": {
+				"background-step": {
 					"type": "rectangle",
 					"top": 497,
 					"left": 16,

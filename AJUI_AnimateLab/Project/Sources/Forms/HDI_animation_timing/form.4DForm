@@ -421,5 +421,6 @@
 		}
 	],
 	"method": "method.4dm",
-	"formSizeAnchor": "rectsizeform"
+	"formSizeAnchor": "rectsizeform",
+	"menuBar": "Barre #1"
 }

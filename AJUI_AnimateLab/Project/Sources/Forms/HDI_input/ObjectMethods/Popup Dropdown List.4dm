@@ -1,1 +1,0 @@
-test_direction_cycle 

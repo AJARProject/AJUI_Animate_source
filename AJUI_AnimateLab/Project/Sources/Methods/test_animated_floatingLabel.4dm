@@ -30,8 +30,8 @@ Case of
 		$animationItem.operation:="Move,Resize,Font,BGColor"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:=$target_placeholder
 		$animationItem.animType:="ease-out"
-		$animationItem.duration:=100
-		$animationItem.frequency:=30
+		$animationItem.duration:=80
+		$animationItem.frequency:=60
 		$animationItem.resizeX:=6
 		$animationItem.resizeY:=6
 		$animationItem.moveX:=0
@@ -48,8 +48,8 @@ Case of
 		$animationItem.operation:="Move,Resize,Font,BGColor"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 		$animationItem.target:=$target_placeholder
 		$animationItem.animType:="ease-in"
-		$animationItem.duration:=250
-		$animationItem.frequency:=30
+		$animationItem.duration:=80
+		$animationItem.frequency:=60
 		$animationItem.resizeX:=-6
 		$animationItem.resizeY:=-6
 		$animationItem.moveX:=0
@@ -70,6 +70,7 @@ Case of
 			$operations:=New collection:C1472()
 			$operations.push(OB Copy:C1225($animation))
 			animate ($operations)
+			  // animate (Form[$float_def])
 			Form:C1466[$target_placeholder]:=True:C214
 		Else 
 			  //OBJECT SET RGB COLORS(*;$target_placeholder;"lightblue";Background color none)
@@ -84,6 +85,7 @@ Case of
 			$operations:=New collection:C1472()
 			$operations.push(OB Copy:C1225($animation))
 			animate ($operations)
+			  //animate (Form[$float_def])
 			Form:C1466[$target_placeholder]:=True:C214
 		Else 
 			  //OBJECT SET RGB COLORS(*;$target_placeholder;"lightblue";Background color none)
@@ -98,6 +100,7 @@ Case of
 			$operations:=New collection:C1472()
 			$operations.push(OB Copy:C1225($animation))
 			animate ($operations)
+			  //animate (Form[$float_def])
 			Form:C1466[$target_placeholder]:=True:C214
 		Else 
 			OBJECT SET RGB COLORS:C628(*;$target_placeholder;"blue";Background color none:K23:10)
@@ -113,6 +116,8 @@ Case of
 			$operations:=New collection:C1472()
 			$operations.push(OB Copy:C1225($animation))
 			animate ($operations)
+			  //animate (Form[$placeholder_def])
+			
 			Form:C1466[$target_placeholder]:=False:C215
 		Else 
 			OBJECT SET RGB COLORS:C628(*;$target_placeholder;"lightblue";Background color none:K23:10)

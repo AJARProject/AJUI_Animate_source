@@ -8,10 +8,11 @@ If (Count parameters:C259=0)
 Else 
 	C_OBJECT:C1216($o)
 	$o:=New object:C1471()
-	$o.Text:="Say Hello Animations"
+	$o.direction:="normal"
+	$o.iteration:=1
 	
-	$ref_win:=Open form window:C675("HDI_animation_font";Plain form window:K39:10)
-	DIALOG:C40("HDI_animation_font";$o)
+	$ref_win:=Open form window:C675("HDI_multi_animations";Plain form window:K39:10)
+	DIALOG:C40("HDI_multi_animations";$o)
 	CLOSE WINDOW:C154($ref_win)
 	
 End if 

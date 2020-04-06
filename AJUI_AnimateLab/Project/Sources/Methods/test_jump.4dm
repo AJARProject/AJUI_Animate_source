@@ -19,7 +19,7 @@ Case of
 		$animationItem.moveY:=-$offset
 	: ($direction="left")
 		$animationItem.moveX:=-$offset
-		$animationItem.moveY:=-0
+		$animationItem.moveY:=0
 	: ($direction="bottom")
 		$animationItem.moveX:=0
 		$animationItem.moveY:=$offset

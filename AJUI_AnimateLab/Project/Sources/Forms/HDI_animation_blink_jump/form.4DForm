@@ -410,5 +410,6 @@
 			}
 		}
 	],
-	"formSizeAnchor": "rectsizeform"
+	"formSizeAnchor": "rectsizeform",
+	"menuBar": "Barre #1"
 }

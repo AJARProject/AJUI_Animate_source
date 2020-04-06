@@ -206,11 +206,15 @@
 				},
 				"text_test_obj": {
 					"type": "input",
-					"left": 312,
-					"top": 439,
-					"width": 206,
-					"height": 33,
-					"dataSource": "Form:C1466.Text"
+					"left": 84,
+					"top": 436,
+					"width": 505,
+					"height": 17,
+					"dataSource": "Form:C1466.Text",
+					"hideFocusRing": true,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"textAlign": "center"
 				},
 				"Line": {
 					"type": "line",
@@ -545,5 +549,6 @@
 		}
 	],
 	"formSizeAnchor": "rectsizeform",
-	"method": "method.4dm"
+	"method": "method.4dm",
+	"menuBar": "Barre #1"
 }

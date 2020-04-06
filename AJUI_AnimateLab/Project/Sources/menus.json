@@ -22,6 +22,30 @@
 			"title": ":xliff:CommonMenuFile",
 			"items": [
 				{
+					"title": "HDI Cycle",
+					"method": "Launch_HDI_animation_cycle"
+				},
+				{
+					"title": "HDI Font",
+					"method": "Launch_HDI_animation_font"
+				},
+				{
+					"title": "HDI Blink & Jump",
+					"method": "Launch_HDI_animation_blink_jump"
+				},
+				{
+					"title": "HDI Timing",
+					"method": "Launch_HDI_animation_timing"
+				},
+				{
+					"title": "HDI Animations parallels",
+					"method": "Launch_HDI_multi_animations"
+				},
+				{
+					"title": "Item 1",
+					"isSeparator": true
+				},
+				{
 					"title": ":xliff:CommonMenuItemQuit",
 					"shortcutAccel": true,
 					"shortcutKey": "Q",

@@ -9,5 +9,4 @@ Case of
 		
 		
 		animate (Form:C1466.colFont)
-		Form:C1466.name:="of animation with 4D"
 End case 

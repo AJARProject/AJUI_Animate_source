@@ -6,7 +6,7 @@ $animationItem.target:="text_test_obj"
 $animationItem.animType:="linear"
 $animationItem.duration:=80
 $animationItem.delay:=0
-$animationItem.frequency:=30
+$animationItem.frequency:=60
   // <-
 $animationItem.moveX:=-50
 Form:C1466.colTest.push($animationItem)
@@ -38,3 +38,9 @@ Form:C1466.colTest.push($animationItem9)
   // ->
 $animationItem10:=OB Copy:C1225($animationItem2)
 Form:C1466.colTest.push($animationItem10)
+  // <-
+$animationItem11:=OB Copy:C1225($animationItem)
+Form:C1466.colTest.push($animationItem11)
+  // ->
+$animationItem12:=OB Copy:C1225($animationItem2)
+Form:C1466.colTest.push($animationItem12)

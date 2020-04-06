@@ -17,5 +17,23 @@ Case of
 		OBJECT SET FONT STYLE:C166(*;"text_test_obj";Form:C1466.fontStyle)
 		OBJECT SET RGB COLORS:C628(*;"text_test_obj";Form:C1466.foregroundColor;Background color none:K23:10)
 		
+		  //reset input fields & Placeholder
+		For each ($formObjectsCoordinate;Form:C1466.formObjectsCoordinates)
+			If ($formObjectsCoordinate.object="@_placeholder")  // reset placeholder
+				OBJECT SET FONT SIZE:C165(*;$formObjectsCoordinate.object;14)
+				OBJECT SET RGB COLORS:C628(*;$formObjectsCoordinate.object;"lightgrey";Background color none:K23:10)
+				Form:C1466[$formObjectsCoordinate.object]:=False:C215
+			End if 
+			If ($formObjectsCoordinate.object="@_input")  // reste input fields
+				OBJECT Get pointer:C1124(Object named:K67:5;$formObjectsCoordinate.object)->:=""
+			End if 
+			$left:=$formObjectsCoordinate.coordinates[0]
+			$top:=$formObjectsCoordinate.coordinates[1]
+			$right:=$formObjectsCoordinate.coordinates[2]
+			$bottom:=$formObjectsCoordinate.coordinates[3]
+			OBJECT SET COORDINATES:C1248(*;$formObjectsCoordinate.object;$left;$top;$right;$bottom)
+		End for each 
+		
+		
 End case 
 

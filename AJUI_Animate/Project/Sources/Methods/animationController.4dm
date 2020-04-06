@@ -33,23 +33,21 @@ $params:=$1
 $operations_col:=$params.operations
 $form_winRef:=$params.winRef
 $start_ms:=$params.startMS
-$animationDirection:=$params.animationDirection
+$animationDirection:=String:C10($params.direction)
 $ms_counter:=1
 $test:=New object:C1471
 
 $previousStep:=$start_ms
 $globalDelay:=0
 
-
-
   //animation direction & iteration
-If ($params.iterationCount=Null:C1517)
+If ($params.iterations=Null:C1517)
 	$operationIteration:=1
 Else 
-	$operationIteration:=$params.iterationCount
+	$operationIteration:=$params.iterations
 End if 
 
-If ($animationDirection=Null:C1517)
+If ($animationDirection="")
 	  //case normal 
 Else 
 	Case of 
@@ -97,7 +95,7 @@ Repeat
 			  //1.2 delay
 			If ($currentOperation.delay>0)
 				$globalDelay:=$globalDelay+$currentOperation.delay
-				DELAY PROCESS:C323(Current process:C322;$currentOperation.delay*0.06)  // Todo change delay to be in millisecond
+				DELAY PROCESS:C323(Current process:C322;$currentOperation.delay*0.06)
 			End if 
 			
 			  //1.3 executions

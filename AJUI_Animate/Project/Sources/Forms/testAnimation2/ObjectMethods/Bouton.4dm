@@ -36,8 +36,8 @@ Case of
 	: ($evt=On Clicked:K2:4)
 		
 		C_OBJECT:C1216($animation1;$animation2)
-		$animation1:=New object:C1471("animationDirection";"alternate-reverse";"iterationCount";2;"operations";Form:C1466.colTest)
-		$animation2:=New object:C1471("animationDirection";"alternate";"iterationCount";3;"operations";Form:C1466.colTest2)
+		$animation1:=New object:C1471("direction";"alternate-reverse";"iterations";2;"operations";Form:C1466.colTest)
+		$animation2:=New object:C1471("direction";"alternate";"iterations";3;"operations";Form:C1466.colTest2)
 		
 		animate (New collection:C1472($animation1;$animation2))
 		

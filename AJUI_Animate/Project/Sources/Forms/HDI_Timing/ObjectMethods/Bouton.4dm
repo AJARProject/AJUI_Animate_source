@@ -1,5 +1,4 @@
 $evt:=Form event code:C388
-  //OBJECT GET COORDINATES(*;"rect5";$l;$t;$r;$b)
 Case of 
 	: ($evt=On Load:K2:1)
 		
@@ -9,7 +8,7 @@ Case of
 		HDI_Timing 
 		
 		C_OBJECT:C1216($animation)
-		$animation:=New object:C1471("animationDirection";Form:C1466.direction;"iterationCount";Form:C1466.iteration)
+		$animation:=New object:C1471("direction";Form:C1466.direction;"iterations";Form:C1466.iteration)
 		Case of 
 			: (Form:C1466.animationType="linear")
 				$animation.operations:=Form:C1466.linear
@@ -27,11 +26,6 @@ Case of
 				$animation.operations:=Form:C1466.linear  // default linear
 		End case 
 		
-		animate (New collection:C1472($animation))
-		  //animate (New collection(Form.easeInOut;Form.linear;Form.easeIn;Form.ease;Form.easeOut;Form.step))
-		  //animate (New collection(Form.easeIn;Form.linear))
-		  //animate (Form.easeIn)
+		animate ($animation)
 		
-	: ($evt=On Unload:K2:2)
-		  //stopAnimate // TODO
 End case 

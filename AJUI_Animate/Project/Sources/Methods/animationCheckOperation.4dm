@@ -29,15 +29,6 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		$process:=False:C215
 	Else 
 		$operation:=$operation_obj.operation
-		  //global
-		If (String:C10($operation_obj.animationDirection)="")
-			$operation_obj.animationDirection:="normal"
-		End if 
-		
-		If (Num:C11($operation_obj.iterationCount)<=0)
-			$operation_obj.iterationCount:=1
-		End if 
-		
 		
 		  //timing
 		If (Num:C11($operation_obj.duration)<=0)

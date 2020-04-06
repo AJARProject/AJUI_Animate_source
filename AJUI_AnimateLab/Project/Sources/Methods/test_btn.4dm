@@ -8,8 +8,8 @@ $animationItem:=New AnimationItem
 $animationItem.operation:="Move,Resize,Font,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
 $animationItem.target:="btn_obj"
 
-$animationItem.animationDirection:=Form:C1466.direction
-$animationItem.iterationCount:=Form:C1466.iteration
+$animationItem.direction:=Form:C1466.direction
+$animationItem.iterations:=Form:C1466.iteration
 $animationItem.animType:="ease-in"
   //$animationItem.ResizeAnimType:="ease-in"
   //$animationItem.BGColorAnimType:="easy-out"

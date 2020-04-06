@@ -15,7 +15,7 @@ Case of
 		C_OBJECT:C1216($animation)
 		C_COLLECTION:C1488($operations)
 		  //expand
-		$animation:=New object:C1471("animationDirection";"normal";"iterationCount";1)
+		$animation:=New object:C1471("direction";"normal";"iterations";1)
 		$animation.operations:=Form:C1466.colTest
 		$operations:=New collection:C1472()
 		$operations.push(OB Copy:C1225($animation))

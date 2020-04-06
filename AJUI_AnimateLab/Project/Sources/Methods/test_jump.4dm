@@ -6,7 +6,7 @@ $animationItem:=New AnimationItem
 
 $animationItem.operation:="Move"  //Move
 $animationItem.target:="btn_jump_obj"
-$animationItem.iterationCount:=Form:C1466.jump.iteration
+$animationItem.iterations:=Form:C1466.jump.iteration
 $animationItem.duration:=Form:C1466.jump.duration
 $animationItem.delay:=Form:C1466.jump.delay
 $animationItem.frequency:=Form:C1466.jump.frequency

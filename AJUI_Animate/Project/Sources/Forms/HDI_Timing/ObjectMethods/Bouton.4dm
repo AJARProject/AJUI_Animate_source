@@ -25,7 +25,14 @@ Case of
 			Else 
 				$animation.operations:=Form:C1466.linear  // default linear
 		End case 
+		  //animate ($animation)
 		
-		animate ($animation)
+		C_COLLECTION:C1488($operations)
+		$animation.direction:=Form:C1466.direction
+		$animation.iterations:=Form:C1466.iteration
+		$operations:=New collection:C1472()
+		$operations.push(OB Copy:C1225($animation))
+		  //reverse_mi ($operations)
+		animate ($operations)
 		
 End case 

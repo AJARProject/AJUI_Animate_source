@@ -25,7 +25,6 @@ Case of
 		$animation.operations:=Form:C1466.step
 		$animations.push(OB Copy:C1225($animation))
 		
-		
 		animate ($animations)
 		
 End case 

@@ -23,7 +23,7 @@ C_OBJECT:C1216($1;$params)
 C_COLLECTION:C1488($operations_col;$executions_col;$temp_operations_col)
 C_LONGINT:C283($form_winRef)
 C_LONGINT:C283($nbOperation;$nbIteration;$steps;$currentStep)
-C_OBJECT:C1216($currentOperation;$animationItem;$test)
+C_OBJECT:C1216($currentOperation;$animationItem;$test;$defCurrent)
 C_REAL:C285($delay;$refresh;$msByStep;$start_ms)
 C_COLLECTION:C1488($animationItems_col)
 C_BOOLEAN:C305($reverse)
@@ -47,46 +47,55 @@ Else
 	$operationIteration:=$params.iterations
 End if 
 
-If ($animationDirection="")
+If (String:C10($animationDirection)="")
 	  //case normal 
+	$reverse:=False:C215
 Else 
 	Case of 
 		: ($animationDirection="normal")
+			$reverse:=False:C215
 			  //nothing to do
 			
 		: ($animationDirection="reverse")
 			$operations_col:=reverseOperationsProperties ($operations_col)
+			$reverse:=True:C214
 			
 		: ($animationDirection="alternate")
-			
 			$operationIteration:=$operationIteration*2
+			$reverse:=False:C215
 			
 			
 		: ($animationDirection="alternate-reverse")
-			
 			$operations_col:=reverseOperationsProperties ($operations_col)
 			$operationIteration:=$operationIteration*2
+			$reverse:=True:C214
 			
 			
 		Else 
 			  //case normal 
+			$reverse:=False:C215
 	End case 
 End if 
 
-$temp_operations_col:=$operations_col.copy()
 $nbIteration:=0
 
   //main animation loop
 
 Repeat 
-	$operations_col:=$temp_operations_col.copy()
 	$nbOperation:=0
+	
+	If ($reverse)
+		$defCurrent:=OB Copy:C1225($params.defEnd)
+	Else 
+		$defCurrent:=OB Copy:C1225($params.defStart)
+	End if 
+	
 	
 	Repeat 
 		  //1 processing operations
 		$currentOperation:=$operations_col[$nbOperation]
 		
-		If (animationCheckOperation ($currentOperation))  //at least one operation
+		If (animationCheckOperation ($currentOperation;$defCurrent))  //at least one operation
 			  //1.1 calculation refresh
 			$steps:=Round:C94($currentOperation.duration/1000*$currentOperation.frequency;0)
 			$msByStep:=1000/$currentOperation.frequency
@@ -109,7 +118,7 @@ Repeat
 				
 				$animationItem.step:=$currentStep
 				$animationItem.steps:=$steps
-				getCurrentAnimationItem ($currentOperation;$animationItem)
+				getCurrentAnimationItem ($currentOperation;$animationItem;$defCurrent)
 				
 				If (1=2)
 					If ($currentStep>0)
@@ -137,7 +146,7 @@ Repeat
 			End if 
 			
 			If ($nbOperation<$operations_col.length)
-				updateSameTargetInfos ($currentOperation.target;$operations_col;$animationItem)  //update with last value
+				updateDefCurrent ($defCurrent;$animationItem)  //update with last value
 			End if 
 			
 		End if 
@@ -150,10 +159,14 @@ Repeat
 	  //alternate cases
 	If ($animationDirection="alternate@")
 		If ($nbIteration<$operationIteration)
-			$temp_operations_col:=reverseOperationsProperties ($temp_operations_col)
+			$operations_col:=reverseOperationsProperties ($operations_col)
+			If ($reverse)
+				$reverse:=False:C215
+			Else 
+				$reverse:=True:C214
+			End if 
 		End if 
 	End if 
-	
 	
 Until ((checkStopProcess (Current process:C322)) | ($nbIteration=$operationIteration))
 

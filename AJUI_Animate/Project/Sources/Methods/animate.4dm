@@ -100,7 +100,8 @@ If ($animations.items#Null:C1517)
 				$animations.items[$i]:=New object:C1471("operations";New collection:C1472($animation_tmp))
 			End if 
 			
-			animationGetInfosTargets ($animations.items[$i])
+			animationGetDefTargets ($animations.items[$i])
+			
 		End for 
 		For each ($animation;$animations.items)
 			

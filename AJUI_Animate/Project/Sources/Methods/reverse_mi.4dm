@@ -36,27 +36,27 @@ If (Count parameters:C259=1)
 		
 		C_OBJECT:C1216($anim)
 		$anim:=New object:C1471()
-		$anim.moveX:=100  // right -> 100
-		$anim.moveY:=0
-		$anim.resizeX:=10
-		$anim.resizeY:=10  // 20 x 20
-		$anim.animType="easy-in"
+		$anim.left:=100  // right -> 100
+		$anim.top:=0
+		$anim.width:=10
+		$anim.height:=10  // 20 x 20
+		$anim.animType:="easy-in"
 		$o.op.push($anim)
 		
 		C_OBJECT:C1216($anim)
 		$anim:=New object:C1471()
-		$anim.moveX:=0
-		$anim.moveY:=100  // down 100
-		$anim.resizeX:=10
-		$anim.resizeY:=10  // 30 x 30
+		$anim.left:=0
+		$anim.top:=100  // down 100
+		$anim.width:=10
+		$anim.height:=10  // 30 x 30
 		$o.op.push($anim)
 		
 		C_OBJECT:C1216($anim)
 		$anim:=New object:C1471()
-		$anim.moveX:=-100
-		$anim.moveY:=0  // down 100
-		$anim.resizeX:=-10
-		$anim.resizeY:=-10  // 20 x 20
+		$anim.left:=-100
+		$anim.top:=0  // down 100
+		$anim.width:=-10
+		$anim.height:=-10  // 20 x 20
 		$o.op.push($anim)
 		
 		$col.push($o)
@@ -64,16 +64,17 @@ If (Count parameters:C259=1)
 	
 	  ///// Reverse
 	
-	C_COLLECTION:C1488($colrev)
+	C_COLLECTION:C1488($col_rev)
+	C_OBJECT:C1216($op;$el)
 	$col_rev:=$col.copy()
 	C_OBJECT:C1216($o)
 	  // Calculation of the absolute coordinate of the object at the end of the animation
 	For each ($el;$col_rev)
 		For each ($op;$el.op)
-			$el.coord.left:=$el.coord.left+$op.moveX
-			$el.coord.top:=$el.coord.top+$op.moveY
-			$el.coord.right:=$el.coord.right+$op.moveX+$op.resizeX
-			$el.coord.bottom:=$el.coord.bottom+$op.moveY+$op.resizeY
+			$el.coord.left:=$el.coord.left+$op.left
+			$el.coord.top:=$el.coord.top+$op.top
+			$el.coord.right:=$el.coord.right+$op.left+$op.width
+			$el.coord.bottom:=$el.coord.bottom+$op.top+$op.height
 		End for each 
 	End for each 
 	
@@ -83,10 +84,10 @@ If (Count parameters:C259=1)
 		For each ($op;$el.op)
 			
 			If (($op.operation="@Move@") | ($op.operation="@Resize@"))
-				$op.moveX:=-$op.moveX
-				$op.moveY:=-$op.moveY
-				$op.resizeX:=-$op.resizeX
-				$op.resizeY:=-$op.resizeY
+				$op.left:=-$op.left
+				$op.top:=-$op.top
+				$op.width:=-$op.width
+				$op.height:=-$op.height
 				
 				Case of 
 					: ($op.animType="easy-in")

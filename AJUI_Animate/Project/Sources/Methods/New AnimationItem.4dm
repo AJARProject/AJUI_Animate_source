@@ -35,12 +35,12 @@ $operationItem.delay:=0
 $operationItem.frequency:=30
 
   //move
-$operationItem.moveX:=0  //pixel
-$operationItem.moveY:=0  //pixel
+$operationItem.left:=0  //pixel
+$operationItem.top:=0  //pixel
 
   //resize
-$operationItem.resizeX:=0
-$operationItem.resizeY:=0
+$operationItem.width:=0
+$operationItem.height:=0
 
   //font
 $operationItem.fontName:="Arial"

@@ -19,10 +19,10 @@ Case of
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		
-		$animationItem.moveX:=200
-		$animationItem.moveY:=100
-		$animationItem.resizeX:=50
-		$animationItem.resizeY:=50
+		$animationItem.left:=200
+		$animationItem.top:=100
+		$animationItem.width:=50
+		$animationItem.height:=50
 		
 		$animationItem.backgroundColor:="#F79459"
 		

@@ -29,14 +29,13 @@ End if
 
 C_OBJECT:C1216($1;$operation)
 C_OBJECT:C1216($2;$animationItem)  // Used as value to return
-C_OBJECT:C1216($infosTarget)
+C_OBJECT:C1216($3;$defTargetCurrent)
 
 $operation:=$1
 $animationItem:=$2
+$defTargetCurrent:=$3[$operation.target]
 $steps:=$animationItem.steps
 $step:=$animationItem.step
-
-$infosTarget:=$operation.infosTarget
 
   //setup animation timing object
 $animationTiming_obj:=New object:C1471
@@ -49,24 +48,24 @@ If (($animationItem.operation="@Move@") | ($animationItem.operation="@Resize@"))
 	$animationTiming_obj.minValue:=0
 	$animationTiming_obj.animType:=checkSpecificType ($operation;"Move")  //move or resize use same type
 	
-	$animationTiming_obj.maxValue:=$operation.moveX
-	$moveX:=animationTiming ($animationTiming_obj)
+	$animationTiming_obj.maxValue:=$operation.left-$defTargetCurrent.left
+	$left:=animationTiming ($animationTiming_obj)
 	
-	$animationTiming_obj.maxValue:=$operation.moveY
-	$moveY:=animationTiming ($animationTiming_obj)
+	$animationTiming_obj.maxValue:=$operation.top-$defTargetCurrent.top
+	$top:=animationTiming ($animationTiming_obj)
 	
 	$animationTiming_obj.animType:=checkSpecificType ($operation;"Resize")  //move or resize use same type
-	$animationTiming_obj.maxValue:=$operation.resizeX
-	$resizeX:=animationTiming ($animationTiming_obj)
+	$animationTiming_obj.maxValue:=($operation.left+$operation.width)-($defTargetCurrent.left+$defTargetCurrent.width)
+	$width:=animationTiming ($animationTiming_obj)
 	
-	$animationTiming_obj.maxValue:=$operation.resizeY
-	$resizeY:=animationTiming ($animationTiming_obj)
+	$animationTiming_obj.maxValue:=($operation.top+$operation.height)-($defTargetCurrent.top+$defTargetCurrent.height)
+	$height:=animationTiming ($animationTiming_obj)
 	
 	  // Absolute Values
-	$animationItem.left:=$operation.infosTarget.left+$moveX
-	$animationItem.top:=$operation.infosTarget.top+$moveY
-	$animationItem.right:=$operation.infosTarget.right+$moveX+$resizeX
-	$animationItem.bottom:=$operation.infosTarget.bottom+$moveY+$resizeY
+	$animationItem.left:=$defTargetCurrent.left+$left
+	$animationItem.top:=$defTargetCurrent.top+$top
+	$animationItem.right:=$defTargetCurrent.right+$left+$width
+	$animationItem.bottom:=$defTargetCurrent.bottom+$top+$height
 	
 End if 
 
@@ -75,7 +74,7 @@ If ($animationItem.operation="@Font@")
 	If ($step=$steps)
 		$animationItem.fontSize:=$operation.fontSize
 	Else 
-		$animationTiming_obj.minValue:=$infosTarget.fontSize
+		$animationTiming_obj.minValue:=$defTargetCurrent.fontSize
 		$animationTiming_obj.maxValue:=$operation.fontSize
 		$animationTiming_obj.animType:=checkSpecificType ($operation;"Font")
 		$animationItem.fontSize:=Round:C94(animationTiming ($animationTiming_obj);0)
@@ -86,9 +85,9 @@ End if
 If ($animationItem.operation="@BGColor@")
 	$animationTiming_obj.animType:=checkSpecificType ($operation;"BGColor")
 	If ($operation.colorTransition)
-		$animationItem.foregroundColor:=calcColor ($operation.foregroundColor;$infosTarget.foregroundColor;$animationTiming_obj)
-		$animationItem.backgroundColor:=calcColor ($operation.backgroundColor;$infosTarget.backgroundColor;$animationTiming_obj)
-		$animationItem.altBackgroundColor:=calcColor ($operation.altBackgroundColor;$infosTarget.altBackgroundColor;$animationTiming_obj)
+		$animationItem.foregroundColor:=calcColor ($operation.foregroundColor;$defTargetCurrent.foregroundColor;$animationTiming_obj)
+		$animationItem.backgroundColor:=calcColor ($operation.backgroundColor;$defTargetCurrent.backgroundColor;$animationTiming_obj)
+		$animationItem.altBackgroundColor:=calcColor ($operation.altBackgroundColor;$defTargetCurrent.altBackgroundColor;$animationTiming_obj)
 	Else 
 		If ($step=1)
 			$animationItem.foregroundColor:=calcColor ($operation.foregroundColor)
@@ -103,7 +102,7 @@ If ($animationItem.operation="@CRadius@")
 	If ($step=$steps)
 		$animationItem.radius:=$operation.radius
 	Else 
-		$animationTiming_obj.minValue:=$infosTarget.radius
+		$animationTiming_obj.minValue:=$defTargetCurrent.radius
 		$animationTiming_obj.maxValue:=$operation.radius
 		$animationTiming_obj.animType:=checkSpecificType ($operation;"CRadius")
 		$animationItem.radius:=Round:C94(animationTiming ($animationTiming_obj);0)

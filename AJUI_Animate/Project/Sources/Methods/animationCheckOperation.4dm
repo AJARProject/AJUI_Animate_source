@@ -17,15 +17,17 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_OBJECT:C1216($1;$operation_obj)
-C_TEXT:C284($operation)
+C_OBJECT:C1216($1;$2;$operation_obj;$defCurrent)
+C_TEXT:C284($operation;$target)
 C_BOOLEAN:C305($0;$process)
 C_LONGINT:C283($frequency)
 
 $operation_obj:=$1
+$defCurrent:=$2
+$target:=$operation_obj.target
 
-If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
-	If ($operation_obj.operation="") | ($operation_obj.target="")
+If ($operation_obj.operation#Null:C1517) & ($target#Null:C1517)
+	If ($operation_obj.operation="") | ($target="")
 		$process:=False:C215
 	Else 
 		$operation:=$operation_obj.operation
@@ -52,16 +54,16 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 		If ($operation="@Move@")
 			$process:=True:C214
 			If (Not:C34($operation="@Resize@"))
-				$operation_obj.resizeX:=0
-				$operation_obj.resizeY:=0
+				$operation_obj.width:=0
+				$operation_obj.height:=0
 			End if 
 			
-			If (String:C10($operation_obj.moveX)="")
-				$operation_obj.moveX:=0
+			If (String:C10($operation_obj.left)="")
+				$operation_obj.left:=0
 			End if 
 			
-			If (String:C10($operation_obj.moveY)="")
-				$operation_obj.moveY:=0
+			If (String:C10($operation_obj.top)="")
+				$operation_obj.top:=0
 			End if 
 			
 		End if 
@@ -71,8 +73,8 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$process:=True:C214
 			
 			If (Not:C34($operation="@Move@"))
-				$operation_obj.moveX:=0
-				$operation_obj.moveY:=0
+				$operation_obj.left:=0
+				$operation_obj.top:=0
 			End if 
 		End if 
 		
@@ -81,15 +83,15 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$process:=True:C214
 			
 			If (String:C10($operation_obj.fontName)="")
-				$operation_obj.fontName:=$operation_obj.infosTarget.fontName
+				$operation_obj.fontName:=$defCurrent[$target].fontName
 			End if 
 			
 			If (Num:C11($operation_obj.fontSize)<=0)
-				$operation_obj.fontSize:=$operation_obj.infosTarget.fontSize
+				$operation_obj.fontSize:=$defCurrent[$target].fontSize
 			End if 
 			
 			If (Num:C11($operation_obj.fontStyle)<0)
-				$operation_obj.fontStyle:=$operation_obj.infosTarget.fontStyle
+				$operation_obj.fontStyle:=$defCurrent[$target].fontStyle
 			End if 
 		End if 
 		
@@ -98,28 +100,17 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$process:=True:C214
 			
 			If (String:C10($operation_obj.foregroundColor)="")
-				$operation_obj.foregroundColor:=$operation_obj.infosTarget.foregroundColor
-			End if 
-			
-			If (String:C10($operation_obj.infosTarget.foregroundColor)="")
-				$operation_obj.infosTarget.foregroundColor:=$operation_obj.foregroundColor
+				$operation_obj.foregroundColor:=$defCurrent[$target].foregroundColor
 			End if 
 			
 			If (String:C10($operation_obj.backgroundColor)="")
-				$operation_obj.backgroundColor:=$operation_obj.infosTarget.backgroundColor
-			End if 
-			
-			If (String:C10($operation_obj.infosTarget.backgroundColor)="")
-				$operation_obj.infosTarget.backgroundColor:=$operation_obj.backgroundColor
+				$operation_obj.backgroundColor:=$defCurrent[$target].backgroundColor
 			End if 
 			
 			If (String:C10($operation_obj.altBackgroundColor)="")
-				$operation_obj.altBackgroundColor:=$operation_obj.infosTarget.altBackgroundColor
+				$operation_obj.altBackgroundColor:=$defCurrent[$target].altBackgroundColor
 			End if 
 			
-			If (String:C10($operation_obj.infosTarget.altBackgroundColor)="")
-				$operation_obj.infosTarget.altBackgroundColor:=$operation_obj.altBackgroundColor
-			End if 
 		End if 
 		
 		  //CRadius
@@ -127,7 +118,7 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$process:=True:C214
 			
 			If (Num:C11($operation_obj.radius)<0)
-				$operation_obj.radius:=$operation_obj.infosTarget.radius
+				$operation_obj.radius:=$defCurrent[$target].radius
 			End if 
 		End if 
 		
@@ -136,7 +127,7 @@ If ($operation_obj.operation#Null:C1517) & ($operation_obj.target#Null:C1517)
 			$process:=True:C214
 			
 			If (Num:C11($operation_obj.borderStyle)<0)
-				$operation_obj.borderStyle:=$operation_obj.infosTarget.borderStyle
+				$operation_obj.borderStyle:=$defCurrent[$target].borderStyle
 			End if 
 		End if 
 		

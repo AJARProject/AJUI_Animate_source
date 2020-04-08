@@ -51,7 +51,8 @@
 					"width": 30,
 					"height": 30,
 					"borderRadius": 0,
-					"fill": "transparent"
+					"fill": "automatic",
+					"stroke": "automatic"
 				},
 				"Bouton": {
 					"type": "button",

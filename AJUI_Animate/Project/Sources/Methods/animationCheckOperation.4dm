@@ -54,8 +54,8 @@ If ($operation_obj.operation#Null:C1517) & ($target#Null:C1517)
 		If ($operation="@Move@")
 			$process:=True:C214
 			If (Not:C34($operation="@Resize@"))
-				$operation_obj.width:=0
-				$operation_obj.height:=0
+				$operation_obj.width:=$defCurrent[$target].width
+				$operation_obj.height:=$defCurrent[$target].height
 			End if 
 			
 			If (String:C10($operation_obj.left)="")
@@ -73,8 +73,8 @@ If ($operation_obj.operation#Null:C1517) & ($target#Null:C1517)
 			$process:=True:C214
 			
 			If (Not:C34($operation="@Move@"))
-				$operation_obj.left:=0
-				$operation_obj.top:=0
+				$operation_obj.left:=$defCurrent[$target].left
+				$operation_obj.top:=$defCurrent[$target].top
 			End if 
 		End if 
 		

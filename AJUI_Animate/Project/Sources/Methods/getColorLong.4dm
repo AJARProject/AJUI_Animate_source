@@ -23,7 +23,7 @@ C_OBJECT:C1216($color_obj)
 
 $color_t:=$1
 
-If ($color_t="none") | ($color_t="transparent")
+If ($color_t="none") | ($color_t="transparent") | ($color_t="")
 	$color_l:=Background color none:K23:10
 Else 
 	If (Position:C15("0x";$color_t;1)=1)

@@ -19,12 +19,12 @@ Case of
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		
-		$animationItem.left:=200
-		$animationItem.top:=100
-		$animationItem.width:=60
-		$animationItem.height:=60
+		$animationItem.left:=270
+		$animationItem.top:=130
+		$animationItem.width:=70
+		$animationItem.height:=70
 		
-		$animationItem.backgroundColor:="none"
+		$animationItem.backgroundColor:="red"
 		
 		$animationItem.radius:=30
 		
@@ -36,8 +36,8 @@ Case of
 	: ($evt=On Clicked:K2:4)
 		
 		C_OBJECT:C1216($animation1;$animation2)
-		$animation1:=New object:C1471("direction";"alternate-reverse";"iterations";2;"operations";Form:C1466.colTest)
-		$animation2:=New object:C1471("direction";"alternate";"iterations";3;"operations";Form:C1466.colTest2)
+		$animation1:=New object:C1471("direction";"alternate";"iterations";3;"operations";Form:C1466.colTest)
+		$animation2:=New object:C1471("direction";"alternate-reverse";"iterations";3;"operations";Form:C1466.colTest2)
 		
 		animate (New collection:C1472($animation1;$animation2))
 		

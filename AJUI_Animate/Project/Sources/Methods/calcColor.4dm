@@ -27,6 +27,7 @@ C_LONGINT:C283($operationColor;$originColor)
 C_TEXT:C284($colorRGB_t)
 
 If (Value type:C1509($1)=Is text:K8:3)
+	
 	$operationColor:=getColorLong ($1)
 Else 
 	$operationColor:=$1

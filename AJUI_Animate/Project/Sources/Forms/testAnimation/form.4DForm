@@ -57,8 +57,8 @@
 				},
 				"RectTest": {
 					"type": "rectangle",
-					"top": 43,
-					"left": 52,
+					"top": 40,
+					"left": 50,
 					"width": 30,
 					"height": 30,
 					"borderRadius": 0,

@@ -33,8 +33,8 @@ If ($defCurrent[$target]#Null:C1517)
 	If ($lastAnimationItem.operation="@Move@") | ($lastAnimationItem.operation="@Resize@")
 		$defCurrent[$target].left:=$lastAnimationItem.left
 		$defCurrent[$target].top:=$lastAnimationItem.top
-		$defCurrent[$target].right:=$lastAnimationItem.right
-		$defCurrent[$target].bottom:=$lastAnimationItem.bottom
+		$defCurrent[$target].width:=$lastAnimationItem.right-$lastAnimationItem.left
+		$defCurrent[$target].height:=$lastAnimationItem.bottom-$lastAnimationItem.top
 	End if 
 	
 	If ($lastAnimationItem.operation="@Font@")

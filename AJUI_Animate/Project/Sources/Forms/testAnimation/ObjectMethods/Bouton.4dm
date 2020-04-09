@@ -19,10 +19,10 @@ Case of
 		$animationItem.delay:=0
 		$animationItem.frequency:=30
 		
-		$animationItem.left:=200
-		$animationItem.top:=100
-		$animationItem.width:=60
-		$animationItem.height:=60
+		$animationItem.left:=250
+		$animationItem.top:=140
+		$animationItem.width:=90
+		$animationItem.height:=90
 		
 		$animationItem.backgroundColor:="#F79459"
 		
@@ -34,10 +34,10 @@ Case of
 		
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.delay:=60
-		$animationItem2.left:=-200
-		$animationItem2.top:=-100
-		$animationItem2.width:=-30
-		$animationItem2.height:=-30
+		$animationItem2.left:=50
+		$animationItem2.top:=40
+		$animationItem2.width:=30
+		$animationItem2.height:=30
 		
 		$animationItem2.radius:=5
 		
@@ -50,33 +50,46 @@ Case of
 		$animationItem3.delay:=60
 		$animationItem3.operation:="Move,BGColor"
 		$animationItem3.animType:="ease"
-		$animationItem3.left:=200
-		$animationItem3.top:=0
+		$animationItem3.left:=250
+		$animationItem3.top:=40
+		$animationItem3.width:=30
+		$animationItem3.height:=30
+		
 		$animationItem3.backgroundColor:="red"
 		$animationItem3.backgroundColorType:="ease"
 		Form:C1466.colTest.push($animationItem3)
 		
 		$animationItem4:=OB Copy:C1225($animationItem)
 		$animationItem4.delay:=60
+		$animationItem4.target:="RectTest1"
 		$animationItem4.operation:="Move,BGColor"
-		$animationItem4.left:=0
-		$animationItem4.top:=100
+		$animationItem4.top:=140
+		$animationItem4.left:=250
+		$animationItem4.width:=30
+		$animationItem4.height:=30
+		
 		$animationItem4.backgroundColor:="yellow"
 		Form:C1466.colTest.push($animationItem4)
 		
 		$animationItem5:=OB Copy:C1225($animationItem)
 		$animationItem5.delay:=60
+		$animationItem5.target:="RectTest1"
 		$animationItem5.operation:="Move,BGColor"
-		$animationItem5.left:=-200
-		$animationItem5.top:=0
+		$animationItem5.left:=50
+		$animationItem5.top:=140
+		$animationItem5.width:=30
+		$animationItem5.height:=30
+		
 		$animationItem5.backgroundColor:="purple"
 		Form:C1466.colTest.push($animationItem5)
 		
 		$animationItem6:=OB Copy:C1225($animationItem)
 		$animationItem6.delay:=60
 		$animationItem6.operation:="Move,BGColor"
-		$animationItem6.left:=0
-		$animationItem6.top:=-100
+		$animationItem6.left:=50
+		$animationItem6.top:=40
+		$animationItem6.width:=30
+		$animationItem6.height:=30
 		$animationItem6.backgroundColor:="#5E4FA2"
 		Form:C1466.colTest.push($animationItem6)
 		

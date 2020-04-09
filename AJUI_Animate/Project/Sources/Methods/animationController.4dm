@@ -20,7 +20,7 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($1;$params)
-C_COLLECTION:C1488($operations_col;$executions_col;$temp_operations_col)
+C_COLLECTION:C1488($operations_col;$executions_col;$reverse_operations_col)
 C_LONGINT:C283($form_winRef)
 C_LONGINT:C283($nbOperation;$nbIteration;$steps;$currentStep)
 C_OBJECT:C1216($currentOperation;$animationItem;$test;$defCurrent)
@@ -57,16 +57,17 @@ Else
 			  //nothing to do
 			
 		: ($animationDirection="reverse")
-			$operations_col:=reverseOperationsProperties ($operations_col)
+			$reverse_operations_col:=reverseOperationsProperties ($params)
 			$reverse:=True:C214
 			
 		: ($animationDirection="alternate")
+			$reverse_operations_col:=reverseOperationsProperties ($params)
 			$operationIteration:=$operationIteration*2
 			$reverse:=False:C215
 			
 			
 		: ($animationDirection="alternate-reverse")
-			$operations_col:=reverseOperationsProperties ($operations_col)
+			$reverse_operations_col:=reverseOperationsProperties ($params)
 			$operationIteration:=$operationIteration*2
 			$reverse:=True:C214
 			
@@ -93,7 +94,11 @@ Repeat
 	
 	Repeat 
 		  //1 processing operations
-		$currentOperation:=$operations_col[$nbOperation]
+		If ($reverse)
+			$currentOperation:=$reverse_operations_col[$nbOperation]
+		Else 
+			$currentOperation:=$operations_col[$nbOperation]
+		End if 
 		
 		If (animationCheckOperation ($currentOperation;$defCurrent))  //at least one operation
 			  //1.1 calculation refresh
@@ -159,7 +164,6 @@ Repeat
 	  //alternate cases
 	If ($animationDirection="alternate@")
 		If ($nbIteration<$operationIteration)
-			$operations_col:=reverseOperationsProperties ($operations_col)
 			If ($reverse)
 				$reverse:=False:C215
 			Else 

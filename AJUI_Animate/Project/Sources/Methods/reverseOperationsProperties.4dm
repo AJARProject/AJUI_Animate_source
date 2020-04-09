@@ -1,9 +1,9 @@
 //%attributes = {}
-  // reverseOperationProperties ( $operation_obj ) 
+  // reverseOperationProperties ( $params ) 
   //
-  // $operation_obj : (object) operation
+  // $params : (object) params
   //
-  // reverse the properties and the collection
+  // reverse the operations
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -17,67 +17,138 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_COLLECTION:C1488($0;$1;$operations_col)
-C_OBJECT:C1216($operation_obj)
-C_TEXT:C284($operation)
+C_OBJECT:C1216($1;$params)
+C_COLLECTION:C1488($0;$operations_col;$reverse_operations_col;$reverseOrder_col;$uniqueTarget_col)
+C_OBJECT:C1216($tempNext_obj;$tempPrev_obj)
+C_LONGINT:C283($positionNext;$positionPrevious;$positionUniqueTarget)
+C_TEXT:C284($operation;$target)
 
-$operations_col:=$1.reverse()
 
-For each ($operation_obj;$operations_col)
+$operations_col:=$1.operations.reverse()
+$reverse_operations_col:=New collection:C1472
+
+$reverseOrder_col:=$1.operations.extract("target").reverse()
+$uniqueTarget_col:=$reverseOrder_col.distinct()
+$tempPrev_obj:=OB Copy:C1225($1.defEnd)
+
+For each ($target;$reverseOrder_col)
 	
-	$operation:=$operation_obj.operation
-	
-	  //reverse operation
-	If (($operation="@Move@") | ($operation="@Resize@"))
-		$operation_obj.left:=-$operation_obj.left
-		$operation_obj.top:=-$operation_obj.top
-		$operation_obj.width:=-$operation_obj.width
-		$operation_obj.height:=-$operation_obj.height
+	If (String:C10($target)="")  //if no target or null, use an empty object (reverse collection size = operation collection size)
+		$reverse_operations_col.push(New object:C1471)
+	Else 
+		$positionUniqueTarget:=$uniqueTarget_col.indexOf($target)
 		
-		Case of 
-			: ($operation_obj.animType="easy-in")
-				$operation_obj.animType:="easy-out"
-			: ($operation_obj.animType="easy-out")
-				$operation_obj.animType:="easy-in"
-		End case 
-		
-	End if 
-	
-	If ($operation="@Font@")
-		If (String:C10($operation_obj.FontAnimType)#"")
-			Case of 
-				: ($operation_obj.FontAnimType="easy-in")
-					$operation_obj.FontAnimType:="easy-out"
-				: ($operation_obj.FontAnimType="easy-out")
-					$operation_obj.FontAnimType:="easy-in"
-			End case 
+		If ($positionUniqueTarget>-1)
+			  //found a last target operation
+			$positionPrevious:=$operations_col.extract("target").indexOf($target)
+			
+			$tempPrev_obj[$target].positionPrev:=$positionPrevious
+			
+			$tempPrev_obj[$target].operation:=$operations_col[$positionPrevious].operation
+			$tempPrev_obj[$target].frequency:=$operations_col[$positionPrevious].frequency
+			$tempPrev_obj[$target].duration:=$operations_col[$positionPrevious].duration
+			$tempPrev_obj[$target].delay:=$operations_col[$positionPrevious].delay
+			$tempPrev_obj[$target].hideAtTheEnd:=$operations_col[$positionPrevious].hideAtTheEnd
+			$tempPrev_obj[$target].colorTransition:=$operations_col[$positionPrevious].colorTransition
+			$tempPrev_obj[$target].animType:=$operations_col[$positionPrevious].animType
+			$tempPrev_obj[$target].FontAnimType:=$operations_col[$positionPrevious].FontAnimType
+			$tempPrev_obj[$target].BGColorAnimType:=$operations_col[$positionPrevious].BGColorAnimType
+			$tempPrev_obj[$target].CRadiusAnimType:=$operations_col[$positionPrevious].CRadiusAnimType
+			
+			  //remove last target found
+			$uniqueTarget_col.remove($positionUniqueTarget)
 		End if 
 		
-	End if 
-	
-	If ($operation="@BGColor@")
+		  //check another operation with same target, if not : build with start def
+		$positionNext:=$operations_col.extract("target").indexOf($target;$tempPrev_obj[$target].positionPrev+1)
 		
-		If (String:C10($operation_obj.BGColorAnimType)#"")
-			Case of 
-				: ($operation_obj.BGColorAnimType="easy-in")
-					$operation_obj.BGColorAnimType:="easy-out"
-				: ($operation_obj.BGColorAnimType="easy-out")
-					$operation_obj.BGColorAnimType:="easy-in"
-			End case 
+		If ($positionNext=-1)  //start def case
+			$tempNext_obj:=OB Copy:C1225($1.defStart[$target])
+			$tempNext_obj.target:=$target
+			
+		Else 
+			$tempNext_obj:=OB Copy:C1225($operations_col[$positionNext])
 		End if 
-	End if 
-	
-	If ($operation="@CRadius@")
 		
-		If (String:C10($operation_obj.CRadiusAnimType)#"")
+		$tempNext_obj.operation:=$tempPrev_obj[$target].operation
+		$tempNext_obj.frequency:=$tempPrev_obj[$target].frequency
+		$tempNext_obj.duration:=$tempPrev_obj[$target].duration
+		$tempNext_obj.delay:=$tempPrev_obj[$target].delay
+		$tempNext_obj.hideAtTheEnd:=$tempPrev_obj[$target].hideAtTheEnd
+		$tempNext_obj.colorTransition:=$tempPrev_obj[$target].colorTransition
+		
+		$operation:=$tempNext_obj.operation
+		
+		If (($operation="@Move@") | ($operation="@Resize@"))
 			Case of 
-				: ($operation_obj.CRadiusAnimType="easy-in")
-					$operation_obj.CRadiusAnimType:="easy-out"
-				: ($operation_obj.CRadiusAnimType="easy-out")
-					$operation_obj.CRadiusAnimType:="easy-in"
+				: ($tempPrev_obj[$target].animType="easy-in")
+					$tempNext_obj.animType:="easy-out"
+				: ($tempPrev_obj[$target].animType="easy-out")
+					$tempNext_obj.animType:="easy-in"
+				Else 
+					$tempNext_obj.animType:=$tempPrev_obj[$target].animType
 			End case 
+			
 		End if 
+		
+		If ($operation="@Font@")
+			If (String:C10($tempPrev_obj[$target].FontAnimType)#"")
+				Case of 
+					: ($tempPrev_obj[$target].FontAnimType="easy-in")
+						$tempNext_obj.FontAnimType:="easy-out"
+					: ($tempPrev_obj[$target].FontAnimType="easy-out")
+						$tempNext_obj.FontAnimType:="easy-in"
+					Else 
+						$tempNext_obj.FontAnimType:=$tempPrev_obj[$target].FontAnimType
+				End case 
+			Else 
+				OB REMOVE:C1226($tempNext_obj;"FontAnimType")
+			End if 
+		End if 
+		
+		If ($operation="@BGColor@")
+			
+			If (String:C10($tempPrev_obj[$target].BGColorAnimType)#"")
+				Case of 
+					: ($tempPrev_obj[$target].BGColorAnimType="easy-in")
+						$tempNext_obj.BGColorAnimType:="easy-out"
+					: ($tempPrev_obj[$target].BGColorAnimType="easy-out")
+						$tempNext_obj.BGColorAnimType:="easy-in"
+					Else 
+						$tempNext_obj.BGColorAnimType:=$tempPrev_obj[$target].BGColorAnimType
+				End case 
+			Else 
+				OB REMOVE:C1226($tempNext_obj;"BGColorAnimType")
+			End if 
+		End if 
+		
+		If ($operation="@CRadius@")
+			
+			If (String:C10($tempPrev_obj[$target].CRadiusAnimType)#"")
+				Case of 
+					: ($tempPrev_obj[$target].CRadiusAnimType="easy-in")
+						$tempNext_obj.CRadiusAnimType:="easy-out"
+					: ($tempPrev_obj[$target].CRadiusAnimType="easy-out")
+						$tempNext_obj.CRadiusAnimType:="easy-in"
+					Else 
+						$tempNext_obj.CRadiusAnimType:=$tempPrev_obj[$target].CRadiusAnimType
+				End case 
+			Else 
+				OB REMOVE:C1226($tempNext_obj;"CRadiusAnimType")
+			End if 
+		End if 
+		
+		  //push
+		$reverse_operations_col.push($tempNext_obj)
+		  //update previous if not start
+		If ($positionNext>-1)
+			$tempPrev_obj[$target]:=OB Copy:C1225($operations_col[$positionNext])
+			$tempPrev_obj[$target].positionPrev:=$positionNext
+		End if 
+		
+		
 	End if 
 End for each 
 
-$0:=$operations_col
+
+$0:=$reverse_operations_col

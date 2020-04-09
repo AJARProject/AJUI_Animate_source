@@ -45,27 +45,31 @@ $animationTiming_obj.current_step:=$step
 
   //move or/and resize
 If (($animationItem.operation="@Move@") | ($animationItem.operation="@Resize@"))
-	$animationTiming_obj.minValue:=0
-	$animationTiming_obj.animType:=checkSpecificType ($operation;"Move")  //move or resize use same type
 	
-	$animationTiming_obj.maxValue:=$operation.left-$defTargetCurrent.left
+	$animationTiming_obj.animType:=checkSpecificType ($operation;"Move")  //move or resize use same type
+	$animationTiming_obj.minValue:=$defTargetCurrent.left
+	$animationTiming_obj.maxValue:=$operation.left
 	$left:=animationTiming ($animationTiming_obj)
 	
-	$animationTiming_obj.maxValue:=$operation.top-$defTargetCurrent.top
+	$animationTiming_obj.minValue:=$defTargetCurrent.top
+	$animationTiming_obj.maxValue:=$operation.top
 	$top:=animationTiming ($animationTiming_obj)
 	
+	
 	$animationTiming_obj.animType:=checkSpecificType ($operation;"Resize")  //move or resize use same type
-	$animationTiming_obj.maxValue:=($operation.left+$operation.width)-($defTargetCurrent.left+$defTargetCurrent.width)
+	$animationTiming_obj.minValue:=$defTargetCurrent.width
+	$animationTiming_obj.maxValue:=$operation.width
 	$width:=animationTiming ($animationTiming_obj)
 	
-	$animationTiming_obj.maxValue:=($operation.top+$operation.height)-($defTargetCurrent.top+$defTargetCurrent.height)
+	$animationTiming_obj.minValue:=$defTargetCurrent.height
+	$animationTiming_obj.maxValue:=$operation.height
 	$height:=animationTiming ($animationTiming_obj)
 	
 	  // Absolute Values
-	$animationItem.left:=$defTargetCurrent.left+$left
-	$animationItem.top:=$defTargetCurrent.top+$top
-	$animationItem.right:=$defTargetCurrent.right+$left+$width
-	$animationItem.bottom:=$defTargetCurrent.bottom+$top+$height
+	$animationItem.left:=$left
+	$animationItem.top:=$top
+	$animationItem.right:=$left+$width
+	$animationItem.bottom:=$top+$height
 	
 End if 
 

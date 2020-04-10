@@ -20,7 +20,8 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($1;$operation_obj)
-C_TEXT:C284($0;$2;$type;$operation)
+C_TEXT:C284($2;$operation)
+C_VARIANT:C1683($type;$0)
 
 $operation_obj:=$1
 $operation:=$2

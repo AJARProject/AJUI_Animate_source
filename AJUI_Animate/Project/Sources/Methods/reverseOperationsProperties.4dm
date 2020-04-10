@@ -81,6 +81,8 @@ For each ($target;$reverseOrder_col)
 		
 		If (($operation="@Move@") | ($operation="@Resize@"))
 			Case of 
+				: (Value type:C1509($tempPrev_obj[$target].animType)=Is collection:K8:32)
+					$tempNext_obj.animType:=$tempPrev_obj[$target].animType
 				: ($tempPrev_obj[$target].animType="easy-in")
 					$tempNext_obj.animType:="easy-out"
 				: ($tempPrev_obj[$target].animType="easy-out")

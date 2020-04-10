@@ -19,6 +19,10 @@ Case of
 		$animation.operations:=Form:C1466.animationJump
 		$operations:=New collection:C1472()
 		$operations.push(OB Copy:C1225($animation))
+		If (Form:C1466.debug=1)
+			SET DATABASE PARAMETER:C642(Debug log recording:K37:34;1+2+4)  //extended tabbed format, all processes
+		Else 
+			SET DATABASE PARAMETER:C642(Debug log recording:K37:34;0)  //extended tabbed format, all processes
+		End if 
 		animate ($operations)
-		
 End case 

@@ -45,8 +45,12 @@ If ($operation_obj.operation#Null:C1517) & ($target#Null:C1517)
 			$operation_obj.frequency:=30
 		End if 
 		
-		If (String:C10($operation_obj.animType)="")
-			$operation_obj.animType:="linear"
+		If (Value type:C1509($operation_obj.animType)=Is text:K8:3)
+			If (String:C10($operation_obj.animType)="")
+				$operation_obj.animType:="linear"
+			End if 
+		Else 
+			  // must be a collection
 		End if 
 		
 		

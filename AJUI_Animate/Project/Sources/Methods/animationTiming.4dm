@@ -14,7 +14,7 @@
   // - minValue : (real) (optional) min value - default 0
   // - maxValue : (real) max value
   // - type : (text) (Optional) linear, ease, ease-in, ease-out, ease-in-out, 
-  //   cubic-bezier (x1,y1,x2,y2), step(number of step) - default "linear"
+  //   cubic_bezier (x1,y1,x2,y2), step(number of step) - default "linear"
   //
   // - transitionValue : (real) result of the calculation for the current step
   // 
@@ -55,6 +55,7 @@ C_REAL:C285($a;$b;$c;$d;$t)
 C_REAL:C285($x0;$x1;$x2;$x3)
 C_REAL:C285($y0;$y1;$y2;$y3)
 C_TEXT:C284($type)
+C_VARIANT:C1683($animType_type)
 
 $animation_obj:=$1
 $current_step:=$animation_obj.current_step
@@ -68,43 +69,58 @@ End if
 
 $minValue:=Num:C11($animation_obj.minValue)
 $maxValue:=$animation_obj.maxValue
-$type:=$animation_obj.animType  // Todo check if we pass some specific cubic-bezier values
+
+$animType_type:=Value type:C1509($animation_obj.animType)
+
+  //if we pass some specific cubic-bezier values
 
   // starting point
 $x0:=0
 $y0:=0
-
 Case of 
-	: ($type="ease")
-		$x1:=0.25
-		$y1:=0.1
-		$x2:=0.25
-		$y2:=1
+	: ($animType_type=Is collection:K8:32)
+		$x1:=$animation_obj.animType[0]
+		$y1:=$animation_obj.animType[1]
+		$x2:=$animation_obj.animType[2]
+		$y2:=$animation_obj.animType[3]
+	: ($animType_type=Is text:K8:3)
+		$type:=$animation_obj.animType
+		Case of 
+			: ($type="ease")
+				$x1:=0.25
+				$y1:=0.1
+				$x2:=0.25
+				$y2:=1
+				
+			: ($type="ease-in")
+				$x1:=0.42
+				$y1:=0
+				$x2:=1
+				$y2:=1
+				
+			: ($type="ease-out")
+				$x1:=0
+				$y1:=0
+				$x2:=0.58
+				$y2:=1
+				
+			: ($type="ease-in-out")
+				$x1:=0.42
+				$y1:=0
+				$x2:=0.58
+				$y2:=1
+				
+			Else 
+				  //  "linear"
+				$x1:=0.5
+				$y1:=0.5
+				$x2:=0.5
+				$y2:=0.5
+		End case 
 		
-	: ($type="ease-in")
-		$x1:=0.42
-		$y1:=0
-		$x2:=1
-		$y2:=1
-		
-	: ($type="ease-out")
-		$x1:=0
-		$y1:=0
-		$x2:=0.58
-		$y2:=1
-		
-	: ($type="ease-in-out")
-		$x1:=0.42
-		$y1:=0
-		$x2:=0.58
-		$y2:=1
 		
 	Else 
-		  //  "linear"
-		$x1:=0.5
-		$y1:=0.5
-		$x2:=0.5
-		$y2:=0.5
+		
 End case 
 
   // ending point

@@ -25,6 +25,12 @@ Case of
 		$animation.operations:=Form:C1466.step
 		$animations.push(OB Copy:C1225($animation))
 		
+		$animation.operations:=Form:C1466.bezier
+		$animations.push(OB Copy:C1225($animation))
+		
+		$animation.operations:=Form:C1466.easeInOut
+		$animations.push(OB Copy:C1225($animation))
+		
 		animate ($animations)
 		
 End case 

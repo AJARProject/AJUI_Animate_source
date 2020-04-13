@@ -151,7 +151,7 @@
 					"left": 0,
 					"width": 686,
 					"height": 23,
-					"text": "Animation direction and iteration-count properties\t",
+					"text": "Animation direction and iteration properties\t",
 					"class": "subSubTitle"
 				},
 				"Input": {
@@ -195,7 +195,7 @@
 				},
 				"Text1": {
 					"type": "text",
-					"text": "animation-iteration-count",
+					"text": "animation-iteration",
 					"top": 640,
 					"left": 55,
 					"width": 172,
@@ -229,6 +229,22 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/btn_reset.4dm"
+				},
+				"Input2": {
+					"type": "input",
+					"left": 740,
+					"top": 141,
+					"width": 510,
+					"height": 430,
+					"dataSource": "Form:C1466.description",
+					"scrollbarVertical": "hidden",
+					"styledText": false,
+					"allowFontColorPicker": true,
+					"enterable": true,
+					"focusable": false,
+					"contextMenu": "automatic",
+					"fill": "transparent",
+					"borderStyle": "none"
 				}
 			}
 		}

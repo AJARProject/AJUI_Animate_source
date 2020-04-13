@@ -11,7 +11,7 @@ Else
 	$o.direction:="normal"
 	$o.iteration:=1
 	$o.delay:=500
-	$o.duration:=2000
+	$o.duration:=8000
 	$o.frequency:=30
 	
 	$ref_win:=Open form window:C675("HDI_animation_timing";Plain form window:K39:10)

@@ -9,18 +9,18 @@ Else
 	C_OBJECT:C1216($o)
 	$o:=New object:C1471()
 	$o.blink:=New object:C1471()
-	$o.blink.iteration:=5
+	$o.blink.iteration:=1
 	$o.blink.duration:=4000
-	$o.blink.delay:=100
+	$o.blink.delay:=0
 	$o.blink.frequency:=2
 	$o.jump:=New object:C1471()
 	$o.jump.iteration:=5
-	$o.jump.duration:=300
+	$o.jump.duration:=350
 	$o.jump.delay:=0
-	$o.jump.frequency:=30
+	$o.jump.frequency:=60
 	$o.jump.offset:=30
 	$o.jump.direction:="top"
-	$o.jump.animType:="linear"
+	$o.jump.animType:="ease"
 	
 	
 	$ref_win:=Open form window:C675("HDI_animation_blink_jump";Plain form window:K39:10)

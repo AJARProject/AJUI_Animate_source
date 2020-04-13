@@ -13,20 +13,7 @@
 	"bottomMargin": 0,
 	"events": [
 		"onLoad",
-		"onPageChange",
-		"onValidate",
-		"onClick",
-		"onDoubleClick",
-		"onOutsideCall",
-		"onBeginDragOver",
-		"onDragOver",
-		"onDrop",
-		"onAfterKeystroke",
-		"onMenuSelect",
-		"onPluginArea",
-		"onAfterEdit",
-		"onTimer",
-		"onBoundVariableChange"
+		"onTimer"
 	],
 	"windowTitle": "window title",
 	"destination": "detailScreen",
@@ -45,15 +32,15 @@
 					"fill": "#dda0dd",
 					"stroke": "#c0c0c0"
 				},
-				"Text": {
+				"text-linear": {
 					"type": "text",
-					"text": "linear - move",
+					"text": "linear - move - color",
 					"top": 122,
 					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
-					"textAlign": "center"
+					"textAlign": "right"
 				},
 				"background-ease": {
 					"type": "rectangle",
@@ -64,15 +51,15 @@
 					"fill": "#dda0dd",
 					"stroke": "#c0c0c0"
 				},
-				"Text1": {
+				"text-ease": {
 					"type": "text",
-					"text": "ease - move",
+					"text": "ease - move - color",
 					"top": 197,
 					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
-					"textAlign": "center"
+					"textAlign": "right"
 				},
 				"rect2": {
 					"type": "rectangle",
@@ -93,15 +80,15 @@
 					"fill": "#dda0dd",
 					"stroke": "#c0c0c0"
 				},
-				"Text2": {
+				"text-ease-in": {
 					"type": "text",
-					"text": "ease-in - move",
+					"text": "ease-in - move - color",
 					"top": 272,
 					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
-					"textAlign": "center"
+					"textAlign": "right"
 				},
 				"rect3": {
 					"type": "rectangle",
@@ -122,15 +109,15 @@
 					"fill": "#dda0dd",
 					"stroke": "#c0c0c0"
 				},
-				"Text3": {
+				"text-ease-out": {
 					"type": "text",
-					"text": "ease-out - move",
+					"text": "ease-out - move,color",
 					"top": 347,
 					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
-					"textAlign": "center"
+					"textAlign": "right"
 				},
 				"rect4": {
 					"type": "rectangle",
@@ -151,15 +138,15 @@
 					"fill": "#dda0dd",
 					"stroke": "#c0c0c0"
 				},
-				"Text4": {
+				"text-ease-in-out": {
 					"type": "text",
-					"text": "ease-in-out - move",
+					"text": "ease-in-out - move,color",
 					"top": 422,
 					"left": 16,
 					"width": 626,
 					"height": 62,
 					"class": "animationTypeTxt",
-					"textAlign": "center"
+					"textAlign": "right"
 				},
 				"rect5": {
 					"type": "rectangle",
@@ -180,15 +167,15 @@
 					"fill": "#dda0dd",
 					"stroke": "#c0c0c0"
 				},
-				"Text5": {
+				"text-step": {
 					"type": "text",
-					"text": "step - move",
+					"text": "step - move - color",
 					"top": 491,
 					"left": 16,
 					"width": 626,
-					"height": 16,
+					"height": 62,
 					"class": "animationTypeTxt",
-					"textAlign": "center"
+					"textAlign": "right"
 				},
 				"rect6": {
 					"type": "rectangle",
@@ -203,7 +190,7 @@
 				"Bouton": {
 					"type": "button",
 					"text": "Start animation",
-					"top": 829,
+					"top": 849,
 					"left": 508,
 					"width": 158,
 					"height": 33,
@@ -225,7 +212,7 @@
 				},
 				"rectsizeform": {
 					"type": "rectangle",
-					"top": 861,
+					"top": 881,
 					"left": 666,
 					"width": 20,
 					"height": 20,
@@ -244,7 +231,7 @@
 				},
 				"Picture1": {
 					"type": "picture",
-					"top": 775,
+					"top": 795,
 					"left": 14,
 					"width": 96,
 					"height": 96,
@@ -280,7 +267,7 @@
 				},
 				"Invisible Button2": {
 					"type": "button",
-					"top": 775,
+					"top": 795,
 					"left": 7,
 					"width": 109,
 					"height": 96,
@@ -293,15 +280,15 @@
 				"Text6": {
 					"type": "text",
 					"text": "The animation timing function property (animType) sets how an animation progresses through the duration of each cycle. You can define a specific timing function for each animate attribute of the current 4D object (BGColorAnimType, FontAnimType, CRadiusAnimType) . For example, you can set an ease funtion for the color and a linear for the move of the 4D object.",
-					"top": 578,
-					"left": 16,
+					"top": 650,
+					"left": 17,
 					"width": 649,
 					"height": 77
 				},
 				"iteration_input": {
 					"type": "input",
-					"left": 285,
-					"top": 666,
+					"left": 130,
+					"top": 730,
 					"width": 144,
 					"height": 17,
 					"dataSource": "Form:C1466.iteration",
@@ -310,15 +297,15 @@
 				"iterations_label": {
 					"type": "text",
 					"text": "Iterations",
-					"top": 666,
-					"left": 171,
+					"top": 730,
+					"left": 16,
 					"width": 104,
 					"height": 16
 				},
 				"direction_popup_input": {
 					"type": "dropdown",
-					"left": 285,
-					"top": 694,
+					"left": 130,
+					"top": 758,
 					"width": 183,
 					"height": 21,
 					"events": [
@@ -326,29 +313,29 @@
 					],
 					"dataSource": "Form:C1466.direction",
 					"choiceList": {
-						"$ref": "/SOURCES/lists.json#/direction"
+						"$ref": "/SOURCES/lists.json#/animation-direction"
 					}
 				},
 				"direction_label": {
 					"type": "text",
 					"text": "Direction",
-					"top": 695,
-					"left": 171,
+					"top": 759,
+					"left": 16,
 					"width": 104,
 					"height": 16
 				},
 				"duration_label": {
 					"type": "text",
 					"text": "Duration",
-					"top": 724,
-					"left": 171,
+					"top": 730,
+					"left": 387,
 					"width": 104,
 					"height": 16
 				},
 				"duration_input": {
 					"type": "input",
-					"left": 285,
-					"top": 726,
+					"left": 501,
+					"top": 732,
 					"width": 144,
 					"height": 17,
 					"dataSource": "Form:C1466.duration",
@@ -357,15 +344,15 @@
 				"delay_label": {
 					"type": "text",
 					"text": "Delay",
-					"top": 753,
-					"left": 171,
+					"top": 759,
+					"left": 387,
 					"width": 104,
 					"height": 16
 				},
 				"delay_input": {
 					"type": "input",
-					"left": 285,
-					"top": 754,
+					"left": 501,
+					"top": 760,
 					"width": 144,
 					"height": 17,
 					"dataSource": "Form:C1466.delay",
@@ -374,15 +361,15 @@
 				"delay_label1": {
 					"type": "text",
 					"text": "Frequency",
-					"top": 781,
-					"left": 171,
+					"top": 787,
+					"left": 387,
 					"width": 104,
 					"height": 16
 				},
 				"frequency_input": {
 					"type": "input",
-					"left": 285,
-					"top": 782,
+					"left": 501,
+					"top": 788,
 					"width": 144,
 					"height": 17,
 					"dataSource": "Form:C1466.frequency",
@@ -407,7 +394,7 @@
 				"btn_reset": {
 					"type": "button",
 					"text": "Reset",
-					"top": 829,
+					"top": 849,
 					"left": 387,
 					"width": 101,
 					"height": 33,
@@ -416,6 +403,35 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/btn_reset.4dm"
+				},
+				"background-bezier": {
+					"type": "rectangle",
+					"top": 573,
+					"left": 17,
+					"width": 650,
+					"height": 70,
+					"fill": "#dda0dd",
+					"stroke": "#c0c0c0"
+				},
+				"text-bezier": {
+					"type": "text",
+					"text": "bezier - move - color",
+					"top": 567,
+					"left": 17,
+					"width": 628,
+					"height": 62,
+					"class": "animationTypeTxt",
+					"textAlign": "right"
+				},
+				"rect7": {
+					"type": "rectangle",
+					"top": 585,
+					"left": 27,
+					"width": 50,
+					"height": 50,
+					"fill": "#0433FF",
+					"strokeWidth": 2,
+					"stroke": "#808080"
 				}
 			}
 		}

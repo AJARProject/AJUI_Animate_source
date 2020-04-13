@@ -406,20 +406,6 @@
 					"dragging": "none",
 					"dropping": "custom",
 					"class": "info"
-				},
-				"Check Box": {
-					"type": "checkbox",
-					"text": "Debug",
-					"top": 602,
-					"left": 498,
-					"width": 156,
-					"height": 20,
-					"events": [
-						"onClick"
-					],
-					"dataSource": "Form:C1466.debug",
-					"dataSourceTypeHint": "boolean",
-					"method": "ObjectMethods/Check Box.4dm"
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-OBJECT SET VISIBLE:C603(*;"background@";False:C215)
+OBJECT SET VISIBLE:C603(*;"background@";True:C214)
 
 $evt:=Form event code:C388
 Case of 

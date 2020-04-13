@@ -1,6 +1,4 @@
 C_LONGINT:C283($evt)
-C_LONGINT:C283(Form:C1466.iteration)
-C_TEXT:C284(Form:C1466.direction)
 $evt:=Form event code:C388
 
 

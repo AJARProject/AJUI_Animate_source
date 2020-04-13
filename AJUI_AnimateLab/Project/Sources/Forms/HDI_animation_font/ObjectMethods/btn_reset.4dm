@@ -1,10 +1,11 @@
 OBJECT SET VISIBLE:C603(*;"background@";False:C215)
+C_LONGINT:C283($backgroundColor;$foregroundColor)
+C_LONGINT:C283($left;$top;$right;$bottom)
+C_OBJECT:C1216($formObjectsCoordinate)
 
 $evt:=Form event code:C388
 Case of 
 	: ($evt=On Load:K2:1)
-		C_LONGINT:C283(Form:C1466.fontSize;Form:C1466.fontStyle)
-		C_LONGINT:C283(Form:C1466.foregroundColor;Form:C1466.backgroundColor)
 		Form:C1466.fontSize:=OBJECT Get font size:C1070(*;"text_test_obj")
 		Form:C1466.fontStyle:=OBJECT Get font style:C1071(*;"text_test_obj")
 		OBJECT GET RGB COLORS:C1074(*;"text_test_obj";$foregroundColor;$backgroundColor)
@@ -18,7 +19,7 @@ Case of
 		OBJECT SET RGB COLORS:C628(*;"text_test_obj";Form:C1466.foregroundColor;Background color none:K23:10)
 		
 		  //reset input fields & Placeholder
-		For each ($formObjectsCoordinate;Form:C1466.formObjectsCoordinates)
+		For each ($formObjectsCoordinate;Form:C1466.formObjects)
 			If ($formObjectsCoordinate.object="@_placeholder")  // reset placeholder
 				OBJECT SET FONT SIZE:C165(*;$formObjectsCoordinate.object;14)
 				OBJECT SET RGB COLORS:C628(*;$formObjectsCoordinate.object;"lightgrey";Background color none:K23:10)

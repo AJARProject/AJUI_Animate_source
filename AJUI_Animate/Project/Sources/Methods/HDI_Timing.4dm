@@ -83,6 +83,6 @@ Form:C1466.step.push($animItemStep)
 Form:C1466.bezier:=New collection:C1472()  // bezier
 $animItemBezier:=OB Copy:C1225($animItemLinear)
 $animItemBezier.target:="rect7"
-$animItemBezier.animType:=New collection:C1472(0.45;-0.67;0.53;1.63)
+$animItemBezier.animType:=New collection:C1472(0.45;-0.17;0.53;1.13)
 $animItemBezier.top:=485
 Form:C1466.bezier.push($animItemBezier)

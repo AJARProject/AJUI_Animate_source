@@ -237,6 +237,14 @@
 						"onClick"
 					],
 					"visibility": "hidden"
+				},
+				"Text6": {
+					"type": "text",
+					"text": "This example launches a series of parallel and sequential animations with their own definitions for each.",
+					"top": 632,
+					"left": 50,
+					"width": 570,
+					"height": 77
 				}
 			}
 		}

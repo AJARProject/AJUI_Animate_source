@@ -134,7 +134,7 @@
 					"left": 0,
 					"width": 686,
 					"height": 23,
-					"text": "Animation Font Resize & Move ",
+					"text": "Animation Font Resize,  Move & Color change",
 					"class": "subSubTitle"
 				},
 				"Variable1": {
@@ -528,6 +528,14 @@
 					"height": 0,
 					"stroke": "#c0c0c0",
 					"startPoint": "topLeft"
+				},
+				"Text6": {
+					"type": "text",
+					"text": "This example launches a series of parallel and sequential animations with their own definitions for each.",
+					"top": 632,
+					"left": 50,
+					"width": 570,
+					"height": 77
 				}
 			},
 			"entryOrder": [

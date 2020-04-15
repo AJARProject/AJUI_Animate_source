@@ -240,7 +240,7 @@
 				},
 				"Text6": {
 					"type": "text",
-					"text": "This example launches a series of parallel and sequential animations with their own definitions for each.",
+					"text": "This example launches a series of parallel and sequential animations with their own definitions for each objects.",
 					"top": 632,
 					"left": 50,
 					"width": 570,

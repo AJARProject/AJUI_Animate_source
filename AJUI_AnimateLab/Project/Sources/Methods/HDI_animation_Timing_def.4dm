@@ -97,14 +97,14 @@ Form:C1466.backgroundEaseInOut.push($animbackgroundEaseInOut)
 Form:C1466.backgroundStep:=New collection:C1472()  // ease-in-out
 $animbackgroundStep:=OB Copy:C1225($animbackgroundLinear)
 $animbackgroundStep.target:="background-step"
-$animItemStep.animType:="step"
-$animItemStep.frequency:=5
+$animbackgroundStep.animType:="step"
+$animbackgroundStep.frequency:=5
 Form:C1466.backgroundStep.push($animbackgroundStep)
 
 Form:C1466.backgroundBezier:=New collection:C1472()  // bezier(0.45;-0.17;0.53;1.13)
 $animbackgroundBezier:=OB Copy:C1225($animbackgroundLinear)
 $animbackgroundBezier.target:="background-bezier"
-$animItemStep.animType:=New collection:C1472(0.45;-0.17;0.53;1.13)
+$animbackgroundBezier.animType:=New collection:C1472(0.45;-0.17;0.53;1.13)
 Form:C1466.backgroundBezier.push($animbackgroundBezier)
 
   // ---- Text
@@ -147,12 +147,12 @@ Form:C1466.textEaseInOut.push($animtextEaseInOut)
 Form:C1466.textStep:=New collection:C1472()  // ease-in-out
 $animtextStep:=OB Copy:C1225($animtextLinear)
 $animtextStep.target:="text-step"
-$animItemStep.animType:="step"
-$animItemStep.frequency:=5
+$animtextStep.animType:="step"
+$animtextStep.frequency:=5
 Form:C1466.textStep.push($animtextStep)
 
 Form:C1466.textBezier:=New collection:C1472()  // bezier(0.45;-0.17;0.53;1.13)
 $animtextBezier:=OB Copy:C1225($animtextLinear)
 $animtextBezier.target:="text-bezier"
-$animItemStep.animType:=New collection:C1472(0.45;-0.17;0.53;1.13)
+$animtextBezier.animType:=New collection:C1472(0.45;-0.17;0.53;1.13)
 Form:C1466.textBezier.push($animtextBezier)

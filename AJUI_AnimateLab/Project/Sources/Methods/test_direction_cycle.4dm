@@ -74,7 +74,7 @@ Form:C1466.colTest.push($animationItem5)
 $animationItem6:=OB Copy:C1225($animationItem)
 $animationItem6.frequency:=8
 $animationItem6.delay:=60
-$animationItem6.operation:="Move,Resize,BGColor"
+$animationItem6.operation:="Move,BGColor"
 $rect_width:=30
 $rect_height:=30
 $animationItem6.width:=$rect_width

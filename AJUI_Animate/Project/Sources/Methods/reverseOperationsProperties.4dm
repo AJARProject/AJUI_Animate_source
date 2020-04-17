@@ -1,9 +1,10 @@
 //%attributes = {}
-  // reverseOperationProperties ( $params ) 
+  // reverseOperationProperties ( $params ) -> $reverse_operations_col
   //
   // $params : (object) params
+  // $reverse_operations_col : (collection) (return) reverse operation collection
   //
-  // reverse the operations
+  // Get a collection of reverse operations
 
 If (False:C215)
 	  // ----------------------------------------------------

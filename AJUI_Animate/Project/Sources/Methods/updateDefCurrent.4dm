@@ -1,11 +1,10 @@
 //%attributes = {}
-  // updateSameTargetInfos ( $currentTarget ; $operations_col ; $lastAnimationItem  ) 
+  // updateSameTargetInfos ( $defCurrent ; $lastAnimationItem  ) 
   //
-  // $currentTarget : (text target of the current operation
-  // $operations_col : (collection) operations
+  // $defCurrent : (object) current definition of the target
   // $lastAnimationItem : (object) last animation item executed 
   //
-  // Updates the target informations for next operations.
+  // Updates the current target definition for next operations.
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -14,8 +13,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: updateSameTargetInfos
 	  // Description
-	  // At the end of an operation, this method updates the information 
-	  // for next operations (same collection/process) using the same target as the current one. 
+	  // At the end of an operation, this method updates the current target definition 
+	  // for next operations (same collection/process)
 	  //
 	  // ----------------------------------------------------
 End if 

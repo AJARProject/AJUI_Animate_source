@@ -3,7 +3,7 @@
   //
   // $item_obj : (object) item
   //
-  // collects the start definition of each unique target in the item.
+  // collects the start and end definition of each unique target in the item.
 
 If (False:C215)
 	  // ----------------------------------------------------

@@ -1,8 +1,9 @@
 //%attributes = {}
-  // getCurrentAnimationItem ( $operation ; $animationItem )
+  // getCurrentAnimationItem ( $operation ; $animationItem; $defTargetCurrent )
   //
   // $operation : (object) description
-  // $animationItem : (object) return value
+  // $animationItem : (object) animation item to apply
+  // $defTargetCurrent : (object) current target definition
   //
   // This method will return the current state for an animated operation
   // It will return an animation item that contain all information on the target (coordinate, color, font, etc.)

@@ -1,7 +1,8 @@
 //%attributes = {}
-  // animationCheckOperation ( $operation_obj ) 
+  // animationCheckOperation ( $operation_obj ; $defCurrent ) 
   //
   // $operation_obj : (object) operation
+  // $defCurrent : (object) current definition of the target
   //
   // Check the operation object
 
@@ -13,7 +14,7 @@ If (False:C215)
 	  // Method: animationCheckOperation
 	  // Description
 	  // This method checks that the values contained in the operation object are correct 
-	  // and replaces them with default values if necessary.
+	  // and replaces them with default or $defCurrent values if necessary.
 	  //
 	  // ----------------------------------------------------
 End if 

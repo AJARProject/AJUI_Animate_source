@@ -1,8 +1,7 @@
 //%attributes = {"shared":true}
-  // animate ( $operations ; $winRef ) 
+  // animate ( $operations ) 
   //
   // $operations : (variant) Operation as an object or a collection of operation or a collection of collection
-  // $winRef : (longint) current windows form ID
   //
   // Launch the animations
 

@@ -1,8 +1,7 @@
 //%attributes = {"preemptive":"capable"}
-  // animationController ( $operations_col  ; $form_winRef  ) 
+  // animationController ( $params   ) 
   //
-  // $operations_col : (collection) operations
-  // $currentForm : (longint)  form to use with the call form
+  // $params : (object) operations, definitions, etc
   //
   // Handle the operations
 
@@ -15,6 +14,15 @@ If (False:C215)
 	  // Description
 	  // this method is called by the animation process and 
 	  // will manage operation cycles, calculation management and call forms.
+	  //
+	  // $params :
+	  // - operations : collection of operations
+	  // - defStart : start definition for each target
+	  // - defEnd : end definition for each target
+	  // - direction : animation direction
+	  // - iterations : number of repetitions
+	  // - startMS : start time of the animate method launch
+	  // - winRef : Form reference
 	  //
 	  // ----------------------------------------------------
 End if 

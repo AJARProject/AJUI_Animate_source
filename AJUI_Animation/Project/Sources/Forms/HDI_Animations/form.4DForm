@@ -68,7 +68,8 @@
 					"height": 61,
 					"fill": "#ff0000",
 					"stroke": "transparent",
-					"strokeWidth": 3
+					"strokeWidth": 3,
+					"visibility": "hidden"
 				},
 				"quit_obj": {
 					"type": "button",

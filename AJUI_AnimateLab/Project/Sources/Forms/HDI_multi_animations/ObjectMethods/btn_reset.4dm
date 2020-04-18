@@ -5,7 +5,8 @@ Case of
 	: ($evt=On Load:K2:1)
 		CALL FORM:C1391(Current form window:C827;"formGetObjectsCoordinates")
 	: ($evt=On Clicked:K2:4)
-		formResetObjectsCoordinates 
+		DELAY PROCESS:C323(Current process:C322;30)
+		CALL FORM:C1391(Current form window:C827;"formResetObjectsCoordinates")
 		OBJECT SET VISIBLE:C603(*;"btn@_obj";False:C215)
 End case 
 

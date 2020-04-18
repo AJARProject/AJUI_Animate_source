@@ -15,7 +15,7 @@ $animationItem.animType:="ease-in"
 $animationItem.ResizeAnimType:="ease"
 $animationItem.BGColorAnimType:="easy-out"
 $animationItem.CRadiusAnimType:="linear"
-$animationItem.duration:=2000
+$animationItem.duration:=4000
 $animationItem.delay:=0
 $animationItem.frequency:=60
 $rect_width:=80
@@ -32,6 +32,7 @@ Form:C1466.colTest.push($animationItem)
 
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.delay:=60
+$animationItem.duration:=2000
 $rect_width:=30
 $rect_height:=30
 $animationItem2.width:=$rect_width
@@ -64,6 +65,7 @@ Form:C1466.colTest.push($animationItem4)
 
 $animationItem5:=OB Copy:C1225($animationItem)
 $animationItem5.delay:=60
+$animationItem.duration:=8000
 $animationItem5.operation:="Move,BGColor"
 $animationItem3.animType:="ease-in-out"
 $animationItem5.left:=$left

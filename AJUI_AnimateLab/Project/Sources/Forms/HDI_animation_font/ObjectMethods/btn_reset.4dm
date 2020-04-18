@@ -13,7 +13,10 @@ Case of
 		Form:C1466.backgroundColor:=$backgroundColor
 		CALL FORM:C1391(Current form window:C827;"formGetObjectsCoordinates")
 	: ($evt=On Clicked:K2:4)
-		formResetObjectsCoordinates 
+		stopAnimation 
+		DELAY PROCESS:C323(Current process:C322;10)
+		CALL FORM:C1391(Current form window:C827;"formResetObjectsCoordinates")
+		DELAY PROCESS:C323(Current process:C322;30)
 		OBJECT SET FONT SIZE:C165(*;"text_test_obj";Form:C1466.fontSize)
 		OBJECT SET FONT STYLE:C166(*;"text_test_obj";Form:C1466.fontStyle)
 		OBJECT SET RGB COLORS:C628(*;"text_test_obj";Form:C1466.foregroundColor;Background color none:K23:10)

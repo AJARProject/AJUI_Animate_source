@@ -531,7 +531,7 @@
 				},
 				"Text6": {
 					"type": "text",
-					"text": "This example launches a series of parallel and sequential animations with their own definitions for each.",
+					"text": "This example display a floating label with transitions on size, color and position based on the  current input pointer position .  The second example display transition of size and color for a text.",
 					"top": 632,
 					"left": 50,
 					"width": 570,

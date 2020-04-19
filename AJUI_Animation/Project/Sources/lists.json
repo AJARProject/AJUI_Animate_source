@@ -88,6 +88,26 @@
 				"editable": false
 			},
 			{
+				"text": "jumpUp",
+				"ref": 40,
+				"editable": true
+			},
+			{
+				"text": "jumpDown",
+				"ref": 41,
+				"editable": false
+			},
+			{
+				"text": "jumpLeft",
+				"ref": 42,
+				"editable": false
+			},
+			{
+				"text": "jumpRight",
+				"ref": 43,
+				"editable": false
+			},
+			{
 				"text": "pulse",
 				"ref": 3,
 				"editable": false
@@ -95,6 +115,16 @@
 			{
 				"text": "rubberBand",
 				"ref": 4,
+				"editable": false
+			},
+			{
+				"text": "shakeNo",
+				"ref": 5,
+				"editable": false
+			},
+			{
+				"text": "shakeYes",
+				"ref": 39,
 				"editable": false
 			},
 			{
@@ -115,11 +145,6 @@
 			{
 				"text": "slideInRight",
 				"ref": 20,
-				"editable": false
-			},
-			{
-				"text": "shake",
-				"ref": 5,
 				"editable": false
 			},
 			{

@@ -7,7 +7,7 @@ Case of
 	: ($evt=On Clicked:K2:4)
 		stopAnimation 
 		CALL FORM:C1391(Current form window:C827;"formResetObjectsCoordinates")
-		OBJECT SET VISIBLE:C603(*;"rectangle_obj@";False:C215)
+		OBJECT SET VISIBLE:C603(*;"rectangle_obj@";True:C214)
 End case 
 
 

@@ -1,3 +1,5 @@
+Default values for each effects
+
 bounce
 	-target
 	-duration (200)

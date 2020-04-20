@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
 
   // animation ( type | description )
   //
@@ -69,7 +69,6 @@ Case of
 	: ($animation="flash")
 		$operations:=flash ($o)
 	: ($animation="heartbeat")
-		$operations.iterations:=4
 		$operations:=heartbeat ($o)
 	: ($animation="jumpUp")
 		$operations:=jumpUp ($o)
@@ -85,6 +84,14 @@ Case of
 		$operations:=shakeNo ($o)
 	: ($animation="shakeYes")
 		$operations:=shakeYes ($o)
+	: ($animation="slideUp")
+		$operations:=slideUp ($o)
+	: ($animation="slideDown")
+		$operations:=slideDown ($o)
+	: ($animation="slideLeft")
+		$operations:=slideLeft ($o)
+	: ($animation="slideRight")
+		$operations:=slideRight ($o)
 	: ($animation="slideInUp")
 		$operations:=slideInUp ($o)
 	: ($animation="slideInDown")
@@ -129,3 +136,5 @@ Case of
 End case 
 
 animate ($operations)
+
+$0:=$o

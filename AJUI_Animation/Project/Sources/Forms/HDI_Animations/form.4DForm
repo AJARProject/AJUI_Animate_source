@@ -39,12 +39,12 @@
 				"popup_animation_obj": {
 					"type": "dropdown",
 					"left": 422,
-					"top": 155,
-					"width": 140,
+					"top": 91,
+					"width": 214,
 					"height": 25,
 					"events": [
-						"onClick",
-						"onDataChange"
+						"onLoad",
+						"onClick"
 					],
 					"choiceList": {
 						"$ref": "/SOURCES/lists.json#/Animate it"
@@ -86,9 +86,9 @@
 				"play_obj": {
 					"type": "button",
 					"text": "Play",
-					"top": 154,
-					"left": 575,
-					"width": 69,
+					"top": 295,
+					"left": 422,
+					"width": 214,
 					"height": 32,
 					"events": [
 						"onClick"
@@ -135,6 +135,55 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/reset_obj1.4dm"
+				},
+				"lb": {
+					"type": "listbox",
+					"left": 422,
+					"top": 125,
+					"width": 214,
+					"height": 157,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.params_col",
+					"lockedColumnCount": 1,
+					"listboxType": "collection",
+					"method": "ObjectMethods/lb.4dm",
+					"columns": [
+						{
+							"header": {
+								"text": "properties",
+								"name": "Entête1"
+							},
+							"name": "Colonne1",
+							"footer": {
+								"name": "Pied1"
+							},
+							"dataSource": "This:C1470.property",
+							"resizable": false,
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Entête2",
+								"text": "Values"
+							},
+							"name": "Colonne2",
+							"footer": {
+								"name": "Pied2"
+							},
+							"width": 80,
+							"dataSource": "This:C1470.value",
+							"dataSourceTypeHint": "number",
+							"events": [
+								"onDataChange"
+							],
+							"resizable": true
+						}
+					]
 				}
 			}
 		}

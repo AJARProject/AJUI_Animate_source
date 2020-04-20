@@ -1,0 +1,228 @@
+bounce
+	-target
+	-duration (200)
+	-offset (40)
+
+bounceIn
+	-target
+	-duration (200)
+	-shrink (0.5)
+
+bounceInUp
+	-target
+	-duration (200)
+	-offset (20)
+
+bounceInDown
+	-target
+	-duration (200)
+	-offset (40)
+
+bounceInLeft
+	-target
+	-duration (300)
+	-offset (10)
+
+bounceInRight
+	-target
+	-duration (300)
+	-offset (10)
+
+bounceOut
+	-target
+	-duration (200)
+	-shrink (0.3)
+
+bounceOutUp
+	-target
+	-duration (150)
+	-offset (10)
+
+bounceOutDown
+	-target
+	-duration (150)
+	-offset (10)
+
+bounceOutLeft
+	-target
+	-duration (150)
+	-offset (10)
+
+bounceOutRight
+	-target
+	-duration (150)
+	-offset (10)
+
+flash
+	-target
+	-duration (1000)
+	-frequency (4)
+
+gridLeft
+gridRight
+gridUp
+gridDown
+heartbeat
+	-target
+	-duration (200)
+	-iterations (3)
+	-delay (500)
+	-grow (1.2)
+
+jumpUp
+	-target
+	-duration (200)
+	-iterations (4)
+	-offset (30)
+
+jumpDown
+	-target
+	-duration (200)
+	-iterations (4)
+	-offset (30)
+
+jumpLeft
+	-target
+	-duration (200)
+	-iterations (4)
+	-offset (30)
+
+jumpRight
+	-target
+	-duration (200)
+	-iterations (4)
+	-offset (30)
+
+pulse
+	-target
+	-duration (400)
+	-iterations (3)
+	-grow (1.2)
+
+shakeNo
+	-target
+	-duration (100)
+	-offset (50)
+
+shakeYes
+	-target
+	-duration (100)
+	-offset (30)
+
+slideUp
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideDown
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideLeft
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideRight
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideInUp
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideInDown
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideInLeft
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideInRight
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideOutUp
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideOutDown
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideOutLeft
+	-target
+	-duration (1000)
+	-offset (100)
+
+slideOutRight
+	-target
+	-duration (1000)
+	-offset (100)
+
+zoomIn
+	-target
+	-duration (1000)
+	-shrink (0.5)
+
+zoomInUp
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomInDown
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomInLeft
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomInRight
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomOut
+	-target
+	-duration (1000)
+	-shrink (0.5)
+
+zoomOutDown
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomOutUp
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomOutLeft
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)
+
+zoomOutRight
+	-target
+	-duration (1000)
+	-shrink (0.5)
+	-offset (100)

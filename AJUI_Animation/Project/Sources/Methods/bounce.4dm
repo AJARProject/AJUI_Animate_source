@@ -1,13 +1,11 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // bounce ( param )
   //
-  // param1 : (object) 
-  //   • name (text( : name of the animation
+  // param : (object) 
+  //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
-  //   • shrink (real) : factor
-  //   • grow (real) : factor
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -23,18 +21,19 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=OB Copy:C1225($1)
+$o:=$1
+
+C_REAL:C285($shrink;$grow)
+C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.offset)="")
-	$offset:=40
-Else 
-	$offset:=$o.offset
+	$o.offset:=40
 End if 
+$offset:=$o.offset
 If (String:C10($o.duration)="")
-	$duration:=200
-Else 
-	$duration:=$o.duration
+	$o.duration:=200
 End if 
+$duration:=$o.duration
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //

@@ -1,0 +1,272 @@
+﻿{
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"windowSizingX": "variable",
+	"windowSizingY": "variable",
+	"windowMinWidth": 0,
+	"windowMinHeight": 0,
+	"windowMaxWidth": 32767,
+	"windowMaxHeight": 32767,
+	"rightMargin": 0,
+	"bottomMargin": 0,
+	"events": [
+		"onLoad",
+		"onClick"
+	],
+	"windowTitle": "window title",
+	"destination": "detailScreen",
+	"pages": [
+		{
+			"objects": {
+				"Rectangle3": {
+					"type": "rectangle",
+					"top": 0,
+					"left": 0,
+					"width": 675,
+					"height": 507,
+					"stroke": "transparent"
+				},
+				"Rectangle2": {
+					"type": "rectangle",
+					"top": 1,
+					"left": 0,
+					"width": 675,
+					"height": 59,
+					"fill": "#005EA8",
+					"stroke": "transparent"
+				},
+				"Picture1": {
+					"type": "picture",
+					"top": 402,
+					"left": 14,
+					"width": 96,
+					"height": 96,
+					"pictureFormat": "scaled",
+					"picture": "Images/Picture1.png"
+				},
+				"HDI": {
+					"type": "text",
+					"top": 12,
+					"left": 0,
+					"width": 675,
+					"height": 31,
+					"text": "How Do I",
+					"class": "title"
+				},
+				"Invisible Button2": {
+					"type": "button",
+					"top": 402,
+					"left": 9,
+					"width": 109,
+					"height": 96,
+					"display": false,
+					"method": "ObjectMethods/Invisible Button2.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"rectSize": {
+					"type": "rectangle",
+					"top": 487,
+					"left": 653,
+					"width": 22,
+					"height": 20,
+					"visibility": "hidden",
+					"fill": "#FF0000",
+					"stroke": "#FF0000"
+				},
+				"Title": {
+					"type": "text",
+					"top": 60,
+					"left": 0,
+					"width": 675,
+					"height": 16,
+					"text": "AJUI Animation",
+					"class": "subtitle"
+				},
+				"Title1": {
+					"type": "text",
+					"top": 94,
+					"left": 0,
+					"width": 675,
+					"height": 16,
+					"text": "Effects",
+					"class": "subsubtitle"
+				}
+			}
+		},
+		{
+			"objects": {
+				"rectangle_obj": {
+					"type": "rectangle",
+					"top": 213,
+					"left": 135,
+					"width": 100,
+					"height": 80,
+					"fill": "#ff0000",
+					"stroke": "transparent",
+					"strokeWidth": 3,
+					"visibility": "hidden"
+				},
+				"quit_obj": {
+					"type": "button",
+					"text": "Quit",
+					"top": 448,
+					"left": 492,
+					"width": 158,
+					"height": 38,
+					"events": [
+						"onClick"
+					],
+					"action": "cancel"
+				},
+				"reset_obj": {
+					"type": "button",
+					"text": "Reset",
+					"top": 448,
+					"left": 340,
+					"width": 132,
+					"height": 38,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"method": "ObjectMethods/reset_obj.4dm"
+				},
+				"Line": {
+					"type": "line",
+					"top": 169,
+					"left": 185,
+					"width": 0,
+					"height": 169,
+					"startPoint": "topLeft",
+					"strokeDashArray": [
+						6,
+						2
+					],
+					"stroke": "#696969"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 253,
+					"left": 94,
+					"width": 183,
+					"height": 0,
+					"startPoint": "topLeft",
+					"strokeDashArray": [
+						3,
+						5
+					],
+					"stroke": "#696969"
+				},
+				"visible_btn_obj": {
+					"type": "button",
+					"text": "Hide",
+					"top": 448,
+					"left": 178,
+					"width": 130,
+					"height": 38,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/visible_btn_obj.4dm"
+				},
+				"Variable": {
+					"type": "input",
+					"top": 496,
+					"left": 467,
+					"width": 182,
+					"height": 17,
+					"dataSource": "AJUI_Animation_info",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"class": "info"
+				},
+				"popup_animation_obj": {
+					"type": "dropdown",
+					"left": 436,
+					"top": 161,
+					"width": 214,
+					"height": 25,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/Animate it"
+					},
+					"method": "ObjectMethods/popup_animation_obj.4dm"
+				},
+				"play_obj": {
+					"type": "button",
+					"text": "Play",
+					"top": 365,
+					"left": 436,
+					"width": 214,
+					"height": 32,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/play_obj.4dm"
+				},
+				"lb": {
+					"type": "listbox",
+					"left": 436,
+					"top": 195,
+					"width": 214,
+					"height": 157,
+					"events": [
+						"onClick",
+						"onHeaderClick",
+						"onDataChange",
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.params_col",
+					"lockedColumnCount": 1,
+					"listboxType": "collection",
+					"method": "ObjectMethods/lb.4dm",
+					"columns": [
+						{
+							"header": {
+								"text": "properties",
+								"name": "Entête1"
+							},
+							"name": "Colonne1",
+							"footer": {
+								"name": "Pied1"
+							},
+							"dataSource": "This:C1470.property",
+							"resizable": false,
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Entête2",
+								"text": "Values"
+							},
+							"name": "Colonne2",
+							"footer": {
+								"name": "Pied2"
+							},
+							"width": 80,
+							"dataSource": "This:C1470.value",
+							"dataSourceTypeHint": "number",
+							"events": [
+								"onDataChange"
+							],
+							"resizable": true
+						}
+					]
+				}
+			}
+		}
+	],
+	"formSizeAnchor": "rectSize"
+}

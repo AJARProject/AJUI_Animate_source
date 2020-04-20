@@ -1,10 +1,12 @@
-//%attributes = {}
-  // Flash ( param )
+//%attributes = {"shared":true}
+  // flash ( param )
   //
-  // param1 : (object) 
+  // param : (object) 
+  //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • frequency (longint) : number of flash par seconds
+  //   • iterations (longint) : number of repeat
 
 
 If (False:C215)
@@ -12,28 +14,33 @@ If (False:C215)
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
 	  // ----------------------------------------------------
-	  // Method: bounceInLeft
+	  // Method: flash
 	  // Description
-	  // blink 2 times
+	  // flash 2 times
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=OB Copy:C1225($1)
+$o:=$1
 
-If (String:C10($o.count)="")
+C_REAL:C285($shrink;$grow)
+C_LONGINT:C283($duration;$iterations;$offset;$delay)
+
+If (String:C10($o.frequency)="")
 	$frequency:=4
-Else 
-	$frequency:=$o.frequency
+	$o.frequency:=4
 End if 
+$frequency:=$o.frequency
 If (String:C10($o.duration)="")
-	$duration:=1000
-Else 
-	$duration:=$o.duration
+	$o.duration:=1000
 End if 
-
+$duration:=$o.duration
+If (String:C10($o.iterations)="")
+	$o.iterations:=2
+End if 
+$iterations:=$o.iterations
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
@@ -44,7 +51,6 @@ Else
 	$animationItem:=New AnimationItem 
 	$animationItem.operation:="Blink"  //Blink
 	$animationItem.target:=$target
-	$animationItem.iterations:=$iterations
 	$animationItem.duration:=$duration
 	$animationItem.delay:=0
 	$animationItem.frequency:=$frequency
@@ -53,6 +59,7 @@ Else
 	
 	$operations:=New object:C1471()
 	$operations.operations:=Form:C1466.colTest
+	$operations.iterations:=$iterations
 	$0:=OB Copy:C1225($operations)
 	
 End if 

@@ -1,48 +1,50 @@
-//%attributes = {}
-  // bounceInLeft ( param )
+//%attributes = {"shared":true}
+  // heartbeat ( param )
   //
-  // param1 : (object) 
-  //   • name (text( : name of the animation
+  // param : (object) 
+  //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
+  //   • iterations (longint) : number of repeat
+  //   • delay (longint) : time in ms between each heartbeat
   //   • grow (real) : factor
+
 
 If (False:C215)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
 	  // ----------------------------------------------------
-	  // Method: bounceInLeft
+	  // Method: heartbeat
 	  // Description
-	  // //Up-F, Down-S, Up-F, Down-S 
+	  // 
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=OB Copy:C1225($1)
+$o:=$1
+
+C_REAL:C285($shrink;$grow)
+C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.grow)="")
-	$grow:=1.2
-Else 
-	$grow:=$o.grow
+	$o.grow:=1.2
 End if 
+$grow:=$o.grow
 If (String:C10($o.duration)="")
-	$duration:=200
-Else 
-	$duration:=$o.duration
+	$o.duration:=200
 End if 
+$duration:=$o.duration
 If (String:C10($o.delay)="")
-	$delay:=500
-Else 
-	$delay:=$o.delay
+	$o.delay:=500
 End if 
+$delay:=$o.delay
 If (String:C10($o.iterations)="")
-	$iterations:=3
-Else 
-	$iterations:=$o.iterations
+	$o.iterations:=3
 End if 
+$iterations:=$o.iterations
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //

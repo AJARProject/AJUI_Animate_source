@@ -1,13 +1,11 @@
-//%attributes = {}
+//%attributes = {"shared":true}
   // bounceIn ( param )
   //
-  // param1 : (object) 
-  //   • name (text( : name of the animation
+  // param : (object) 
+  //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
-  //   • offset (longint) : in pixel
   //   • shrink (real) : factor
-  //   • grow (real) : factor
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -16,24 +14,27 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: bounceIn
 	  // Description
-	  // Grow-slow, normal, Grow , normal, Grow, normal
+	  // 
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=OB Copy:C1225($1)
+$o:=$1
+
+C_REAL:C285($shrink;$grow)
+C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
+C_LONGINT:C283($width;$width0;$height;$height0;$bottom0;$top0;$left0;$right0)
+
 If (String:C10($o.shrink)="")
-	$shrink:=0.5
-Else 
-	$shrink:=$o.shrink
+	$o.shrink:=0.5
 End if 
+$shrink:=$o.shrink
 If (String:C10($o.duration)="")
-	$duration:=200
-Else 
-	$duration:=$o.duration
+	$o.duration:=200
 End if 
+$duration:=$o.duration
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
@@ -42,8 +43,6 @@ Else
 	
 	Form:C1466.colTest:=New collection:C1472()
 	OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
-	
-	
 	
 	  // Set the size of the object to its min size first
 	$width:=($right-$left)

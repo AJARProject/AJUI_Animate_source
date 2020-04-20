@@ -1,44 +1,45 @@
-//%attributes = {}
-  // zoomInDown ( param )
+//%attributes = {"shared":true}
+  // zoomInLeft ( param )
   //
-  // param1 : (object) 
-  //   • name (text( : name of the animation
+  // param : (object) 
+  //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
+  //   • iterations (longint) : number of repeat
   //   • shrink (real) : factor
-  //   • grow (real) : factor
 
 If (False:C215)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
 	  // ----------------------------------------------------
-	  // Method: zoomInDown
+	  // Method: zoomInLeft
 	  // Description
-	  // Grow-slow, normal, Grow , normal, Grow, normal
+	  // 
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=OB Copy:C1225($1)
+$o:=$1
+
+C_REAL:C285($shrink;$grow)
+C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
+
 If (String:C10($o.offset)="")
-	$offset:=100
-Else 
-	$offset:=$o.offset
+	$o.offset:=100
 End if 
+$offset:=$o.offset
 If (String:C10($o.shrink)="")
-	$shrink:=0.5
-Else 
-	$shrink:=$o.shrink
+	$o.shrink:=0.5
 End if 
+$shrink:=$o.shrink
 If (String:C10($o.duration)="")
-	$duration:=1000
-Else 
-	$duration:=$o.duration
+	$o.duration:=1000
 End if 
+$duration:=$o.duration
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //

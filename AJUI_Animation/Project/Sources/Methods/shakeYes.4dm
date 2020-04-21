@@ -38,10 +38,11 @@ $duration:=$o.duration
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 
-	$target:=$o.target
+		$target:=$o.target
+End if 
 	
 	Form:C1466.colTest:=New collection:C1472()
-	OBJECT GET COORDINATES:C663(*;"rectangle_obj";$left;$top;$right;$bottom)
+	OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 	
 	  // Set the size of the object to its min size first
 	$width:=($right-$left)
@@ -85,6 +86,4 @@ Else
 	
 	$operations:=New object:C1471()
 	$operations.operations:=Form:C1466.colTest
-	$0:=OB Copy:C1225($operations)
-	
-End if 
+$0:=OB Copy:C1225($operations)

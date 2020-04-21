@@ -1,4 +1,4 @@
-﻿formResetObjectsCoordinates 
+formResetObjectsCoordinates 
 
 C_OBJECT:C1216($o)
 $o:=New object:C1471()
@@ -13,6 +13,6 @@ $animation_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_animation_obj
 $animation:=$animation_ptr->{$animation_ptr->}
 
 $o.name:=$animation
-$o.target:="rectangle_obj"
+$o.target:=Form:C1466.object
 
 animation ($o)

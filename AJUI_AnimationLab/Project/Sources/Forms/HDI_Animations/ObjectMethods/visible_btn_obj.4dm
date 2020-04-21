@@ -1,7 +1,7 @@
 
-$toggle:=OBJECT Get visible:C1075(*;"rectangle_obj")
+$toggle:=OBJECT Get visible:C1075(*;Form:C1466.object)
 
-OBJECT SET VISIBLE:C603(*;"rectangle_obj@";Not:C34($toggle))
+OBJECT SET VISIBLE:C603(*;Form:C1466.object;Not:C34($toggle))
 
 If ($toggle)
 	OBJECT SET TITLE:C194(*;"visible_btn_obj";"Show")

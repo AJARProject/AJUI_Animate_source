@@ -1,4 +1,4 @@
-﻿$evt:=Form event code:C388
+$evt:=Form event code:C388
 
 Case of 
 	: ($evt=On Load:K2:1)
@@ -33,7 +33,7 @@ Case of
 		C_OBJECT:C1216($o)
 		$o:=New object:C1471()
 		$o.name:=$animation
-		$o.target:="rectangle_obj"
+		$o.target:=Form:C1466.object
 		
 		animation ($o)
 		

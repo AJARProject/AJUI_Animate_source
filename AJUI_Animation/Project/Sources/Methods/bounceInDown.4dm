@@ -39,42 +39,41 @@ If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 
 	$target:=$o.target
-	
-	Form:C1466.colTest:=New collection:C1472()
-	OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
-	
-	$width:=$right-$left
-	$height:=$bottom-$top
-	
-	$left0:=$left
-	$top0:=-$height
-	$right0:=$right
-	$bottom0:=0
-	OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
-	
-	$animationItem:=New AnimationItem 
-	$animationItem.operation:="Move"
-	$animationItem.target:=$target
-	$animationItem.animType:="linear"
-	$animationItem.duration:=$duration
-	$animationItem.delay:=0
-	$animationItem.frequency:=60
-	  // Down
-	$animationItem.left:=$left
-	$animationItem.top:=$top
-	Form:C1466.colTest.push($animationItem)
-	  // up
-	$animationItem2:=OB Copy:C1225($animationItem)
-	$animationItem2.top:=$top-$offset
-	Form:C1466.colTest.push($animationItem2)
-	  // down small
-	$animationItem3:=OB Copy:C1225($animationItem)
-	$animationItem3.duration:=$animationItem3.duration/2
-	$animationItem3.top:=$top
-	Form:C1466.colTest.push($animationItem3)
-	
-	$operations:=New object:C1471()
-	$operations.operations:=Form:C1466.colTest
-	$0:=OB Copy:C1225($operations)
-	
 End if 
+
+Form:C1466.colTest:=New collection:C1472()
+OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+
+$width:=$right-$left
+$height:=$bottom-$top
+
+$left0:=$left
+$top0:=-$height
+$right0:=$right
+$bottom0:=0
+OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
+
+$animationItem:=New AnimationItem 
+$animationItem.operation:="Move"
+$animationItem.target:=$target
+$animationItem.animType:="linear"
+$animationItem.duration:=$duration
+$animationItem.delay:=0
+$animationItem.frequency:=60
+  // Down
+$animationItem.left:=$left
+$animationItem.top:=$top
+Form:C1466.colTest.push($animationItem)
+  // up
+$animationItem2:=OB Copy:C1225($animationItem)
+$animationItem2.top:=$top-$offset
+Form:C1466.colTest.push($animationItem2)
+  // down small
+$animationItem3:=OB Copy:C1225($animationItem)
+$animationItem3.duration:=$animationItem3.duration/2
+$animationItem3.top:=$top
+Form:C1466.colTest.push($animationItem3)
+
+$operations:=New object:C1471()
+$operations.operations:=Form:C1466.colTest
+$0:=OB Copy:C1225($operations)

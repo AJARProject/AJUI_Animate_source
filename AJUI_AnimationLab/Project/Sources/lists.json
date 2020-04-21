@@ -218,5 +218,75 @@
 				"editable": false
 			}
 		]
+	},
+	"object": {
+		"editable": true,
+		"items": [
+			{
+				"text": "rectangle",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "button",
+				"ref": 4,
+				"editable": true
+			},
+			{
+				"text": "checkbox",
+				"ref": 6,
+				"editable": false
+			},
+			{
+				"text": "input",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "listbox",
+				"ref": 8,
+				"editable": true
+			},
+			{
+				"text": "popup",
+				"ref": 5,
+				"editable": true
+			},
+			{
+				"text": "webarea",
+				"ref": 7,
+				"editable": true
+			}
+		]
+	},
+	"popupdemo": {
+		"editable": true,
+		"items": [
+			{
+				"text": "select an item...",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "item 1",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "item 2",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "item 3",
+				"ref": 4,
+				"editable": true
+			},
+			{
+				"text": "item 4",
+				"ref": 5,
+				"editable": true
+			}
+		]
 	}
 }

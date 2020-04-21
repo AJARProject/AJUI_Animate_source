@@ -1,4 +1,6 @@
-OBJECT SET VISIBLE:C603(*;"rectangle_obj@";True:C214)
+
+
+OBJECT SET VISIBLE:C603(*;Form:C1466.object;True:C214)
 
 $evt:=Form event code:C388
 Case of 
@@ -7,7 +9,7 @@ Case of
 	: ($evt=On Clicked:K2:4)
 		stopAnimation 
 		CALL FORM:C1391(Current form window:C827;"formResetObjectsCoordinates")
-		OBJECT SET VISIBLE:C603(*;"rectangle_obj@";True:C214)
+		OBJECT SET VISIBLE:C603(*;Form:C1466.object;True:C214)
 End case 
 
 

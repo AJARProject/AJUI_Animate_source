@@ -40,34 +40,33 @@ If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 
 	$target:=$o.target
-	
-	Form:C1466.colTest:=New collection:C1472()
-	OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
-	
-	$width:=$right-$left
-	$height:=$bottom-$top
-	  // put the object up outside the windows
-	FORM GET PROPERTIES:C674(Current form name:C1298;$witdh_window;$height_windows)
-	$left0:=$left
-	$top0:=$top-$offset
-	$right0:=$right
-	$bottom0:=$top0+$height
-	OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
-	$animationItem:=New AnimationItem 
-	$animationItem.operation:="Move"
-	$animationItem.target:=$target
-	$animationItem.animType:="ease-out"
-	$animationItem.duration:=$duration
-	$animationItem.delay:=0
-	$animationItem.frequency:=60
-	  // up
-	$animationItem.left:=$left
-	$animationItem.top:=$height_windows+$offset
-	Form:C1466.colTest.push($animationItem)
-	
-	
-	$operations:=New object:C1471()
-	$operations.operations:=Form:C1466.colTest
-	$0:=OB Copy:C1225($operations)
-	
 End if 
+
+Form:C1466.colTest:=New collection:C1472()
+OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+
+$width:=$right-$left
+$height:=$bottom-$top
+  // put the object up outside the windows
+FORM GET PROPERTIES:C674(Current form name:C1298;$witdh_window;$height_windows)
+$left0:=$left
+$top0:=$top-$offset
+$right0:=$right
+$bottom0:=$top0+$height
+OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
+$animationItem:=New AnimationItem 
+$animationItem.operation:="Move"
+$animationItem.target:=$target
+$animationItem.animType:="ease-out"
+$animationItem.duration:=$duration
+$animationItem.delay:=0
+$animationItem.frequency:=60
+  // up
+$animationItem.left:=$left
+$animationItem.top:=$height_windows+$offset
+Form:C1466.colTest.push($animationItem)
+
+
+$operations:=New object:C1471()
+$operations.operations:=Form:C1466.colTest
+$0:=OB Copy:C1225($operations)

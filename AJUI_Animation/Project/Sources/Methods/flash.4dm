@@ -45,7 +45,8 @@ $iterations:=$o.iterations
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 
-	$target:=$o.target
+		$target:=$o.target
+End if 
 	
 	Form:C1466.colTest:=New collection:C1472()
 	$animationItem:=New AnimationItem 
@@ -60,6 +61,4 @@ Else
 	$operations:=New object:C1471()
 	$operations.operations:=Form:C1466.colTest
 	$operations.iterations:=$iterations
-	$0:=OB Copy:C1225($operations)
-	
-End if 
+$0:=OB Copy:C1225($operations)

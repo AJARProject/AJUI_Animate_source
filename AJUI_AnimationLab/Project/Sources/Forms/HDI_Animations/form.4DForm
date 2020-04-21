@@ -13,7 +13,8 @@
 	"bottomMargin": 0,
 	"events": [
 		"onLoad",
-		"onClick"
+		"onClick",
+		"onTimer"
 	],
 	"windowTitle": "window title",
 	"destination": "detailScreen",
@@ -58,7 +59,7 @@
 				"Invisible Button2": {
 					"type": "button",
 					"top": 402,
-					"left": 9,
+					"left": 8,
 					"width": 109,
 					"height": 96,
 					"display": false,
@@ -99,10 +100,10 @@
 		},
 		{
 			"objects": {
-				"rectangle_obj": {
+				"ex_rectangle_obj": {
 					"type": "rectangle",
-					"top": 213,
-					"left": 135,
+					"top": 197,
+					"left": 150,
 					"width": 100,
 					"height": 80,
 					"fill": "#ff0000",
@@ -134,32 +135,6 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/reset_obj.4dm"
-				},
-				"Line": {
-					"type": "line",
-					"top": 169,
-					"left": 185,
-					"width": 0,
-					"height": 169,
-					"startPoint": "topLeft",
-					"strokeDashArray": [
-						6,
-						2
-					],
-					"stroke": "#696969"
-				},
-				"Line1": {
-					"type": "line",
-					"top": 253,
-					"left": 94,
-					"width": 183,
-					"height": 0,
-					"startPoint": "topLeft",
-					"strokeDashArray": [
-						3,
-						5
-					],
-					"stroke": "#696969"
 				},
 				"visible_btn_obj": {
 					"type": "button",
@@ -255,7 +230,7 @@
 							"footer": {
 								"name": "Pied2"
 							},
-							"width": 80,
+							"width": 70,
 							"dataSource": "This:C1470.value",
 							"dataSourceTypeHint": "number",
 							"events": [
@@ -264,6 +239,156 @@
 							"resizable": true
 						}
 					]
+				},
+				"ex_button_obj": {
+					"type": "button",
+					"text": "Button",
+					"top": 217,
+					"left": 130,
+					"width": 140,
+					"height": 40,
+					"events": [
+						"onClick"
+					]
+				},
+				"ex_popup_obj": {
+					"type": "dropdown",
+					"left": 135,
+					"top": 223,
+					"width": 130,
+					"height": 28,
+					"events": [
+						"onDataChange"
+					],
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/popupdemo"
+					}
+				},
+				"ex_webarea_obj": {
+					"type": "webArea",
+					"left": 50,
+					"top": 130,
+					"width": 300,
+					"height": 214,
+					"events": [
+						"onLoad"
+					],
+					"method": "ObjectMethods/ex_webarea_obj.4dm",
+					"dataSource": "",
+					"urlSource": "MyWArea_url"
+				},
+				"ex_listbox_obj": {
+					"type": "listbox",
+					"left": 100,
+					"top": 162,
+					"width": 200,
+					"height": 150,
+					"events": [
+						"onLoad"
+					],
+					"method": "ObjectMethods/ex_listbox_obj.4dm",
+					"listboxType": "collection",
+					"dataSource": "Form:C1466.lbDemo",
+					"lockedColumnCount": 1,
+					"resizingMode": "legacy",
+					"alternateFill": "#dda0dd",
+					"fill": "automatic",
+					"focusable": false,
+					"columns": [
+						{
+							"header": {
+								"text": "Product",
+								"name": "Entête3"
+							},
+							"name": "Colonne3",
+							"footer": {
+								"name": "Pied3"
+							},
+							"width": 120,
+							"dataSource": "This:C1470.product"
+						},
+						{
+							"header": {
+								"name": "Entête4",
+								"text": "Price"
+							},
+							"name": "Colonne4",
+							"footer": {
+								"name": "Pied4"
+							},
+							"width": 65,
+							"enterable": false,
+							"dataSource": "This:C1470.price",
+							"dataSourceTypeHint": "number"
+						}
+					]
+				},
+				"popup_object_obj": {
+					"type": "dropdown",
+					"left": 436,
+					"top": 130,
+					"width": 214,
+					"height": 25,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/object"
+					},
+					"method": "ObjectMethods/popup_object_obj.4dm"
+				},
+				"ex_checkbox_obj": {
+					"type": "checkbox",
+					"text": "Ready for Mars",
+					"top": 225,
+					"left": 133,
+					"width": 134,
+					"height": 24,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"dataSource": "Form:C1466.checkbox",
+					"method": "ObjectMethods/ex_checkbox_obj.4dm"
+				},
+				"ex_input_obj": {
+					"type": "input",
+					"left": 121,
+					"top": 229,
+					"width": 159,
+					"height": 17,
+					"method": "ObjectMethods/ex_input_obj.4dm",
+					"dataSource": "Form:C1466.input",
+					"events": [
+						"onLoad"
+					]
+				},
+				"Line": {
+					"type": "line",
+					"top": 90,
+					"left": 200,
+					"width": 0,
+					"height": 300,
+					"startPoint": "topLeft",
+					"strokeDashArray": [
+						6,
+						2
+					],
+					"stroke": "#696969"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 240,
+					"left": 50,
+					"width": 300,
+					"height": 0,
+					"startPoint": "topLeft",
+					"strokeDashArray": [
+						3,
+						5
+					],
+					"stroke": "#696969"
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"shared":true}
 C_LONGINT:C283($left;$top;$right;$bottom)
 C_OBJECT:C1216($formObject)
 For each ($formObject;Form:C1466.formObjects)

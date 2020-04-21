@@ -50,5 +50,7 @@ Case of
 			End if 
 		End for each 
 		
+		OBJECT SET ENABLED:C1123(*;"play_obj";True:C214)
+		
 End case 
 

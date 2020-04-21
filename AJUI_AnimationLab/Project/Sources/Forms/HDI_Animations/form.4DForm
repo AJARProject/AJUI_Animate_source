@@ -187,6 +187,7 @@
 					"width": 214,
 					"height": 32,
 					"events": [
+						"onLoad",
 						"onClick"
 					],
 					"method": "ObjectMethods/play_obj.4dm"

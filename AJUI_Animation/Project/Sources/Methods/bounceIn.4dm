@@ -21,7 +21,7 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=$1
+$o:=This:C1470
 
 C_REAL:C285($shrink;$grow)
 C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
@@ -97,4 +97,4 @@ Form:C1466.colTest.push($animationItem5)
 
 $operations:=New object:C1471()
 $operations.operations:=Form:C1466.colTest
-$0:=OB Copy:C1225($operations)
+animate (OB Copy:C1225($operations))

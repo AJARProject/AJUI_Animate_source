@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {}
 
   // animation ( type | description )
   //
@@ -34,7 +34,7 @@ If (Value type:C1509($1)=Is text:K8:3)
 	$o:=New object:C1471("name";$1)
 Else 
 	If (Value type:C1509($1)=Is object:K8:27)
-		$o:=$1
+		$o:=This:C1470
 	Else 
 		$o:=New object:C1471("animation";"bounce")  // default is bounce
 	End if 

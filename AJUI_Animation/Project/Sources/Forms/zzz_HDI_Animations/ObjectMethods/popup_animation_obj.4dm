@@ -31,11 +31,10 @@ Case of
 		End for each 
 		
 		C_OBJECT:C1216($o)
-		$o:=New object:C1471()
-		$o.name:=$animation
+		$o:=New Animation 
 		$o.target:="rectangle_obj"
-		
-		animation ($o)
+		$o.formName:=Current form name:C1298
+		$o[$animation].call($o)  // launch animation
 		
 		  // Listbox
 		Form:C1466.params_col:=New collection:C1472()

@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {"shared":false}
   // bounceOutLeft ( param )
   //
   // param : (object) 
@@ -21,7 +21,7 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=$1
+$o:=This:C1470
 
 C_REAL:C285($shrink;$grow)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
@@ -34,7 +34,6 @@ If (String:C10($o.duration)="")
 	$o.duration:=150
 End if 
 $duration:=$o.duration
-
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 
@@ -48,7 +47,6 @@ OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 $width:=($right-$left)
 $height:=($bottom-$top)
   // put the object up outside the windows
-FORM GET PROPERTIES:C674(Current form name:C1298;$witdh_window;$height_windows)
 
   // define the center coordinate of the target
 $centerX:=$left+($width/2)
@@ -76,4 +74,4 @@ Form:C1466.colTest.push($animationItem2)
 
 $operations:=New object:C1471()
 $operations.operations:=Form:C1466.colTest
-$0:=OB Copy:C1225($operations)
+animate (OB Copy:C1225($operations))

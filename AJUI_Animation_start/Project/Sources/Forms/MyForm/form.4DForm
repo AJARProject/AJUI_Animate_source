@@ -38,22 +38,29 @@
 			"objects": {
 				"Rectangle": {
 					"type": "rectangle",
-					"top": 129,
-					"left": 202,
-					"width": 115,
-					"height": 102
+					"top": 65,
+					"left": 15,
+					"width": 74,
+					"height": 63
 				},
 				"Bouton": {
 					"type": "button",
 					"text": "Button",
-					"top": 319,
-					"left": 376,
+					"top": 244,
+					"left": 27,
 					"width": 149,
 					"height": 38,
 					"events": [
 						"onClick"
 					],
 					"method": "ObjectMethods/Bouton.4dm"
+				},
+				"Rectangle1": {
+					"type": "rectangle",
+					"top": 65,
+					"left": 116,
+					"width": 74,
+					"height": 63
 				}
 			}
 		}

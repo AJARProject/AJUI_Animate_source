@@ -16,7 +16,7 @@
 		"onClick",
 		"onTimer"
 	],
-	"windowTitle": "window title",
+	"windowTitle": "HDI Animation",
 	"destination": "detailScreen",
 	"pages": [
 		{
@@ -394,5 +394,7 @@
 			}
 		}
 	],
-	"formSizeAnchor": "rectSize"
+	"formSizeAnchor": "rectSize",
+	"method": "method.4dm",
+	"menuBar": "Barre #1"
 }

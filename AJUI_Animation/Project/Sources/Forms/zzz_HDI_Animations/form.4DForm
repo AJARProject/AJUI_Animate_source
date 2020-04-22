@@ -58,7 +58,8 @@
 					"width": 20,
 					"height": 20,
 					"fill": "#ff0000",
-					"stroke": "#ff0000"
+					"stroke": "#ff0000",
+					"visibility": "hidden"
 				},
 				"rectangle_obj": {
 					"type": "rectangle",

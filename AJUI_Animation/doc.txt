@@ -1,3 +1,12 @@
+What is AJUI_Animation ?
+
+AJUI_Animation is a lightweight 4D Animation Component providing various effects.
+It works with any 4D Form objects using attributes and 4D variable Objects.
+
+
+Formulas and Attributes
+
+
 Default values for each effects
 
 bounce
@@ -59,11 +68,8 @@ flash
 	-target
 	-duration (1000)
 	-frequency (4)
+	-iterations (2)
 
-gridLeft
-gridRight
-gridUp
-gridDown
 heartbeat
 	-target
 	-duration (200)

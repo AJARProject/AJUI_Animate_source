@@ -228,6 +228,11 @@
 				"editable": true
 			},
 			{
+				"text": "text",
+				"ref": 8,
+				"editable": false
+			},
+			{
 				"text": "button",
 				"ref": 4,
 				"editable": true

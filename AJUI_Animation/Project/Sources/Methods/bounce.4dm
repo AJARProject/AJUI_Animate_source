@@ -34,7 +34,6 @@ If (String:C10($o.duration)="")
 	$o.duration:=200
 End if 
 $duration:=$o.duration
-
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 

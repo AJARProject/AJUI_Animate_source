@@ -185,6 +185,60 @@
 							"resizable": true
 						}
 					]
+				},
+				"text_obj": {
+					"type": "text",
+					"text": "text default",
+					"top": 149,
+					"left": 37,
+					"width": 294,
+					"height": 42,
+					"class": "",
+					"fontWeight": "bold",
+					"fontFamily": "Arial",
+					"fontSize": 24,
+					"fontStyle": "italic",
+					"stroke": "#8b4513",
+					"textAlign": "center"
+				},
+				"button_obj": {
+					"type": "button",
+					"text": "Button",
+					"top": 230,
+					"left": 54,
+					"width": 262,
+					"height": 52,
+					"events": [
+						"onClick"
+					],
+					"class": "style_1"
+				},
+				"Input_obj": {
+					"type": "input",
+					"left": 48,
+					"top": 304,
+					"width": 297,
+					"height": 49,
+					"class": "input_s1",
+					"method": "ObjectMethods/Input_obj.4dm",
+					"events": [
+						"onLoad"
+					],
+					"dataSource": "Form:C1466.input",
+					"styledText": true
+				},
+				"popup": {
+					"type": "dropdown",
+					"left": 426,
+					"top": 63,
+					"width": 205,
+					"height": 23,
+					"events": [
+						"onDataChange"
+					],
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/object_list"
+					}
 				}
 			}
 		}

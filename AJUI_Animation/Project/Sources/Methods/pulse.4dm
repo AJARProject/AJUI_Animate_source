@@ -49,6 +49,11 @@ End if
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
+  // Get the font properties
+$fontName:=OBJECT Get font:C1069(*;$target)
+$fontSize:=OBJECT Get font size:C1070(*;$target)
+$fontStyle:=OBJECT Get font style:C1071(*;$target)
+
   // Set the size of the object to its min size first
 $width:=($right-$left)
 $height:=($bottom-$top)
@@ -58,7 +63,7 @@ $centerX:=$left+($width/2)
 $centerY:=$top+($height/2)
 
 $animationItem:=New AnimationItem 
-$animationItem.operation:="Move, Resize"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+$animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 $animationItem.target:=$target
 $animationItem.animType:="ease"
 $animationItem.duration:=$duration
@@ -69,6 +74,9 @@ $animationItem.left:=$centerX-($width*$grow/2)
 $animationItem.top:=$centerY-($height*$grow/2)
 $animationItem.width:=$width*$grow
 $animationItem.height:=$height*$grow
+$animationItem.fontName:=$fontName
+$animationItem.fontSize:=$fontSize*$grow
+$animationItem.fontStyle:=$fontStyle
 Form:C1466.colTest.push($animationItem)
   //Shrink
 $animationItem2:=OB Copy:C1225($animationItem)
@@ -76,6 +84,7 @@ $animationItem2.left:=$centerX-($width/2)
 $animationItem2.top:=$centerY-($height/2)
 $animationItem2.width:=$width
 $animationItem2.height:=$height
+$animationItem2.fontSize:=$fontSize
 Form:C1466.colTest.push($animationItem2)
 
 $operations:=New object:C1471()

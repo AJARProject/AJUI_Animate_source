@@ -10,6 +10,9 @@ OBJECT SET VISIBLE:C603(*;$object;True:C214)
 
 C_LONGINT:C283($left;$top;$right;$bottom)
 OBJECT GET COORDINATES:C663(*;$object;$left;$top;$right;$bottom)
+  // Get the font properties
+Form:C1466.fontsize:=OBJECT Get font size:C1070(*;$object)
+
   //to be centered x: 190, y:290
 $width:=$right-$left
 $height:=$bottom-$top
@@ -19,5 +22,8 @@ $right:=$left+$width
 $bottom:=$top+$height
 
 OBJECT SET COORDINATES:C1248(*;$object;$left;$top;$right;$bottom)
+  // Get the font properties
+OBJECT SET FONT SIZE:C165(*;$object;Form:C1466.fontsize)
+
 
 Form:C1466.object:=$object

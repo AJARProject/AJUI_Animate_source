@@ -21,7 +21,7 @@ End if
 
 C_TEXT:C284($0)
 
-$version_t:="1.0-Build49"  // Wed, 22 Apr 2020 10:43:56 GMT
+$version_t:="1.1-Build51"  // Sat, 25 Apr 2020 15:44:33 GMT
 
 $0:="AJUI Animation (v18) : "+$version_t
 

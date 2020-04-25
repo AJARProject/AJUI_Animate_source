@@ -218,5 +218,30 @@
 				"editable": false
 			}
 		]
+	},
+	"object_list": {
+		"editable": true,
+		"items": [
+			{
+				"text": "input_obj",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "button_obj",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "text_obj",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "rectangle_obj",
+				"ref": 4,
+				"editable": true
+			}
+		]
 	}
 }

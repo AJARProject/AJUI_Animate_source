@@ -390,6 +390,20 @@
 						5
 					],
 					"stroke": "#696969"
+				},
+				"ex_text_obj": {
+					"type": "text",
+					"text": "Hello World !",
+					"top": 221,
+					"left": 100,
+					"width": 208,
+					"height": 28,
+					"fontFamily": "Arial",
+					"fontSize": 24,
+					"stroke": "#ff0000",
+					"fontWeight": "bold",
+					"textAlign": "center",
+					"visibility": "hidden"
 				}
 			}
 		}

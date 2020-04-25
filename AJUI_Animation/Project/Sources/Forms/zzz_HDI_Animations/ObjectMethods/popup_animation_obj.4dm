@@ -32,7 +32,8 @@ Case of
 		
 		C_OBJECT:C1216($o)
 		$o:=New Animation 
-		$o.target:="rectangle_obj"
+		$obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup")
+		$o.target:=$obj_ptr->{$obj_ptr->}
 		$o.formName:=Current form name:C1298
 		$o[$animation].call($o)  // launch animation
 		
@@ -49,5 +50,9 @@ Case of
 			End if 
 		End for each 
 		
+		$o[$animation].call($o)  // launch animation
 End case 
+
+
+
 

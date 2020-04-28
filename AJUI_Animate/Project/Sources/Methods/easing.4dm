@@ -33,8 +33,6 @@ $easing:=$1
 $pos:=$2
 
 Case of 
-	: ($easing="linear")  // No easing, no acceleration
-		$posCalc:=$pos
 	: ($easing="quadIn")  // Accelerating from zero velocity
 		$posCalc:=$pos^2
 	: ($easing="quadOut")  // Decelerating to zero velocity

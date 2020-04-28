@@ -1,4 +1,4 @@
-//%attributes = {"shared":true,"preemptive":"capable"}
+//%attributes = {"preemptive":"capable"}
   // New AnimationItem (  ) -> $operationItem
   //
   // $operationItem : (object) (return) operation item
@@ -12,10 +12,10 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: New AnimationItem
 	  // Description
-	  // 
+	  //
 	  //
 	  // ----------------------------------------------------
-End if 
+End if
 
 C_OBJECT:C1216($0;$operationItem)
 
@@ -24,7 +24,7 @@ $operationItem:=New object:C1471
 $operationItem[""]:="AnimationItem"
 
   //global
-$operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink, BStyle 
+$operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink, BStyle
 $operationItem.target:=""
 $operationItem.hideAtTheEnd:=False:C215
 

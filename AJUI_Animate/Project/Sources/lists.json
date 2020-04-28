@@ -64,182 +64,247 @@
 			}
 		]
 	},
-	"easing": {
+	"Animate it": {
 		"editable": true,
 		"items": [
 			{
-				"text": "linear",
-				"ref": 4,
+				"text": "select effect...",
+				"ref": 43,
 				"editable": false
 			},
 			{
-				"text": "quadIn",
+				"text": "bounce",
 				"ref": 1,
 				"editable": true
 			},
 			{
-				"text": "quadOut",
+				"text": "bounceIn",
+				"ref": 7,
+				"editable": false
+			},
+			{
+				"text": "bounceInUp",
+				"ref": 9,
+				"editable": false
+			},
+			{
+				"text": "bounceInDown",
+				"ref": 8,
+				"editable": false
+			},
+			{
+				"text": "bounceInLeft",
+				"ref": 10,
+				"editable": false
+			},
+			{
+				"text": "bounceInRight",
+				"ref": 11,
+				"editable": false
+			},
+			{
+				"text": "bounceOut",
+				"ref": 12,
+				"editable": false
+			},
+			{
+				"text": "bounceOutUp",
+				"ref": 14,
+				"editable": false
+			},
+			{
+				"text": "bounceOutDown",
+				"ref": 13,
+				"editable": false
+			},
+			{
+				"text": "bounceOutLeft",
+				"ref": 15,
+				"editable": false
+			},
+			{
+				"text": "bounceOutRight",
+				"ref": 16,
+				"editable": false
+			},
+			{
+				"text": "flash",
 				"ref": 2,
 				"editable": true
 			},
 			{
-				"text": "quadInOut",
-				"ref": 3,
-				"editable": true
-			},
-			{
-				"text": "cubicIn",
-				"ref": 5,
-				"editable": true
-			},
-			{
-				"text": "cubicOut",
+				"text": "heartbeat",
 				"ref": 6,
+				"editable": false
+			},
+			{
+				"text": "jumpUp",
+				"ref": 40,
 				"editable": true
 			},
 			{
-				"text": "cubicInOut",
-				"ref": 7,
-				"editable": true
+				"text": "jumpDown",
+				"ref": 41,
+				"editable": false
 			},
 			{
-				"text": "quartIn",
-				"ref": 8,
-				"editable": true
+				"text": "jumpLeft",
+				"ref": 42,
+				"editable": false
 			},
 			{
-				"text": "quartOut",
-				"ref": 9,
-				"editable": true
+				"text": "jumpRight",
+				"ref": 43,
+				"editable": false
 			},
 			{
-				"text": "quartInOut",
-				"ref": 10,
-				"editable": true
+				"text": "pulse",
+				"ref": 3,
+				"editable": false
 			},
 			{
-				"text": "quintIn",
-				"ref": 11,
-				"editable": true
+				"text": "shakeNo",
+				"ref": 5,
+				"editable": false
 			},
 			{
-				"text": "quintOut",
-				"ref": 12,
-				"editable": true
+				"text": "shakeYes",
+				"ref": 39,
+				"editable": false
 			},
 			{
-				"text": "quintInOut",
-				"ref": 13,
-				"editable": true
+				"text": "slideUp",
+				"ref": 44,
+				"editable": false
 			},
 			{
-				"text": "sineIn",
-				"ref": 14,
-				"editable": true
+				"text": "slideDown",
+				"ref": 45,
+				"editable": false
 			},
 			{
-				"text": "sineOut",
-				"ref": 15,
-				"editable": true
+				"text": "slideLeft",
+				"ref": 46,
+				"editable": false
 			},
 			{
-				"text": "sineInOut",
-				"ref": 16,
-				"editable": true
+				"text": "slideRight",
+				"ref": 47,
+				"editable": false
 			},
 			{
-				"text": "expoIn",
+				"text": "slideInUp",
 				"ref": 17,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "expoOut",
+				"text": "slideInDown",
 				"ref": 18,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "expoInOut",
+				"text": "slideInLeft",
 				"ref": 19,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "circIn",
+				"text": "slideInRight",
 				"ref": 20,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "circInOut",
-				"ref": 22,
-				"editable": true
-			},
-			{
-				"text": "circOut",
+				"text": "slideOutUp",
 				"ref": 21,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "backIn",
+				"text": "slideOutDown",
+				"ref": 22,
+				"editable": false
+			},
+			{
+				"text": "slideOutLeft",
 				"ref": 23,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "backOut",
+				"text": "slideOutRight",
 				"ref": 24,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "backInOut",
+				"text": "zoomIn",
 				"ref": 25,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "swingFromTo",
+				"text": "zoomInUp",
 				"ref": 26,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "swingFrom",
+				"text": "zoomInDown",
 				"ref": 27,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "swingTo",
+				"text": "zoomInLeft",
 				"ref": 28,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "elastic",
+				"text": "zoomInRight",
 				"ref": 29,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "elasticIn",
+				"text": "zoomOut",
 				"ref": 30,
 				"editable": false
 			},
 			{
-				"text": "elasticOut",
-				"ref": 31,
-				"editable": true
-			},
-			{
-				"text": "elasticInOut",
+				"text": "zoomOutDown",
 				"ref": 32,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "bounceOut",
+				"text": "zoomOutUp",
+				"ref": 31,
+				"editable": false
+			},
+			{
+				"text": "zoomOutLeft",
 				"ref": 33,
-				"editable": true
+				"editable": false
 			},
 			{
-				"text": "bounceIn",
+				"text": "zoomOutRight",
 				"ref": 34,
+				"editable": false
+			}
+		]
+	},
+	"object_list": {
+		"editable": true,
+		"items": [
+			{
+				"text": "input_obj",
+				"ref": 1,
 				"editable": true
 			},
 			{
-				"text": "bounceInOut",
-				"ref": 35,
+				"text": "button_obj",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "text_obj",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "rectangle_obj",
+				"ref": 4,
 				"editable": true
 			}
 		]

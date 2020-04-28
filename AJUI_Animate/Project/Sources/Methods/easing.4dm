@@ -51,7 +51,7 @@ Case of
 		If ($pos<0.5)
 			$posCalc:=($pos^3)*4
 		Else 
-			$posCalc:=(($pos-1)*((2*$pos)-2)*(((2*$pos)-2)))+1)
+			$posCalc:=(($pos-1)*((2*$pos)-2)*(((2*$pos)-2)))+1
 		End if 
 	: ($easing="quartIn")  // Accelerating from zero velocity
 		$posCalc:=$pos^4
@@ -132,7 +132,7 @@ Case of
 		$pos:=$pos/0.5
 		If ($pos<1)
 			$s:=$s*1.525
-			$posCalc:=0.5*(($pos^2)*((($s+1)$pos)-$s))
+			$posCalc:=0.5*(($pos^2)*((($s+1)*$pos)-$s))
 		Else 
 			$s:=$s*1.525
 			$pos:=$pos-2

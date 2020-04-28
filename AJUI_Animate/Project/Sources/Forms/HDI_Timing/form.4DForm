@@ -331,8 +331,7 @@
 					"dataSource": "Form:C1466.animationType",
 					"choiceList": {
 						"$ref": "/SOURCES/lists.json#/animationtype"
-					},
-					"method": "ObjectMethods/animationType_popup_input.4dm"
+					}
 				},
 				"animationType_label": {
 					"type": "text",

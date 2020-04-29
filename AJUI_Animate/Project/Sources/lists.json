@@ -73,6 +73,21 @@
 				"editable": false
 			},
 			{
+				"text": "backIn",
+				"ref": 66,
+				"editable": false
+			},
+			{
+				"text": "backOut",
+				"ref": 67,
+				"editable": false
+			},
+			{
+				"text": "backInOut",
+				"ref": 68,
+				"editable": false
+			},
+			{
 				"text": "bounce",
 				"ref": 1,
 				"editable": true
@@ -128,6 +143,76 @@
 				"editable": false
 			},
 			{
+				"text": "bounceInOut",
+				"ref": 72,
+				"editable": false
+			},
+			{
+				"text": "circIn",
+				"ref": 63,
+				"editable": false
+			},
+			{
+				"text": "circOut",
+				"ref": 64,
+				"editable": false
+			},
+			{
+				"text": "circInOut",
+				"ref": 65,
+				"editable": false
+			},
+			{
+				"text": "cubicIn",
+				"ref": 47,
+				"editable": false
+			},
+			{
+				"text": "cubicOut",
+				"ref": 50,
+				"editable": false
+			},
+			{
+				"text": "cubicInOut",
+				"ref": 49,
+				"editable": false
+			},
+			{
+				"text": "elastic",
+				"ref": 73,
+				"editable": false
+			},
+			{
+				"text": "elasticIn",
+				"ref": 74,
+				"editable": false
+			},
+			{
+				"text": "elasticOut",
+				"ref": 75,
+				"editable": false
+			},
+			{
+				"text": "elasticInOut",
+				"ref": 76,
+				"editable": false
+			},
+			{
+				"text": "expoIn",
+				"ref": 60,
+				"editable": false
+			},
+			{
+				"text": "expoOut",
+				"ref": 61,
+				"editable": false
+			},
+			{
+				"text": "expoInOut",
+				"ref": 62,
+				"editable": false
+			},
+			{
 				"text": "flash",
 				"ref": 2,
 				"editable": true
@@ -168,8 +253,68 @@
 				"editable": false
 			},
 			{
+				"text": "quadIn",
+				"ref": 44,
+				"editable": false
+			},
+			{
+				"text": "quadOut",
+				"ref": 45,
+				"editable": false
+			},
+			{
+				"text": "quadInOut",
+				"ref": 46,
+				"editable": false
+			},
+			{
 				"text": "shakeYes",
 				"ref": 39,
+				"editable": false
+			},
+			{
+				"text": "quartIn",
+				"ref": 51,
+				"editable": false
+			},
+			{
+				"text": "quartOut",
+				"ref": 52,
+				"editable": false
+			},
+			{
+				"text": "quartInOut",
+				"ref": 53,
+				"editable": false
+			},
+			{
+				"text": "quintIn",
+				"ref": 54,
+				"editable": false
+			},
+			{
+				"text": "quintOut",
+				"ref": 55,
+				"editable": false
+			},
+			{
+				"text": "quintInOut",
+				"ref": 56,
+				"editable": false
+			},
+			{
+				"text": "sineIn",
+				"ref": 57,
+				"editable": false
+			},
+			{
+				"text": "sineOut",
+				"ref": 58,
+				"editable": false
+			},
+			{
+				"text": "sineInOut",
+				"ref": 59,
 				"editable": false
 			},
 			{
@@ -233,6 +378,21 @@
 				"editable": false
 			},
 			{
+				"text": "swingFromTo",
+				"ref": 69,
+				"editable": false
+			},
+			{
+				"text": "swingFrom",
+				"ref": 70,
+				"editable": false
+			},
+			{
+				"text": "swingTo",
+				"ref": 71,
+				"editable": false
+			},
+			{
 				"text": "zoomIn",
 				"ref": 25,
 				"editable": false
@@ -288,13 +448,8 @@
 		"editable": true,
 		"items": [
 			{
-				"text": "input_obj",
-				"ref": 1,
-				"editable": true
-			},
-			{
-				"text": "button_obj",
-				"ref": 2,
+				"text": "rectangle_obj",
+				"ref": 4,
 				"editable": true
 			},
 			{
@@ -303,7 +458,37 @@
 				"editable": true
 			},
 			{
-				"text": "rectangle_obj",
+				"text": "button_obj",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "input_obj",
+				"ref": 1,
+				"editable": true
+			}
+		]
+	},
+	"orientation": {
+		"editable": true,
+		"items": [
+			{
+				"text": "up",
+				"ref": 1,
+				"editable": true
+			},
+			{
+				"text": "down",
+				"ref": 2,
+				"editable": true
+			},
+			{
+				"text": "left",
+				"ref": 3,
+				"editable": true
+			},
+			{
+				"text": "right",
 				"ref": 4,
 				"editable": true
 			}

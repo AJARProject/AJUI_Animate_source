@@ -16,29 +16,17 @@ If (False:C215)
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
-End if
+End if 
 
 
 C_OBJECT:C1216($0;$animation)
 
 $animation:=New object:C1471
 
-  //$operation[""]:="Animation
-
-  //global
-  //$animation.target:=""
-  //$animation.iterations:=1
 
   //timing
 $animation.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
-  //$animation.duration:=1000  // millisec
-  //$animation.delay:=0
-  //$animation.frequency:=30
 
-  // position and resize
-  //$animation.offset:=0  //pixel
-  //$animation.shrink:=0  //factor
-  //$animation.grow:=0  //factor
 
   // effects
 $animation.bounce:=Formula:C1597(bounce )
@@ -83,5 +71,9 @@ $animation.zoomOutDown:=Formula:C1597(zoomOutDown )
 $animation.zoomOutUp:=Formula:C1597(zoomOutUp )
 $animation.zoomOutLeft:=Formula:C1597(zoomOutLeft )
 $animation.zoomOutRight:=Formula:C1597(zoomOutRight )
+$animation.elastic:=Formula:C1597(elastic )
+$animation.elasticIn:=Formula:C1597(elasticIn )
+$animation.elasticOut:=Formula:C1597(elasticOut )
+$animation.elasticInOut:=Formula:C1597(elasticInOut )
 
 $0:=$animation

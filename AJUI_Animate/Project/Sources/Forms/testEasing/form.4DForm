@@ -87,7 +87,7 @@
 						"onDataChange"
 					],
 					"choiceList": {
-						"$ref": "/SOURCES/lists.json#/easing"
+						"$ref": "/SOURCES/lists.json#/Animate it"
 					}
 				},
 				"Button": {
@@ -101,6 +101,33 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Button.4dm"
+				},
+				"Check Box": {
+					"type": "checkbox",
+					"text": "Relative move",
+					"top": 32,
+					"left": 520,
+					"width": 115,
+					"height": 23,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"dataSourceTypeHint": "integer",
+					"dataSource": "Form:C1466.reltransition",
+					"method": "ObjectMethods/Check Box.4dm"
+				},
+				"myGraph_obj": {
+					"type": "input",
+					"left": 513,
+					"top": 102,
+					"width": 280,
+					"height": 257,
+					"dataSourceTypeHint": "picture",
+					"enterable": false,
+					"pictureFormat": "proportionalTopLeft",
+					"fill": "transparent",
+					"borderStyle": "none"
 				}
 			}
 		}

@@ -1,9 +1,8 @@
 //%attributes = {}
-  // easing ( pos ) -> return
+  // easing ( pos ) -> calcPosition
   //
-  // param1 : (text) blabla
-  // param2 : (text) blabla
-  // return : (text) return vale
+  // pos : (real) position to evaluate
+  // calcPosition : (real) return calculated value according to the easing function
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -141,7 +140,7 @@ Case of
 		
 	: ($easing="swingFrom")
 		$s:=1.70158
-		$posCalc:=($pos^2)*((($s+1)*$pos)+$s)
+		$posCalc:=($pos^2)*((($s+1)*$pos)-$s)
 	: ($easing="swingTo")
 		$s:=1.70158
 		$pos:=$pos-1

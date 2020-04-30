@@ -8,6 +8,7 @@
   //   • offset (longint) : in pixel
   //   • iterations (longint) : number of repeat
   //   • shrink (real) : factor
+  //   • orientation (text) :  orientation
 
 If (False:C215)
 	  // ----------------------------------------------------

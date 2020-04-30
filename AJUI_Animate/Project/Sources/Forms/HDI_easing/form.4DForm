@@ -260,5 +260,6 @@
 			}
 		}
 	],
-	"formSizeAnchor": "recSize"
+	"formSizeAnchor": "recSize",
+	"method": "method.4dm"
 }

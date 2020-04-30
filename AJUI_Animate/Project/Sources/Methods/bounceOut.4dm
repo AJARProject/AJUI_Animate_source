@@ -6,6 +6,7 @@
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • shrink (real) : factor
+  //   • orientation (text) :  orientation
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -18,36 +19,36 @@ If (False:C215)
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
-End if
+End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
 C_REAL:C285($shrink;$grow)
+C_TEXT:C284($orientation)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
-If (String:C10($o.shrink)="")
-	$o.shrink:=0.3
-End if
-$shrink:=$o.shrink
+If (String:C10($o.offset)="")
+	$o.offset:=10
+End if 
+$offset:=$o.offset
 If (String:C10($o.duration)="")
 	$o.duration:=200
-End if
+End if 
 $duration:=$o.duration
+If (String:C10($o.orientation)="")
+	$o.orientation:=""
+End if 
+$orientation:=$o.orientation
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
-Else
+Else 
 	$target:=$o.target
-End if
+End if 
 
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
-
-  // Get the font properties
-$fontName:=OBJECT Get font:C1069(*;$target)
-$fontSize:=OBJECT Get font size:C1070(*;$target)
-$fontStyle:=OBJECT Get font style:C1071(*;$target)
 
   // Set the size of the object to its min size first
 $width:=($right-$left)
@@ -57,41 +58,137 @@ $height:=($bottom-$top)
 $centerX:=$left+($width/2)
 $centerY:=$top+($height/2)
 
-$animationItem:=New AnimationItem
-$animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+  // Get the font properties
+$fontName:=OBJECT Get font:C1069(*;$target)
+$fontSize:=OBJECT Get font size:C1070(*;$target)
+$fontStyle:=OBJECT Get font style:C1071(*;$target)
+
+$animationItem:=New AnimationItem 
 $animationItem.target:=$target
 $animationItem.animType:="ease"
 $animationItem.duration:=$duration
 $animationItem.delay:=0
 $animationItem.frequency:=30
-  // Shrink x 0.9
-$animationItem.left:=$centerX-($width*0.9/2)
-$animationItem.top:=$centerY-($height*0.9/2)
-$animationItem.width:=$width*0.9
-$animationItem.height:=$height*0.9
-$animationItem.fontName:=$fontName
-$animationItem.fontSize:=$fontSize*0.9
-$animationItem.fontStyle:=$fontStyle
-Form:C1466.colTest.push($animationItem)
-  // Grow * 1.1
-$animationItem2:=OB Copy:C1225($animationItem)
-$animationItem2.width:=$width*1.1
-$animationItem2.height:=$height*1.1
-$animationItem2.left:=$centerX-($width*1.1/2)
-$animationItem2.top:=$centerY-($height*1.1/2)
-$animationItem2.fontSize:=$fontSize*1
-Form:C1466.colTest.push($animationItem2)
 
-  // shrink small
-$animationItem3:=OB Copy:C1225($animationItem)
-$animationItem3.duration:=$duration*2
-$animationItem3.width:=$width*$shrink
-$animationItem3.height:=$height*$shrink
-$animationItem3.left:=$centerX-($width*$shrink/2)
-$animationItem3.top:=$centerY-($height*$shrink/2)
-$animationItem3.fontSize:=$fontSize*$shrink
-$animationItem3.hideAtTheEnd:=True:C214
-Form:C1466.colTest.push($animationItem3)
+
+Case of 
+	: ($orientation="right")
+		C_LONGINT:C283($width_window)
+		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+		
+		If (String:C10($o.width_window)="")
+			$width_window:=500
+		Else 
+			$width_window:=$o.width_window
+		End if 
+		
+		$animationItem.left:=$left-$offset
+		$animationItem.top:=$top
+		$animationItem.width:=$width
+		$animationItem.height:=$height
+		Form:C1466.colTest.push($animationItem)
+		
+		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2.duration:=$duration*1.2
+		$animationItem2.left:=$width_window
+		$animationItem2.hideAtTheEnd:=True:C214
+		Form:C1466.colTest.push($animationItem2)
+	: ($orientation="left")
+		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+		
+		$animationItem.left:=$left+$offset
+		$animationItem.top:=$top
+		$animationItem.width:=$width
+		$animationItem.height:=$height
+		Form:C1466.colTest.push($animationItem)
+		
+		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2.duration:=$duration*1.2
+		$animationItem2.left:=0-$width
+		$animationItem2.hideAtTheEnd:=True:C214
+		Form:C1466.colTest.push($animationItem2)
+	: ($orientation="up")
+		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+		
+		$animationItem.left:=$left
+		$animationItem.top:=$top-$offset
+		$animationItem.width:=$width
+		$animationItem.height:=$height
+		Form:C1466.colTest.push($animationItem)
+		
+		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2.top:=$top+$offset
+		Form:C1466.colTest.push($animationItem2)
+		
+		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3.duration:=$duration*1.2
+		$animationItem3.top:=-$height
+		$animationItem3.hideAtTheEnd:=True:C214
+		Form:C1466.colTest.push($animationItem3)
+	: ($orientation="down")
+		C_LONGINT:C283($height_window)
+		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+		
+		If (String:C10($o.height_window)="")
+			$height_window:=500
+		Else 
+			$height_window:=$o.height_window
+		End if 
+		
+		  // offset x 0.9
+		$animationItem.left:=$left
+		$animationItem.top:=$top+$offset
+		$animationItem.width:=$width
+		$animationItem.height:=$height
+		Form:C1466.colTest.push($animationItem)
+		  // Grow * 1.1
+		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2.top:=$top-$offset
+		Form:C1466.colTest.push($animationItem2)
+		
+		  // offset small
+		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3.duration:=$duration*1.5
+		$animationItem3.top:=$height_window
+		$animationItem3.hideAtTheEnd:=True:C214
+		Form:C1466.colTest.push($animationItem3)
+	Else 
+		$animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
+		If (String:C10($o.shrink)="")
+			$o.shrink:=0.3
+		End if 
+		$shrink:=$o.shrink
+		
+		  // Shrink x 0.9
+		$animationItem.left:=$centerX-($width*0.9/2)
+		$animationItem.top:=$centerY-($height*0.9/2)
+		$animationItem.width:=$width*0.9
+		$animationItem.height:=$height*0.9
+		$animationItem.fontName:=$fontName
+		$animationItem.fontSize:=$fontSize*0.9
+		$animationItem.fontStyle:=$fontStyle
+		Form:C1466.colTest.push($animationItem)
+		  // Grow * 1.1
+		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2.width:=$width*1.1
+		$animationItem2.height:=$height*1.1
+		$animationItem2.left:=$centerX-($width*1.1/2)
+		$animationItem2.top:=$centerY-($height*1.1/2)
+		$animationItem2.fontSize:=$fontSize*1
+		Form:C1466.colTest.push($animationItem2)
+		
+		  // shrink small
+		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3.duration:=$duration*2
+		$animationItem3.width:=$width*$shrink
+		$animationItem3.height:=$height*$shrink
+		$animationItem3.left:=$centerX-($width*$shrink/2)
+		$animationItem3.top:=$centerY-($height*$shrink/2)
+		$animationItem3.fontSize:=$fontSize*$shrink
+		$animationItem3.hideAtTheEnd:=True:C214
+		Form:C1466.colTest.push($animationItem3)
+End case 
+
 
 $operations:=New object:C1471()
 $operations.operations:=Form:C1466.colTest

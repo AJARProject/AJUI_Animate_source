@@ -80,4 +80,11 @@ $animation.elasticIn:=Formula:C1597(elasticIn )
 $animation.elasticOut:=Formula:C1597(elasticOut )
 $animation.elasticInOut:=Formula:C1597(elasticInOut )
 
+$animation.circIn:=Formula:C1597(circIn )
+$animation.circOut:=Formula:C1597(circOut )
+$animation.circInOut:=Formula:C1597(circInOut )
+$animation.bounceIn:=Formula:C1597(BounceIn2 )
+$animation.bounceOut:=Formula:C1597(bounceOut2 )
+$animation.bounceInOut:=Formula:C1597(bounceInOut2 )
+
 $0:=$animation

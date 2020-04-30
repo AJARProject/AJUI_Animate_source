@@ -26,7 +26,7 @@ If (False:C215)
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 20.03.20, 08:16:21
 	  // ----------------------------------------------------
-	  // Method: transitionTiming
+	  // Method: animationTiming
 	  // Description
 	  // 
 	  // Formules to use
@@ -49,7 +49,7 @@ End if
 
 C_OBJECT:C1216($animation_obj;$1)
 C_REAL:C285($0;$transitionValue)
-C_REAL:C285($x;$factory)
+C_REAL:C285($x;$factorY)
 C_LONGINT:C283($steps;$current_step)
 C_BOOLEAN:C305($2;$relative)
 C_REAL:C285($minValue;$maxValue)
@@ -163,7 +163,7 @@ If ($isBezier)
 			$ay:=(1-$t)*$y0
 			$by:=$t*$y3
 			
-			$factory:=$ay+$by
+			$factorY:=$ay+$by
 			
 		: ($bezier_nbPoint=3)
 			  //P = (1−t)2P1 + 2(1−t)tP2 + t2P3
@@ -171,7 +171,7 @@ If ($isBezier)
 			$by:=2*(1-$t)*$t*Choose:C955($choose_x1;$y1;$y2)
 			$cy:=($t^2)*$y3
 			
-			$factory:=$ay+$by+$cy
+			$factorY:=$ay+$by+$cy
 			
 			
 		: ($bezier_nbPoint=4)
@@ -181,13 +181,13 @@ If ($isBezier)
 			$cy:=((3*(1-$t))*($t^2))*$y2
 			$dy:=($t^3)*$y3
 			
-			$factory:=$ay+$by+$cy+$dy
+			$factorY:=$ay+$by+$cy+$dy
 			
 	End case 
 Else 
-	$factory:=easing ($type;$t)
+	$factorY:=easing ($type;$t)
 End if 
 
-$transitionValue:=$minValue+($factory*($maxValue-$minValue))
+$transitionValue:=$minValue+($factorY*($maxValue-$minValue))
 
 $0:=$transitionValue

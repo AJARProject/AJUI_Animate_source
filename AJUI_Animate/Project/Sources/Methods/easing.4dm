@@ -145,9 +145,9 @@ Case of
 		$s:=1.70158
 		$pos:=$pos-1
 		$posCalc:=(($pos^2)*((($s+1)*$pos)+$s))+1
-	: ($easing="bounceIn")  // Bounce increasing in velocity until completion
-		$posCalc:=1-easing ("bounceOut";1-$pos)
-	: ($easing="bounceOut")  // Bounce to completion
+	: ($easing="bounceIn2")  // Bounce increasing in velocity until completion
+		$posCalc:=1-easing ("bounceOut2";1-$pos)
+	: ($easing="bounceOut2")  // Bounce to completion
 		$st:=$pos
 		Case of 
 			: ($st<(1/2.75))
@@ -162,11 +162,11 @@ Case of
 				$st2:=$st-(2.625/2.75)
 				$posCalc:=(7.5625*($st2^2))+0.984375
 		End case 
-	: ($easing="bounceInOut")  // Bounce increasing in velocity until completion
+	: ($easing="bounceInOut2")  // Bounce increasing in velocity until completion
 		If ($pos<0.5)
-			$posCalc:=easing ("bounceIn";$pos*2)*0.5
+			$posCalc:=easing ("bounceIn2";$pos*2)*0.5
 		Else 
-			$posCalc:=(easing ("bounceOut";($pos*2)-1)*0.5)+0.5
+			$posCalc:=(easing ("bounceOut2";($pos*2)-1)*0.5)+0.5
 		End if 
 		
 		

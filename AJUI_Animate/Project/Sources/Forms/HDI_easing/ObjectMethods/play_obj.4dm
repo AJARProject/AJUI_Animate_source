@@ -22,6 +22,7 @@ C_OBJECT:C1216($param)
 For each ($param;Form:C1466.params_col)
 	$o[$param.property]:=$param.value
 End for each 
+$o.name:=$animation
 $o[$animation].call($o)  // launch animation
 
 

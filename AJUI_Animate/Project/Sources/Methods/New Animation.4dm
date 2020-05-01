@@ -30,7 +30,7 @@ $animation.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
 
   // effects
 $animation.bounce:=Formula:C1597(bounce )
-$animation.bounceIn:=Formula:C1597(bounceIn )
+$animation.bounceIn:=Formula:C1597(BounceIn )
   //$animation.bounceInUp:=Formula(bounceInUp )
   //$animation.bounceInDown:=Formula(bounceInDown )
   //$animation.bounceInLeft:=Formula(bounceInLeft )
@@ -80,11 +80,12 @@ $animation.elasticIn:=Formula:C1597(elasticIn )
 $animation.elasticOut:=Formula:C1597(elasticOut )
 $animation.elasticInOut:=Formula:C1597(elasticInOut )
 
-$animation.circIn:=Formula:C1597(circIn )
+$animation.circIn:=Formula:C1597(easing_calc )
+$animation.circOut:=Formula:C1597(easing_calc )
 $animation.circOut:=Formula:C1597(circOut )
 $animation.circInOut:=Formula:C1597(circInOut )
-$animation.bounceIn:=Formula:C1597(BounceIn2 )
-$animation.bounceOut:=Formula:C1597(bounceOut2 )
-$animation.bounceInOut:=Formula:C1597(bounceInOut2 )
+$animation.bounceIn:=Formula:C1597(BounceIn )
+$animation.bounceOut:=Formula:C1597(bounceOut )
+$animation.bounceInOut:=Formula:C1597(bounceInOut )
 
 $0:=$animation

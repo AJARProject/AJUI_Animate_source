@@ -6,8 +6,7 @@
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
-  //   • shrink (real) : factor
-  //   • grow (real) : factor
+  //   • factor (real) : factor
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -25,7 +24,7 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 C_LONGINT:C283($height_window)
 

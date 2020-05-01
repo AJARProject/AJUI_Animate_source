@@ -23,7 +23,7 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.offset)="")

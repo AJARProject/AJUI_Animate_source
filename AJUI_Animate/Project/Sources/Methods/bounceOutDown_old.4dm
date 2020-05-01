@@ -23,7 +23,7 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 C_LONGINT:C283($height_window)
 
@@ -72,7 +72,7 @@ $animationItem.top:=$top+$offset
 $animationItem.width:=$width
 $animationItem.height:=$height
 Form:C1466.colTest.push($animationItem)
-  // Grow * 1.1
+  // factor * 1.1
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.top:=$top-$offset
 Form:C1466.colTest.push($animationItem2)

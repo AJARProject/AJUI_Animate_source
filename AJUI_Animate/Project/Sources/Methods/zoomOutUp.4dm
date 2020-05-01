@@ -7,7 +7,7 @@
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
   //   • iterations (longint) : number of repeat
-  //   • shrink (real) : factor
+  //   • factor (real) : factor
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -20,32 +20,32 @@ If (False:C215)
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
-End if
+End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.offset)="")
 	$o.offset:=100
-End if
+End if 
 $offset:=$o.offset
-If (String:C10($o.shrink)="")
-	$o.shrink:=0.5
-End if
-$shrink:=$o.shrink
+If (String:C10($o.factor)="")
+	$o.factor:=0.5
+End if 
+$factor:=$o.factor
 If (String:C10($o.duration)="")
 	$o.duration:=1000
-End if
+End if 
 $duration:=$o.duration
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
-Else
+Else 
 	$target:=$o.target
-End if
+End if 
 
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
@@ -62,20 +62,20 @@ $height:=($bottom-$top)
 $centerX:=$left+($width/2)
 $centerY:=$top+($height/2)
 
-$animationItem:=New AnimationItem
+$animationItem:=New AnimationItem 
 $animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 $animationItem.target:=$target
 $animationItem.animType:="ease-out"
 $animationItem.duration:=$duration
 $animationItem.delay:=0
 $animationItem.frequency:=30
-  // Grow
-$animationItem.left:=$centerX-($width*$shrink/2)
-$animationItem.top:=$centerY-($height*$shrink/2)-$offset
-$animationItem.width:=$width*$shrink
-$animationItem.height:=$height*$shrink
+  // factor
+$animationItem.left:=$centerX-($width*$factor/2)
+$animationItem.top:=$centerY-($height*$factor/2)-$offset
+$animationItem.width:=$width*$factor
+$animationItem.height:=$height*$factor
 $animationItem.fontName:=$fontName
-$animationItem.fontSize:=$fontSize*$shrink
+$animationItem.fontSize:=$fontSize*$factor
 $animationItem.fontStyle:=$fontStyle
 $animationItem.hideAtTheEnd:=True:C214
 Form:C1466.colTest.push($animationItem)

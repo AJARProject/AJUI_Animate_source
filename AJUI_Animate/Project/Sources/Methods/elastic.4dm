@@ -7,7 +7,7 @@
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
   //   • iterations (longint) : number of repeat
-  //   • shrink (real) : factor
+  //   • factor (real) : factor
   //   • orientation (text) :  orientation
 
 If (False:C215)
@@ -27,17 +27,17 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.offset)="")
 	$o.offset:=100
 End if 
 $offset:=$o.offset
-If (String:C10($o.shrink)="")
-	$o.shrink:=1
+If (String:C10($o.factor)="")
+	$o.factor:=1
 End if 
-$shrink:=$o.shrink
+$factor:=$o.factor
 If (String:C10($o.duration)="")
 	$o.duration:=1000
 End if 
@@ -74,32 +74,32 @@ $animationItem.animType:=Current method name:C684
 $animationItem.duration:=$duration
 $animationItem.delay:=0
 $animationItem.frequency:=30
-  // Grow
+  // factor
 
 
 Case of 
 	: ($orientation="right")
-		$animationItem.left:=$centerX-($width*$shrink/2)+$offset
-		$animationItem.top:=$centerY-($height*$shrink/2)
+		$animationItem.left:=$centerX-($width*$factor/2)+$offset
+		$animationItem.top:=$centerY-($height*$factor/2)
 	: ($orientation="left")
-		$animationItem.left:=$centerX-($width*$shrink/2)-$offset
-		$animationItem.top:=$centerY-($height*$shrink/2)
+		$animationItem.left:=$centerX-($width*$factor/2)-$offset
+		$animationItem.top:=$centerY-($height*$factor/2)
 	: ($orientation="up")
-		$animationItem.left:=$centerX-($width*$shrink/2)
-		$animationItem.top:=$centerY-($height*$shrink/2)-$offset
+		$animationItem.left:=$centerX-($width*$factor/2)
+		$animationItem.top:=$centerY-($height*$factor/2)-$offset
 	: ($orientation="down")
-		$animationItem.left:=$centerX-($width*$shrink/2)
-		$animationItem.top:=$centerY-($height*$shrink/2)+$offset
+		$animationItem.left:=$centerX-($width*$factor/2)
+		$animationItem.top:=$centerY-($height*$factor/2)+$offset
 	Else   //no move
-		$animationItem.left:=$centerX-($width*$shrink/2)
-		$animationItem.top:=$centerY-($height*$shrink/2)
+		$animationItem.left:=$centerX-($width*$factor/2)
+		$animationItem.top:=$centerY-($height*$factor/2)
 End case 
 
-$animationItem.width:=$width*$shrink
-$animationItem.height:=$height*$shrink
+$animationItem.width:=$width*$factor
+$animationItem.height:=$height*$factor
 
 $animationItem.fontName:=$fontName
-$animationItem.fontSize:=$fontSize*$shrink
+$animationItem.fontSize:=$fontSize*$factor
 $animationItem.fontStyle:=$fontStyle
 $animationItem.hideAtTheEnd:=True:C214
 Form:C1466.colTest.push($animationItem)

@@ -24,7 +24,7 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_TEXT:C284($orientation)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 

@@ -5,7 +5,7 @@
   //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
-  //   • shrink (real) : factor
+  //   • factor (real) : factor
   //   • orientation (text) :  orientation
 
 If (False:C215)
@@ -15,7 +15,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 	  // Method: bounceOut
 	  // Description
-	  // //G-F, shrink-S, N-F, Shrink-S
+	  // //G-F, factor-S, N-F, factor-S
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
@@ -24,7 +24,7 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_TEXT:C284($orientation)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
@@ -141,7 +141,7 @@ Case of
 		$animationItem.width:=$width
 		$animationItem.height:=$height
 		Form:C1466.colTest.push($animationItem)
-		  // Grow * 1.1
+		  // factor * 1.1
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.top:=$top-$offset
 		Form:C1466.colTest.push($animationItem2)
@@ -154,12 +154,12 @@ Case of
 		Form:C1466.colTest.push($animationItem3)
 	Else 
 		$animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
-		If (String:C10($o.shrink)="")
-			$o.shrink:=0.3
+		If (String:C10($o.factor)="")
+			$o.factor:=0.3
 		End if 
-		$shrink:=$o.shrink
+		$factor:=$o.factor
 		
-		  // Shrink x 0.9
+		  // factor x 0.9
 		$animationItem.left:=$centerX-($width*0.9/2)
 		$animationItem.top:=$centerY-($height*0.9/2)
 		$animationItem.width:=$width*0.9
@@ -168,7 +168,7 @@ Case of
 		$animationItem.fontSize:=$fontSize*0.9
 		$animationItem.fontStyle:=$fontStyle
 		Form:C1466.colTest.push($animationItem)
-		  // Grow * 1.1
+		  // factor * 1.1
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.width:=$width*1.1
 		$animationItem2.height:=$height*1.1
@@ -177,14 +177,14 @@ Case of
 		$animationItem2.fontSize:=$fontSize*1
 		Form:C1466.colTest.push($animationItem2)
 		
-		  // shrink small
+		  // factor small
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.duration:=$duration*2
-		$animationItem3.width:=$width*$shrink
-		$animationItem3.height:=$height*$shrink
-		$animationItem3.left:=$centerX-($width*$shrink/2)
-		$animationItem3.top:=$centerY-($height*$shrink/2)
-		$animationItem3.fontSize:=$fontSize*$shrink
+		$animationItem3.width:=$width*$factor
+		$animationItem3.height:=$height*$factor
+		$animationItem3.left:=$centerX-($width*$factor/2)
+		$animationItem3.top:=$centerY-($height*$factor/2)
+		$animationItem3.fontSize:=$fontSize*$factor
 		$animationItem3.hideAtTheEnd:=True:C214
 		Form:C1466.colTest.push($animationItem3)
 End case 

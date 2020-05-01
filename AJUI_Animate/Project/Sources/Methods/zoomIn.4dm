@@ -6,7 +6,7 @@
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
-  //   • shrink (real) : factor
+  //   • factor (real) : factor
   //   • orientation (text) :  orientation
 
 
@@ -26,7 +26,7 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_TEXT:C284($orientation)
 C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
 C_LONGINT:C283($width;$width0;$height;$height0;$bottom0;$top0;$left0;$right0)
@@ -35,10 +35,10 @@ If (String:C10($o.offset)="")
 	$o.offset:=100
 End if 
 $offset:=$o.offset
-If (String:C10($o.shrink)="")
-	$o.shrink:=0.5
+If (String:C10($o.factor)="")
+	$o.factor:=0.5
 End if 
-$shrink:=$o.shrink
+$factor:=$o.factor
 If (String:C10($o.duration)="")
 	$o.duration:=1000
 End if 
@@ -65,8 +65,8 @@ $fontStyle:=OBJECT Get font style:C1071(*;$target)
   // Set the size of the object to its min size first
 $width:=($right-$left)
 $height:=($bottom-$top)
-$width0:=$width*$shrink
-$height0:=$height*$shrink
+$width0:=$width*$factor
+$height0:=$height*$factor
   // define the center coordinate of the target
 $centerX:=$left+($width/2)
 $centerY:=$top+($height/2)
@@ -99,7 +99,7 @@ Case of
 		$bottom0:=$top0+$height0
 End case 
 OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
-OBJECT SET FONT SIZE:C165(*;$target;$fontSize*$shrink)
+OBJECT SET FONT SIZE:C165(*;$target;$fontSize*$factor)
 
 $animationItem:=New AnimationItem 
 $animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
@@ -108,7 +108,7 @@ $animationItem.animType:="ease-out"
 $animationItem.duration:=$duration
 $animationItem.delay:=0
 $animationItem.frequency:=30
-  // Grow
+  // factor
 $animationItem.left:=$centerX-($width/2)
 $animationItem.top:=$centerY-($height/2)
 $animationItem.width:=$width

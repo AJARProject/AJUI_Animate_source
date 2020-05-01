@@ -5,7 +5,7 @@
   //   • target (text) : name of the target object
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
-  //   • shrink (real) : factor
+  //   • factor (real) : factor
   //   • orientation (text) :  orientation
 
 If (False:C215)
@@ -24,15 +24,15 @@ End if
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_TEXT:C284($orientation)
 C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
 C_LONGINT:C283($width;$width0;$height;$height0;$bottom0;$top0;$left0;$right0)
 
-If (String:C10($o.shrink)="")
-	$o.shrink:=0.5
+If (String:C10($o.factor)="")
+	$o.factor:=0.5
 End if 
-$shrink:=$o.shrink
+$factor:=$o.factor
 If (String:C10($o.offset)="")
 	$o.offset:=10
 End if 
@@ -107,8 +107,8 @@ Case of
 		$bottom0:=0
 	Else 
 		  // Set the size of the object to its min size first
-		$width0:=$width*$shrink
-		$height0:=$height*$shrink
+		$width0:=$width*$factor
+		$height0:=$height*$factor
 		  // define the center coordinate of the target
 		$centerX:=$left+($width/2)
 		$centerY:=$top+($height/2)
@@ -124,7 +124,7 @@ Case of
 		$fontStyle:=OBJECT Get font style:C1071(*;$target)
 		
 		  // set the initial size for font
-		OBJECT SET FONT SIZE:C165(*;$target;$fontSize*$shrink)
+		OBJECT SET FONT SIZE:C165(*;$target;$fontSize*$factor)
 		  // set the initial size for the object
 		
 End case 
@@ -238,24 +238,24 @@ Case of
 		$animationItem.fontSize:=$fontSize
 		$animationItem.fontStyle:=$fontStyle
 		Form:C1466.colTest.push($animationItem)
-		  // shrink * 1.5
+		  // factor * 1.5
 		$animationItem2:=OB Copy:C1225($animationItem)
-		$animationItem2.fontSize:=$fontSize*($shrink*1.5)
-		$animationItem2.width:=$width*($shrink*1.5)
-		$animationItem2.height:=$height*($shrink*1.5)
+		$animationItem2.fontSize:=$fontSize*($factor*1.5)
+		$animationItem2.width:=$width*($factor*1.5)
+		$animationItem2.height:=$height*($factor*1.5)
 		$animationItem2.left:=$centerX-($animationItem2.width/2)
 		$animationItem2.top:=$centerY-($animationItem2.height/2)
 		Form:C1466.colTest.push($animationItem2)
 		  // initial size
 		$animationItem3:=OB Copy:C1225($animationItem)
 		Form:C1466.colTest.push($animationItem3)
-		  // shrink * 1.8
+		  // factor * 1.8
 		$animationItem4:=OB Copy:C1225($animationItem)
-		$animationItem4.width:=$width*($shrink*1.8)
-		$animationItem4.height:=$height*($shrink*1.8)
+		$animationItem4.width:=$width*($factor*1.8)
+		$animationItem4.height:=$height*($factor*1.8)
 		$animationItem4.left:=$centerX-($animationItem4.width/2)
 		$animationItem4.top:=$centerY-($animationItem4.height/2)
-		$animationItem4.fontSize:=$fontSize*($shrink*1.8)
+		$animationItem4.fontSize:=$fontSize*($factor*1.8)
 		Form:C1466.colTest.push($animationItem4)
 		  // initial size
 		$animationItem5:=OB Copy:C1225($animationItem)

@@ -28,8 +28,7 @@ Case of
 		$params.push("iterations")
 		$params.push("frequency")
 		$params.push("offset")
-		$params.push("shrink")
-		$params.push("grow")
+		$params.push("factor")
 		$params.push("orientation")
 		
 		For each ($param;$params)

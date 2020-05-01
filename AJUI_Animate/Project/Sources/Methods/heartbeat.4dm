@@ -7,7 +7,7 @@
   //   • duration (longint) : in ms
   //   • iterations (longint) : number of repeat
   //   • delay (longint) : time in ms between each heartbeat
-  //   • grow (real) : factor
+  //   • factor (real) : factor
 
 
 If (False:C215)
@@ -21,36 +21,36 @@ If (False:C215)
 	  //
 	  // Parameters
 	  // ----------------------------------------------------
-End if
+End if 
 
 C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
-C_REAL:C285($shrink;$grow)
+C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
-If (String:C10($o.grow)="")
-	$o.grow:=1.2
-End if
-$grow:=$o.grow
+If (String:C10($o.factor)="")
+	$o.factor:=1.2
+End if 
+$factor:=$o.factor
 If (String:C10($o.duration)="")
 	$o.duration:=200
-End if
+End if 
 $duration:=$o.duration
 If (String:C10($o.delay)="")
 	$o.delay:=500
-End if
+End if 
 $delay:=$o.delay
 If (String:C10($o.iterations)="")
 	$o.iterations:=3
-End if
+End if 
 $iterations:=$o.iterations
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
-Else
+Else 
 	$target:=$o.target
-End if
+End if 
 
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
@@ -68,7 +68,7 @@ $height:=($bottom-$top)
 $centerX:=$left+($width/2)
 $centerY:=$top+($height/2)
 
-$animationItem:=New AnimationItem
+$animationItem:=New AnimationItem 
 $animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 $animationItem.target:=$target
 $animationItem.animType:="ease"
@@ -76,15 +76,15 @@ $animationItem.duration:=$duration
 $animationItem.delay:=$delay
 $animationItem.frequency:=30
 
-$animationItem.left:=$centerX-($width*$grow/2)
-$animationItem.top:=$centerY-($height*$grow/2)
-$animationItem.width:=$width*$grow
-$animationItem.height:=$height*$grow
+$animationItem.left:=$centerX-($width*$factor/2)
+$animationItem.top:=$centerY-($height*$factor/2)
+$animationItem.width:=$width*$factor
+$animationItem.height:=$height*$factor
 $animationItem.fontName:=$fontName
-$animationItem.fontSize:=$fontSize*$grow
+$animationItem.fontSize:=$fontSize*$factor
 $animationItem.fontStyle:=$fontStyle
 Form:C1466.colTest.push($animationItem)
-  //Shrink
+  //factor
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.left:=$centerX-($width/2)
 $animationItem2.top:=$centerY-($height/2)

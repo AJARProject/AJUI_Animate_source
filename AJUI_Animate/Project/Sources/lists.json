@@ -193,11 +193,6 @@
 				"editable": false
 			},
 			{
-				"text": "shakeNo",
-				"ref": 5,
-				"editable": false
-			},
-			{
 				"text": "quadIn",
 				"ref": 44,
 				"editable": false
@@ -210,11 +205,6 @@
 			{
 				"text": "quadInOut",
 				"ref": 46,
-				"editable": false
-			},
-			{
-				"text": "shakeYes",
-				"ref": 39,
 				"editable": false
 			},
 			{
@@ -245,6 +235,16 @@
 			{
 				"text": "quintInOut",
 				"ref": 56,
+				"editable": false
+			},
+			{
+				"text": "shakeNo",
+				"ref": 5,
+				"editable": false
+			},
+			{
+				"text": "shakeYes",
+				"ref": 39,
 				"editable": false
 			},
 			{

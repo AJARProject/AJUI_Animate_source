@@ -1,5 +1,5 @@
 //%attributes = {}
-  // circIn ( param )
+  // easing_calc ( param )
   //
   // param : (object)
   //   • target (text) : name of the target object
@@ -13,9 +13,9 @@
 If (False:C215)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
-	  // Date and time: 30.04.20, 21:04:35
+	  // Date and time: 01.05.20, 10:04:35
 	  // ----------------------------------------------------
-	  // Method: circIn
+	  // Method: easing_calc
 	  // Description
 	  // 
 	  //
@@ -23,35 +23,19 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
-$o:=This:C1470
+C_OBJECT:C1216($1;$o;$operations)
+C_TEXT:C284($2;$name)
+$o:=$1
+$name:=$2
 
 C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
-
-If (String:C10($o.offset)="")
-	$o.offset:=500
-End if 
 $offset:=$o.offset
-If (String:C10($o.factor)="")
-	$o.factor:=1
-End if 
 $factor:=$o.factor
-If (String:C10($o.duration)="")
-	$o.duration:=1000
-End if 
 $duration:=$o.duration
-If (String:C10($o.orientation)="")
-	$o.orientation:="right"
-End if 
 $orientation:=$o.orientation
-
-If (String:C10($o.target)="")
-	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
-Else 
-	$target:=$o.target
-End if 
+$target:=$o.target
 
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
@@ -71,7 +55,7 @@ $centerY:=$top+($height/2)
 $animationItem:=New AnimationItem 
 $animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 $animationItem.target:=$target
-$animationItem.animType:=Current method name:C684
+$animationItem.animType:=$name
 $animationItem.duration:=$duration
 $animationItem.delay:=0
 $animationItem.frequency:=30

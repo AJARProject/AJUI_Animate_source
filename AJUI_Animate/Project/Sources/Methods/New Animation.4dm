@@ -30,62 +30,33 @@ $animation.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
 
   // effects
 $animation.bounce:=Formula:C1597(bounce )
-$animation.bounceIn:=Formula:C1597(BounceIn )
-  //$animation.bounceInUp:=Formula(bounceInUp )
-  //$animation.bounceInDown:=Formula(bounceInDown )
-  //$animation.bounceInLeft:=Formula(bounceInLeft )
-  //$animation.bounceInRight:=Formula(bounceInRight )
+$animation.bounceIn:=Formula:C1597(bounceIn )
 $animation.bounceOut:=Formula:C1597(bounceOut )
-  //$animation.bounceOutUp:=Formula(bounceOutUp )
-  //$animation.bounceOutDown:=Formula(bounceOutDown )
-  //$animation.bounceOutLeft:=Formula(bounceOutLeft )
-  //$animation.bounceOutRight:=Formula(bounceOutRight )
-$animation.flash:=Formula:C1597(flash )  //no orientation
-$animation.heartbeat:=Formula:C1597(heartbeat )  //no orientation
-$animation.jump:=Formula:C1597(jump )
-  //$animation.jumpUp:=Formula(jumpUp )
-  //$animation.jumpDown:=Formula(jumpDown )
-  //$animation.jumpLeft:=Formula(jumpLeft )
-  //$animation.jumpRight:=Formula(jumpRight )
-$animation.pulse:=Formula:C1597(pulse )  //no orientation
-$animation.shakeNo:=Formula:C1597(shakeNo )  //no orientation
-$animation.shakeYes:=Formula:C1597(shakeYes )  //no orientation
-$animation.slide:=Formula:C1597(slide )
-  //$animation.slideUp:=Formula(slideUp )
-  //$animation.slideDown:=Formula(slideDown )
-  //$animation.slideLeft:=Formula(slideLeft )
-  //$animation.slideRight:=Formula(slideRight )
-$animation.slideIn:=Formula:C1597(slideIn )
-  //$animation.slideInUp:=Formula(slideInUp )
-  //$animation.slideInDown:=Formula(slideInDown )
-  //$animation.slideInLeft:=Formula(slideInLeft )
-  //$animation.slideInRight:=Formula(slideInRight )
-$animation.slideOut:=Formula:C1597(slideOut )
-  //$animation.slideOutUp:=Formula(slideOutUp )
-  //$animation.slideOutDown:=Formula(slideOutDown )
-  //$animation.slideOutLeft:=Formula(slideOutLeft )
-  //$animation.slideOutRight:=Formula(slideOutRight )
-$animation.zoomIn:=Formula:C1597(zoomIn )
-  //$animation.zoomInUp:=Formula(zoomInUp )
-  //$animation.zoomInDown:=Formula(zoomInDown )
-  //$animation.zoomInLeft:=Formula(zoomInLeft )
-  //$animation.zoomInRight:=Formula(zoomInRight )
-$animation.zoomOut:=Formula:C1597(zoomOut )
-  //$animation.zoomOutDown:=Formula(zoomOutDown )
-  //$animation.zoomOutUp:=Formula(zoomOutUp )
-  //$animation.zoomOutLeft:=Formula(zoomOutLeft )
-  //$animation.zoomOutRight:=Formula(zoomOutRight )
+$animation.bounceInOut:=Formula:C1597(bounceInOut )
+
+$animation.circIn:=Formula:C1597(circIn )
+$animation.circOut:=Formula:C1597(circOut )
+$animation.circInOut:=Formula:C1597(circInOut )
+
 $animation.elastic:=Formula:C1597(elastic )
 $animation.elasticIn:=Formula:C1597(elasticIn )
 $animation.elasticOut:=Formula:C1597(elasticOut )
 $animation.elasticInOut:=Formula:C1597(elasticInOut )
 
-$animation.circIn:=Formula:C1597(easing_calc )
-$animation.circOut:=Formula:C1597(easing_calc )
-$animation.circOut:=Formula:C1597(circOut )
-$animation.circInOut:=Formula:C1597(circInOut )
-$animation.bounceIn:=Formula:C1597(BounceIn )
-$animation.bounceOut:=Formula:C1597(bounceOut )
-$animation.bounceInOut:=Formula:C1597(bounceInOut )
+$animation.flash:=Formula:C1597(flash )  //no orientation
+$animation.heartbeat:=Formula:C1597(heartbeat )  //no orientation
+$animation.jump:=Formula:C1597(jump )
+$animation.pulse:=Formula:C1597(pulse )  //no orientation
+
+$animation.shakeNo:=Formula:C1597(shakeNo )  //no orientation
+$animation.shakeYes:=Formula:C1597(shakeYes )  //no orientation
+
+$animation.slide:=Formula:C1597(slide )
+$animation.slideIn:=Formula:C1597(slideIn )
+$animation.slideOut:=Formula:C1597(slideOut )
+
+$animation.zoomIn:=Formula:C1597(zoomIn )
+$animation.zoomOut:=Formula:C1597(zoomOut )
+
 
 $0:=$animation

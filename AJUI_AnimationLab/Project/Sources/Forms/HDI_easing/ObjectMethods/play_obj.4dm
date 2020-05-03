@@ -16,13 +16,12 @@ $orientation:=$orientation_ptr->{$orientation_ptr->}
 C_OBJECT:C1216($o)
 $o:=New Animation 
 $o.formName:=Current form name:C1298
-$obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_obj")
-$o.target:=$obj_ptr->{$obj_ptr->}
+$o.target:=target_name 
 $o.orientation:=$orientation
   // update according to the LB
 C_OBJECT:C1216($param)
 For each ($param;Form:C1466.params_col)
-	$o[$param.property]:=$param.value
+	$o[$param.saveAs]:=$param.value
 End for each 
 $o.name:=$animation
 $o[$animation].call($o)  // launch animation

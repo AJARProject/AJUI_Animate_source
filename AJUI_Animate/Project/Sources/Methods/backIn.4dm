@@ -26,7 +26,7 @@ C_OBJECT:C1216($1;$o;$operations)
 $o:=This:C1470
 
 If (String:C10($o.offset)="")
-	$o.offset:=200
+	$o.offset:=250
 End if 
 
 If (String:C10($o.factor)="")
@@ -39,6 +39,10 @@ End if
 
 If (String:C10($o.orientation)="")
 	$o.orientation:="right"
+End if 
+
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
 End if 
 
 If (String:C10($o.target)="")

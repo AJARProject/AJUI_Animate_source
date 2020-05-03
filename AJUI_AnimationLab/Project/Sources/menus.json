@@ -23,7 +23,7 @@
 			"items": [
 				{
 					"title": "HDI Object Animations",
-					"method": "Launch_HDI_Animations",
+					"method": "_launch_HDI_easing",
 					"startNewProcess": true
 				},
 				{

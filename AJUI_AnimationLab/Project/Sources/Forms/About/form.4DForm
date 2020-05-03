@@ -58,7 +58,8 @@
 					"focusable": false,
 					"visibility": "visible",
 					"action": "cancel",
-					"display": false
+					"display": false,
+					"method": "ObjectMethods/Button.4dm"
 				}
 			}
 		}

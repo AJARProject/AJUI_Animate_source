@@ -30,11 +30,13 @@ $name:=$2
 
 C_REAL:C285($factor)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
+C_BOOLEAN:C305($hideAtTheEnd)
 
 $offset:=$o.offset
 $factor:=$o.factor
 $duration:=$o.duration
 $orientation:=$o.orientation
+$hideAtTheEnd:=$o.hideAtTheEnd
 $target:=$o.target
 
 Form:C1466.colTest:=New collection:C1472()
@@ -84,7 +86,7 @@ $animationItem.height:=$height*$factor
 $animationItem.fontName:=$fontName
 $animationItem.fontSize:=$fontSize*$factor
 $animationItem.fontStyle:=$fontStyle
-$animationItem.hideAtTheEnd:=True:C214
+$animationItem.hideAtTheEnd:=$hideAtTheEnd
 Form:C1466.colTest.push($animationItem)
 
 $operations:=New object:C1471()

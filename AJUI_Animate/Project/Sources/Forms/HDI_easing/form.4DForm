@@ -36,20 +36,17 @@
 		},
 		{
 			"objects": {
-				"popup_animation_obj": {
-					"type": "dropdown",
-					"left": 678,
-					"top": 200,
-					"width": 215,
-					"height": 25,
-					"events": [
-						"onLoad",
-						"onClick"
+				"Rectangle": {
+					"type": "rectangle",
+					"top": 31,
+					"left": 99,
+					"width": 450,
+					"height": 450,
+					"strokeDashArray": [
+						1,
+						3
 					],
-					"choiceList": {
-						"$ref": "/SOURCES/lists.json#/Animate it"
-					},
-					"method": "ObjectMethods/popup_animation_obj.4dm"
+					"fill": "transparent"
 				},
 				"recSize": {
 					"type": "rectangle",
@@ -63,8 +60,8 @@
 				},
 				"rectangle_obj": {
 					"type": "rectangle",
-					"top": 231,
-					"left": 256,
+					"top": 216,
+					"left": 282,
 					"width": 100,
 					"height": 80,
 					"fill": "#ff0000",
@@ -72,11 +69,83 @@
 					"strokeWidth": 3,
 					"visibility": "hidden"
 				},
+				"Line": {
+					"type": "line",
+					"top": 172,
+					"left": 332,
+					"width": 0,
+					"height": 169,
+					"startPoint": "topLeft"
+				},
+				"Line1": {
+					"type": "line",
+					"top": 256,
+					"left": 241,
+					"width": 183,
+					"height": 0,
+					"startPoint": "topLeft"
+				},
+				"text_obj": {
+					"type": "text",
+					"text": "text default",
+					"top": 235,
+					"left": 185,
+					"width": 294,
+					"height": 42,
+					"class": "",
+					"fontWeight": "bold",
+					"fontFamily": "Arial",
+					"fontSize": 24,
+					"fontStyle": "italic",
+					"stroke": "#8b4513",
+					"textAlign": "center"
+				},
+				"button_obj": {
+					"type": "button",
+					"text": "Button",
+					"top": 230,
+					"left": 201,
+					"width": 262,
+					"height": 52,
+					"events": [
+						"onClick"
+					],
+					"class": "style_1"
+				},
+				"Input_obj": {
+					"type": "input",
+					"left": 184,
+					"top": 232,
+					"width": 297,
+					"height": 49,
+					"class": "input_s1",
+					"method": "ObjectMethods/Input_obj.4dm",
+					"events": [
+						"onLoad"
+					],
+					"dataSource": "Form:C1466.input",
+					"styledText": true
+				},
+				"popup_animation_obj": {
+					"type": "dropdown",
+					"left": 656,
+					"top": 200,
+					"width": 215,
+					"height": 25,
+					"events": [
+						"onLoad",
+						"onClick"
+					],
+					"choiceList": {
+						"$ref": "/SOURCES/lists.json#/Animate it"
+					},
+					"method": "ObjectMethods/popup_animation_obj.4dm"
+				},
 				"quit_obj": {
 					"type": "button",
 					"text": "Quit",
 					"top": 514,
-					"left": 735,
+					"left": 713,
 					"width": 158,
 					"height": 38,
 					"events": [
@@ -88,7 +157,7 @@
 					"type": "button",
 					"text": "Play",
 					"top": 428,
-					"left": 678,
+					"left": 656,
 					"width": 214,
 					"height": 32,
 					"events": [
@@ -100,7 +169,7 @@
 					"type": "button",
 					"text": "Reset",
 					"top": 514,
-					"left": 583,
+					"left": 561,
 					"width": 132,
 					"height": 38,
 					"events": [
@@ -109,27 +178,11 @@
 					],
 					"method": "ObjectMethods/reset_obj.4dm"
 				},
-				"Line": {
-					"type": "line",
-					"top": 187,
-					"left": 306,
-					"width": 0,
-					"height": 169,
-					"startPoint": "topLeft"
-				},
-				"Line1": {
-					"type": "line",
-					"top": 271,
-					"left": 215,
-					"width": 183,
-					"height": 0,
-					"startPoint": "topLeft"
-				},
 				"reset_obj1": {
 					"type": "button",
 					"text": "Toggle Visible",
 					"top": 514,
-					"left": 20,
+					"left": 241,
 					"width": 132,
 					"height": 38,
 					"events": [
@@ -139,7 +192,7 @@
 				},
 				"lb": {
 					"type": "listbox",
-					"left": 678,
+					"left": 656,
 					"top": 258,
 					"width": 214,
 					"height": 157,
@@ -187,50 +240,9 @@
 						}
 					]
 				},
-				"text_obj": {
-					"type": "text",
-					"text": "text default",
-					"top": 250,
-					"left": 159,
-					"width": 294,
-					"height": 42,
-					"class": "",
-					"fontWeight": "bold",
-					"fontFamily": "Arial",
-					"fontSize": 24,
-					"fontStyle": "italic",
-					"stroke": "#8b4513",
-					"textAlign": "center"
-				},
-				"button_obj": {
-					"type": "button",
-					"text": "Button",
-					"top": 240,
-					"left": 185,
-					"width": 262,
-					"height": 52,
-					"events": [
-						"onClick"
-					],
-					"class": "style_1"
-				},
-				"Input_obj": {
-					"type": "input",
-					"left": 168,
-					"top": 240,
-					"width": 297,
-					"height": 49,
-					"class": "input_s1",
-					"method": "ObjectMethods/Input_obj.4dm",
-					"events": [
-						"onLoad"
-					],
-					"dataSource": "Form:C1466.input",
-					"styledText": true
-				},
 				"popup_obj": {
 					"type": "dropdown",
-					"left": 678,
+					"left": 656,
 					"top": 172,
 					"width": 215,
 					"height": 25,
@@ -245,7 +257,7 @@
 				},
 				"popup_orientation_obj": {
 					"type": "dropdown",
-					"left": 678,
+					"left": 656,
 					"top": 230,
 					"width": 215,
 					"height": 25,
@@ -256,6 +268,42 @@
 						"$ref": "/SOURCES/lists.json#/orientation"
 					},
 					"method": "ObjectMethods/popup_orientation_obj.4dm"
+				},
+				"Button": {
+					"type": "button",
+					"text": "Button",
+					"top": 512,
+					"left": 407,
+					"width": 136,
+					"height": 40,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button.4dm"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "window size",
+					"top": 512,
+					"left": 407,
+					"width": 136,
+					"height": 40,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button1.4dm"
+				},
+				"myGraph_obj": {
+					"type": "input",
+					"left": 692,
+					"top": 41,
+					"width": 134,
+					"height": 113,
+					"dataSourceTypeHint": "picture",
+					"enterable": false,
+					"pictureFormat": "proportionalCenter",
+					"fill": "transparent",
+					"borderStyle": "none"
 				}
 			}
 		}

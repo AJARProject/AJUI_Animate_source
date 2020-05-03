@@ -31,6 +31,7 @@ Case of
 		$params.push("offset")
 		$params.push("factor")
 		$params.push("orientation")
+		$params.push("hideAtTheEnd")
 		
 		For each ($param;$params)
 			Form:C1466[$param]:=0
@@ -38,22 +39,49 @@ Case of
 		
 		C_OBJECT:C1216($o)
 		$o:=New Animation 
-		$obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_obj")
-		$o.target:=$obj_ptr->{$obj_ptr->}
+		$o.target:=target_name 
 		$o.orientation:=$orientation
 		$o.formName:=Current form name:C1298
 		$o[$animation].call($o)  // launch animation
 		
 		  // Listbox
 		Form:C1466.params_col:=New collection:C1472()
-		C_OBJECT:C1216($o2)
 		C_TEXT:C284($param)
+		$_value_obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"value_obj")
+		ARRAY OBJECT:C1221($_value_obj_ptr->;0)
+		$_properties_obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"properties_obj")
+		ARRAY TEXT:C222($_properties_obj_ptr->;0)
 		For each ($param;$params)
 			If (String:C10($o[$param])#"")
-				$o2:=New object:C1471()
-				$o2.property:=$param
-				$o2.value:=$o[$param]
-				Form:C1466.params_col.push($o2)
+				APPEND TO ARRAY:C911($_properties_obj_ptr->;$param)
+				C_OBJECT:C1216($o_value)
+				$o_value:=New object:C1471()
+				$value_type:=Value type:C1509($o[$param])
+				Case of 
+					: ($value_type=Is text:K8:3)
+						$o_value.valueType:="text"
+						If ($param="orientation")
+							ARRAY TEXT:C222($_orientaton;0)
+							LIST TO ARRAY:C288("orientation";$_orientaton)
+							OB SET ARRAY:C1227($o_value;"requiredList";$_orientaton)
+						End if 
+						$o_value.value:=$o[$param]
+					: ($value_type=Is boolean:K8:9)
+						$o_value.valueType:="boolean"
+						$o_value.value:=$o[$param]=True:C214
+					: ($value_type=Is real:K8:4)
+						$o_value.valueType:="real"
+						$o_value.value:=$o[$param]
+					: ($value_type=Is integer:K8:5)
+						$o_value.valueType:="integer"
+						$o_value.value:=$o[$param]
+					Else 
+						$o_value.valueType:="text"  // default
+						$o_value.value:=$o[$param]
+				End case 
+				$o_value.saveAs:=$param
+				APPEND TO ARRAY:C911($_value_obj_ptr->;OB Copy:C1225($o_value))
+				Form:C1466.params_col.push($o_value)
 			End if 
 		End for each 
 		

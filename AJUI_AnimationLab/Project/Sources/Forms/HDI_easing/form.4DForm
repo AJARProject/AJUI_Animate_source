@@ -282,13 +282,13 @@
 				},
 				"myGraph_obj": {
 					"type": "input",
-					"left": 687,
-					"top": 151,
-					"width": 134,
-					"height": 113,
+					"left": 638,
+					"top": 60,
+					"width": 199,
+					"height": 209,
 					"dataSourceTypeHint": "picture",
 					"enterable": false,
-					"pictureFormat": "proportionalCenter",
+					"pictureFormat": "truncatedCenter",
 					"fill": "transparent",
 					"borderStyle": "none"
 				},

@@ -48,12 +48,12 @@ $transition.maxValue:=1
 
 C_PICTURE:C286($pict)
 $padding:=0
-$factor:=200
+$factor:=100
 $max:=Abs:C99($max*$factor)+$padding+2
 $min:=Abs:C99($min*$factor)+$padding+1
 
-$svg_x:=200
-$svg_y:=400
+$svg_x:=100
+$svg_y:=200
 $svgRef:=SVG_New ($svg_x;$svg_y;"easing function";"This is an example";True:C214;Truncated non centered:K6:4)
 $currentX:=0
 $currentY:=0

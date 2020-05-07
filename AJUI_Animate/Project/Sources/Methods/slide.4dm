@@ -6,6 +6,7 @@
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -39,6 +40,10 @@ If (String:C10($o.orientation)="")
 	$o.orientation:=""
 End if 
 $orientation:=$o.orientation
+
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
+End if 
 
 
 If (String:C10($o.target)="")

@@ -7,6 +7,7 @@
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
   //   • orientation (text) :  orientation
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -25,6 +26,7 @@ C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
+C_BOOLEAN:C305($hideAtTheEnd)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.offset)="")
@@ -39,6 +41,11 @@ If (String:C10($o.orientation)="")
 	$o.orientation:=""
 End if 
 $orientation:=$o.orientation
+
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
+End if 
+$hideAtTheEnd:=$o.hideAtTheEnd
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
@@ -78,6 +85,7 @@ Case of
 		  // left small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.left:=$left
+		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		Form:C1466.colTest.push($animationItem4)
 	: ($orientation="left")
 		  // right
@@ -96,6 +104,7 @@ Case of
 		  // left small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.left:=$left
+		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		Form:C1466.colTest.push($animationItem4)
 	: ($orientation="up")
 		  // Up
@@ -114,6 +123,7 @@ Case of
 		  // down small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.top:=$top
+		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		Form:C1466.colTest.push($animationItem4)
 	: ($orientation="down")
 		  // Up
@@ -132,6 +142,7 @@ Case of
 		  // down small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.top:=$top
+		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		Form:C1466.colTest.push($animationItem4)
 	Else 
 		  // Up
@@ -150,6 +161,7 @@ Case of
 		  // down small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.top:=$top
+		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		Form:C1466.colTest.push($animationItem4)
 End case 
 

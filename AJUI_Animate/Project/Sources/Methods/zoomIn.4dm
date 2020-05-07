@@ -8,6 +8,7 @@
   //   • offset (longint) : in pixel
   //   • factor (real) : factor
   //   • orientation (text) :  orientation
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 
 If (False:C215)
@@ -28,6 +29,7 @@ $o:=This:C1470
 
 C_REAL:C285($factor)
 C_TEXT:C284($orientation)
+C_BOOLEAN:C305($hideAtTheEnd)
 C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
 C_LONGINT:C283($width;$width0;$height;$height0;$bottom0;$top0;$left0;$right0)
 
@@ -47,6 +49,11 @@ If (String:C10($o.orientation)="")
 	$o.orientation:=""
 End if 
 $orientation:=$o.orientation
+
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
+End if 
+$hideAtTheEnd:=$o.hideAtTheEnd
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
@@ -116,6 +123,7 @@ $animationItem.height:=$height
 $animationItem.fontName:=$fontName
 $animationItem.fontSize:=$fontSize
 $animationItem.fontStyle:=$fontStyle
+$animationItem.hideAtTheEnd:=$hideAtTheEnd
 Form:C1466.colTest.push($animationItem)
 
 $operations:=New object:C1471()

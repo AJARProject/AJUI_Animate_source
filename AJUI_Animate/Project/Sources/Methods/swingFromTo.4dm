@@ -9,6 +9,7 @@
   //   • iterations (longint) : number of repeat
   //   • factor (real) : factor
   //   • orientation (text) :  orientation
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -39,6 +40,10 @@ End if
 
 If (String:C10($o.orientation)="")
 	$o.orientation:=""
+End if 
+
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
 End if 
 
 If (String:C10($o.target)="")

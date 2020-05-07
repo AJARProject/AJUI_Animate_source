@@ -7,6 +7,7 @@
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
   //   • orientation (text) :  orientation
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -41,6 +42,9 @@ If (String:C10($o.orientation)="")
 End if 
 $orientation:=$o.orientation
 
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
+End if 
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //

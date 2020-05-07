@@ -9,6 +9,7 @@
   //   • offset (longint) : in pixel
   //   • factor (real) : factor
   //   • orientation (text) :  orientation
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 If (False:C215)
 	  // ----------------------------------------------------

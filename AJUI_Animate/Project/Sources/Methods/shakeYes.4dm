@@ -6,6 +6,7 @@
   //   • name (text) : name of animation
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
+  //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -24,6 +25,7 @@ C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
+C_BOOLEAN:C305($hideAtTheEnd)
 C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
 If (String:C10($o.offset)="")
@@ -34,6 +36,11 @@ If (String:C10($o.duration)="")
 	$o.duration:=100
 End if 
 $duration:=$o.duration
+
+If (String:C10($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False:C215
+End if 
+$hideAtTheEnd:=$o.hideAtTheEnd
 
 If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
@@ -82,6 +89,7 @@ $animationItem7:=OB Copy:C1225($animationItem)
 Form:C1466.colTest.push($animationItem7)
 $animationItem8:=OB Copy:C1225($animationItem2)
 $animationItem8.top:=$top
+$animationItem8.hideAtTheEnd:=$hideAtTheEnd
 Form:C1466.colTest.push($animationItem8)
 
 $operations:=New object:C1471()

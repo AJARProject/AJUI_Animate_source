@@ -1,4 +1,4 @@
-//%attributes = {"preemptive":"capable"}
+//%attributes = {"preemptive":"incapable"}
   // animationController ( $params   ) 
   //
   // $params : (object) operations, definitions, etc
@@ -101,6 +101,8 @@ Repeat
 	
 	
 	Repeat 
+		LOG EVENT:C667(Into 4D commands log:K38:7;"start Operation "+String:C10(Milliseconds:C459);Warning message:K38:2)
+		
 		  //1 processing operations
 		If ($reverse)
 			$currentOperation:=$reverse_operations_col[$nbOperation]
@@ -128,6 +130,7 @@ Repeat
 			$currentStep:=1
 			
 			Repeat 
+				LOG EVENT:C667(Into 4D commands log:K38:7;"start Step"+String:C10(Milliseconds:C459);Warning message:K38:2)
 				
 				$animationItem.step:=$currentStep
 				$animationItem.steps:=$steps
@@ -142,6 +145,8 @@ Repeat
 					
 					If ($msRestTilNextStep>0)
 						DELAY PROCESS:C323(Current process:C322;$msRestTilNextStep*0.06)
+						LOG EVENT:C667(Into 4D commands log:K38:7;"$delayProcess :"+String:C10($msRestTilNextStep*0.06);Warning message:K38:2)
+						
 					End if 
 					$previousStep:=Milliseconds:C459
 					
@@ -150,6 +155,9 @@ Repeat
 				  //trace
 				$currentStep:=$currentStep+1
 				$ms_counter:=$ms_counter+1
+				
+				LOG EVENT:C667(Into 4D commands log:K38:7;"end Step :"+String:C10(Milliseconds:C459);Warning message:K38:2)
+				
 				
 			Until ((checkStopProcess (Current process:C322)) | ($currentStep>$steps))
 			
@@ -164,6 +172,9 @@ Repeat
 			
 		End if 
 		$nbOperation:=$nbOperation+1
+		
+		LOG EVENT:C667(Into 4D commands log:K38:7;"end operation "+String:C10(Milliseconds:C459);Warning message:K38:2)
+		
 		
 	Until ((checkStopProcess (Current process:C322)) | ($nbOperation>=$operations_col.length))
 	
@@ -189,3 +200,7 @@ Use (Storage:C1525.AJUI_AnimateProcess_col)
 		Storage:C1525.AJUI_AnimateProcess_col.remove($pos)
 	End if 
 End use 
+
+
+LOG EVENT:C667(Into 4D commands log:K38:7;"end Animate"+String:C10(Milliseconds:C459);Warning message:K38:2)
+

@@ -304,6 +304,18 @@
 					"pictureFormat": "proportionalCenter",
 					"fill": "transparent",
 					"borderStyle": "none"
+				},
+				"Button2": {
+					"type": "button",
+					"text": "Debug",
+					"top": 505,
+					"left": 67,
+					"width": 102,
+					"height": 42,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button2.4dm"
 				}
 			}
 		}

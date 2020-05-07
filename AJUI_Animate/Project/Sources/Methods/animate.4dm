@@ -23,7 +23,7 @@ End if
 
 $start_ms:=Milliseconds:C459
 
-LOG EVENT:C667(Into 4D commands log:K38:7;"start Animate "+String:C10($start_ms);Warning message:K38:2)
+  //LOG EVENT(Into 4D commands log;"start Animate "+String($start_ms);Warning message)
 
 C_VARIANT:C1683($1;$params)
 C_OBJECT:C1216($animation;$animations)

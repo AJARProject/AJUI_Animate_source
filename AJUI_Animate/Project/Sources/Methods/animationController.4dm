@@ -34,9 +34,12 @@ C_LONGINT:C283($nbOperation;$nbIteration;$steps;$currentStep)
 C_OBJECT:C1216($currentOperation;$animationItem;$test;$defCurrent)
 C_REAL:C285($delay;$refresh;$msByStep;$start_ms)
 C_COLLECTION:C1488($animationItems_col)
-C_BOOLEAN:C305($reverse)
+C_BOOLEAN:C305($reverse;$debug)
 
 $params:=$1
+
+  //activate logs for step duration and delay process (to use with the form HDI_easing)
+$debug:=False:C215
 
 $operations_col:=$params.operations
 $form_winRef:=$params.winRef
@@ -101,7 +104,7 @@ Repeat
 	
 	
 	Repeat 
-		LOG EVENT:C667(Into 4D commands log:K38:7;"start Operation "+String:C10(Milliseconds:C459);Warning message:K38:2)
+		  //LOG EVENT(Into 4D commands log;"start Operation "+String(Milliseconds);Warning message)
 		
 		  //1 processing operations
 		If ($reverse)
@@ -130,7 +133,9 @@ Repeat
 			$currentStep:=1
 			
 			Repeat 
-				LOG EVENT:C667(Into 4D commands log:K38:7;"start Step"+String:C10(Milliseconds:C459);Warning message:K38:2)
+				If ($debug)
+					LOG EVENT:C667(Into 4D commands log:K38:7;"start Step"+String:C10(Milliseconds:C459);Warning message:K38:2)
+				End if 
 				
 				$animationItem.step:=$currentStep
 				$animationItem.steps:=$steps
@@ -145,8 +150,9 @@ Repeat
 					
 					If ($msRestTilNextStep>0)
 						DELAY PROCESS:C323(Current process:C322;$msRestTilNextStep*0.06)
-						LOG EVENT:C667(Into 4D commands log:K38:7;"$delayProcess :"+String:C10($msRestTilNextStep*0.06);Warning message:K38:2)
-						
+						If ($debug)
+							LOG EVENT:C667(Into 4D commands log:K38:7;"$delayProcess :"+String:C10($msRestTilNextStep*0.06);Warning message:K38:2)
+						End if 
 					End if 
 					$previousStep:=Milliseconds:C459
 					
@@ -156,7 +162,9 @@ Repeat
 				$currentStep:=$currentStep+1
 				$ms_counter:=$ms_counter+1
 				
-				LOG EVENT:C667(Into 4D commands log:K38:7;"end Step :"+String:C10(Milliseconds:C459);Warning message:K38:2)
+				If ($debug)
+					LOG EVENT:C667(Into 4D commands log:K38:7;"end Step :"+String:C10(Milliseconds:C459);Warning message:K38:2)
+				End if 
 				
 				
 			Until ((checkStopProcess (Current process:C322)) | ($currentStep>$steps))
@@ -173,7 +181,7 @@ Repeat
 		End if 
 		$nbOperation:=$nbOperation+1
 		
-		LOG EVENT:C667(Into 4D commands log:K38:7;"end operation "+String:C10(Milliseconds:C459);Warning message:K38:2)
+		  //LOG EVENT(Into 4D commands log;"end operation "+String(Milliseconds);Warning message)
 		
 		
 	Until ((checkStopProcess (Current process:C322)) | ($nbOperation>=$operations_col.length))
@@ -202,5 +210,5 @@ Use (Storage:C1525.AJUI_AnimateProcess_col)
 End use 
 
 
-LOG EVENT:C667(Into 4D commands log:K38:7;"end Animate"+String:C10(Milliseconds:C459);Warning message:K38:2)
+  // LOG EVENT(Into 4D commands log;"end Animate"+String(Milliseconds);Warning message)
 

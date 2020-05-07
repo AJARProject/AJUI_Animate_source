@@ -1,3 +1,5 @@
+  //FOR ACTIVATE LOG EVENT methods
+  // In animationController modify $debug parameter to true
 
 $evt:=Form event code:C388
 

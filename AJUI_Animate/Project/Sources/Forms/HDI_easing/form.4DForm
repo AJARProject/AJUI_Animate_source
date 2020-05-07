@@ -294,8 +294,8 @@
 				"Button2": {
 					"type": "button",
 					"text": "Debug",
-					"top": 505,
-					"left": 67,
+					"top": 510,
+					"left": 80,
 					"width": 102,
 					"height": 42,
 					"events": [

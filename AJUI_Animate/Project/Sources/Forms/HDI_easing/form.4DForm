@@ -156,7 +156,7 @@
 				"play_obj": {
 					"type": "button",
 					"text": "Play",
-					"top": 428,
+					"top": 408,
 					"left": 656,
 					"width": 214,
 					"height": 32,
@@ -193,7 +193,7 @@
 				"lb": {
 					"type": "listbox",
 					"left": 656,
-					"top": 258,
+					"top": 238,
 					"width": 214,
 					"height": 157,
 					"events": [
@@ -254,20 +254,6 @@
 						"$ref": "/SOURCES/lists.json#/object_list"
 					},
 					"method": "ObjectMethods/popup_obj.4dm"
-				},
-				"popup_orientation_obj": {
-					"type": "dropdown",
-					"left": 656,
-					"top": 230,
-					"width": 215,
-					"height": 25,
-					"events": [
-						"onClick"
-					],
-					"choiceList": {
-						"$ref": "/SOURCES/lists.json#/orientation"
-					},
-					"method": "ObjectMethods/popup_orientation_obj.4dm"
 				},
 				"Button": {
 					"type": "button",

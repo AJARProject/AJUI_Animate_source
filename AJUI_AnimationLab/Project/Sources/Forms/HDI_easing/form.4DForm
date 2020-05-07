@@ -168,10 +168,10 @@
 				"play_obj": {
 					"type": "button",
 					"text": "Play",
-					"top": 529,
+					"top": 509,
 					"left": 656,
 					"width": 214,
-					"height": 32,
+					"height": 34,
 					"events": [
 						"onClick"
 					],
@@ -206,9 +206,9 @@
 				"lb": {
 					"type": "listbox",
 					"left": 656,
-					"top": 359,
+					"top": 339,
 					"width": 214,
-					"height": 157,
+					"height": 159,
 					"events": [
 						"onClick",
 						"onDataChange",
@@ -265,20 +265,6 @@
 						"$ref": "/SOURCES/lists.json#/object_list"
 					},
 					"method": "ObjectMethods/popup_obj.4dm"
-				},
-				"popup_orientation_obj": {
-					"type": "dropdown",
-					"left": 656,
-					"top": 331,
-					"width": 215,
-					"height": 25,
-					"events": [
-						"onClick"
-					],
-					"choiceList": {
-						"$ref": "/SOURCES/lists.json#/orientation"
-					},
-					"method": "ObjectMethods/popup_orientation_obj.4dm"
 				},
 				"myGraph_obj": {
 					"type": "input",

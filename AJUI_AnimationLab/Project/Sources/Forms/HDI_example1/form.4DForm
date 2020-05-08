@@ -77,7 +77,7 @@
 					"text": "AJUI Animate",
 					"class": "subtitle"
 				},
-				"Title1": {
+				"SubTitle": {
 					"type": "text",
 					"top": 94,
 					"left": 0,

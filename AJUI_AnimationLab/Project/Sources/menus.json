@@ -27,6 +27,10 @@
 					"startNewProcess": true
 				},
 				{
+					"title": "HDI_Example1",
+					"method": "_launch_HDI_example1"
+				},
+				{
 					"title": "Ligne 1",
 					"isSeparator": true
 				},

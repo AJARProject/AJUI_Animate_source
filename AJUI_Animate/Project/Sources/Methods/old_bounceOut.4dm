@@ -37,7 +37,7 @@ If (String:C10($o.duration)="")
 End if 
 $duration:=$o.duration
 If (String:C10($o.orientation)="")
-	$o.orientation:=""
+	$o.orientation:="none"
 End if 
 $orientation:=$o.orientation
 

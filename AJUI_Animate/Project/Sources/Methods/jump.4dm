@@ -33,6 +33,7 @@ If (String:C10($o.offset)="")
 	$o.offset:=30
 End if 
 $offset:=$o.offset
+
 If (String:C10($o.duration)="")
 	$o.duration:=200
 End if 
@@ -42,7 +43,7 @@ If (String:C10($o.iterations)="")
 End if 
 $iterations:=$o.iterations
 If (String:C10($o.orientation)="")
-	$o.orientation:=""
+	$o.orientation:="none"
 End if 
 $orientation:=$o.orientation
 
@@ -50,6 +51,10 @@ If (String:C10($o.target)="")
 	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
 Else 
 	$target:=$o.target
+End if 
+
+If ($offset=-1)
+	$offset:=getFormOffset ($orientation;$target)
 End if 
 
 Form:C1466.colTest:=New collection:C1472()

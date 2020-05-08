@@ -26,7 +26,7 @@ C_OBJECT:C1216($0;$1;$o;$operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
-C_LONGINT:C283($duration;$iterations;$offset;$delay)
+C_LONGINT:C283($duration;$iterations;$delay)
 
 If (String:C10($o.frequency)="")
 	$frequency:=4

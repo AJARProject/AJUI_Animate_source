@@ -39,6 +39,10 @@ $orientation:=$o.orientation
 $hideAtTheEnd:=$o.hideAtTheEnd
 $target:=$o.target
 
+If ($offset=-1)
+	$offset:=getFormOffset ($orientation;$target)
+End if 
+
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 

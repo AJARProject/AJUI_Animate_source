@@ -50,9 +50,13 @@ Else
 	$target:=$o.target
 End if 
 If (String:C10($o.orientation)="")
-	$o.orientation:=""
+	$o.orientation:="none"
 End if 
 $orientation:=$o.orientation
+
+If ($offset=-1)
+	$offset:=getFormOffset ($orientation;$target)
+End if 
 
 Form:C1466.colTest:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)

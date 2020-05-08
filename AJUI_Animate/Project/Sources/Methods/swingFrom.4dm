@@ -39,7 +39,7 @@ If (String:C10($o.duration)="")
 End if 
 
 If (String:C10($o.orientation)="")
-	$o.orientation:=""
+	$o.orientation:="none"
 End if 
 
 If (String:C10($o.hideAtTheEnd)="")

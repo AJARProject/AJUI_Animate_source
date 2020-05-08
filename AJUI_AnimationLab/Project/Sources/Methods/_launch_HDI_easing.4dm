@@ -11,5 +11,4 @@ Else
 	$ref_win:=Open form window:C675("HDI_easing";Plain form window:K39:10)
 	DIALOG:C40("HDI_easing";$o)
 	CLOSE WINDOW:C154($ref_win)
-	
 End if 

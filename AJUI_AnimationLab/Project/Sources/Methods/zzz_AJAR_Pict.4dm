@@ -7,5 +7,6 @@ $o:=New Animation
 $o.formName:=Current form name:C1298
 $o.target:="AJAR_Pict"
 $o.orientation:="up"
+$o.offset:=300
 $o.bounce()
 

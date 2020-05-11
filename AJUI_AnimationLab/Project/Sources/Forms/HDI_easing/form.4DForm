@@ -435,6 +435,31 @@
 						3,
 						5
 					]
+				},
+				"Input": {
+					"type": "input",
+					"left": 693,
+					"top": 2,
+					"width": 221,
+					"height": 11,
+					"dataSource": "AJUI_Animate_Info()",
+					"enterable": false,
+					"contextMenu": "none",
+					"multiline": "no",
+					"hideFocusRing": true,
+					"focusable": false,
+					"textAlign": "right",
+					"fill": "transparent",
+					"fontWeight": "normal",
+					"fontStyle": "normal",
+					"fontFamily": "Arial",
+					"fontSize": 9,
+					"stroke": "#FFFFFF",
+					"borderStyle": "none",
+					"events": [
+						"onLoad"
+					],
+					"method": "ObjectMethods/Input.4dm"
 				}
 			}
 		}

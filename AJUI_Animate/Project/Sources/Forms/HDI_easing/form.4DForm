@@ -302,6 +302,18 @@
 						"onClick"
 					],
 					"method": "ObjectMethods/Button2.4dm"
+				},
+				"Button3": {
+					"type": "button",
+					"text": "Stop",
+					"top": 519,
+					"left": 13,
+					"width": 53,
+					"height": 25,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button3.4dm"
 				}
 			}
 		}

@@ -46,7 +46,7 @@
 					"pictureFormat": "scaled",
 					"picture": "Images/Picture1.png"
 				},
-				"HDI": {
+				"hdi_txt_obj": {
 					"type": "text",
 					"top": 12,
 					"left": 0,
@@ -68,7 +68,7 @@
 						"onClick"
 					]
 				},
-				"Title": {
+				"title_txt_obj": {
 					"type": "text",
 					"top": 60,
 					"left": 0,
@@ -77,7 +77,7 @@
 					"text": "AJUI Animate",
 					"class": "subtitle"
 				},
-				"SubTitle": {
+				"subtitle_txt_obj": {
 					"type": "text",
 					"top": 94,
 					"left": 0,
@@ -85,29 +85,17 @@
 					"height": 16,
 					"text": "Example 1",
 					"class": "subsubtitle"
-				},
-				"Button": {
-					"type": "button",
-					"text": "startup script",
-					"top": 793,
-					"left": 46,
-					"width": 120,
-					"height": 39,
-					"events": [
-						"onLoad"
-					],
-					"method": "ObjectMethods/Button.4dm"
 				}
 			}
 		},
 		{
 			"objects": {
-				"Rectangle": {
+				"background_obj": {
 					"type": "rectangle",
-					"top": 199,
-					"left": 260,
-					"width": 400,
-					"height": 215,
+					"top": 60,
+					"left": 0,
+					"width": 915,
+					"height": 614,
 					"borderRadius": 5,
 					"stroke": "#c0c0c0",
 					"fill": "transparent"
@@ -122,7 +110,7 @@
 					"stroke": "#ff0000",
 					"visibility": "hidden"
 				},
-				"quit_obj": {
+				"close_btn_obj": {
 					"type": "button",
 					"text": "Close",
 					"top": 617,
@@ -134,75 +122,38 @@
 					],
 					"action": "cancel"
 				},
-				"btn_login_obj": {
+				"Button": {
 					"type": "button",
-					"text": "Login",
+					"text": "startup script",
+					"top": 8,
+					"left": 781,
+					"width": 120,
+					"height": 39,
+					"events": [
+						"onLoad"
+					],
+					"method": "ObjectMethods/Button.4dm",
+					"focusable": false,
+					"visibility": "hidden"
+				},
+				"start_btn_obj": {
+					"type": "button",
+					"text": "Start Animation",
 					"top": 617,
-					"left": 525,
-					"width": 168,
+					"left": 535,
+					"width": 158,
 					"height": 38,
 					"events": [
 						"onClick"
 					],
-					"method": "ObjectMethods/btn_login_obj.4dm"
-				},
-				"login_obj": {
-					"type": "input",
-					"left": 298,
-					"top": 255,
-					"width": 331,
-					"height": 33,
-					"fontWeight": "bold",
-					"fontFamily": "Arial Bold",
-					"fontSize": 24,
-					"method": "ObjectMethods/login_obj.4dm",
-					"borderStyle": "system",
-					"dataSource": "Form:C1466.login",
-					"hideFocusRing": true
-				},
-				"password_obj": {
-					"type": "input",
-					"left": 298,
-					"top": 329,
-					"width": 331,
-					"height": 28,
-					"fontWeight": "bold",
-					"fontFamily": "Arial",
-					"fontSize": 24,
-					"events": [
-						"onLoad",
-						"onLosingFocus"
-					],
-					"method": "ObjectMethods/password_obj.4dm",
-					"borderStyle": "system",
-					"placeholder": "password = zzz",
-					"dataSource": "Form:C1466.password",
-					"hideFocusRing": true
-				},
-				"Text": {
-					"type": "text",
-					"text": "Login",
-					"top": 232,
-					"left": 298,
-					"width": 104,
-					"height": 16,
-					"stroke": "#ff6347"
-				},
-				"Text1": {
-					"type": "text",
-					"text": "Password",
-					"top": 308,
-					"left": 298,
-					"width": 104,
-					"height": 16,
-					"stroke": "#ff6347"
+					"action": "cancel",
+					"method": "ObjectMethods/start_btn_obj.4dm"
 				}
 			},
 			"entryOrder": [
-				"login_obj",
-				"password_obj",
-				"btn_login_obj",
-				"quit_obj"
+				"close_btn_obj",
+				"Button",
+				"start_btn_obj"
 			]
 		}
 	],

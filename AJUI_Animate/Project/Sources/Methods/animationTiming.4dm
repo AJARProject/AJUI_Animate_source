@@ -1,8 +1,5 @@
 //%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
-
-
-  ////-------------------------------------
-
+  //-------------------------------------
   // animationTiming ($animation_obj {; $relative }) -> transitionValue
   //
   // $animation_obj : (Object)

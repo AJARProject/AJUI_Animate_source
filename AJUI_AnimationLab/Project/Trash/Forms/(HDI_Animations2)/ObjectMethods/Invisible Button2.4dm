@@ -1,1 +1,0 @@
-﻿OPEN URL:C673("https://ch-fr.4d.com/aj-suite")

@@ -209,6 +209,19 @@ Use (Storage:C1525.AJUI_AnimateProcess_col)
 	End if 
 End use 
 
+  //launch callback if existing
+If (String:C10($params.callback)#"")
+	ARRAY TEXT:C222($_methods;0)
+	METHOD GET NAMES:C1166($_methods;$params.callback;*)
+	If (Size of array:C274($_methods)>0)
+		If ($params.callbackParams=Null:C1517)
+			EXECUTE METHOD:C1007($params.callback)
+		Else 
+			EXECUTE METHOD:C1007($params.callback;*;$params.callbackParams)
+		End if 
+	End if 
+End if 
+
 
   // LOG EVENT(Into 4D commands log;"end Animate"+String(Milliseconds);Warning message)
 

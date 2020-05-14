@@ -1,4 +1,4 @@
-//%attributes = {"invisible":true}
+//%attributes = {"invisible":true,"shared":true}
   //-------------------------------------
   // animationTiming ($animation_obj {; $relative }) -> transitionValue
   //

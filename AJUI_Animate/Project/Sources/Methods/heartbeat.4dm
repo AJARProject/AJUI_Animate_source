@@ -8,6 +8,8 @@
   //   • iterations (longint) : number of repeat
   //   • delay (longint) : time in ms between each heartbeat
   //   • factor (real) : factor
+  //   • callback (string) :  Name of the callback method
+  //   • callbackParams (object) :  callback parameters
 
 
 If (False:C215)
@@ -23,7 +25,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -52,7 +55,7 @@ Else
 	$target:=$o.target
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
   // Get the font properties
@@ -83,7 +86,7 @@ $animationItem.height:=$height*$factor
 $animationItem.fontName:=$fontName
 $animationItem.fontSize:=$fontSize*$factor
 $animationItem.fontStyle:=$fontStyle
-Form:C1466.colTest.push($animationItem)
+$operations.push($animationItem)
   //factor
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.left:=$centerX-($width/2)
@@ -92,9 +95,12 @@ $animationItem2.width:=$width
 $animationItem2.height:=$height
 $animationItem2.delay:=0
 $animationItem2.fontSize:=$fontSize
-Form:C1466.colTest.push($animationItem2)
+$operations.push($animationItem2)
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
-$operations.iterations:=$iterations
-animate (OB Copy:C1225($operations))
+$params:=New object:C1471()
+$params.operations:=$operations
+$params.iterations:=$iterations
+$params.callback:=$o.callback
+$params.callbackParams:=$o.callbackParams
+
+animate (OB Copy:C1225($params))

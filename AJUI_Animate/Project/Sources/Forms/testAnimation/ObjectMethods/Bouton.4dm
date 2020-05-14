@@ -96,6 +96,6 @@ Case of
 		
 	: ($evt=On Clicked:K2:4)
 		
-		animate (New object:C1471("direction";"reverse";"iterations";1;"operations";Form:C1466.colTest;"callback";"zz_alert_cb";"callbackParams";True:C214))
+		animate (New object:C1471("direction";"reverse";"iterations";1;"operations";Form:C1466.colTest;"callback";"zz_alert_cb";"callbackParams";New object:C1471("showMessage";True:C214;"message";"Animation done")))
 		
 End case 

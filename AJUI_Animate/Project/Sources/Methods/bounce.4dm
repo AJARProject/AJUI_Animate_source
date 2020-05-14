@@ -8,6 +8,8 @@
   //   • offset (longint) : in pixel
   //   • orientation (text) :  orientation
   //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
+  //   • callback (string) :  Name of the callback method
+  //   • callbackParams (object) :  callback parameters
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -22,7 +24,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -58,7 +61,7 @@ If ($offset=-1)
 	$offset:=getFormOffset ($orientation;$target)
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
   //Up -slow, Down-fast, small up & small down
@@ -77,103 +80,105 @@ Case of
 		  // right
 		$animationItem.left:=$left+$offset
 		$animationItem.top:=$top
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // left
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.left:=$left
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		  // right small
 		$animationItem3:=OB Copy:C1225($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.left:=$left+($offset/2)
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 		  // left small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.left:=$left
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
-		Form:C1466.colTest.push($animationItem4)
+		$operations.push($animationItem4)
 	: ($orientation="left")
 		  // right
 		$animationItem.left:=$left-$offset
 		$animationItem.top:=$top
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // left
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.left:=$left
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		  // right small
 		$animationItem3:=OB Copy:C1225($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.left:=$left-($offset/2)
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 		  // left small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.left:=$left
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
-		Form:C1466.colTest.push($animationItem4)
+		$operations.push($animationItem4)
 	: ($orientation="up")
 		  // Up
 		$animationItem.left:=$left
 		$animationItem.top:=$top-$offset
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // down
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.top:=$top
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		  // up small
 		$animationItem3:=OB Copy:C1225($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top-($offset/2)
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 		  // down small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.top:=$top
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
-		Form:C1466.colTest.push($animationItem4)
+		$operations.push($animationItem4)
 	: ($orientation="down")
 		  // Up
 		$animationItem.left:=$left
 		$animationItem.top:=$top+$offset
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // down
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.top:=$top
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		  // up small
 		$animationItem3:=OB Copy:C1225($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top+($offset/2)
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 		  // down small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.top:=$top
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
-		Form:C1466.colTest.push($animationItem4)
+		$operations.push($animationItem4)
 	Else 
 		  // Up
 		$animationItem.left:=$left
 		$animationItem.top:=$top-$offset
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // down
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.top:=$top
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		  // up small
 		$animationItem3:=OB Copy:C1225($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top-($offset/2)
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 		  // down small
 		$animationItem4:=OB Copy:C1225($animationItem3)
 		$animationItem4.top:=$top
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
-		Form:C1466.colTest.push($animationItem4)
+		$operations.push($animationItem4)
 End case 
 
 
 
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
+$params:=New object:C1471()
+$params.operations:=$operations
+$params.callback:=$o.callback
+$params.callbackParams:=$o.callbackParams
 
-animate (OB Copy:C1225($operations))
+animate (OB Copy:C1225($params))

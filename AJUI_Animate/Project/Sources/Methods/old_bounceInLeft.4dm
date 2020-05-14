@@ -21,7 +21,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -41,7 +42,7 @@ Else
 	$target:=$o.target
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
 $width:=$right-$left
@@ -63,22 +64,22 @@ $animationItem.frequency:=60
   // left
 $animationItem.left:=$left+$offset
 $animationItem.top:=$top
-Form:C1466.colTest.push($animationItem)
+$operations.push($animationItem)
   // down
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.duration:=$duration/2
 $animationItem2.left:=$left
-Form:C1466.colTest.push($animationItem2)
+$operations.push($animationItem2)
   // up small
 $animationItem3:=OB Copy:C1225($animationItem)
 $animationItem3.duration:=$duration/2
 $animationItem3.left:=$left+($offset/2)
-Form:C1466.colTest.push($animationItem3)
+$operations.push($animationItem3)
   // down small
 $animationItem4:=OB Copy:C1225($animationItem)
 $animationItem4.left:=$left
-Form:C1466.colTest.push($animationItem4)
+$operations.push($animationItem4)
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
-animate (OB Copy:C1225($operations))
+$params:=New object:C1471()
+$params.operations:=$operations
+animate (OB Copy:C1225($params))

@@ -20,7 +20,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -46,7 +47,7 @@ Else
 	$height_window:=$o.height_window
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
   // Set the size of the object to its min size first
@@ -71,19 +72,19 @@ $animationItem.left:=$left
 $animationItem.top:=$top+$offset
 $animationItem.width:=$width
 $animationItem.height:=$height
-Form:C1466.colTest.push($animationItem)
+$operations.push($animationItem)
   // factor * 1.1
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.top:=$top-$offset
-Form:C1466.colTest.push($animationItem2)
+$operations.push($animationItem2)
 
   // offset small
 $animationItem3:=OB Copy:C1225($animationItem)
 $animationItem3.duration:=$duration*1.5
 $animationItem3.top:=$height_window
 $animationItem3.hideAtTheEnd:=True:C214
-Form:C1466.colTest.push($animationItem3)
+$operations.push($animationItem3)
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
-animate (OB Copy:C1225($operations))
+$params:=New object:C1471()
+$params.operations:=$operations
+animate (OB Copy:C1225($params))

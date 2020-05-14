@@ -1,8 +1,8 @@
 //%attributes = {}
-C_BOOLEAN:C305($1;$showMessage)
+C_OBJECT:C1216($1;$params)
 
-$showMessage:=$1
+$params:=$1
 
-If ($showMessage)
-	ALERT:C41("Animation done")
+If ($params.showMessage)
+	ALERT:C41($params.message)
 End if 

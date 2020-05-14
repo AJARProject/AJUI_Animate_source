@@ -10,6 +10,8 @@
   //   • factor (real) : factor
   //   • orientation (text) :  orientation
   //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
+  //   • callback (string) :  Name of the callback method
+  //   • callbackParams (object) :  callback parameters
 
 If (False:C215)
 	  // ----------------------------------------------------

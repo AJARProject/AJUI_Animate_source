@@ -21,7 +21,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -47,7 +48,7 @@ Else
 	$target:=$o.target
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
   // Set the size of the object to its min size first
@@ -86,13 +87,13 @@ Case of
 		$animationItem.top:=$top
 		$animationItem.width:=$width
 		$animationItem.height:=$height
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.duration:=$duration*1.2
 		$animationItem2.left:=$width_window
 		$animationItem2.hideAtTheEnd:=True:C214
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 	: ($orientation="left")
 		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 		
@@ -100,13 +101,13 @@ Case of
 		$animationItem.top:=$top
 		$animationItem.width:=$width
 		$animationItem.height:=$height
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.duration:=$duration*1.2
 		$animationItem2.left:=0-$width
 		$animationItem2.hideAtTheEnd:=True:C214
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 	: ($orientation="up")
 		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 		
@@ -114,17 +115,17 @@ Case of
 		$animationItem.top:=$top-$offset
 		$animationItem.width:=$width
 		$animationItem.height:=$height
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.top:=$top+$offset
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.duration:=$duration*1.2
 		$animationItem3.top:=-$height
 		$animationItem3.hideAtTheEnd:=True:C214
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 	: ($orientation="down")
 		C_LONGINT:C283($height_window)
 		$animationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
@@ -140,18 +141,18 @@ Case of
 		$animationItem.top:=$top+$offset
 		$animationItem.width:=$width
 		$animationItem.height:=$height
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // factor * 1.1
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.top:=$top-$offset
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		
 		  // offset small
 		$animationItem3:=OB Copy:C1225($animationItem)
 		$animationItem3.duration:=$duration*1.5
 		$animationItem3.top:=$height_window
 		$animationItem3.hideAtTheEnd:=True:C214
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 	Else 
 		$animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
 		If (String:C10($o.factor)="")
@@ -167,7 +168,7 @@ Case of
 		$animationItem.fontName:=$fontName
 		$animationItem.fontSize:=$fontSize*0.9
 		$animationItem.fontStyle:=$fontStyle
-		Form:C1466.colTest.push($animationItem)
+		$operations.push($animationItem)
 		  // factor * 1.1
 		$animationItem2:=OB Copy:C1225($animationItem)
 		$animationItem2.width:=$width*1.1
@@ -175,7 +176,7 @@ Case of
 		$animationItem2.left:=$centerX-($width*1.1/2)
 		$animationItem2.top:=$centerY-($height*1.1/2)
 		$animationItem2.fontSize:=$fontSize*1
-		Form:C1466.colTest.push($animationItem2)
+		$operations.push($animationItem2)
 		
 		  // factor small
 		$animationItem3:=OB Copy:C1225($animationItem)
@@ -186,10 +187,10 @@ Case of
 		$animationItem3.top:=$centerY-($height*$factor/2)
 		$animationItem3.fontSize:=$fontSize*$factor
 		$animationItem3.hideAtTheEnd:=True:C214
-		Form:C1466.colTest.push($animationItem3)
+		$operations.push($animationItem3)
 End case 
 
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
-animate (OB Copy:C1225($operations))
+$params:=New object:C1471()
+$params.operations:=$operations
+animate (OB Copy:C1225($params))

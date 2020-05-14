@@ -8,6 +8,8 @@
   //   • offset (longint) : in pixel
   //   • orientation (text) :  orientation
   //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
+  //   • callback (string) :  Name of the callback method
+  //   • callbackParams (object) :  callback parameters
 
 
 If (False:C215)
@@ -23,7 +25,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -58,7 +61,7 @@ If ($offset=-1)
 	$offset:=getFormOffset ($orientation;$target)
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
 $width:=$right-$left
@@ -106,8 +109,11 @@ $animationItem.frequency:=60
   // up
 $animationItem.left:=$left
 $animationItem.top:=$top
-Form:C1466.colTest.push($animationItem)
+$operations.push($animationItem)
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
-animate (OB Copy:C1225($operations))
+$params:=New object:C1471()
+$params.operations:=$operations
+$params.callback:=$o.callback
+$params.callbackParams:=$o.callbackParams
+
+animate (OB Copy:C1225($params))

@@ -7,6 +7,8 @@
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
   //   • hideAtTheEnd (boolean) :  Hide the target in the end of the animation 
+  //   • callback (string) :  Name of the callback method
+  //   • callbackParams (object) :  callback parameters
 
 If (False:C215)
 	  // ----------------------------------------------------
@@ -21,7 +23,8 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$operations)
+C_OBJECT:C1216($0;$1;$o;$params)
+C_COLLECTION:C1488($operations)
 $o:=This:C1470
 
 C_REAL:C285($factor)
@@ -48,7 +51,7 @@ Else
 	$target:=$o.target
 End if 
 
-Form:C1466.colTest:=New collection:C1472()
+$operations:=New collection:C1472()
 OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
 
   // Set the size of the object to its min size first
@@ -71,23 +74,26 @@ $animationItem.left:=$left-$offset
 $animationItem.top:=$top
 $animationItem.width:=$width
 $animationItem.height:=$height
-Form:C1466.colTest.push($animationItem)
+$operations.push($animationItem)
 
 $animationItem2:=OB Copy:C1225($animationItem)
 $animationItem2.left:=$left+$offset
-Form:C1466.colTest.push($animationItem2)
+$operations.push($animationItem2)
 
 $animationItem3:=OB Copy:C1225($animationItem)
-Form:C1466.colTest.push($animationItem3)
+$operations.push($animationItem3)
 $animationItem4:=OB Copy:C1225($animationItem2)
-Form:C1466.colTest.push($animationItem2)
+$operations.push($animationItem2)
 $animationItem5:=OB Copy:C1225($animationItem)
-Form:C1466.colTest.push($animationItem5)
+$operations.push($animationItem5)
 $animationItem6:=OB Copy:C1225($animationItem2)
 $animationItem6.left:=$left
 $animationItem6.hideAtTheEnd:=$hideAtTheEnd
-Form:C1466.colTest.push($animationItem6)
+$operations.push($animationItem6)
 
-$operations:=New object:C1471()
-$operations.operations:=Form:C1466.colTest
-animate (OB Copy:C1225($operations))
+$params:=New object:C1471()
+$params.operations:=$operations
+$params.callback:=$o.callback
+$params.callbackParams:=$o.callbackParams
+
+animate (OB Copy:C1225($params))

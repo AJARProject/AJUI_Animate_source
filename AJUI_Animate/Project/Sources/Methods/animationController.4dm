@@ -215,9 +215,9 @@ If (String:C10($params.callback)#"")
 	METHOD GET NAMES:C1166($_methods;$params.callback;*)
 	If (Size of array:C274($_methods)>0)
 		If ($params.callbackParams=Null:C1517)
-			EXECUTE METHOD:C1007($params.callback)
+			CALL FORM:C1391($form_winRef;"execute_callback";$params.callback)
 		Else 
-			EXECUTE METHOD:C1007($params.callback;*;$params.callbackParams)
+			CALL FORM:C1391($form_winRef;"execute_callback";$params.callback;$params.callbackParams)
 		End if 
 	End if 
 End if 

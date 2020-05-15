@@ -14,10 +14,12 @@ If (False:C215)
 	  // Clean all the process ids in the storage (AJUI_AnimateProcess_col)
 	  //
 	  // ----------------------------------------------------
-End if
+End if 
 
-Use (Storage:C1525.AJUI_AnimateProcess_col)
-	If (Storage:C1525.AJUI_AnimateProcess_col.length>0)
-		Storage:C1525.AJUI_AnimateProcess_col.clear()
-	End if
-End use
+If (Storage:C1525.AJUI_AnimateProcess_col#Null:C1517)
+	Use (Storage:C1525.AJUI_AnimateProcess_col)
+		If (Storage:C1525.AJUI_AnimateProcess_col.length>0)
+			Storage:C1525.AJUI_AnimateProcess_col.clear()
+		End if 
+	End use 
+End if 

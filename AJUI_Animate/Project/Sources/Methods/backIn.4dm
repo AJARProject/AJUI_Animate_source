@@ -26,7 +26,7 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$o)
+C_OBJECT:C1216($o)
 $o:=This:C1470
 
 If (String:C10($o.offset)="")

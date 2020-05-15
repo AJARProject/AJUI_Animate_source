@@ -90,5 +90,8 @@ $animation.swingTo:=Formula:C1597(swingTo )
 $animation.zoomIn:=Formula:C1597(zoomIn )
 $animation.zoomOut:=Formula:C1597(zoomOut )
 
+  // Special Animation
+$animation.floatingLabel:=Formula:C1597(floatingLabel )
+
 
 $0:=$animation

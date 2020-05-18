@@ -140,6 +140,7 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 				$FLabel_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;$FLabel_name)
 				$FLabel_ptr->:=$placeholder
 				OBJECT SET VISIBLE:C603(*;$FLabel_name;True:C214)  // Set the FLabel to true
+				OBJECT SET FONT SIZE:C165(*;$FLabel_name;$fontSize)
 				OBJECT GET BEST SIZE:C717(*;$FLabel_name;$bestWidth;$bestHeight)
 				
 				This:C1470.initialValues:=New object:C1471
@@ -163,7 +164,7 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 						
 					Else   // Top
 						This:C1470.finalValues.left:=$targetLeft
-						This:C1470.finalValues.width:=$bestWidth+100  // We add 100 in the width for some animation that are going over the threshold not to cut the end of the label during the animation
+						This:C1470.finalValues.width:=$bestWidth  //+100 // GI modif, the +100 add probleme because the label is to big and if we clic on it it can give the focus on the field and the user don't understand why. We must find a solution for the animation that can "cut" the end of the text (eg. elastic) // We add 100 in the width for some animation that are going over the threshold not to cut the end of the label during the animation
 						This:C1470.finalValues.height:=$bestHeight
 						This:C1470.finalValues.top:=$targetTop-$offset-This:C1470.finalValues.height
 						

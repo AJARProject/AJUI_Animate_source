@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {"invisible":true,"shared":true}
   // New Animation (  ) -> $animation
   //
   // $animation : (object) (return) operation item

@@ -1,4 +1,4 @@
-//%attributes = {"shared":true}
+//%attributes = {"invisible":true,"shared":true}
 
 ARRAY TEXT:C222($_formObjects;0)
 FORM GET OBJECTS:C898($_formObjects)

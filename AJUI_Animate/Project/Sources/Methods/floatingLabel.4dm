@@ -42,6 +42,12 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 			$inactiveColor_l:=getColorLong (This:C1470.inactivColor)
 		End if 
 		
+		If (String:C10(This:C1470.followTarget)="")
+			$followTarget_b:=True:C214
+		Else 
+			$followTarget_b:=This:C1470.followTarget
+		End if 
+		
 		If (Num:C11(This:C1470.fontSize)=0)
 			$fontSize:=OBJECT Get font size:C1070(*;"FLabel_obj")
 		Else 
@@ -150,6 +156,20 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 				This:C1470.initialValues.top:=$targetTop
 				This:C1470.initialValues.height:=$targetBottom-$targetTop
 				This:C1470.initialValues.width:=$targetRight-$targetLeft
+				
+				  //follow target
+				If ($followTarget_b)
+					OBJECT GET RESIZING OPTIONS:C1176(*;$target;$resizingH;$resizingV)
+					
+					Case of 
+						: ($resizingH=2) & ($resizingV=2)
+							OBJECT SET RESIZING OPTIONS:C1175(*;$FLabel_name;Resize horizontal move:K42:9;Resize vertical move:K42:12)
+						: ($resizingH=2)
+							OBJECT SET RESIZING OPTIONS:C1175(*;$FLabel_name;Resize horizontal move:K42:9;Resize vertical none:K42:10)
+						: ($resizingV=2)
+							OBJECT SET RESIZING OPTIONS:C1175(*;$FLabel_name;Resize horizontal none:K42:7;Resize vertical move:K42:12)
+					End case 
+				End if 
 				
 				  // Calculate the finalValues for the animation
 				This:C1470.finalValues:=New object:C1471

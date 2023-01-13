@@ -35,6 +35,7 @@ $animationItem:=$2
   //global
 $animationItem.operation:=$operation.operation
 $animationItem.target:=$operation.target
+$animationItem.subformName:=String:C10($operation.subformName)
 
   //font
 If ($animationItem.operation="@Font@")

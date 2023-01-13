@@ -18,9 +18,13 @@ If (False:C215)
 End if 
 
 C_OBJECT:C1216($1;$animationItem)
+C_BOOLEAN:C305($2)
 C_TEXT:C284($operation;$target)
 
 $animationItem:=$1
+If (Count parameters:C259=1) && ($animationItem.subformName#"")
+	EXECUTE METHOD IN SUBFORM:C1085($animationItem.subformName; Current method name:C684; *; $animationItem; True:C214)
+Else 
 $operation:=$animationItem.operation
 $target:=$animationItem.target
 
@@ -70,6 +74,7 @@ End if
 
 If ($operation="@Blink@")
 	OBJECT SET VISIBLE:C603(*;$target;$animationItem.visible)
+	End if 
 End if 
 
 

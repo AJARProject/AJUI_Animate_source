@@ -17,7 +17,11 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_TEXT:C284($1)
-C_BOOLEAN:C305($2)
-
-OBJECT SET VISIBLE:C603(*;$1;$2)
+C_OBJECT:C1216($1; $currentOperation)
+C_BOOLEAN:C305($2; $3)
+$currentOperation:=$1
+If (Count parameters:C259=2) && ($currentOperation.subformName#"")
+	EXECUTE METHOD IN SUBFORM:C1085($currentOperation.subformName; Current method name:C684; *; $currentOperation; $2; True:C214)
+Else 
+	OBJECT SET VISIBLE:C603(*; $currentOperation.target; $2)
+End if 

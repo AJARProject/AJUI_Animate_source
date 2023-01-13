@@ -125,8 +125,8 @@ Repeat
 				DELAY PROCESS:C323(Current process:C322;$currentOperation.delay*0.06)
 			End if 
 			
-			  //1.3 executions
-			CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;True:C214)  //object should be visible at the start
+			//1.3 executions
+			CALL FORM:C1391($form_winRef; "visibleCB"; $currentOperation; True:C214)  //object should be visible at the start
 			
 			$animationItem:=New object:C1471
 			prepareCurrentAnimationItem ($currentOperation;$animationItem)
@@ -171,7 +171,7 @@ Repeat
 			
 			  //1.4 hide at end
 			If ($currentOperation.hideAtTheEnd)
-				CALL FORM:C1391($form_winRef;"visibleCB";$currentOperation.target;False:C215)
+				CALL FORM:C1391($form_winRef; "visibleCB"; $currentOperation; False:C215)
 			End if 
 			
 			If ($nbOperation<$operations_col.length)

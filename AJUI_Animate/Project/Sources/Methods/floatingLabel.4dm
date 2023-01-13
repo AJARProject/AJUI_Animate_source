@@ -113,23 +113,26 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 		$showAsPlaceholder:=False:C215
 		$isActiveLabel:=False:C215
 		
-		  // Try to get the value of the input field. It will help to know if we have to display or not the floating label
-		$target_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;$target)
-		
-		Case of 
-			: ($target_ptr=Null:C1517) & (This:C1470.formPath#Null:C1517)  // If target if bound to the Form object
-				$result_path:=AJ_Tools_ob_getValueByPath (Form:C1466;This:C1470.formPath)
-				$targetValue:=String:C10($result_path.value)
-				
-			: ($target_ptr=Null:C1517)  // If target object is nil
-				$targetValue:=""
-				
-			: ($target_ptr->=Null:C1517)  // If targeted object is nil
-				$targetValue:=""
-				
-			Else 
-				$targetValue:=String:C10($target_ptr->)
-		End case 
+		If (True:C214)
+			$targetValue:=OBJECT Get value:C1743($target) || Get edited text:C655
+		Else 
+			// Try to get the value of the input field. It will help to know if we have to display or not the floating label
+			$target_ptr:=OBJECT Get pointer:C1124(Object named:K67:5; $target)
+			Case of 
+				: ($target_ptr=Null:C1517) & (This:C1470.formPath#Null:C1517)  // If target if bound to the Form object
+					$result_path:=AJ_Tools_ob_getValueByPath(Form:C1466; This:C1470.formPath)
+					$targetValue:=String:C10($result_path.value)
+					
+				: ($target_ptr=Null:C1517)  // If target object is nil
+					$targetValue:=""
+					
+				: ($target_ptr->=Null:C1517)  // If targeted object is nil
+					$targetValue:=""
+					
+				Else 
+					$targetValue:=String:C10($target_ptr->)
+			End case 
+		End if 
 		
 		If ($targetValue="") & ($noPlaceholder=False:C215)
 			$showAsPlaceholder:=True:C214
@@ -237,6 +240,9 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 				
 		End case 
 		
+		If ($animationItem#Null:C1517) && (String:C10(This:C1470.subformName)#"")
+			$animationItem.subformName:=This:C1470.subformName
+		End if 
 		
 		Case of 
 			: ($doAnimation) & ($noPlaceholder=False:C215)

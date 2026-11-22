@@ -13,8 +13,9 @@
 
 #DECLARE($param1 : Text)
 var $projectMethodPath_t; $code_t; $method : Text
-var $positionStart_l; $positionStartNumber_l; $lengthNumber_l : Integer
-var $buildRelease_t0 : Text
+var $positionStart_l; $positionStartNumber_l; $lengthNumber_l; $positionEnd_l : Integer
+var $buildRelease_t0; $buildRelease_t : Text
+var $buildRelease_l : Real
 var $previousReleaseNumber_t; $releaseNumber_t; $path_t : Text
 
 $method:=$param1

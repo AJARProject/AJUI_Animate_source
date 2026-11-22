@@ -33,13 +33,13 @@ Une dépendance vers les sources ne fonctionne qu'en **interprété**. Un hôte 
 
 ### 4D SVG
 
-Depuis 4D 21, les composants 4D (dont 4D SVG) ne sont plus embarqués dans l'application ([notes de version 4D 21](https://developer.4d.com/docs/21/Notes/updates)). Sans eux, le compilateur lit `SVG_New` comme une variable et signale une erreur de syntaxe sur l'appel. `Project/Sources/dependencies.json` déclare donc :
+Les graphes et les couleurs appellent `SVG_New`, `SVG_New_line`, `SVG EXPORT TO PICTURE`, `SVG_Color_RGB_from_long` et `SVG_Get_named_color_value`. Sur une installation 4D 21 R4 vérifiée, `4D SVG.4dbase` est toujours livré dans `4D.app/Contents/Components`, et ces appels compilent avec ce composant. `Project/Sources/dependencies.json` ajoute une déclaration explicite, facultative :
 
 ```json
 "4D SVG": { "github": "4d/4D-SVG" }
 ```
 
-La clé `github` est celle de la page [composants](https://developer.4d.com/docs/21-R4/Project/components). Au premier ouverture, 4D télécharge la release. Méthodes utilisées, inchangées : `SVG_New`, `SVG_New_line`, `SVG EXPORT TO PICTURE`, `SVG_Color_RGB_from_long`, `SVG_Get_named_color_value`. Aucun plugin.
+La clé `github` est celle de la page [composants](https://developer.4d.com/docs/21-R4/Project/components). Elle sert si l'on veut figer la dépendance dans le projet. Aucun plugin.
 
 ## Installation compilée
 
@@ -153,7 +153,7 @@ Sans paramètre. Vide `Storage.AJUI_AnimateProcess_col` si elle existe. `animati
 - Chaque variable locale est déclarée avec `var` (le compilateur 21 R4 refuse une locale non déclarée). Les paramètres dans le corps sont les noms du `#DECLARE` (`$param1`, …), et non plus `$1`. `$0` n'apparaît plus : le retour est `$return` dans le `#DECLARE` (y compris le graphe d'easing, `Picture`).
 - `property animType : Text` sur la classe `Animation` ([classes](https://developer.4d.com/docs/21-R4/Concepts/classes)), pour l'avertissement 550.26.
 - `New AnimationItem` et `animate` sont partagées.
-- AJ_Math 21 R4 dans `Components/`. Dépendance GitHub `4D SVG`.
+- AJ_Math 21 R4 dans `Components/`. Déclaration explicite et facultative de 4D SVG dans `dependencies.json` (le composant est aussi livré dans 4D 21 R4).
 - `AJUI_Animate_Info` annonce `v21 R4`. Le numéro `1.0.1+Build74` ne change pas.
 - `.gitignore` : `*.4DD`, `*.journal`, `*.4DIndy`, `*.4DIndx` (extension réelle des index), `*.Match`, `*.match`, `userPreferences.*/`, `Logs/`, `DerivedData/`, `.DS_Store`, `Data/`. Les `*.4DSettings` ne sont plus ignorés, sinon les réglages de compatibilité ne pourraient pas être versionnés.
 - Hôte : `dependencies.json` + `environment4d.json`. Le `.4DZ` de 2020 sort de `Components/` vers `LegacyBinaries/` (fichier intact).
@@ -172,7 +172,7 @@ Pas de 4D sur la machine qui a préparé cette branche. Rien n'a été ouvert, c
 4. `New Animation` et `animationTiming` (avec et sans le booléen).
 5. `formGetObjectsCoordinates` / `formResetObjectsCoordinates` sur un formulaire qui a déjà la collection.
 6. Courbes elastic avec le `AJ_Math.4DZ` 21 R4 de `Components/` (`Math().sin`, `Math().asin`).
-7. Le labo en interprété charge `../AJUI_Animate`. `New AnimationItem` et `animate` sont partagées : les HDI qui les appellent doivent se compiler. 4D doit avoir téléchargé 4D SVG avant la compilation du composant.
+7. Le labo en interprété charge `../AJUI_Animate`. `New AnimationItem` et `animate` sont partagées. 4D SVG livré avec 4D 21 R4 suffit pour compiler les appels SVG ; l'entrée `dependencies.json` est facultative.
 8. Hôte compilé + composant `.4DZ` produit par 21 R4.
 9. Windows, client-serveur, et `AJUI_BuildComponent` (le marqueur de version cherche `GMT` suivi d'un CR, alors que les fichiers sont en LF).
 10. 4D SVG : `SVG_New`, `SVG_Color_RGB_from_long`, `SVG_Get_named_color_value` n'ont pas été rejoués.

@@ -16,7 +16,7 @@ Documentation : [français](Documentation/AJUI_Animate.fr.md), [English](Documen
 
 **Compilé.** Construire le composant (Développement > Générer l'application, ou `BUILD APPLICATION` sur `AJUI_Animate/Settings/buildApp.4DSettings`) et placer le `.4dbase` produit dans le dossier `Components` de l'hôte. Un hôte compilé ne charge pas un composant interprété.
 
-`AJUI_Animate/Components/AJ_Math.4dbase` est le composant **compilé avec 4D 21 R4** (`Contents/AJ_Math.4DZ`). Les courbes élastiques appellent `Math()`. 4D SVG n'est plus livré dans 4D 21 : il est déclaré dans `Project/Sources/dependencies.json` (`github: 4d/4D-SVG`).
+`AJUI_Animate/Components/AJ_Math.4dbase` est le composant **compilé avec 4D 21 R4** (`Contents/AJ_Math.4DZ`). Les courbes élastiques appellent `Math()`. 4D SVG est utilisé par les graphes et les couleurs. `Project/Sources/dependencies.json` le déclare explicitement (`github: 4d/4D-SVG`) ; sur 4D 21 R4 le composant est aussi livré dans `4D.app/Contents/Components`, donc cette entrée est facultative.
 
 ---
 
@@ -38,4 +38,4 @@ Documentation: [English](Documentation/AJUI_Animate.en.md), [français](Document
 
 **Compiled.** Build the component (Design > Build Application, or `BUILD APPLICATION` on `AJUI_Animate/Settings/buildApp.4DSettings`) and put the resulting `.4dbase` in the host `Components` folder. A compiled host does not load an interpreted component.
 
-`AJUI_Animate/Components/AJ_Math.4dbase` is the component **compiled with 4D 21 R4** (`Contents/AJ_Math.4DZ`). Elastic curves call `Math()`. 4D SVG is no longer shipped inside 4D 21: it is declared in `Project/Sources/dependencies.json` (`github: 4d/4D-SVG`).
+`AJUI_Animate/Components/AJ_Math.4dbase` is the component **compiled with 4D 21 R4** (`Contents/AJ_Math.4DZ`). Elastic curves call `Math()`. 4D SVG is used by the graphs and the color helpers. `Project/Sources/dependencies.json` declares it explicitly (`github: 4d/4D-SVG`). On 4D 21 R4 the component is also shipped in `4D.app/Contents/Components`, so that entry is optional.

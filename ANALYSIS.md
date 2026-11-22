@@ -104,4 +104,4 @@ La page [Compatibilité](https://developer.4d.com/docs/21-R4/settings/compatibil
 
 ## Suite (après le premier essai de compilation 21 R4)
 
-Le compilateur 21 R4 (build 21R4.100185) a refusé les locales non déclarées. Elles sont maintenant typées avec `var`. `$1`… dans le corps sont remplacés par les noms `#DECLARE`. `$0` est devenu `$return`. `property animType` est déclaré sur la classe. `New AnimationItem` et `animate` sont partagées pour le labo. Le binaire AJ_Math 19 R8 est remplacé par le build 21 R4. 4D SVG est une dépendance GitHub, parce que 4D 21 ne l'embarque plus.
+Le compilateur 21 R4 (build 21R4.100185) a refusé les locales non déclarées. Elles sont maintenant typées avec `var`. `$1`… dans le corps sont remplacés par les noms `#DECLARE`. `$0` est devenu `$return`. `property animType` est déclaré sur la classe. `New AnimationItem` et `animate` sont partagées pour le labo. Le binaire AJ_Math 19 R8 est remplacé par le build 21 R4. 4D SVG est déclaré dans `dependencies.json` à titre explicite et facultatif : sur 4D 21 R4 le composant est aussi présent dans `4D.app/Contents/Components`.

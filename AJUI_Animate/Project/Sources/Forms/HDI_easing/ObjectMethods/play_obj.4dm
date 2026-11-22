@@ -3,11 +3,12 @@
 var $animation_ptr : Pointer
 var $animation; $orientation : Text
 var $o; $param : Object
-var $pos : Integer
+var $pos; $popupIndex : Integer
 var $obj_ptr : Pointer
 
 $animation_ptr:=OBJECT Get pointer(Object named;"popup_animation_obj")
-$animation:=$animation_ptr->{$animation_ptr->}
+$popupIndex:=$animation_ptr->
+$animation:=$animation_ptr->{$popupIndex}
 
 If ($animation#"select effect...")
 	
@@ -31,7 +32,8 @@ If ($animation#"select effect...")
 	$o:=New Animation 
 	$o.formName:=Current form name
 	$obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
-	$o.target:=$obj_ptr->{$obj_ptr->}
+	$popupIndex:=$obj_ptr->
+	$o.target:=$obj_ptr->{$popupIndex}
 	$o.orientation:=$orientation
 	  // update according to the LB
 	For each ($param;Form.params_col)

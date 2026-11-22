@@ -1,5 +1,5 @@
 
-var $evt : Integer
+var $evt; $popupIndex : Integer
 var $_popup_obj_ptr : Pointer
 var $popup : Text
 $evt:=Form event code
@@ -19,7 +19,8 @@ Case of
 		OBJECT SET VISIBLE(*;"button_obj";False)
 		
 		$_popup_obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
-		$popup:=$_popup_obj_ptr->{$_popup_obj_ptr->}
+		$popupIndex:=$_popup_obj_ptr->
+		$popup:=$_popup_obj_ptr->{$popupIndex}
 		
 		OBJECT SET VISIBLE(*;$popup;True)
 		

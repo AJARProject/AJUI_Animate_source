@@ -4,7 +4,7 @@ var $params : Collection
 var $o; $o2 : Object
 var $pict : Picture
 var $evt : Integer
-var $pos : Integer
+var $pos; $popupIndex : Integer
 var $obj_ptr : Pointer
 
 $evt:=Form event code
@@ -13,14 +13,16 @@ Case of
 	: ($evt=On Load)
 		
 		$animation_ptr:=OBJECT Get pointer(Object current)
-		$animation:=$animation_ptr->{$animation_ptr->}
+		$popupIndex:=$animation_ptr->
+		$animation:=$animation_ptr->{$popupIndex}
 		
 	: ($evt=On Clicked)
 		
 		
 		
 		$animation_ptr:=OBJECT Get pointer(Object named;"popup_animation_obj")
-		$animation:=$animation_ptr->{$animation_ptr->}
+		$popupIndex:=$animation_ptr->
+		$animation:=$animation_ptr->{$popupIndex}
 		
 		If ($animation#"select effect...")
 			
@@ -54,7 +56,8 @@ Case of
 			
 			$o:=New Animation 
 			$obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
-			$o.target:=$obj_ptr->{$obj_ptr->}
+			$popupIndex:=$obj_ptr->
+			$o.target:=$obj_ptr->{$popupIndex}
 			$o.orientation:=$orientation
 			$o.formName:=Current form name
 			$o[$animation].call($o)  // launch animation

@@ -5,6 +5,7 @@
 
 var $_popup_obj_ptr : Pointer
 var $popup : Text
+var $popupIndex : Integer
 formResetObjectsCoordinates 
 OBJECT SET VISIBLE(*;"@_obj@";True)
 OBJECT SET FONT SIZE(*;"text_obj";Form.fontSize_text)
@@ -17,6 +18,7 @@ OBJECT SET VISIBLE(*;"rectangle_obj";False)
 OBJECT SET VISIBLE(*;"button_obj";False)
 
 $_popup_obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
-$popup:=$_popup_obj_ptr->{$_popup_obj_ptr->}
+$popupIndex:=$_popup_obj_ptr->
+$popup:=$_popup_obj_ptr->{$popupIndex}
 
 OBJECT SET VISIBLE(*;$popup;True)

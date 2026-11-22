@@ -2,6 +2,10 @@
 	"dependencies": {
 		"4D SVG": {
 			"github": "4d/4D-SVG"
+		},
+		"AJ_Math": {
+			"github": "AJARProject/AJ_Math_source",
+			"version": "^2.1.1"
 		}
 	}
 }

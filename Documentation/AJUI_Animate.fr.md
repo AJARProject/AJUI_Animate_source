@@ -16,22 +16,15 @@ Les sources étaient déjà en mode projet (pas de `.4DB` / `.4DC`). Aucun expor
 
 ### Hôte d'exemple
 
-`AJUI_AnimateLab_deprecated` est l'hôte en mode projet.
+Les dossiers `AJUI_AnimateLab_deprecated` et `AJUI_AnimationLab` ont été retirés. Ils restent dans la release 1.2.1 et dans l'historique git.
 
-- `Project/Sources/dependencies.json` nomme `AJUI_Animate` et `AJ_Math`.
-- `environment4d.json` (dans le dossier du projet hôte) donne `../AJUI_Animate` et `../AJUI_Animate/Components/AJ_Math.4dbase`.
+Un hôte déclare AJUI_Animate dans son `dependencies.json` :
 
-Les chemins relatifs sont résolus depuis le fichier `environment4d.json`. Le dossier Components a la priorité la plus haute, puis `dependencies.json` ([composants](https://developer.4d.com/docs/21-R4/Project/components)). L'archive compilée de 2020 a été déplacée, sans modification d'octets, vers `AJUI_AnimateLab_deprecated/LegacyBinaries/AJUI_Animate.4dbase/`. La laisser dans `Components/` aurait masqué les sources.
+```json
+"AJUI_Animate": {"github": "AJARProject/AJUI_Animate_source"}
+```
 
-Tout hôte qui utilise AJUI Animate doit aussi installer **AJ_Math**. Le dossier `Components` du composant n'est pas chargé pour l'hôte : sans AJ_Math déclaré (ou copié dans le `Components` de l'hôte), 4D signale que « AJUI_Animate » a besoin de « AJ_Math ».
-
-La page composants décrit le paquet comme un dossier `.4dbase`. Un paquet compilé contient `Contents` et le `.4DZ`. Les chemins de `environment4d.json` visent cet emplacement (les exemples sont des dossiers, par exemple `../MyComponent2`). Le dialogue du gestionnaire de dépendances permet aussi de choisir un fichier `.4DZ` ou `.4DProject`. Le labo pointe le dossier paquet `AJ_Math.4dbase`, qui contient `Contents/AJ_Math.4DZ`. Ce chargement headless n'a pas été rejoué ici.
-
-Une dépendance vers les sources ne fonctionne qu'en **interprété**. Compiler l'hôte exige le `AJUI_Animate.4DZ` compilé (et AJ_Math compilé) dans le dossier `Components` de l'hôte.
-
-Le labo ne reprend pas `formGetObjectsCoordinates` ni `formResetObjectsCoordinates` : ces noms masquaient les méthodes partagées du composant (avertissement 529.17). Les copies du labo écrivent `Form.formObjects`, le composant écrit `Form.AJUI_Animate_formObjects`. Elles s'appellent `labFormGetObjectsCoordinates` et `labFormResetObjectsCoordinates`. Le bouton de `HDI_animation_font` lit `Form.formObjects`.
-
-`AJUI_AnimationLab/` ne contient qu'un `.4DZ` de 2020, sans `.4DProject`. Ce n'est pas une base. Le fichier n'a pas été modifié.
+4D installe alors AJ_Math (`^2.1.1`) et 4D SVG. Une dépendance vers les sources ne fonctionne qu'en **interprété**. Compiler l'hôte exige le `AJUI_Animate.4DZ` compilé dans le dossier `Components` de l'hôte.
 
 ### AJ_Math
 
@@ -144,14 +137,14 @@ Sans paramètre. Vide `Storage.AJUI_AnimateProcess_col` si elle existe. `animati
 | `New AnimationItem` | Objet `"AnimationItem"` (opération, cible, durée, délai, fréquence, géométrie, police, couleurs). `preemptive: capable`. Partagée. |
 | `animationController` | Boucle de pas. `preemptive: incapable`. |
 | `easing` | Courbe nommée. Dépend de `Math()` pour elastic. |
-| `old_*` | Anciens effets. Plusieurs ont `"shared":false`. |
+| `old_*` | Anciens effets, retirés. Ils restent dans la release 1.2.1 et dans l'historique git. |
 
-`New AnimationItem` et `animate` sont partagées (`invisible` + `shared`), comme `stopAnimation`. Le labo `AJUI_AnimateLab_deprecated` les appelle pour construire des `AnimationItem` (courbes de timing, enchaînements, police, couleur). Les fonctions de la classe ne couvrent pas ces démonstrations. Les partager ne change pas leur comportement : l'hôte peut les appeler. `New AnimationItem` reste `preemptive: capable`.
+`New AnimationItem` et `animate` sont partagées (`invisible` + `shared`), comme `stopAnimation`. L'ancien labo `AJUI_AnimateLab_deprecated` les appelait pour construire des `AnimationItem` (courbes de timing, enchaînements, police, couleur). Ce labo, `AJUI_AnimationLab` et les méthodes `old_*` ont été retirés ; ils restent dans la release 1.2.1 et l'historique git. Les fonctions de la classe ne couvrent pas ces démonstrations. Les partager ne change pas leur comportement : un hôte peut les appeler. `New AnimationItem` reste `preemptive: capable`.
 
 ## Ce qui a changé pour 21 R4
 
-- `AJUI_Animate.4DProject` et `AJUI_AnimateLab.4DProject` : `compatibilityVersion` 2140, `tokenizedText` false.
-- `Project/Sources/settings.4DSettings` sur le composant et sur le labo : notation objet et méthodes Unicode.
+- `AJUI_Animate.4DProject` : `compatibilityVersion` 2140, `tokenizedText` false. Le projet hôte `AJUI_AnimateLab.4DProject` a été retiré avec `AJUI_AnimateLab_deprecated` (release 1.2.1 et historique git).
+- `Project/Sources/settings.4DSettings` sur le composant : notation objet et méthodes Unicode. La copie du labo a été retirée avec `AJUI_AnimateLab_deprecated` (release 1.2.1 et historique git).
 - `Settings/buildApp.4DSettings` pour la génération du composant.
 - Jetons `:C` et `:K` retirés. Noms de commandes et de constantes inchangés.
 - `C_XXX` remplacé par `var`. `C_LONGINT` devient `Integer`. Les tableaux `ARRAY TEXT` restent des tableaux.
@@ -163,9 +156,9 @@ Sans paramètre. Vide `Storage.AJUI_AnimateProcess_col` si elle existe. `animati
 - AJ_Math 21 R4 dans `Components/`. Déclaration explicite et facultative de 4D SVG dans `dependencies.json` (le composant est aussi livré dans 4D 21 R4).
 - `AJUI_Animate_Info` annonce `v21 R4`. Le numéro `1.0.1+Build74` ne change pas.
 - `.gitignore` : `*.4DD`, `*.journal`, `*.4DIndy`, `*.4DIndx` (extension réelle des index), `*.Match`, `*.match`, `userPreferences.*/`, `Logs/`, `DerivedData/`, `.DS_Store`, `Data/`. Les `*.4DSettings` ne sont plus ignorés, sinon les réglages de compatibilité ne pourraient pas être versionnés.
-- Hôte : `dependencies.json` + `environment4d.json` pour `AJUI_Animate` et `AJ_Math`. Le `.4DZ` de 2020 sort de `Components/` vers `LegacyBinaries/` (fichier intact). Les copies labo des coordonnées de formulaire sont renommées `labFormGetObjectsCoordinates` et `labFormResetObjectsCoordinates`.
+- Hôte : déclarer `"AJUI_Animate": {"github": "AJARProject/AJUI_Animate_source"}` dans `dependencies.json`. Les fichiers d'hôte du labo (`environment4d.json`, `LegacyBinaries/`) ont été retirés avec `AJUI_AnimateLab_deprecated` (release 1.2.1 et historique git).
 - Aucune commande `_o_` trouvée. `OBJECT SET RGB COLORS`, `Macintosh option down`, `SET DATABASE PARAMETER` (`Debug log recording`, `Circular log limitation`), `Application type` sont toujours dans la doc 21 R4. Pas de remplacement de commande.
-- Binaires non supprimés : `AJ_Math.4DZ`, `lib4d-arm64.dylib`, les deux `AJUI_Animate.4DZ` (labo déplacé, `AJUI_AnimationLab` laissé en place).
+- Binaires du composant conservés : `AJ_Math.4DZ`, `lib4d-arm64.dylib`. Les `AJUI_Animate.4DZ` des labos (`AJUI_AnimateLab_deprecated`, `AJUI_AnimationLab`) ont été retirés ; ils restent dans la release 1.2.1 et l'historique git.
 
 ## Non testé
 
@@ -179,7 +172,7 @@ Pas de 4D sur la machine qui a préparé cette branche. Rien n'a été ouvert, c
 4. `New Animation` et `animationTiming` (avec et sans le booléen).
 5. `formGetObjectsCoordinates` / `formResetObjectsCoordinates` sur un formulaire qui a déjà la collection.
 6. Courbes elastic avec le `AJ_Math.4DZ` 21 R4 de `Components/` (`Math().sin`, `Math().asin`).
-7. Le labo en interprété charge `../AJUI_Animate`. `New AnimationItem` et `animate` sont partagées. 4D SVG livré avec 4D 21 R4 suffit pour compiler les appels SVG ; l'entrée `dependencies.json` est facultative.
+7. Les labos ont été retirés (release 1.2.1 et historique git). `New AnimationItem` et `animate` sont partagées. 4D SVG livré avec 4D 21 R4 suffit pour compiler les appels SVG ; l'entrée `dependencies.json` est facultative.
 8. Hôte compilé + composant `.4DZ` produit par 21 R4.
 9. Windows, client-serveur, et `AJUI_BuildComponent` (le marqueur de version cherche `GMT` suivi d'un CR, alors que les fichiers sont en LF).
 10. 4D SVG : `SVG_New`, `SVG_Color_RGB_from_long`, `SVG_Get_named_color_value` n'ont pas été rejoués.

@@ -11,7 +11,14 @@
   //   • callback (string) :  Name of the callback method
   //   • callbackParams (object) :  callback parameters
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $return : Object
+var $o; $params : Object
+var $operations : Collection
+var $factor : Real
+var $hideAtTheEnd : Boolean
+var $duration; $iterations; $offset; $delay : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
@@ -24,35 +31,30 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$params)
-C_COLLECTION:C1488($operations)
-$o:=This:C1470
+$o:=This
 
-C_REAL:C285($factor)
-C_BOOLEAN:C305($hideAtTheEnd)
-C_LONGINT:C283($duration;$iterations;$offset;$delay)
 
-If (String:C10($o.offset)="")
+If (String($o.offset)="")
 	$o.offset:=40
 End if 
 $offset:=$o.offset
 
-If (String:C10($o.duration)="")
+If (String($o.duration)="")
 	$o.duration:=200
 End if 
 $duration:=$o.duration
-If (String:C10($o.orientation)="")
+If (String($o.orientation)="")
 	$o.orientation:="none"
 End if 
 $orientation:=$o.orientation
 
-If (String:C10($o.hideAtTheEnd)="")
-	$o.hideAtTheEnd:=False:C215
+If (String($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False
 End if 
 $hideAtTheEnd:=$o.hideAtTheEnd
 
-If (String:C10($o.target)="")
-	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
+If (String($o.target)="")
+	$target:=OBJECT Get name(Object current)  //
 Else 
 	$target:=$o.target
 End if 
@@ -61,8 +63,8 @@ If ($offset=-1)
 	$offset:=getFormOffset ($orientation;$target)
 End if 
 
-$operations:=New collection:C1472()
-OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+$operations:=New collection()
+OBJECT GET COORDINATES(*;$target;$left;$top;$right;$bottom)
 
   //Up -slow, Down-fast, small up & small down
 
@@ -82,16 +84,16 @@ Case of
 		$animationItem.top:=$top
 		$operations.push($animationItem)
 		  // left
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.left:=$left
 		$operations.push($animationItem2)
 		  // right small
-		$animationItem3:=OB Copy:C1225($animationItem2)
+		$animationItem3:=OB Copy($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.left:=$left+($offset/2)
 		$operations.push($animationItem3)
 		  // left small
-		$animationItem4:=OB Copy:C1225($animationItem3)
+		$animationItem4:=OB Copy($animationItem3)
 		$animationItem4.left:=$left
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		$operations.push($animationItem4)
@@ -101,16 +103,16 @@ Case of
 		$animationItem.top:=$top
 		$operations.push($animationItem)
 		  // left
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.left:=$left
 		$operations.push($animationItem2)
 		  // right small
-		$animationItem3:=OB Copy:C1225($animationItem2)
+		$animationItem3:=OB Copy($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.left:=$left-($offset/2)
 		$operations.push($animationItem3)
 		  // left small
-		$animationItem4:=OB Copy:C1225($animationItem3)
+		$animationItem4:=OB Copy($animationItem3)
 		$animationItem4.left:=$left
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		$operations.push($animationItem4)
@@ -120,16 +122,16 @@ Case of
 		$animationItem.top:=$top-$offset
 		$operations.push($animationItem)
 		  // down
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.top:=$top
 		$operations.push($animationItem2)
 		  // up small
-		$animationItem3:=OB Copy:C1225($animationItem2)
+		$animationItem3:=OB Copy($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top-($offset/2)
 		$operations.push($animationItem3)
 		  // down small
-		$animationItem4:=OB Copy:C1225($animationItem3)
+		$animationItem4:=OB Copy($animationItem3)
 		$animationItem4.top:=$top
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		$operations.push($animationItem4)
@@ -139,16 +141,16 @@ Case of
 		$animationItem.top:=$top+$offset
 		$operations.push($animationItem)
 		  // down
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.top:=$top
 		$operations.push($animationItem2)
 		  // up small
-		$animationItem3:=OB Copy:C1225($animationItem2)
+		$animationItem3:=OB Copy($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top+($offset/2)
 		$operations.push($animationItem3)
 		  // down small
-		$animationItem4:=OB Copy:C1225($animationItem3)
+		$animationItem4:=OB Copy($animationItem3)
 		$animationItem4.top:=$top
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		$operations.push($animationItem4)
@@ -158,16 +160,16 @@ Case of
 		$animationItem.top:=$top-$offset
 		$operations.push($animationItem)
 		  // down
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.top:=$top
 		$operations.push($animationItem2)
 		  // up small
-		$animationItem3:=OB Copy:C1225($animationItem2)
+		$animationItem3:=OB Copy($animationItem2)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top-($offset/2)
 		$operations.push($animationItem3)
 		  // down small
-		$animationItem4:=OB Copy:C1225($animationItem3)
+		$animationItem4:=OB Copy($animationItem3)
 		$animationItem4.top:=$top
 		$animationItem4.hideAtTheEnd:=$hideAtTheEnd
 		$operations.push($animationItem4)
@@ -176,9 +178,9 @@ End case
 
 
 
-$params:=New object:C1471()
+$params:=New object()
 $params.operations:=$operations
 $params.callback:=$o.callback
 $params.callbackParams:=$o.callbackParams
 
-animate (OB Copy:C1225($params))
+animate (OB Copy($params))

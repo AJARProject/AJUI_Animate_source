@@ -1,35 +1,36 @@
-$evt:=Form event code:C388
+var $animation : Object
+var $animations : Collection
+
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Clicked)
 		
 		HDI_Timing 
 		
-		C_OBJECT:C1216($animation)
-		C_COLLECTION:C1488($animations)
-		$animation:=New object:C1471("direction";Form:C1466.direction;"iterations";Form:C1466.iteration)
+		$animation:=New object("direction";Form.direction;"iterations";Form.iteration)
 		
-		$animation.operations:=Form:C1466.linear
-		$animations:=New collection:C1472()
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.linear
+		$animations:=New collection()
+		$animations.push(OB Copy($animation))
 		
-		$animation.operations:=Form:C1466.easeIn
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.easeIn
+		$animations.push(OB Copy($animation))
 		
-		$animation.operations:=Form:C1466.ease
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.ease
+		$animations.push(OB Copy($animation))
 		
-		$animation.operations:=Form:C1466.easeOut
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.easeOut
+		$animations.push(OB Copy($animation))
 		
-		$animation.operations:=Form:C1466.step
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.step
+		$animations.push(OB Copy($animation))
 		
-		$animation.operations:=Form:C1466.bezier
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.bezier
+		$animations.push(OB Copy($animation))
 		
-		$animation.operations:=Form:C1466.easeInOut
-		$animations.push(OB Copy:C1225($animation))
+		$animation.operations:=Form.easeInOut
+		$animations.push(OB Copy($animation))
 		
 		animate ($animations)
 		

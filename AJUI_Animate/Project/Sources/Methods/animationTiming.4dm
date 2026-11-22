@@ -18,7 +18,15 @@
   // E.g. {current_step:1,minValue:0,maxValue:8000,frequency:20,duration:2000,type:ease-in}
   // E.g. {current_step:1,distance:8000,duration:2000,duration:25}
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Boolean) -> $return : Real
+var $animation_obj : Object
+var $transitionValue; $x; $factorY; $minValue; $maxValue; $a; $b; $c; $d; $t; $x0; $x1; $x2; $x3; $y0; $y1; $y2; $y3 : Real
+var $steps; $current_step : Integer
+var $relative : Boolean
+var $type : Text
+var $animType_type : Variant
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 20.03.20, 08:16:21
@@ -44,41 +52,30 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($animation_obj;$1)
-C_REAL:C285($0;$transitionValue)
-C_REAL:C285($x;$factorY)
-C_LONGINT:C283($steps;$current_step)
-C_BOOLEAN:C305($2;$relative)
-C_REAL:C285($minValue;$maxValue)
-C_REAL:C285($a;$b;$c;$d;$t)
-C_REAL:C285($x0;$x1;$x2;$x3)
-C_REAL:C285($y0;$y1;$y2;$y3)
-C_TEXT:C284($type)
-C_VARIANT:C1683($animType_type)
 
 $animation_obj:=$1
 $current_step:=$animation_obj.current_step
 $steps:=$animation_obj.steps
 
-If (Count parameters:C259=2)
+If (Count parameters=2)
 	$relative:=$2
 Else 
-	$relative:=False:C215
+	$relative:=False
 End if 
 
-$minValue:=Num:C11($animation_obj.minValue)
+$minValue:=Num($animation_obj.minValue)
 $maxValue:=$animation_obj.maxValue
 
-$animType_type:=Value type:C1509($animation_obj.animType)
+$animType_type:=Value type($animation_obj.animType)
 
   //if we pass some specific cubic-bezier values
-$isBezier:=True:C214  // Boolean to check if we use bezier curve or not
+$isBezier:=True  // Boolean to check if we use bezier curve or not
 
   // starting point
 $x0:=0
 $y0:=0
 Case of 
-	: ($animType_type=Is collection:K8:32)
+	: ($animType_type=Is collection)
 		$x1:=$animation_obj.animType[0]
 		$y1:=$animation_obj.animType[1]
 		$x2:=$animation_obj.animType[2]
@@ -86,7 +83,7 @@ Case of
 		
 	Else 
 		
-		$type:=String:C10($animation_obj.animType)
+		$type:=String($animation_obj.animType)
 		Case of 
 			: ($type="ease")
 				$x1:=0.25
@@ -113,7 +110,7 @@ Case of
 				$y2:=1
 				
 			: ($type#"linear")  // Special cases handled by the easing method
-				$isBezier:=False:C215
+				$isBezier:=False
 				
 			Else 
 				  //  "linear"
@@ -133,22 +130,22 @@ If ($isBezier)
 	$x3:=1
 	$y3:=1
 	
-	$choose_x1:=False:C215
+	$choose_x1:=False
 	Case of 
 		: (($x1=$y1) & ($x2=$y2))  // Linear
 			$bezier_nbPoint:=2
 			
 		: (($x1=$x2) & ($y1=$y2))  // 3 points bezier curve
 			$bezier_nbPoint:=3
-			$choose_x1:=True:C214
+			$choose_x1:=True
 			
 		: ($x1=0) & ($y1=0)  // 3 points bezier curve
 			$bezier_nbPoint:=3
-			$choose_x1:=False:C215
+			$choose_x1:=False
 			
 		: ($x2=1) & ($y2=1)  // 3 points bezier curve
 			$bezier_nbPoint:=3
-			$choose_x1:=True:C214
+			$choose_x1:=True
 			
 		Else   // 4 points bezier curve
 			$bezier_nbPoint:=4
@@ -165,7 +162,7 @@ If ($isBezier)
 		: ($bezier_nbPoint=3)
 			  //P = (1−t)2P1 + 2(1−t)tP2 + t2P3
 			$ay:=((1-$t)^2)*$y0
-			$by:=2*(1-$t)*$t*Choose:C955($choose_x1;$y1;$y2)
+			$by:=2*(1-$t)*$t*Choose($choose_x1;$y1;$y2)
 			$cy:=($t^2)*$y3
 			
 			$factorY:=$ay+$by+$cy
@@ -187,4 +184,4 @@ End if
 
 $transitionValue:=$minValue+($factorY*($maxValue-$minValue))
 
-$0:=$transitionValue
+$return:=$transitionValue

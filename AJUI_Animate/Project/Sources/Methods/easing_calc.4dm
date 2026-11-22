@@ -10,7 +10,15 @@
   //   • factor (real) : factor
   //   • orientation (text) :  orientation
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Text)
+var $o; $params : Object
+var $operations : Collection
+var $name : Text
+var $factor : Real
+var $duration; $iterations; $offset; $delay : Integer
+var $hideAtTheEnd : Boolean
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 01.05.20, 10:04:35
@@ -23,15 +31,9 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$o;$params)
-C_COLLECTION:C1488($operations)
-C_TEXT:C284($2;$name)
 $o:=$1
 $name:=$2
 
-C_REAL:C285($factor)
-C_LONGINT:C283($duration;$iterations;$offset;$delay)
-C_BOOLEAN:C305($hideAtTheEnd)
 
 $offset:=$o.offset
 $factor:=$o.factor
@@ -44,13 +46,13 @@ If ($offset=-1)
 	$offset:=getFormOffset ($orientation;$target)
 End if 
 
-$operations:=New collection:C1472()
-OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+$operations:=New collection()
+OBJECT GET COORDINATES(*;$target;$left;$top;$right;$bottom)
 
   // Get the font properties
-$fontName:=OBJECT Get font:C1069(*;$target)
-$fontSize:=OBJECT Get font size:C1070(*;$target)
-$fontStyle:=OBJECT Get font style:C1071(*;$target)
+$fontName:=OBJECT Get font(*;$target)
+$fontSize:=OBJECT Get font size(*;$target)
+$fontStyle:=OBJECT Get font style(*;$target)
 
   // Set the size of the object to its min size first
 $width:=($right-$left)
@@ -94,8 +96,8 @@ $animationItem.fontStyle:=$fontStyle
 $animationItem.hideAtTheEnd:=$hideAtTheEnd
 $operations.push($animationItem)
 
-$params:=New object:C1471()
+$params:=New object()
 $params.operations:=$operations
 $params.callback:=$o.callback
 $params.callbackParams:=$o.callbackParams
-animate (OB Copy:C1225($params))
+animate (OB Copy($params))

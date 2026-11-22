@@ -8,7 +8,14 @@
   //   • factor (real) : factor
   //   • orientation (text) :  orientation
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $return : Object
+var $o; $params : Object
+var $operations : Collection
+var $factor : Real
+var $orientation : Text
+var $duration; $iterations; $offset; $delay; $left; $top; $right; $bottom; $width; $width0; $height; $height0; $bottom0; $top0; $left0; $right0; $width_window : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
@@ -21,49 +28,42 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$params)
-C_COLLECTION:C1488($operations)
-$o:=This:C1470
+$o:=This
 
-C_REAL:C285($factor)
-C_TEXT:C284($orientation)
-C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
-C_LONGINT:C283($width;$width0;$height;$height0;$bottom0;$top0;$left0;$right0)
 
-If (String:C10($o.factor)="")
+If (String($o.factor)="")
 	$o.factor:=0.5
 End if 
 $factor:=$o.factor
-If (String:C10($o.offset)="")
+If (String($o.offset)="")
 	$o.offset:=10
 End if 
 $offset:=$o.offset
-If (String:C10($o.duration)="")
+If (String($o.duration)="")
 	$o.duration:=200
 End if 
 $duration:=$o.duration
-If (String:C10($o.orientation)="")
+If (String($o.orientation)="")
 	$o.orientation:="none"
 End if 
 $orientation:=$o.orientation
 
-If (String:C10($o.target)="")
-	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
+If (String($o.target)="")
+	$target:=OBJECT Get name(Object current)  //
 Else 
 	$target:=$o.target
 End if 
 
-$operations:=New collection:C1472()
-OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+$operations:=New collection()
+OBJECT GET COORDINATES(*;$target;$left;$top;$right;$bottom)
 
 $width:=$right-$left
 $height:=$bottom-$top
 
 Case of 
 	: ($orientation="right")
-		C_LONGINT:C283($width_window)
 		
-		If (String:C10($o.width_window)="")
+		If (String($o.width_window)="")
 			$width_window:=500
 		Else 
 			$width_window:=$o.width_window
@@ -85,9 +85,8 @@ Case of
 		$bottom0:=$bottom
 		
 	: ($orientation="up")
-		C_LONGINT:C283($width_window)
 		
-		If (String:C10($o.height_window)="")
+		If (String($o.height_window)="")
 			$height_window:=500
 		Else 
 			$height_window:=$o.height_window
@@ -120,17 +119,17 @@ Case of
 		$bottom0:=$top0+$height0
 		
 		  // Get the font properties
-		$fontName:=OBJECT Get font:C1069(*;$target)
-		$fontSize:=OBJECT Get font size:C1070(*;$target)
-		$fontStyle:=OBJECT Get font style:C1071(*;$target)
+		$fontName:=OBJECT Get font(*;$target)
+		$fontSize:=OBJECT Get font size(*;$target)
+		$fontStyle:=OBJECT Get font style(*;$target)
 		
 		  // set the initial size for font
-		OBJECT SET FONT SIZE:C165(*;$target;$fontSize*$factor)
+		OBJECT SET FONT SIZE(*;$target;$fontSize*$factor)
 		  // set the initial size for the object
 		
 End case 
 
-OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
+OBJECT SET COORDINATES(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
 $animationItem:=New AnimationItem 
 $animationItem.target:=$target
 $animationItem.duration:=$duration
@@ -147,17 +146,17 @@ Case of
 		$animationItem.top:=$top
 		$operations.push($animationItem)
 		  // left
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.duration:=$duration/2
 		$animationItem2.left:=$left
 		$operations.push($animationItem2)
 		  // right small
-		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3:=OB Copy($animationItem)
 		$animationItem3.duration:=$duration/2
 		$animationItem3.left:=$left-($offset/2)
 		$operations.push($animationItem3)
 		  // down small
-		$animationItem4:=OB Copy:C1225($animationItem)
+		$animationItem4:=OB Copy($animationItem)
 		$animationItem4.left:=$left
 		$operations.push($animationItem4)
 		
@@ -171,17 +170,17 @@ Case of
 		$animationItem.top:=$top
 		$operations.push($animationItem)
 		  // down
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.duration:=$duration/2
 		$animationItem2.left:=$left
 		$operations.push($animationItem2)
 		  // up small
-		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3:=OB Copy($animationItem)
 		$animationItem3.duration:=$duration/2
 		$animationItem3.left:=$left+($offset/2)
 		$operations.push($animationItem3)
 		  // down small
-		$animationItem4:=OB Copy:C1225($animationItem)
+		$animationItem4:=OB Copy($animationItem)
 		$animationItem4.left:=$left
 		$operations.push($animationItem4)
 	: ($orientation="up")
@@ -194,17 +193,17 @@ Case of
 		$animationItem.top:=$top-$offset
 		$operations.push($animationItem)
 		  // down
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.duration:=$duration/2
 		$animationItem2.top:=$top
 		$operations.push($animationItem2)
 		  // up small
-		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3:=OB Copy($animationItem)
 		$animationItem3.duration:=$duration/2
 		$animationItem3.top:=$top-$offset
 		$operations.push($animationItem3)
 		  // down small
-		$animationItem4:=OB Copy:C1225($animationItem)
+		$animationItem4:=OB Copy($animationItem)
 		$animationItem4.top:=$top
 		$operations.push($animationItem4)
 		
@@ -218,11 +217,11 @@ Case of
 		$animationItem.top:=$top
 		$operations.push($animationItem)
 		  // up
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.top:=$top-$offset
 		$operations.push($animationItem2)
 		  // down small
-		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3:=OB Copy($animationItem)
 		$animationItem3.duration:=$animationItem3.duration/2
 		$animationItem3.top:=$top
 		$operations.push($animationItem3)
@@ -240,7 +239,7 @@ Case of
 		$animationItem.fontStyle:=$fontStyle
 		$operations.push($animationItem)
 		  // factor * 1.5
-		$animationItem2:=OB Copy:C1225($animationItem)
+		$animationItem2:=OB Copy($animationItem)
 		$animationItem2.fontSize:=$fontSize*($factor*1.5)
 		$animationItem2.width:=$width*($factor*1.5)
 		$animationItem2.height:=$height*($factor*1.5)
@@ -248,10 +247,10 @@ Case of
 		$animationItem2.top:=$centerY-($animationItem2.height/2)
 		$operations.push($animationItem2)
 		  // initial size
-		$animationItem3:=OB Copy:C1225($animationItem)
+		$animationItem3:=OB Copy($animationItem)
 		$operations.push($animationItem3)
 		  // factor * 1.8
-		$animationItem4:=OB Copy:C1225($animationItem)
+		$animationItem4:=OB Copy($animationItem)
 		$animationItem4.width:=$width*($factor*1.8)
 		$animationItem4.height:=$height*($factor*1.8)
 		$animationItem4.left:=$centerX-($animationItem4.width/2)
@@ -259,12 +258,12 @@ Case of
 		$animationItem4.fontSize:=$fontSize*($factor*1.8)
 		$operations.push($animationItem4)
 		  // initial size
-		$animationItem5:=OB Copy:C1225($animationItem)
+		$animationItem5:=OB Copy($animationItem)
 		$operations.push($animationItem5)
 End case 
 
 
   // encapsulation
-$params:=New object:C1471()
+$params:=New object()
 $params.operations:=$operations
-animate (OB Copy:C1225($params))
+animate (OB Copy($params))

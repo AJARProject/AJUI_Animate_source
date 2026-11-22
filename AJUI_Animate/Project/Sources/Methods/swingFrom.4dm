@@ -13,7 +13,10 @@
   //   • callback (string) :  Name of the callback method
   //   • callbackParams (object) :  callback parameters
 
-If (False:C215)
+#DECLARE($param1 : Object)
+var $o; $operations : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 01.05.20, 15:18:35
@@ -25,31 +28,30 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$o;$operations)
-$o:=This:C1470
+$o:=This
 
-If (String:C10($o.offset)="")
+If (String($o.offset)="")
 	$o.offset:=200
 End if 
 
-If (String:C10($o.factor)="")
+If (String($o.factor)="")
 	$o.factor:=0.1
 End if 
 
-If (String:C10($o.duration)="")
+If (String($o.duration)="")
 	$o.duration:=2000
 End if 
 
-If (String:C10($o.orientation)="")
+If (String($o.orientation)="")
 	$o.orientation:="none"
 End if 
 
-If (String:C10($o.hideAtTheEnd)="")
-	$o.hideAtTheEnd:=False:C215
+If (String($o.hideAtTheEnd)="")
+	$o.hideAtTheEnd:=False
 End if 
 
-If (String:C10($o.target)="")
-	$o.target:=OBJECT Get name:C1087(Object current:K67:2)  //
+If (String($o.target)="")
+	$o.target:=OBJECT Get name(Object current)  //
 End if 
 
-easing_calc ($o;Current method name:C684)
+easing_calc ($o;Current method name)

@@ -1,2 +1,2 @@
-BEEP:C151
-ALERT:C41("You click the blink button")
+BEEP
+ALERT("You click the blink button")

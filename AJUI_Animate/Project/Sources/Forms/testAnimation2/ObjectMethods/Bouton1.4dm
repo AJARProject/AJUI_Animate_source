@@ -1,9 +1,9 @@
 
-$evt:=Form event code:C388
+$evt:=Form event code
 
 Case of 
 		
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Clicked)
 		
 		stopAnimation 
 		

@@ -1,11 +1,11 @@
-OBJECT SET VISIBLE:C603(*;"background@";False:C215)
+OBJECT SET VISIBLE(*;"background@";False)
 
-$evt:=Form event code:C388
+$evt:=Form event code
 Case of 
-	: ($evt=On Load:K2:1)
-		CALL FORM:C1391(Current form window:C827;"formGetObjectsCoordinates")
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Load)
+		CALL FORM(Current form window;"formGetObjectsCoordinates")
+	: ($evt=On Clicked)
 		stopAnimation 
-		DELAY PROCESS:C323(Current process:C322;30)
-		CALL FORM:C1391(Current form window:C827;"formResetObjectsCoordinates")
+		DELAY PROCESS(Current process;30)
+		CALL FORM(Current form window;"formResetObjectsCoordinates")
 End case 

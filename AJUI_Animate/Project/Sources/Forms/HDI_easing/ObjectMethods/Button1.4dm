@@ -1,1 +1,1 @@
-﻿window_Size 
+window_Size 

@@ -7,7 +7,12 @@
   //
   // Check if a specific type exists for the operation
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Text) -> $return : Variant
+var $operation_obj : Object
+var $operation : Text
+var $type : Variant
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 27.03.20, 08:47:11
@@ -19,9 +24,6 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$operation_obj)
-C_TEXT:C284($2;$operation)
-C_VARIANT:C1683($type;$0)
 
 $operation_obj:=$1
 $operation:=$2
@@ -29,18 +31,18 @@ $operation:=$2
 $type:=$operation_obj.animType
 
 Case of 
-	: ($operation="Resize") & (String:C10($operation_obj.ResizeAnimType)#"")
+	: ($operation="Resize") & (String($operation_obj.ResizeAnimType)#"")
 		$type:=$operation_obj.ResizeAnimType
 		
-	: ($operation="BGColor") & (String:C10($operation_obj.BGColorAnimType)#"")
+	: ($operation="BGColor") & (String($operation_obj.BGColorAnimType)#"")
 		$type:=$operation_obj.BGColorAnimType
 		
-	: ($operation="Font") & (String:C10($operation_obj.FontAnimType)#"")
+	: ($operation="Font") & (String($operation_obj.FontAnimType)#"")
 		$type:=$operation_obj.FontAnimType
 		
-	: ($operation="CRadius") & (String:C10($operation_obj.CRadiusAnimType)#"")
+	: ($operation="CRadius") & (String($operation_obj.CRadiusAnimType)#"")
 		$type:=$operation_obj.CRadiusAnimType
 		
 End case 
 
-$0:=$type
+$return:=$type

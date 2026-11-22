@@ -1,7 +1,7 @@
 Class constructor
 	
 	  //timing
-	This:C1470.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
+	This.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
 	
 	
 Function backIn

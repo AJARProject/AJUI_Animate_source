@@ -5,7 +5,12 @@
   //
   // collects the start and end definition of each unique target in the item.
 
-If (False:C215)
+#DECLARE($param1 : Object)
+var $operations_col : Collection
+var $operation_obj; $item_obj : Object
+var $target; $operation; $foregroundColor; $backgroundColor; $altBackgroundColor : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 08.04.20, 09:50:22
@@ -17,52 +22,48 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_COLLECTION:C1488($operations_col)
-C_OBJECT:C1216($1;$operation_obj;$item_obj)
-C_TEXT:C284($target;$operation)
 
 $item_obj:=$1
-$item_obj.defStart:=New object:C1471
-$item_obj.defEnd:=New object:C1471
+$item_obj.defStart:=New object
+$item_obj.defEnd:=New object
 
 $operations_col:=$item_obj.operations
 
 
 For each ($operation_obj;$operations_col)
 	
-	If (String:C10($operation_obj.target)#"")
+	If (String($operation_obj.target)#"")
 		$target:=$operation_obj.target
 		
-		If ($item_obj.defStart[$target]#Null:C1517)
+		If ($item_obj.defStart[$target]#Null)
 			  //already done 
 		Else 
-			$item_obj.defStart[$target]:=New object:C1471
+			$item_obj.defStart[$target]:=New object
 			
-			OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+			OBJECT GET COORDINATES(*;$target;$left;$top;$right;$bottom)
 			$item_obj.defStart[$target].left:=$left
 			$item_obj.defStart[$target].top:=$top
 			$item_obj.defStart[$target].width:=$right-$left
 			$item_obj.defStart[$target].height:=$bottom-$top
 			
 			
-			$item_obj.defStart[$target].fontName:=OBJECT Get font:C1069(*;$target)
-			$item_obj.defStart[$target].fontSize:=OBJECT Get font size:C1070(*;$target)
-			$item_obj.defStart[$target].fontStyle:=OBJECT Get font style:C1071(*;$target)
-			$item_obj.defStart[$target].styleSheet:=OBJECT Get style sheet:C1258(*;$target)
+			$item_obj.defStart[$target].fontName:=OBJECT Get font(*;$target)
+			$item_obj.defStart[$target].fontSize:=OBJECT Get font size(*;$target)
+			$item_obj.defStart[$target].fontStyle:=OBJECT Get font style(*;$target)
+			$item_obj.defStart[$target].styleSheet:=OBJECT Get style sheet(*;$target)
 			
 			
-			C_TEXT:C284($foregroundColor;$backgroundColor;$altBackgroundColor)
-			OBJECT GET RGB COLORS:C1074(*;$target;$foregroundColor;$backgroundColor;$altBackgroundColor)
+			OBJECT GET RGB COLORS(*;$target;$foregroundColor;$backgroundColor;$altBackgroundColor)
 			$item_obj.defStart[$target].foregroundColor:=$foregroundColor
 			$item_obj.defStart[$target].backgroundColor:=$backgroundColor
 			$item_obj.defStart[$target].altBackgroundColor:=$altBackgroundColor
 			
 			
-			$item_obj.defStart[$target].borderStyle:=OBJECT Get border style:C1263(*;$target)
+			$item_obj.defStart[$target].borderStyle:=OBJECT Get border style(*;$target)
 			
-			$item_obj.defStart[$target].radius:=OBJECT Get corner radius:C1324(*;$target)
+			$item_obj.defStart[$target].radius:=OBJECT Get corner radius(*;$target)
 			
-			$item_obj.defEnd[$target]:=OB Copy:C1225($item_obj.defStart[$target])
+			$item_obj.defEnd[$target]:=OB Copy($item_obj.defStart[$target])
 			
 		End if 
 		
@@ -101,4 +102,3 @@ For each ($operation_obj;$operations_col)
 		
 	End if 
 End for each 
-

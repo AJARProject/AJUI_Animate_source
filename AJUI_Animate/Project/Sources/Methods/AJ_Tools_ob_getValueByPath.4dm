@@ -7,7 +7,11 @@
   //
   // This method accept a path of a subobject as text and return the value inside an object
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Text) -> $return : Object
+var $object; $returnObject; $subObj : Object
+var $path : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): gabriel inzirillo
 	  // Date and time: 29.01.19, 11:29:49
@@ -25,36 +29,32 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$object)
-C_TEXT:C284($2;$path)
-C_OBJECT:C1216($0;$returnObject)
-C_OBJECT:C1216($subObj)
 
 $object:=$1
 $path:=$2
-$returnObject:=New object:C1471
+$returnObject:=New object
 
-$positionPoint:=Position:C15(".";$path)
+$positionPoint:=Position(".";$path)
 $subObj:=$object
 While ($positionPoint>0)
 	
-	$attributeName:=Substring:C12($path;1;$positionPoint-1)
+	$attributeName:=Substring($path;1;$positionPoint-1)
 	
-	If ($subObj[$attributeName]#Null:C1517)
+	If ($subObj[$attributeName]#Null)
 		$subObj:=$subObj[$attributeName]
-		$path:=Substring:C12($path;$positionPoint+1)
-		$positionPoint:=Position:C15(".";$path)
+		$path:=Substring($path;$positionPoint+1)
+		$positionPoint:=Position(".";$path)
 	Else 
 		$positionPoint:=-1
 	End if 
 	
 End while 
 
-If (Not:C34($positionPoint>0))
-	If ($subObj[$path]#Null:C1517)
+If (Not($positionPoint>0))
+	If ($subObj[$path]#Null)
 		$returnObject.value:=$subObj[$path]
 	End if 
 End if 
 
 
-$0:=$returnObject
+$return:=$returnObject

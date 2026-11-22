@@ -1,18 +1,19 @@
 //%attributes = {}
-C_LONGINT:C283($offset)
 
-Form:C1466.animationJump:=New collection:C1472()
+var $offset : Integer
+
+Form.animationJump:=New collection()
 $animationItem:=New AnimationItem 
 
 $animationItem.operation:="Move"  //Move
 $animationItem.target:="btn_jump_obj"
-$animationItem.duration:=Form:C1466.jump.duration
-$animationItem.delay:=Form:C1466.jump.delay
-$animationItem.frequency:=Form:C1466.jump.frequency
-$animationItem.animType:=Form:C1466.jump.animType
+$animationItem.duration:=Form.jump.duration
+$animationItem.delay:=Form.jump.delay
+$animationItem.frequency:=Form.jump.frequency
+$animationItem.animType:=Form.jump.animType
 $animationItem.direction:="alternate"
-$direction:=Form:C1466.jump.direction
-$offset:=Form:C1466.jump.offset
+$direction:=Form.jump.direction
+$offset:=Form.jump.offset
 $animationItem.left:=450
 $animationItem.top:=223
 Case of 
@@ -29,7 +30,7 @@ Case of
 		$animationItem.top:=$animationItem.top-$offset
 End case 
 
-Form:C1466.animationJump.push($animationItem)
+Form.animationJump.push($animationItem)
 
   //$animationItem2:=OB Copy($animationItem)
   //Case of 

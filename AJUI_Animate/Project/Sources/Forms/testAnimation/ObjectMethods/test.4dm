@@ -1,8 +1,9 @@
-C_LONGINT:C283($evt)
-$evt:=Form event code:C388
+var $evt : Integer
+
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
+	: ($evt=On Load)
 		  //C_COLLECTION($test)
 		  //$test:=New collection()
 		  //animate ($test)

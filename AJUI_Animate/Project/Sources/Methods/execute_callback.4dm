@@ -1,13 +1,14 @@
 //%attributes = {"invisible":true}
-C_TEXT:C284($1;$method)
-C_OBJECT:C1216($2;$params)
+
+#DECLARE($param1 : Text; $param2 : Object)
+var $method : Text
+var $params : Object
 
 $method:=$1
 
-If (Count parameters:C259=2)
+If (Count parameters=2)
 	$params:=$2
-	EXECUTE METHOD:C1007($method;*;$params)
+	EXECUTE METHOD($method;*;$params)
 Else 
-	EXECUTE METHOD:C1007($method)
+	EXECUTE METHOD($method)
 End if 
-

@@ -1,16 +1,15 @@
   //FOR ACTIVATE LOG EVENT methods
   // In animationController modify $debug parameter to true
 
-$evt:=Form event code:C388
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
+	: ($evt=On Load)
 		
-	: ($evt=On Clicked:K2:4) & (Macintosh option down:C545)
+	: ($evt=On Clicked) & (Macintosh option down)
 		stop_debug 
 		
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Clicked)
 		launch_debug 
 		
 End case 
-

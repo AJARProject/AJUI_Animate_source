@@ -9,7 +9,13 @@
   //   • iterations (longint) : number of repeat
   //   • factor (real) : factor
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $return : Object
+var $o; $params : Object
+var $operations : Collection
+var $factor : Real
+var $duration; $iterations; $offset; $delay; $left; $top; $right; $bottom : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
@@ -22,39 +28,35 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$params)
-C_COLLECTION:C1488($operations)
-$o:=This:C1470
+$o:=This
 
-C_REAL:C285($factor)
-C_LONGINT:C283($duration;$iterations;$offset;$delay;$left;$top;$right;$bottom)
 
-If (String:C10($o.offset)="")
+If (String($o.offset)="")
 	$o.offset:=100
 End if 
 $offset:=$o.offset
-If (String:C10($o.factor)="")
+If (String($o.factor)="")
 	$o.factor:=0.5
 End if 
 $factor:=$o.factor
-If (String:C10($o.duration)="")
+If (String($o.duration)="")
 	$o.duration:=1000
 End if 
 $duration:=$o.duration
 
-If (String:C10($o.target)="")
-	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
+If (String($o.target)="")
+	$target:=OBJECT Get name(Object current)  //
 Else 
 	$target:=$o.target
 End if 
 
-$operations:=New collection:C1472()
-OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+$operations:=New collection()
+OBJECT GET COORDINATES(*;$target;$left;$top;$right;$bottom)
 
   // Get the font properties
-$fontName:=OBJECT Get font:C1069(*;$target)
-$fontSize:=OBJECT Get font size:C1070(*;$target)
-$fontStyle:=OBJECT Get font style:C1071(*;$target)
+$fontName:=OBJECT Get font(*;$target)
+$fontSize:=OBJECT Get font size(*;$target)
+$fontStyle:=OBJECT Get font style(*;$target)
 
   // Set the size of the object to its min size first
 $width:=($right-$left)
@@ -69,8 +71,8 @@ $left0:=$centerX-($width0/2)-$offset
 $top0:=$centerY-($height0/2)
 $right0:=$left0+$width0
 $bottom0:=$top0+$height0
-OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
-OBJECT SET FONT SIZE:C165(*;$target;$fontSize*$factor)
+OBJECT SET COORDINATES(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
+OBJECT SET FONT SIZE(*;$target;$fontSize*$factor)
 
 $animationItem:=New AnimationItem 
 $animationItem.operation:="Move, Resize, Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle ; CountDown
@@ -89,6 +91,6 @@ $animationItem.fontSize:=$fontSize
 $animationItem.fontStyle:=$fontStyle
 $operations.push($animationItem)
 
-$params:=New object:C1471()
+$params:=New object()
 $params.operations:=$operations
-animate (OB Copy:C1225($params))
+animate (OB Copy($params))

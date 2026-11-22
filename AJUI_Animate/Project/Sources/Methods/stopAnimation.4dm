@@ -4,7 +4,7 @@
   //
   // stops all animation processes
 
-If (False:C215)
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 06.03.20, 09:51:12
@@ -16,10 +16,10 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-If (Storage:C1525.AJUI_AnimateProcess_col#Null:C1517)
-	Use (Storage:C1525.AJUI_AnimateProcess_col)
-		If (Storage:C1525.AJUI_AnimateProcess_col.length>0)
-			Storage:C1525.AJUI_AnimateProcess_col.clear()
+If (Storage.AJUI_AnimateProcess_col#Null)
+	Use (Storage.AJUI_AnimateProcess_col)
+		If (Storage.AJUI_AnimateProcess_col.length>0)
+			Storage.AJUI_AnimateProcess_col.clear()
 		End if 
 	End use 
 End if 

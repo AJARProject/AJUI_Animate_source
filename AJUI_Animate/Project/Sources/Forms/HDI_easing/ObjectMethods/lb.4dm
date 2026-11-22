@@ -1,9 +1,9 @@
-$evt:=Form event code:C388
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
+	: ($evt=On Load)
 		
-	: ($evt=On Data Change:K2:15)
+	: ($evt=On Data Change)
 		  //C_OBJECT($o)
 		  //$o:=New object()
 		

@@ -4,7 +4,12 @@
   // pos : (real) position to evaluate
   // calcPosition : (real) return calculated value according to the easing function
 
-If (False:C215)
+#DECLARE($param1 : Text; $param2 : Real) -> $return : Real
+var $posCalc; $pos : Real
+var $easing : Text
+var $math : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 26.04.20, 17:56:48
@@ -22,10 +27,6 @@ If (False:C215)
 	
 End if 
 
-C_REAL:C285($0;$posCalc)
-C_TEXT:C284($easing;$1)
-C_REAL:C285($pos;$2)
-C_OBJECT:C1216($math)
 $math:=Math ()
 
 $easing:=$1
@@ -73,11 +74,11 @@ Case of
 			$posCalc:=1-(16*((1-$pos)^5))
 		End if 
 	: ($easing="sineIn")  // Slight acceleration from zero to full speed
-		$posCalc:=-Cos:C18($pos*(Pi:K30:1/2))+1
+		$posCalc:=-Cos($pos*(Pi/2))+1
 	: ($easing="sineOut")  // Slight deceleration at the end
-		$posCalc:=Sin:C17($pos*(Pi:K30:1/2))
+		$posCalc:=Sin($pos*(Pi/2))
 	: ($easing="sineInOut")  // Slight acceleration at beginning and slight deceleration at end
-		$posCalc:=(-0.5*(Cos:C18(Pi:K30:1*$pos)-1))
+		$posCalc:=(-0.5*(Cos(Pi*$pos)-1))
 	: ($easing="expoIn")  // Accelerate exponentially until finish
 		If ($pos=0)
 			$posCalc:=0
@@ -107,7 +108,7 @@ Case of
 		$posCalc:=1-(($pos-1)^2)^(0.5)
 	: ($easing="circInOut")  // Fast increase in velocity, fast decrease in velocity
 		If ($pos<0.5)
-			$posCalc:=-0.5*(Square root:C539(1-(($pos/0.5)^2))-1)
+			$posCalc:=-0.5*(Square root(1-(($pos/0.5)^2))-1)
 		Else 
 			$posCalc:=0.5*(((1-((($pos/0.5)-2)^2))^(0.5))+1)
 		End if 
@@ -171,7 +172,7 @@ Case of
 		
 		
 	: ($easing="elastic")
-		$posCalc:=(2^(-10*$pos)*($math.sin(($pos-0.075)*(2*Pi:K30:1)/0.3)))+1
+		$posCalc:=(2^(-10*$pos)*($math.sin(($pos-0.075)*(2*Pi)/0.3)))+1
 	: ($easing="elasticIn")  // Bounces slowly then quickly to finish
 		If ($pos=0) | ($pos=1)
 			$posCalc:=$pos
@@ -180,8 +181,8 @@ Case of
 			$st1:=$pos-1
 			$magnitude:=0.7
 			$p:=1-$magnitude
-			$s:=$p/(2*Pi:K30:1)*$math.asin(1)
-			$posCalc:=-(2^(10*$st1))*$math.sin(($st1-$s)*(2*Pi:K30:1)/$p)
+			$s:=$p/(2*Pi)*$math.asin(1)
+			$posCalc:=-(2^(10*$st1))*$math.sin(($st1-$s)*(2*Pi)/$p)
 		End if 
 	: ($easing="elasticOut")  // Fast acceleration, bounces to zero
 		If ($pos=0) | ($pos=1)
@@ -190,8 +191,8 @@ Case of
 			$magnitude:=0.7
 			$p:=1-$magnitude
 			$st:=$pos*2
-			$s:=$p/(2*Pi:K30:1)*$math.asin(1)
-			$poscalc:=((2^(-10*$st))*$math.sin(($st-$s)*(2*Pi:K30:1)/$p))+1
+			$s:=$p/(2*Pi)*$math.asin(1)
+			$poscalc:=((2^(-10*$st))*$math.sin(($st-$s)*(2*Pi)/$p))+1
 		End if 
 	: ($easing="elasticInOut")  // Slow start and end, two bounces sandwich a fast motion
 		If ($pos=0) | ($pos=1)
@@ -201,15 +202,15 @@ Case of
 			$p:=1-$magnitude
 			$st:=$pos*2
 			$st1:=$st-1
-			$s:=$p/(2*Pi:K30:1)*$math.asin(1)
+			$s:=$p/(2*Pi)*$math.asin(1)
 			If ($st<1)
-				$posCalc:=-0.5*(2^(10*$st1))*$math.sin(($st1-$s)*(2*Pi:K30:1)/$p)
+				$posCalc:=-0.5*(2^(10*$st1))*$math.sin(($st1-$s)*(2*Pi)/$p)
 			Else 
-				$posCalc:=((2^(-10*$st1))*$math.sin(($st1-$s)*(2*Pi:K30:1)/$p)*0.5)+1
+				$posCalc:=((2^(-10*$st1))*$math.sin(($st1-$s)*(2*Pi)/$p)*0.5)+1
 			End if 
 		End if 
 	Else 
 		$posCalc:=$pos
 End case 
 
-$0:=$posCalc
+$return:=$posCalc

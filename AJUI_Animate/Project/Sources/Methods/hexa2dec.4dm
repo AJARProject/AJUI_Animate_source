@@ -6,7 +6,10 @@
   //
   // Transform hexadecimal form text to longint
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $return : Integer
+var $result; $lLength; $lDigitValue; $i : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 13.03.20, 10:37:07
@@ -19,11 +22,9 @@ If (False:C215)
 End if 
 
 
-C_TEXT:C284($1)
-C_LONGINT:C283($result;$lLength;$lDigitValue;$0;$i)
 
 $result:=0
-$lLength:=Length:C16($1)
+$lLength:=Length($1)
 
 For ($i;$lLength;1;-1)
 	
@@ -68,4 +69,4 @@ For ($i;$lLength;1;-1)
 	
 End for 
 
-$0:=$result
+$return:=$result

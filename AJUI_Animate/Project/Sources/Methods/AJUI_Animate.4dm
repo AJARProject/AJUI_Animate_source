@@ -4,7 +4,9 @@
   //
   // Return the Animation class
 
-If (False:C215)
+#DECLARE() -> $return : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 25.06.20, 10:15:36
@@ -16,5 +18,4 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0)
-$0:=cs:C1710.Animation
+$return:=cs.Animation

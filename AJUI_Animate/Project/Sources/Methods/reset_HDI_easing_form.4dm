@@ -1,19 +1,20 @@
 //%attributes = {}
 
-C_BOOLEAN:C305($1)
+
+#DECLARE($param1 : Boolean)
 
 formResetObjectsCoordinates 
-OBJECT SET VISIBLE:C603(*;"@_obj@";True:C214)
-OBJECT SET FONT SIZE:C165(*;"text_obj";Form:C1466.fontSize_text)
-OBJECT SET FONT SIZE:C165(*;"button_obj";Form:C1466.fontSize_button)
-OBJECT SET FONT SIZE:C165(*;"input_obj";Form:C1466.fontSize_input)
+OBJECT SET VISIBLE(*;"@_obj@";True)
+OBJECT SET FONT SIZE(*;"text_obj";Form.fontSize_text)
+OBJECT SET FONT SIZE(*;"button_obj";Form.fontSize_button)
+OBJECT SET FONT SIZE(*;"input_obj";Form.fontSize_input)
 
-OBJECT SET VISIBLE:C603(*;"input_obj";False:C215)
-OBJECT SET VISIBLE:C603(*;"text_obj";False:C215)
-OBJECT SET VISIBLE:C603(*;"rectangle_obj";False:C215)
-OBJECT SET VISIBLE:C603(*;"button_obj";False:C215)
+OBJECT SET VISIBLE(*;"input_obj";False)
+OBJECT SET VISIBLE(*;"text_obj";False)
+OBJECT SET VISIBLE(*;"rectangle_obj";False)
+OBJECT SET VISIBLE(*;"button_obj";False)
 
-$_popup_obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_obj")
+$_popup_obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
 $popup:=$_popup_obj_ptr->{$_popup_obj_ptr->}
 
-OBJECT SET VISIBLE:C603(*;$popup;True:C214)
+OBJECT SET VISIBLE(*;$popup;True)

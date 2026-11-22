@@ -3,7 +3,7 @@
   //
   // Member method of a new animation
 
-If (False:C215)
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): gabriel inzirillo
 	  // Date and time: 13.05.20, 16:52:54
@@ -18,11 +18,11 @@ End if
 
 If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 	
-	If (String:C10(This:C1470.target)="")
-		This:C1470.target:=OBJECT Get name:C1087(Object current:K67:2)
+	If (String(This.target)="")
+		This.target:=OBJECT Get name(Object current)
 	End if 
 	
-	$target:=This:C1470.target
+	$target:=This.target
 	
 	If ($target#"")
 		
@@ -30,185 +30,185 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 		  // Set the default values if not existing
 		$FLabel_name:=$target+"_FLabel_obj"
 		
-		If (String:C10(This:C1470.activeColor)="")
-			OBJECT GET RGB COLORS:C1074(*;"FLabel_obj";$activeColor_l)
+		If (String(This.activeColor)="")
+			OBJECT GET RGB COLORS(*;"FLabel_obj";$activeColor_l)
 		Else 
-			$activeColor_l:=getColorLong (This:C1470.activeColor)
+			$activeColor_l:=getColorLong (This.activeColor)
 		End if 
 		
-		If (String:C10(This:C1470.inactivColor)="")
+		If (String(This.inactivColor)="")
 			$inactiveColor_l:=0x00AAAAAA  // grey
 		Else 
-			$inactiveColor_l:=getColorLong (This:C1470.inactivColor)
+			$inactiveColor_l:=getColorLong (This.inactivColor)
 		End if 
 		
-		If (String:C10(This:C1470.followTarget)="")
-			$followTarget_b:=True:C214
+		If (String(This.followTarget)="")
+			$followTarget_b:=True
 		Else 
-			$followTarget_b:=This:C1470.followTarget
+			$followTarget_b:=This.followTarget
 		End if 
 		
-		If (Num:C11(This:C1470.fontSize)=0)
-			$fontSize:=OBJECT Get font size:C1070(*;"FLabel_obj")
+		If (Num(This.fontSize)=0)
+			$fontSize:=OBJECT Get font size(*;"FLabel_obj")
 		Else 
-			$fontSize:=This:C1470.fontSize
+			$fontSize:=This.fontSize
 		End if 
 		
-		If (String:C10(This:C1470.placeholder)="")
-			$placeholder:=OBJECT Get placeholder:C1296(*;$target)
-			This:C1470.placeholder:=$placeholder
+		If (String(This.placeholder)="")
+			$placeholder:=OBJECT Get placeholder(*;$target)
+			This.placeholder:=$placeholder
 		Else 
-			$placeholder:=This:C1470.placeholder
+			$placeholder:=This.placeholder
 		End if 
-		OBJECT SET PLACEHOLDER:C1295(*;$target;"")  // Remove the placeholder as we will use the FLabel as a placeholder
+		OBJECT SET PLACEHOLDER(*;$target;"")  // Remove the placeholder as we will use the FLabel as a placeholder
 		
-		If (Num:C11(This:C1470.offset)=0)
+		If (Num(This.offset)=0)
 			$offset:=3
 		Else 
-			$offset:=This:C1470.offset
+			$offset:=This.offset
 		End if 
 		
-		If (String:C10(This:C1470.position)="")
+		If (String(This.position)="")
 			$position:="top"
 		Else 
-			$position:=This:C1470.position
+			$position:=This.position
 		End if 
 		
-		If (This:C1470.noPlaceholder=Null:C1517)
-			$noPlaceholder:=False:C215
+		If (This.noPlaceholder=Null)
+			$noPlaceholder:=False
 		Else 
-			$noPlaceholder:=True:C214
+			$noPlaceholder:=True
 		End if 
 		
-		If (Num:C11(This:C1470.formEvent)=0)
-			$formEvt:=Form event code:C388
+		If (Num(This.formEvent)=0)
+			$formEvt:=Form event code
 		Else 
-			$formEvt:=This:C1470.formEvent
+			$formEvt:=This.formEvent
 		End if 
 		
-		If (String:C10(This:C1470.placeholderFontColor)="")
+		If (String(This.placeholderFontColor)="")
 			$placeholderFontColor_l:=0x00AAAAAA  // grey
 		Else 
-			$placeholderFontColor_l:=getColorLong (This:C1470.placeholderFontColor)
+			$placeholderFontColor_l:=getColorLong (This.placeholderFontColor)
 		End if 
 		
-		If (This:C1470.previousActive=Null:C1517)
-			This:C1470.previousActive:=False:C215
+		If (This.previousActive=Null)
+			This.previousActive:=False
 		End if 
 		
-		If (String:C10(This:C1470.animationType)="")
+		If (String(This.animationType)="")
 			$animType:="ease-out"
 		Else 
-			$animType:=This:C1470.animationType
+			$animType:=This.animationType
 		End if 
 		
-		If (Num:C11(This:C1470.duration)=0)
+		If (Num(This.duration)=0)
 			$duration:=700
 		Else 
-			$duration:=This:C1470.duration
+			$duration:=This.duration
 		End if 
 		
 		
-		$doAnimation:=False:C215
-		$showAsPlaceholder:=False:C215
-		$isActiveLabel:=False:C215
+		$doAnimation:=False
+		$showAsPlaceholder:=False
+		$isActiveLabel:=False
 		
-		If (True:C214)
-			$targetValue:=OBJECT Get value:C1743($target) || Get edited text:C655
+		If (True)
+			$targetValue:=OBJECT Get value($target) || Get edited text
 		Else 
 			// Try to get the value of the input field. It will help to know if we have to display or not the floating label
-			$target_ptr:=OBJECT Get pointer:C1124(Object named:K67:5; $target)
+			$target_ptr:=OBJECT Get pointer(Object named; $target)
 			Case of 
-				: ($target_ptr=Null:C1517) & (This:C1470.formPath#Null:C1517)  // If target if bound to the Form object
-					$result_path:=AJ_Tools_ob_getValueByPath(Form:C1466; This:C1470.formPath)
-					$targetValue:=String:C10($result_path.value)
+				: ($target_ptr=Null) & (This.formPath#Null)  // If target if bound to the Form object
+					$result_path:=AJ_Tools_ob_getValueByPath(Form; This.formPath)
+					$targetValue:=String($result_path.value)
 					
-				: ($target_ptr=Null:C1517)  // If target object is nil
+				: ($target_ptr=Null)  // If target object is nil
 					$targetValue:=""
 					
-				: ($target_ptr->=Null:C1517)  // If targeted object is nil
+				: ($target_ptr->=Null)  // If targeted object is nil
 					$targetValue:=""
 					
 				Else 
-					$targetValue:=String:C10($target_ptr->)
+					$targetValue:=String($target_ptr->)
 			End case 
 		End if 
 		
-		If ($targetValue="") & ($noPlaceholder=False:C215)
-			$showAsPlaceholder:=True:C214
+		If ($targetValue="") & ($noPlaceholder=False)
+			$showAsPlaceholder:=True
 		End if 
 		
 		Case of 
-			: ($formEvt=On Load:K2:1)
+			: ($formEvt=On Load)
 				  // Get the initial values for the floating label to be placed as the placeholder
-				OBJECT GET COORDINATES:C663(*;$target;$targetLeft;$targetTop;$targetRight;$targetBottom)
-				OBJECT DUPLICATE:C1111(*;"FLabel_obj";$FLabel_name)
-				OBJECT GET COORDINATES:C663(*;"FLabel_obj";$FLabelLeft;$FLabelTop;$FLabelRight;$FLabelBottom)
+				OBJECT GET COORDINATES(*;$target;$targetLeft;$targetTop;$targetRight;$targetBottom)
+				OBJECT DUPLICATE(*;"FLabel_obj";$FLabel_name)
+				OBJECT GET COORDINATES(*;"FLabel_obj";$FLabelLeft;$FLabelTop;$FLabelRight;$FLabelBottom)
 				
 				  // Set the placeholder text in the floating label
-				$FLabel_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;$FLabel_name)
+				$FLabel_ptr:=OBJECT Get pointer(Object named;$FLabel_name)
 				$FLabel_ptr->:=$placeholder
-				OBJECT SET VISIBLE:C603(*;$FLabel_name;True:C214)  // Set the FLabel to true
-				OBJECT SET FONT SIZE:C165(*;$FLabel_name;$fontSize)
-				OBJECT GET BEST SIZE:C717(*;$FLabel_name;$bestWidth;$bestHeight)
+				OBJECT SET VISIBLE(*;$FLabel_name;True)  // Set the FLabel to true
+				OBJECT SET FONT SIZE(*;$FLabel_name;$fontSize)
+				OBJECT GET BEST SIZE(*;$FLabel_name;$bestWidth;$bestHeight)
 				
-				This:C1470.initialValues:=New object:C1471
-				This:C1470.initialValues.fontSize:=OBJECT Get font size:C1070(*;$target)
-				This:C1470.initialValues.fontColor:=$placeholderFontColor_l
-				This:C1470.initialValues.left:=$targetLeft
-				This:C1470.initialValues.top:=$targetTop
-				This:C1470.initialValues.height:=$targetBottom-$targetTop
-				This:C1470.initialValues.width:=$targetRight-$targetLeft
+				This.initialValues:=New object
+				This.initialValues.fontSize:=OBJECT Get font size(*;$target)
+				This.initialValues.fontColor:=$placeholderFontColor_l
+				This.initialValues.left:=$targetLeft
+				This.initialValues.top:=$targetTop
+				This.initialValues.height:=$targetBottom-$targetTop
+				This.initialValues.width:=$targetRight-$targetLeft
 				
 				  //follow target
 				If ($followTarget_b)
-					OBJECT GET RESIZING OPTIONS:C1176(*;$target;$resizingH;$resizingV)
+					OBJECT GET RESIZING OPTIONS(*;$target;$resizingH;$resizingV)
 					
 					Case of 
 						: ($resizingH=2) & ($resizingV=2)
-							OBJECT SET RESIZING OPTIONS:C1175(*;$FLabel_name;Resize horizontal move:K42:9;Resize vertical move:K42:12)
+							OBJECT SET RESIZING OPTIONS(*;$FLabel_name;Resize horizontal move;Resize vertical move)
 						: ($resizingH=2)
-							OBJECT SET RESIZING OPTIONS:C1175(*;$FLabel_name;Resize horizontal move:K42:9;Resize vertical none:K42:10)
+							OBJECT SET RESIZING OPTIONS(*;$FLabel_name;Resize horizontal move;Resize vertical none)
 						: ($resizingV=2)
-							OBJECT SET RESIZING OPTIONS:C1175(*;$FLabel_name;Resize horizontal none:K42:7;Resize vertical move:K42:12)
+							OBJECT SET RESIZING OPTIONS(*;$FLabel_name;Resize horizontal none;Resize vertical move)
 					End case 
 				End if 
 				
 				  // Calculate the finalValues for the animation
-				This:C1470.finalValues:=New object:C1471
-				This:C1470.finalValues.fontSize:=$fontSize
-				This:C1470.finalValues.fontColor:=$activeColor_l
+				This.finalValues:=New object
+				This.finalValues.fontSize:=$fontSize
+				This.finalValues.fontColor:=$activeColor_l
 				Case of 
 					: ($position="left")
-						This:C1470.finalValues.left:=$targetLeft-$bestWidth-$offset-3
-						This:C1470.finalValues.width:=$bestWidth+$offset+3
-						This:C1470.finalValues.height:=$bestHeight
-						This:C1470.finalValues.top:=$targetTop-((This:C1470.finalValues.height-This:C1470.initialValues.height)/2)
+						This.finalValues.left:=$targetLeft-$bestWidth-$offset-3
+						This.finalValues.width:=$bestWidth+$offset+3
+						This.finalValues.height:=$bestHeight
+						This.finalValues.top:=$targetTop-((This.finalValues.height-This.initialValues.height)/2)
 						
 					Else   // Top
-						This:C1470.finalValues.left:=$targetLeft
-						This:C1470.finalValues.width:=$bestWidth  //+100 // GI modif, the +100 add probleme because the label is to big and if we clic on it it can give the focus on the field and the user don't understand why. We must find a solution for the animation that can "cut" the end of the text (eg. elastic) // We add 100 in the width for some animation that are going over the threshold not to cut the end of the label during the animation
-						This:C1470.finalValues.height:=$bestHeight
-						This:C1470.finalValues.top:=$targetTop-$offset-This:C1470.finalValues.height
+						This.finalValues.left:=$targetLeft
+						This.finalValues.width:=$bestWidth  //+100 // GI modif, the +100 add probleme because the label is to big and if we clic on it it can give the focus on the field and the user don't understand why. We must find a solution for the animation that can "cut" the end of the text (eg. elastic) // We add 100 in the width for some animation that are going over the threshold not to cut the end of the label during the animation
+						This.finalValues.height:=$bestHeight
+						This.finalValues.top:=$targetTop-$offset-This.finalValues.height
 						
 				End case 
 				
 				If ($showAsPlaceholder)
-					OBJECT SET COORDINATES:C1248(*;$FLabel_name;$targetLeft;$targetTop;$targetRight;$targetBottom)
-					OBJECT SET FONT SIZE:C165(*;$FLabel_name;This:C1470.initialValues.fontSize)
+					OBJECT SET COORDINATES(*;$FLabel_name;$targetLeft;$targetTop;$targetRight;$targetBottom)
+					OBJECT SET FONT SIZE(*;$FLabel_name;This.initialValues.fontSize)
 				Else 
-					OBJECT SET COORDINATES:C1248(*;$FLabel_name;This:C1470.finalValues.left;This:C1470.finalValues.top;This:C1470.finalValues.left+This:C1470.finalValues.width;This:C1470.finalValues.top+This:C1470.finalValues.height)
-					OBJECT SET FONT SIZE:C165(*;$FLabel_name;$fontSize)
+					OBJECT SET COORDINATES(*;$FLabel_name;This.finalValues.left;This.finalValues.top;This.finalValues.left+This.finalValues.width;This.finalValues.top+This.finalValues.height)
+					OBJECT SET FONT SIZE(*;$FLabel_name;$fontSize)
 				End if 
 				
-				This:C1470.previousValue:=$targetValue
+				This.previousValue:=$targetValue
 				
-			: ($formEvt=On Getting Focus:K2:7)
-				$isActiveLabel:=True:C214
+			: ($formEvt=On Getting Focus)
+				$isActiveLabel:=True
 				
-			: ($formEvt=On After Edit:K2:43)
-				$isActiveLabel:=True:C214
-				$currentValue:=Get edited text:C655
+			: ($formEvt=On After Edit)
+				$isActiveLabel:=True
+				$currentValue:=Get edited text
 				$animationItem:=New AnimationItem 
 				$animationItem.operation:="Move,Resize,Font,BGColor"
 				$animationItem.target:=$FLabel_name
@@ -217,56 +217,55 @@ If (AJUI_is_TemplateExist )  // Test if the "FLabel_obj" exist
 				$animationItem.delay:=0
 				$animationItem.frequency:=30
 				Case of 
-					: (This:C1470.previousValue="") & ($currentValue#"")  // If the label was a placeholder and we need to move it
-						$animationItem.top:=This:C1470.finalValues.top
-						$animationItem.left:=This:C1470.finalValues.left
-						$animationItem.width:=This:C1470.finalValues.width
-						$animationItem.height:=This:C1470.finalValues.height
-						$animationItem.fontSize:=This:C1470.finalValues.fontSize
-						$animationItem.foregroundColor:=This:C1470.finalValues.fontColor
-						$doAnimation:=True:C214
-					: (This:C1470.previousValue#"") & ($currentValue="")  // If the label was not a placeholder and we need to put it as a placeholder
-						$animationItem.top:=This:C1470.initialValues.top
-						$animationItem.left:=This:C1470.initialValues.left
-						$animationItem.width:=This:C1470.initialValues.width
-						$animationItem.height:=This:C1470.initialValues.height
-						$animationItem.fontSize:=This:C1470.initialValues.fontSize
-						$animationItem.foregroundColor:=This:C1470.initialValues.fontColor
-						$doAnimation:=True:C214
+					: (This.previousValue="") & ($currentValue#"")  // If the label was a placeholder and we need to move it
+						$animationItem.top:=This.finalValues.top
+						$animationItem.left:=This.finalValues.left
+						$animationItem.width:=This.finalValues.width
+						$animationItem.height:=This.finalValues.height
+						$animationItem.fontSize:=This.finalValues.fontSize
+						$animationItem.foregroundColor:=This.finalValues.fontColor
+						$doAnimation:=True
+					: (This.previousValue#"") & ($currentValue="")  // If the label was not a placeholder and we need to put it as a placeholder
+						$animationItem.top:=This.initialValues.top
+						$animationItem.left:=This.initialValues.left
+						$animationItem.width:=This.initialValues.width
+						$animationItem.height:=This.initialValues.height
+						$animationItem.fontSize:=This.initialValues.fontSize
+						$animationItem.foregroundColor:=This.initialValues.fontColor
+						$doAnimation:=True
 					Else 
 						  // Do nothing
 				End case 
-				This:C1470.previousValue:=$currentValue
+				This.previousValue:=$currentValue
 				
 		End case 
 		
-		If ($animationItem#Null:C1517) && (String:C10(This:C1470.subformName)#"")
-			$animationItem.subformName:=This:C1470.subformName
+		If ($animationItem#Null) && (String(This.subformName)#"")
+			$animationItem.subformName:=This.subformName
 		End if 
 		
 		Case of 
-			: ($doAnimation) & ($noPlaceholder=False:C215)
+			: ($doAnimation) & ($noPlaceholder=False)
 				stopAnimation 
 				animate ($animationItem)
-			: (This:C1470.previousActive=False:C215) & ($isActiveLabel)
+			: (This.previousActive=False) & ($isActiveLabel)
 				If ($showAsPlaceholder)
-					OBJECT SET RGB COLORS:C628(*;$FLabel_name;$placeholderFontColor_l)
+					OBJECT SET RGB COLORS(*;$FLabel_name;$placeholderFontColor_l)
 				Else 
-					OBJECT SET RGB COLORS:C628(*;$FLabel_name;$activeColor_l)
+					OBJECT SET RGB COLORS(*;$FLabel_name;$activeColor_l)
 				End if 
-			: ($isActiveLabel=False:C215)
+			: ($isActiveLabel=False)
 				If ($showAsPlaceholder)
-					OBJECT SET RGB COLORS:C628(*;$FLabel_name;$placeholderFontColor_l)
+					OBJECT SET RGB COLORS(*;$FLabel_name;$placeholderFontColor_l)
 				Else 
-					OBJECT SET RGB COLORS:C628(*;$FLabel_name;$inactiveColor_l)
+					OBJECT SET RGB COLORS(*;$FLabel_name;$inactiveColor_l)
 				End if 
 			Else 
 				  // Do nothing
 		End case 
-		This:C1470.previousActive:=$isActiveLabel
+		This.previousActive:=$isActiveLabel
 		
 	End if 
 Else 
-	ALERT:C41("You must create the FLabel form object (FLabel_obj) to process")
+	ALERT("You must create the FLabel form object (FLabel_obj) to process")
 End if 
-

@@ -1,24 +1,25 @@
-C_LONGINT:C283($evt)
-$evt:=Form event code:C388
+var $evt : Integer
+var $animation : Object
+var $operations : Collection
+
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
+	: ($evt=On Load)
 		
 		test_font_animation 
 		
 		  // Because we need to get the position of every object, we give a chance to
 		  // let the various object to be placed and sized
-		CALL FORM:C1391(Current form window:C827;"formGetObjectsCoordinates")
+		CALL FORM(Current form window;"formGetObjectsCoordinates")
 		
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Clicked)
 		
-		C_OBJECT:C1216($animation)
-		C_COLLECTION:C1488($operations)
 		  //expand
-		$animation:=New object:C1471("direction";"alternate";"iterations";1)
-		$animation.operations:=Form:C1466.colTest
-		$operations:=New collection:C1472()
-		$operations.push(OB Copy:C1225($animation))
+		$animation:=New object("direction";"alternate";"iterations";1)
+		$animation.operations:=Form.colTest
+		$operations:=New collection()
+		$operations.push(OB Copy($animation))
 		animate ($operations)
 		
 End case 

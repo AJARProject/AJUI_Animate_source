@@ -158,6 +158,7 @@ Sans paramètre. Vide `Storage.AJUI_AnimateProcess_col` si elle existe. `animati
 - Paramètres et valeur de retour déclarés avec `#DECLARE`, placé avant le premier ordre (les commentaires et `//%attributes` restent au-dessus). Le corps continue d'utiliser `$1`, `$2` et `Count parameters`. L'ancienne valeur `$0` s'appelle `$return` et reste distincte des variables de travail.
 - Chaque variable locale est déclarée avec `var` (le compilateur 21 R4 refuse une locale non déclarée). Les paramètres dans le corps sont les noms du `#DECLARE` (`$param1`, …), et non plus `$1`. `$0` n'apparaît plus : le retour est `$return` dans le `#DECLARE` (y compris le graphe d'easing, `Picture`).
 - `property animType : Text` sur la classe `Animation` ([classes](https://developer.4d.com/docs/21-R4/Concepts/classes)), pour l'avertissement 550.26.
+- `visibleCB` et `animationCB` : une propriété absente vaut `Undefined`, et `Undefined # ""` est vrai ([Null et undefined](https://developer.4d.com/docs/21-R4/Concepts/null-and-undefined)). `String($obj.subformName)` évite l'erreur 8 dans `EXECUTE METHOD IN SUBFORM` quand l'opération n'a pas de sous-formulaire (HDI_Cycle).
 - `New AnimationItem` et `animate` sont partagées.
 - AJ_Math 21 R4 dans `Components/`. Déclaration explicite et facultative de 4D SVG dans `dependencies.json` (le composant est aussi livré dans 4D 21 R4).
 - `AJUI_Animate_Info` annonce `v21 R4`. Le numéro `1.0.1+Build74` ne change pas.

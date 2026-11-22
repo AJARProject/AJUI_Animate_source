@@ -23,8 +23,8 @@ End if
 
 
 $animationItem:=$param1
-If (Count parameters=1) && ($animationItem.subformName#"")
-	EXECUTE METHOD IN SUBFORM($animationItem.subformName; Current method name; *; $animationItem; True)
+If (Count parameters=1) && (String($animationItem.subformName)#"")
+	EXECUTE METHOD IN SUBFORM(String($animationItem.subformName); Current method name; *; $animationItem; True)
 Else 
 $operation:=$animationItem.operation
 $target:=$animationItem.target

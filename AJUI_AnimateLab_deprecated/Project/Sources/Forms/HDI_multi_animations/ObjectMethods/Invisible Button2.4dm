@@ -1,1 +1,0 @@
-OPEN URL("https://ch-fr.4d.com/aj-suite")

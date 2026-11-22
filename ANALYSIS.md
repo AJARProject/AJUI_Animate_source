@@ -26,9 +26,9 @@ Les courbes élastiques passent par `easing`, qui appelle `Math()` (composant AJ
 | `AJUI_Animate/Project/Sources/Forms` | `HDI_easing`, `HDI_Timing`, `testAnimation`, `testAnimation2`, `testEasing`. |
 | `AJUI_Animate/Project/Sources/catalog.4DCatalog` | Schéma vide, pas de tables. |
 | `AJUI_Animate/Documentation/Methods` | Fiches markdown d'origine (Explorer 4D), en français. |
-| `AJUI_Animate/Components/AJ_Math.4dbase` | AJ_Math **2.1.1** compilé avec 4D 21 R4 (`Contents/AJ_Math.4DZ`, `Contents/Libraries/lib4d-arm64.dylib`). Copie embarquée pour le développement du composant et le labo. |
-| `AJUI_AnimateLab_deprecated/` | Hôte d'exemple en mode projet, avec un `.4DZ` de 2020 dans `Components/`. |
-| `AJUI_AnimationLab/` | Seulement `Components/AJUI_Animate.4dbase/AJUI_Animate.4DZ` (archive zip du 14 mai 2020). Pas de fichier `.4DProject` : ce n'est pas une base hôte ouvrable. |
+| `AJUI_Animate/Components/AJ_Math.4dbase` | AJ_Math **2.1.1** compilé avec 4D 21 R4 (`Contents/AJ_Math.4DZ`, `Contents/Libraries/lib4d-arm64.dylib`). Copie embarquée pour le développement du composant. |
+| `AJUI_AnimateLab_deprecated/` | Hôte d'exemple retiré (73 fichiers). Disponible dans la release 1.2.1 et l'historique git. |
+| `AJUI_AnimationLab/` | Archive `.4DZ` de 2020 retirée (1 fichier). Disponible dans la release 1.2.1 et l'historique git. |
 | `AJUI_Animate/Project/Sources/dependencies.json` | Déclare AJ_Math (`github: AJARProject/AJ_Math_source`, `^2.1.1`) et 4D SVG (`github: 4d/4D-SVG`). Plus de sous-module git. |
 | Manuels `.pages` / `.numbers` à la racine | Documentation d'origine, non modifiée. |
 
@@ -52,19 +52,19 @@ Méthodes avec `"shared":true` (et `"invisible":true`) :
 
 La classe `Animation` expose les fonctions : `backIn`, `backOut`, `backInOut`, `bounce`, `bounceIn`, `bounceOut`, `bounceInOut`, `circIn`, `circOut`, `circInOut`, `cubicIn`, `cubicOut`, `cubicInOut`, `elastic`, `elasticIn`, `elasticOut`, `elasticInOut`, `expoIn`, `expoOut`, `expoInOut`, `flash`, `heartbeat`, `jump`, `pulse`, `quadIn`, `quadOut`, `quadInOut`, `quartIn`, `quartOut`, `quartInOut`, `quintIn`, `quintOut`, `quintInOut`, `shakeNo`, `shakeYes`, `sineIn`, `sineOut`, `sineInOut`, `slide`, `slideIn`, `slideOut`, `swingFromTo`, `swingFrom`, `swingTo`, `zoomIn`, `zoomOut`, `floatingLabel`.
 
-`New AnimationItem`, `animate` et les méthodes `old_*` ne sont pas partagées. `New AnimationItem` est `preemptive: capable`. `animationController` est `preemptive: incapable`.
+`New AnimationItem` et `animate` sont partagées. `New AnimationItem` est `preemptive: capable`. `animationController` est `preemptive: incapable`. Les méthodes `old_*` ont été retirées ; elles restent dans la release 1.2.1 et l'historique git.
 
-L'hôte `AJUI_AnimateLab_deprecated` appelle `New AnimationItem` et `animate`, qui ne sont pas dans la liste partagée. L'archive 2020 du même labo (`methodAttributes.json` dans le `.4DZ`) ne partageait que `New Animation`, `stopAnimation`, `formGetObjectsCoordinates` et `formResetObjectsCoordinates`. Ces appels d'HDI sont donc déjà dépendants de méthodes non publiées.
+L'hôte `AJUI_AnimateLab_deprecated` a été retiré (release 1.2.1 et historique git). Il appelait `New AnimationItem` et `animate`. Ces méthodes sont partagées.
 
 ## Formulaires
 
 Dans le composant : démonstrations d'easing et de timing, plus deux formulaires de test. Menus : « Launch test » appelle `_launch_test`.
 
-Dans le labo : `HDI_animation_blink_jump`, `HDI_animation_timing`, `HDI_animation_font`, `HDI_animation_cycle`, `HDI_multi_animations`.
+Les formulaires du labo ont été retirés avec `AJUI_AnimateLab_deprecated` (release 1.2.1 et historique git).
 
 ## Dépendances
 
-- **AJ_Math** : `easing` fait `$math:=Math()`. La copie embarquée `AJUI_Animate/Components/AJ_Math.4dbase` est AJ_Math **2.1.1** compilé avec 4D 21 R4 ; elle sert au développement du composant et au labo. Il n'y a plus de sous-module git. Un hôte qui déclare AJUI_Animate reçoit AJ_Math automatiquement : `dependencies.json` contient `"AJ_Math": {"github": "AJARProject/AJ_Math_source", "version": "^2.1.1"}`. Les sources sont dans `AJARProject/AJ_Math_source` (mode projet). Le dépôt `AJARProject/AJ_Math` (ancien `.4DZ`) est déprécié.
+- **AJ_Math** : `easing` fait `$math:=Math()`. La copie embarquée `AJUI_Animate/Components/AJ_Math.4dbase` est AJ_Math **2.1.1** compilé avec 4D 21 R4 ; elle sert au développement du composant. Il n'y a plus de sous-module git. Un hôte qui déclare AJUI_Animate reçoit AJ_Math automatiquement : `dependencies.json` contient `"AJ_Math": {"github": "AJARProject/AJ_Math_source", "version": "^2.1.1"}`. Les sources sont dans `AJARProject/AJ_Math_source` (mode projet). Le dépôt `AJARProject/AJ_Math` (ancien `.4DZ`) est déprécié.
 - **4D SVG** : déclaré lui aussi dans `dependencies.json` (`github: 4d/4D-SVG`). Méthodes utilisées : `SVG_New`, `SVG_New_line`, `SVG EXPORT TO PICTURE` (graphes de labo), `SVG_Color_RGB_from_long` et `SVG_Get_named_color_value` (couleurs d'animation, `calcColor` / `getColorLong`). Sur 4D 21 R4 le composant est aussi livré dans `4D.app/Contents/Components`, donc cette entrée est facultative.
 - **Plugins** : aucun dossier `Plugins/`.
 - Pas de tables, pas de client-serveur fonctionnel hors un test `Application type = 4D Remote mode` dans `AJUI_BuildComponent` (la construction est sautée en remote).
@@ -93,15 +93,15 @@ La page [Compatibilité](https://developer.4d.com/docs/21-R4/settings/compatibil
 
 ## Risques
 
-1. **AJ_Math** : le risque d'un binaire 19 R8 refusé par 4D 21 R4 est clos. La copie dans `Components/` est la **2.1.1** compilée 21 R4, pour le développement et le labo. Les hôtes reçoivent `^2.1.1` via `dependencies.json` (`AJARProject/AJ_Math_source`), pas via un sous-module. Les courbes `elastic*` appellent `Math()`.
-2. **Le labo appelle des méthodes non partagées** (`New AnimationItem`, `animate`). En hôte, ces noms ne sont pas visibles. Les HDI du labo ne peuvent pas s'exécuter tant que ces méthodes ne sont pas partagées ou réécrites vers la classe.
+1. **AJ_Math** : le risque d'un binaire 19 R8 refusé par 4D 21 R4 est clos. La copie dans `Components/` est la **2.1.1** compilée 21 R4, pour le développement du composant. Les hôtes reçoivent `^2.1.1` via `dependencies.json` (`AJARProject/AJ_Math_source`), pas via un sous-module. Les courbes `elastic*` appellent `Math()`.
+2. **Labos retirés.** `AJUI_AnimateLab_deprecated` et `AJUI_AnimationLab` ne sont plus dans le dépôt (release 1.2.1 et historique git). `New AnimationItem` et `animate` sont partagées.
 3. **Hôte compilé** : une dépendance vers les sources ne vaut qu'en interprété ([composants](https://developer.4d.com/docs/21-R4/Project/components)).
 4. **`AJUI_BuildComponent`** cherche le marqueur `GMT` suivi d'un CR (`GMT\r`) pour incrémenter le build. Les `.4dm` du dépôt sont en LF. Ce comportement était déjà celui des sources.
 5. Variables non déclarées dans plusieurs effets (`$s`, `$st`, `$isBezier`, `$evt`, etc.). Le compilateur 21 R4 peut émettre des avertissements de typage. Elles n'ont pas été typées d'office pour ne pas changer le type déduit.
 6. Plusieurs méthodes déclarent une valeur de retour (`$0`) sans jamais l'affecter. La déclaration est conservée (`-> $return`).
 7. Pas de 4D sur la machine d'analyse : ni ouverture, ni compilation, ni exécution d'un formulaire.
-8. `AJUI_AnimationLab` n'est pas un projet. Son `.4DZ` de 2020 est laissé tel quel.
+8. `AJUI_AnimationLab` a été retiré (ce n'était pas un projet : un `.4DZ` de 2020). Il reste dans la release 1.2.1 et l'historique git.
 
 ## Suite (après le premier essai de compilation 21 R4)
 
-Le compilateur 21 R4 (build 21R4.100185) a refusé les locales non déclarées. Elles sont maintenant typées avec `var`. `$1`… dans le corps sont remplacés par les noms `#DECLARE`. `$0` est devenu `$return`. `property animType` est déclaré sur la classe. `New AnimationItem` et `animate` sont partagées pour le labo. Le binaire AJ_Math 19 R8 est remplacé par AJ_Math **2.1.1** compilé avec 4D 21 R4. Il n'y a plus de sous-module git. `dependencies.json` déclare `AJARProject/AJ_Math_source` en `^2.1.1` (les hôtes l'obtiennent automatiquement) et 4D SVG (`github: 4d/4D-SVG`), explicite et facultatif car aussi présent dans `4D.app/Contents/Components`. Release courante : **1.2.1**.
+Le compilateur 21 R4 (build 21R4.100185) a refusé les locales non déclarées. Elles sont maintenant typées avec `var`. `$1`… dans le corps sont remplacés par les noms `#DECLARE`. `$0` est devenu `$return`. `property animType` est déclaré sur la classe. `New AnimationItem` et `animate` sont partagées. L'ancien labo qui les appelait a été retiré (release 1.2.1 et historique git). Le binaire AJ_Math 19 R8 est remplacé par AJ_Math **2.1.1** compilé avec 4D 21 R4. Il n'y a plus de sous-module git. `dependencies.json` déclare `AJARProject/AJ_Math_source` en `^2.1.1` (les hôtes l'obtiennent automatiquement) et 4D SVG (`github: 4d/4D-SVG`), explicite et facultatif car aussi présent dans `4D.app/Contents/Components`. Release courante : **1.2.1**.

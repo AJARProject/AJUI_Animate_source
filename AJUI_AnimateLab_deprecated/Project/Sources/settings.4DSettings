@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<preferences stamp="5">
+<preferences stamp="6">
 	<com.4d>
 		<database>
 			<misc accept_dot_syntax="true" store_unicode_tokens="true"/>
 		</database>
+		<general startup_environnement="1"/>
 	</com.4d>
 </preferences>

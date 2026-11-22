@@ -29,9 +29,17 @@ Une dépendance vers les sources ne fonctionne qu'en **interprété**. Un hôte 
 
 ### AJ_Math
 
-`easing` appelle `Math()` pour `sin` et `asin` (courbes elastic). Le paquet `AJUI_Animate/Components/AJ_Math.4dbase` est le build **19 R8** (`AJ_Math.4DZ` du 13 janvier 2023 et `Libraries/lib4d-arm64.dylib`). Il est conservé. 4D 21 R4 peut refuser un composant compilé avec 19 R8. Le recompiler depuis [AJ_Math_source](https://github.com/AJARProject/AJ_Math_source) et remplacer le contenu de ce `.4dbase`. Ne pas effacer l'archive d'origine avant d'avoir le nouveau build.
+`easing` appelle `Math()` pour `sin` et `asin` (courbes elastic). `AJUI_Animate/Components/AJ_Math.4dbase` est le build **4D 21 R4** produit par `BUILD APPLICATION` / `BuildComponent` : `Contents/AJ_Math.4DZ`, `Contents/Libraries/lib4d-arm64.dylib`, `Contents/Info.plist`, `Contents/_CodeSignature`, `Contents/Documentation`. L'archive 19 R8 n'est plus dans `Components/` (l'historique git la conserve). Le dossier Components a la priorité la plus haute ([composants](https://developer.4d.com/docs/21-R4/Project/components)).
 
-4D SVG est un composant interne (cité sur la page composants). Il sert aux graphes de labo et aux couleurs (`SVG_Color_RGB_from_long`, `SVG_Get_named_color_value`). Aucun plugin.
+### 4D SVG
+
+Depuis 4D 21, les composants 4D (dont 4D SVG) ne sont plus embarqués dans l'application ([notes de version 4D 21](https://developer.4d.com/docs/21/Notes/updates)). Sans eux, le compilateur lit `SVG_New` comme une variable et signale une erreur de syntaxe sur l'appel. `Project/Sources/dependencies.json` déclare donc :
+
+```json
+"4D SVG": { "github": "4d/4D-SVG" }
+```
+
+La clé `github` est celle de la page [composants](https://developer.4d.com/docs/21-R4/Project/components). Au premier ouverture, 4D télécharge la release. Méthodes utilisées, inchangées : `SVG_New`, `SVG_New_line`, `SVG EXPORT TO PICTURE`, `SVG_Color_RGB_from_long`, `SVG_Get_named_color_value`. Aucun plugin.
 
 ## Installation compilée
 
@@ -126,13 +134,13 @@ Sans paramètre. Vide `Storage.AJUI_AnimateProcess_col` si elle existe. `animati
 
 | Méthode | Note |
 | --- | --- |
-| `animate` | Démarre les process. Paramètre variant : un AnimationItem, un objet `{operations}`, une collection, ou une collection de collections. Non partagée. |
-| `New AnimationItem` | Objet `"AnimationItem"` (opération, cible, durée, délai, fréquence, géométrie, police, couleurs). `preemptive: capable`. Non partagée. |
+| `animate` | Démarre les process. Paramètre variant : un AnimationItem, un objet `{operations}`, une collection, ou une collection de collections. Partagée. |
+| `New AnimationItem` | Objet `"AnimationItem"` (opération, cible, durée, délai, fréquence, géométrie, police, couleurs). `preemptive: capable`. Partagée. |
 | `animationController` | Boucle de pas. `preemptive: incapable`. |
 | `easing` | Courbe nommée. Dépend de `Math()` pour elastic. |
 | `old_*` | Anciens effets. Plusieurs ont `"shared":false`. |
 
-Le labo `AJUI_AnimateLab_deprecated` appelle `New AnimationItem` et `animate`. Ces noms ne sont pas visibles depuis un hôte. Les boutons HDI de ce labo ne peuvent pas tourner tels quels.
+`New AnimationItem` et `animate` sont partagées (`invisible` + `shared`), comme `stopAnimation`. Le labo `AJUI_AnimateLab_deprecated` les appelle pour construire des `AnimationItem` (courbes de timing, enchaînements, police, couleur). Les fonctions de la classe ne couvrent pas ces démonstrations. Les partager ne change pas leur comportement : l'hôte peut les appeler. `New AnimationItem` reste `preemptive: capable`.
 
 ## Ce qui a changé pour 21 R4
 
@@ -142,6 +150,10 @@ Le labo `AJUI_AnimateLab_deprecated` appelle `New AnimationItem` et `animate`. C
 - Jetons `:C` et `:K` retirés. Noms de commandes et de constantes inchangés.
 - `C_XXX` remplacé par `var`. `C_LONGINT` devient `Integer`. Les tableaux `ARRAY TEXT` restent des tableaux.
 - Paramètres et valeur de retour déclarés avec `#DECLARE`, placé avant le premier ordre (les commentaires et `//%attributes` restent au-dessus). Le corps continue d'utiliser `$1`, `$2` et `Count parameters`. L'ancienne valeur `$0` s'appelle `$return` et reste distincte des variables de travail.
+- Chaque variable locale est déclarée avec `var` (le compilateur 21 R4 refuse une locale non déclarée). Les paramètres dans le corps sont les noms du `#DECLARE` (`$param1`, …), et non plus `$1`. `$0` n'apparaît plus : le retour est `$return` dans le `#DECLARE` (y compris le graphe d'easing, `Picture`).
+- `property animType : Text` sur la classe `Animation` ([classes](https://developer.4d.com/docs/21-R4/Concepts/classes)), pour l'avertissement 550.26.
+- `New AnimationItem` et `animate` sont partagées.
+- AJ_Math 21 R4 dans `Components/`. Dépendance GitHub `4D SVG`.
 - `AJUI_Animate_Info` annonce `v21 R4`. Le numéro `1.0.1+Build74` ne change pas.
 - `.gitignore` : `*.4DD`, `*.journal`, `*.4DIndy`, `*.4DIndx` (extension réelle des index), `*.Match`, `*.match`, `userPreferences.*/`, `Logs/`, `DerivedData/`, `.DS_Store`, `Data/`. Les `*.4DSettings` ne sont plus ignorés, sinon les réglages de compatibilité ne pourraient pas être versionnés.
 - Hôte : `dependencies.json` + `environment4d.json`. Le `.4DZ` de 2020 sort de `Components/` vers `LegacyBinaries/` (fichier intact).
@@ -159,8 +171,8 @@ Pas de 4D sur la machine qui a préparé cette branche. Rien n'a été ouvert, c
 3. `AJUI_Animate.new()`, une animation `bounce` ou `slide`, puis `stopAnimation`.
 4. `New Animation` et `animationTiming` (avec et sans le booléen).
 5. `formGetObjectsCoordinates` / `formResetObjectsCoordinates` sur un formulaire qui a déjà la collection.
-6. Courbes elastic : exigent un AJ_Math compilé pour 21 R4. Le `.4DZ` 19 R8 du dossier Components peut empêcher l'ouverture ou l'appel `Math()`.
-7. Le labo en interprété charge `../AJUI_Animate`. Les HDI qui appellent `New AnimationItem` ou `animate` restent en erreur « méthode introuvable » tant que ces méthodes ne sont pas partagées.
+6. Courbes elastic avec le `AJ_Math.4DZ` 21 R4 de `Components/` (`Math().sin`, `Math().asin`).
+7. Le labo en interprété charge `../AJUI_Animate`. `New AnimationItem` et `animate` sont partagées : les HDI qui les appellent doivent se compiler. 4D doit avoir téléchargé 4D SVG avant la compilation du composant.
 8. Hôte compilé + composant `.4DZ` produit par 21 R4.
 9. Windows, client-serveur, et `AJUI_BuildComponent` (le marqueur de version cherche `GMT` suivi d'un CR, alors que les fichiers sont en LF).
 10. 4D SVG : `SVG_New`, `SVG_Color_RGB_from_long`, `SVG_Get_named_color_value` n'ont pas été rejoués.

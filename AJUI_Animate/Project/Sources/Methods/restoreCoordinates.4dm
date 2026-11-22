@@ -4,10 +4,10 @@
 var $left; $top; $right; $bottom : Integer
 var $target : Text
 
-$left:=$1
-$top:=$2
-$right:=$3
-$bottom:=$4
-$target:=$5
+$left:=$param1
+$top:=$param2
+$right:=$param3
+$bottom:=$param4
+$target:=$param5
 
 OBJECT SET COORDINATES(*;$target;$left;$top;$right;$bottom)

@@ -1,6 +1,11 @@
 //%attributes = {}
 
 
+var $r1; $g1; $b1; $r2; $g2; $b2; $steps; $i : Integer
+var $color1; $color2 : Integer
+var $factor : Real
+var $gradientColors; $gradientColors_rgb : Collection
+var $stepFactor; $r3; $g3; $b3 : Real
 $r1:=94
 $g1:=79
 $b1:=162

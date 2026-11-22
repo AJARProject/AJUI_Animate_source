@@ -1,5 +1,6 @@
 var $backgroundColor; $foregroundColor; $left; $top; $right; $bottom : Integer
 var $formObjectsCoordinate : Object
+var $evt : Integer
 
 OBJECT SET VISIBLE(*;"background@";False)
 

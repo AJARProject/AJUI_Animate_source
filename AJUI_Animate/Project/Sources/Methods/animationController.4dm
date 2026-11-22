@@ -11,6 +11,11 @@ var $operations_col; $executions_col; $reverse_operations_col; $animationItems_c
 var $form_winRef; $nbOperation; $nbIteration; $steps; $currentStep : Integer
 var $delay; $refresh; $msByStep; $start_ms : Real
 var $reverse; $debug : Boolean
+var $animationDirection : Text
+var $ms_counter; $globalDelay; $operationIteration : Integer
+var $previousStep : Real
+var $msRestTilNextStep : Real
+var $pos : Integer
 
 If (False)
 	  // ----------------------------------------------------
@@ -35,7 +40,7 @@ If (False)
 End if 
 
 
-$params:=$1
+$params:=$param1
 
   //activate logs for step duration and delay process (to use with the form HDI_easing)
 $debug:=False

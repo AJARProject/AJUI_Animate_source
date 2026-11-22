@@ -3,6 +3,8 @@
 var $animation_ptr : Pointer
 var $animation; $orientation : Text
 var $o; $param : Object
+var $pos : Integer
+var $obj_ptr : Pointer
 
 $animation_ptr:=OBJECT Get pointer(Object named;"popup_animation_obj")
 $animation:=$animation_ptr->{$animation_ptr->}

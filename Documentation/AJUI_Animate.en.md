@@ -29,9 +29,17 @@ A dependency on sources works in **interpreted** mode only. A compiled host need
 
 ### AJ_Math
 
-`easing` calls `Math()` for `sin` and `asin` (elastic curves). `AJUI_Animate/Components/AJ_Math.4dbase` is the **19 R8** build (`AJ_Math.4DZ` from 13 January 2023 and `Libraries/lib4d-arm64.dylib`). It was kept. 4D 21 R4 may reject a component compiled with 19 R8. Rebuild it from [AJ_Math_source](https://github.com/AJARProject/AJ_Math_source) and replace the contents of that `.4dbase`. Do not delete the original archive before the new build exists.
+`easing` calls `Math()` for `sin` and `asin` (elastic curves). `AJUI_Animate/Components/AJ_Math.4dbase` is the **4D 21 R4** build produced by `BUILD APPLICATION` / `BuildComponent`: `Contents/AJ_Math.4DZ`, `Contents/Libraries/lib4d-arm64.dylib`, `Contents/Info.plist`, `Contents/_CodeSignature`, `Contents/Documentation`. The 19 R8 archive is no longer in `Components/` (git history still has it). The Components folder has the highest priority ([components](https://developer.4d.com/docs/21-R4/Project/components)).
 
-4D SVG is an internal component (named on the components page). It is used by the lab graphs and by color animation (`SVG_Color_RGB_from_long`, `SVG_Get_named_color_value`). There is no plugin.
+### 4D SVG
+
+Starting with 4D 21, 4D's own components (including 4D SVG) are no longer embedded in the application ([4D 21 release notes](https://developer.4d.com/docs/21/Notes/updates)). Without that component the compiler reads `SVG_New` as a variable and reports a syntax error on the call. `Project/Sources/dependencies.json` therefore declares:
+
+```json
+"4D SVG": { "github": "4d/4D-SVG" }
+```
+
+The `github` key is the one documented on the [components](https://developer.4d.com/docs/21-R4/Project/components) page. 4D downloads the release the first time the project opens. Methods used, unchanged: `SVG_New`, `SVG_New_line`, `SVG EXPORT TO PICTURE`, `SVG_Color_RGB_from_long`, `SVG_Get_named_color_value`. No plugin.
 
 ## Compiled install
 
@@ -126,13 +134,13 @@ No parameter. Clears `Storage.AJUI_AnimateProcess_col` when that collection exis
 
 | Method | Note |
 | --- | --- |
-| `animate` | Starts the processes. Variant parameter: one AnimationItem, an `{operations}` object, a collection, or a collection of collections. Not shared. |
-| `New AnimationItem` | `"AnimationItem"` object (operation, target, duration, delay, frequency, geometry, font, colors). `preemptive: capable`. Not shared. |
+| `animate` | Starts the processes. Variant parameter: one AnimationItem, an `{operations}` object, a collection, or a collection of collections. Shared. |
+| `New AnimationItem` | `"AnimationItem"` object (operation, target, duration, delay, frequency, geometry, font, colors). `preemptive: capable`. Shared. |
 | `animationController` | Step loop. `preemptive: incapable`. |
 | `easing` | Named curve. Depends on `Math()` for elastic. |
 | `old_*` | Older effects. Several are `"shared":false`. |
 
-The `AJUI_AnimateLab_deprecated` host calls `New AnimationItem` and `animate`. Those names are not visible from a host. The HDI buttons in that lab cannot run as they stand.
+`New AnimationItem` and `animate` are shared (`invisible` + `shared`), same as `stopAnimation`. The `AJUI_AnimateLab_deprecated` host calls them to build `AnimationItem` values (timing curves, sequences, font, color). The class functions do not cover those demos. Sharing them does not change their behaviour: the host can call them. `New AnimationItem` stays `preemptive: capable`.
 
 ## What changed for 21 R4
 
@@ -142,6 +150,10 @@ The `AJUI_AnimateLab_deprecated` host calls `New AnimationItem` and `animate`. T
 - `:C` and `:K` tokens removed. Command and constant names unchanged.
 - `C_XXX` replaced with `var`. `C_LONGINT` becomes `Integer`. `ARRAY TEXT` arrays stay arrays.
 - Parameters and the return value use `#DECLARE`, placed before the first statement (comments and `//%attributes` stay above it). The body still uses `$1`, `$2`, and `Count parameters`. The old `$0` is named `$return` and stays distinct from the working variables.
+- Every local is declared with `var` (the 21 R4 compiler rejects an undeclared local). Parameters in the body are the `#DECLARE` names (`$param1`, …), not `$1`. `$0` is gone: the return value is `$return` on the `#DECLARE` (including the easing graph, `Picture`).
+- `property animType : Text` on the `Animation` class ([classes](https://developer.4d.com/docs/21-R4/Concepts/classes)), for warning 550.26.
+- `New AnimationItem` and `animate` are shared.
+- 21 R4 AJ_Math in `Components/`. GitHub dependency `4D SVG`.
 - `AJUI_Animate_Info` reports `v21 R4`. The number `1.0.1+Build74` does not change.
 - `.gitignore`: `*.4DD`, `*.journal`, `*.4DIndy`, `*.4DIndx` (the real index extension), `*.Match`, `*.match`, `userPreferences.*/`, `Logs/`, `DerivedData/`, `.DS_Store`, `Data/`. `*.4DSettings` is no longer ignored, so the compatibility settings can be committed.
 - Host: `dependencies.json` + `environment4d.json`. The 2020 `.4DZ` left `Components/` for `LegacyBinaries/` (file unchanged).
@@ -159,8 +171,8 @@ Check these in 4D 21 R4:
 3. `AJUI_Animate.new()`, a `bounce` or `slide`, then `stopAnimation`.
 4. `New Animation` and `animationTiming` (with and without the boolean).
 5. `formGetObjectsCoordinates` / `formResetObjectsCoordinates` on a form that already has the collection.
-6. Elastic curves: they need AJ_Math compiled for 21 R4. The 19 R8 `.4DZ` in Components may block opening or the `Math()` call.
-7. The lab in interpreted mode loads `../AJUI_Animate`. HDI code that calls `New AnimationItem` or `animate` still fails with a missing-method error until those methods are shared.
+6. Elastic curves with the 21 R4 `AJ_Math.4DZ` in `Components/` (`Math().sin`, `Math().asin`).
+7. The lab in interpreted mode loads `../AJUI_Animate`. `New AnimationItem` and `animate` are shared, so the HDI methods that call them should compile. 4D must have downloaded 4D SVG before the component is compiled.
 8. A compiled host plus a `.4DZ` produced by 21 R4.
 9. Windows, client-server, and `AJUI_BuildComponent` (the version bump looks for `GMT` followed by a CR, while the files use LF).
 10. 4D SVG: `SVG_New`, `SVG_Color_RGB_from_long`, and `SVG_Get_named_color_value` were not run.

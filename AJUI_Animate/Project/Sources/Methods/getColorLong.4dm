@@ -24,7 +24,7 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$color_t:=$1
+$color_t:=$param1
 
 If ($color_t="none") | ($color_t="transparent") | ($color_t="")
 	$color_l:=Background color none

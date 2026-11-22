@@ -16,6 +16,9 @@ var $o; $params : Object
 var $operations : Collection
 var $factor : Real
 var $duration; $iterations; $delay : Integer
+var $frequency : Integer
+var $target : Text
+var $animationItem : Object
 
 If (False)
 	  // ----------------------------------------------------

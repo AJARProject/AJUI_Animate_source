@@ -3,6 +3,13 @@
   //
   // Member method of a new animation
 
+var $target; $FLabel_name; $placeholder; $targetValue; $currentValue : Text
+var $activeColor_l; $inactiveColor_l; $fontSize; $offset; $formEvt; $placeholderFontColor_l; $duration; $targetLeft; $targetTop; $targetRight; $targetBottom; $FLabelLeft; $FLabelTop; $FLabelRight; $FLabelBottom; $bestWidth; $bestHeight; $resizingH; $resizingV : Integer
+var $followTarget_b; $noPlaceholder; $doAnimation; $showAsPlaceholder; $isActiveLabel : Boolean
+var $position; $animType : Text
+var $result_path : Object
+var $target_ptr; $FLabel_ptr : Pointer
+var $animationItem : Object
 If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): gabriel inzirillo

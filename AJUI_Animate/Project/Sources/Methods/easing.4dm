@@ -8,6 +8,8 @@
 var $posCalc; $pos : Real
 var $easing : Text
 var $math : Object
+var $s; $st; $st2; $magnitude : Real
+var $st1; $p : Real
 
 If (False)
 	  // ----------------------------------------------------
@@ -29,8 +31,8 @@ End if
 
 $math:=Math ()
 
-$easing:=$1
-$pos:=$2
+$easing:=$param1
+$pos:=$param2
 
 Case of 
 	: ($easing="quadIn")  // Accelerating from zero velocity

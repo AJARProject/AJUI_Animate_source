@@ -1,5 +1,7 @@
 //%attributes = {}
 
+var $left; $top; $right; $bottom; $shake_offset : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4; $animationItem5; $animationItem6; $animationItem7; $animationItem8; $animationItem9; $animationItem10; $animationItem11; $animationItem12; $animationItem13 : Object
 OBJECT GET COORDINATES(*;"text_test_obj";$left;$top;$right;$bottom)
 
 $shake_offset:=6

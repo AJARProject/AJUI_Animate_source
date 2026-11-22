@@ -17,6 +17,11 @@ var $name : Text
 var $factor : Real
 var $duration; $iterations; $offset; $delay : Integer
 var $hideAtTheEnd : Boolean
+var $orientation; $target; $fontName : Text
+var $left; $top; $right; $bottom; $fontSize; $fontStyle : Integer
+var $width; $height : Integer
+var $centerX; $centerY : Real
+var $animationItem : Object
 
 If (False)
 	  // ----------------------------------------------------
@@ -31,8 +36,8 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$o:=$1
-$name:=$2
+$o:=$param1
+$name:=$param2
 
 
 $offset:=$o.offset

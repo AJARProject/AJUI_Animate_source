@@ -1,5 +1,6 @@
 //%attributes = {}
   // ---- rectangle
+var $animItemLinear; $animItemEase; $animItemEaseIn; $animItemEaseOut; $animItemEaseInOut; $animItemStep; $animItemBezier; $animbackgroundLinear; $animbackgroundEase; $animbackgroundEaseIn; $animbackgroundEaseOut; $animbackgroundEaseInOut; $animbackgroundStep; $animbackgroundBezier; $animtextLinear; $animtextEase; $animtextEaseIn; $animtextEaseOut; $animtextEaseInOut; $animtextStep; $animtextBezier : Object
 Form.linear:=New collection()  // linear
 $animItemLinear:=New AnimationItem 
 $animItemLinear.operation:="Move, Resize, BGColor"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle

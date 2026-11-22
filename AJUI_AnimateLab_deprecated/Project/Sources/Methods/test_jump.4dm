@@ -1,6 +1,8 @@
 //%attributes = {}
 
 var $offset : Integer
+var $animationItem : Object
+var $direction : Text
 
 Form.animationJump:=New collection()
 $animationItem:=New AnimationItem 

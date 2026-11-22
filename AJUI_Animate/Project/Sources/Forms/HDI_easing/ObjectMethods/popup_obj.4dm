@@ -1,4 +1,7 @@
 
+var $evt : Integer
+var $_popup_obj_ptr : Pointer
+var $popup : Text
 $evt:=Form event code
 
 Case of 

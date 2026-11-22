@@ -10,6 +10,8 @@
 #DECLARE($param1 : Object; $param2 : Text) -> $return : Object
 var $object; $returnObject; $subObj : Object
 var $path : Text
+var $positionPoint : Integer
+var $attributeName : Text
 
 If (False)
 	  // ----------------------------------------------------
@@ -30,8 +32,8 @@ If (False)
 End if 
 
 
-$object:=$1
-$path:=$2
+$object:=$param1
+$path:=$param2
 $returnObject:=New object
 
 $positionPoint:=Position(".";$path)

@@ -13,6 +13,9 @@ var $o; $params : Object
 var $operations : Collection
 var $factor : Real
 var $duration; $iterations; $offset; $delay; $height_window : Integer
+var $target : Text
+var $left; $top; $right; $bottom; $width; $height; $left0; $top0; $right0; $bottom0 : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4 : Object
 
 If (False)
 	  // ----------------------------------------------------

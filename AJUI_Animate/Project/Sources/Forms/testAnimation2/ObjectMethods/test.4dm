@@ -1,4 +1,5 @@
 var $evt : Integer
+var $animationItem : Object
 
 $evt:=Form event code
 

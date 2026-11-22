@@ -24,11 +24,11 @@ If (False)
 End if 
 
 
-$orientation:=$1
+$orientation:=$param1
 
 If ($orientation="up") | ($orientation="down") | ($orientation="left") | ($orientation="right")
 	
-	$target:=$2
+	$target:=$param2
 	
 	OBJECT GET COORDINATES(*;$target;$currentLeft;$currentTop;$currentRight;$currentBottom)
 	

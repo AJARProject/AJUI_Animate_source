@@ -1,4 +1,6 @@
 //%attributes = {}
+var $area_width; $area_height; $rect_width; $rect_height; $left; $top; $right; $bottom : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4; $animationItem5; $animationItem6 : Object
 $area_width:=570
 $area_height:=490
 $rect_width:=50

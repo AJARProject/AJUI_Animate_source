@@ -3,6 +3,8 @@
 
 #DECLARE($param1 : Boolean)
 
+var $_popup_obj_ptr : Pointer
+var $popup : Text
 formResetObjectsCoordinates 
 OBJECT SET VISIBLE(*;"@_obj@";True)
 OBJECT SET FONT SIZE(*;"text_obj";Form.fontSize_text)

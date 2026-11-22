@@ -1,4 +1,5 @@
 
+var $evt : Integer
 $evt:=Form event code
 
 Case of 

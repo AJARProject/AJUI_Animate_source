@@ -25,6 +25,9 @@ var $steps; $current_step : Integer
 var $relative : Boolean
 var $type : Text
 var $animType_type : Variant
+var $isBezier; $choose_x1 : Boolean
+var $bezier_nbPoint : Integer
+var $ay; $by; $cy; $dy : Real
 
 If (False)
 	  // ----------------------------------------------------
@@ -53,12 +56,12 @@ If (False)
 End if 
 
 
-$animation_obj:=$1
+$animation_obj:=$param1
 $current_step:=$animation_obj.current_step
 $steps:=$animation_obj.steps
 
 If (Count parameters=2)
-	$relative:=$2
+	$relative:=$param2
 Else 
 	$relative:=False
 End if 

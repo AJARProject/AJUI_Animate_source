@@ -1,5 +1,7 @@
 var $animation1 : Object
 var $animations : Collection
+var $evt : Integer
+var $animation : Object
 
 $evt:=Form event code
 

@@ -1,4 +1,4 @@
-//%attributes = {"preemptive":"capable"}
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
   // New AnimationItem (  ) -> $operationItem
   //
   // $operationItem : (object) (return) operation item

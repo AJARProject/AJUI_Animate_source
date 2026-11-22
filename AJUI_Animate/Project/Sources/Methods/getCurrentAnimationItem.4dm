@@ -17,6 +17,9 @@
 
 #DECLARE($param1 : Object; $param2 : Object; $param3 : Object)
 var $operation; $animationItem; $defTargetCurrent : Object
+var $steps; $step : Integer
+var $animationTiming_obj : Object
+var $left; $top; $width; $height : Real
 
 If (False)
 	  // ----------------------------------------------------
@@ -32,9 +35,9 @@ End if
 
 
 
-$operation:=$1
-$animationItem:=$2
-$defTargetCurrent:=$3[$operation.target]
+$operation:=$param1
+$animationItem:=$param2
+$defTargetCurrent:=$param3[$operation.target]
 $steps:=$animationItem.steps
 $step:=$animationItem.step
 

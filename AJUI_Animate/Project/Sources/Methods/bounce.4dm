@@ -17,6 +17,9 @@ var $operations : Collection
 var $factor : Real
 var $hideAtTheEnd : Boolean
 var $duration; $iterations; $offset; $delay : Integer
+var $orientation; $target : Text
+var $left; $top; $right; $bottom : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4 : Object
 
 If (False)
 	  // ----------------------------------------------------

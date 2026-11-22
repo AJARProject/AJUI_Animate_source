@@ -11,6 +11,11 @@ var $col; $col2 : Collection
 var $el; $transition : Object
 var $pos; $posCalc : Real
 var $pict : Picture
+var $max; $min; $startY; $endY : Real
+var $steps : Integer
+var $padding; $factor; $svg_x; $svg_y; $i; $l; $t; $r; $b : Integer
+var $svgRef; $objectRef; $limitMinRef; $limitMaxRef : Text
+var $currentX; $currentY; $transitionValue; $endX; $startX : Real
 
 If (False)
 	  // ----------------------------------------------------
@@ -25,7 +30,7 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$selector:=$1
+$selector:=$param1
 $col:=New collection()
 $transition:=New object()
 $transition.animType:=$selector

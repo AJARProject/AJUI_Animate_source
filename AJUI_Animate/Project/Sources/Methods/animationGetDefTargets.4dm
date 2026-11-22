@@ -9,6 +9,7 @@
 var $operations_col : Collection
 var $operation_obj; $item_obj : Object
 var $target; $operation; $foregroundColor; $backgroundColor; $altBackgroundColor : Text
+var $left; $top; $right; $bottom : Integer
 
 If (False)
 	  // ----------------------------------------------------
@@ -23,7 +24,7 @@ If (False)
 End if 
 
 
-$item_obj:=$1
+$item_obj:=$param1
 $item_obj.defStart:=New object
 $item_obj.defEnd:=New object
 

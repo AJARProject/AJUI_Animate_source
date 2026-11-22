@@ -4,11 +4,17 @@
   // easing : (text) name of the easing function
   // graph : (pict) return a graph of the function
 
-#DECLARE($param1 : Text)
+#DECLARE($param1 : Text) -> $return : Picture
 var $easing : Text
 var $col2 : Collection
 var $transition : Object
 var $pict : Picture
+var $pos; $padding; $factor; $svg_x; $svg_y; $i : Integer
+var $posCalc; $currentX; $currentY; $transitionValue; $endX; $startX : Real
+var $el : Object
+var $max; $min; $startY; $endY : Real
+var $steps : Integer
+var $svgRef; $objectRef; $limitMinRef; $limitMaxRef : Text
 
 If (False)
 	  // ----------------------------------------------------
@@ -23,7 +29,7 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$easing:=$1
+$easing:=$param1
 
   // -------------------------------- SVG -------------------------------
 $col2:=New collection()
@@ -85,6 +91,6 @@ $limitMaxRef:=SVG_New_line ($svgRef;0;$svg_y-($factor+$min);$endX;$svg_y-($facto
 
 
 SVG EXPORT TO PICTURE($svgRef;$pict)
-$0:=$pict
+$return:=$pict
 
 

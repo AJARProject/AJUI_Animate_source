@@ -1,5 +1,6 @@
 //%attributes = {}
 
+var $animItemLinear; $animItemEase; $animItemEaseIn; $animItemEaseOut; $animItemEaseInOut; $animItemStep; $animItemBezier : Object
 Form.linear:=New collection()  // linear
 $animItemLinear:=New AnimationItem 
 $animItemLinear.operation:="Move, BGColor"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle

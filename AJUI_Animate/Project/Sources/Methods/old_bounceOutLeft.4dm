@@ -12,6 +12,11 @@ var $o; $params : Object
 var $operations : Collection
 var $factor : Real
 var $duration; $iterations; $offset; $delay : Integer
+var $target : Text
+var $left; $top; $right; $bottom : Integer
+var $width; $height : Integer
+var $centerX; $centerY : Real
+var $animationItem; $animationItem2 : Object
 
 If (False)
 	  // ----------------------------------------------------

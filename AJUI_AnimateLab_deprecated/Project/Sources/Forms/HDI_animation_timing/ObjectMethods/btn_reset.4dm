@@ -1,3 +1,4 @@
+var $evt : Integer
 OBJECT SET VISIBLE(*;"background@";True)
 
 $evt:=Form event code

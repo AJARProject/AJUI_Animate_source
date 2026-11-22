@@ -20,9 +20,9 @@ If (False)
 	  //
 	  // ----------------------------------------------------
 End if 
-$currentOperation:=$1
+$currentOperation:=$param1
 If (Count parameters=2) && ($currentOperation.subformName#"")
-	EXECUTE METHOD IN SUBFORM($currentOperation.subformName; Current method name; *; $currentOperation; $2; True)
+	EXECUTE METHOD IN SUBFORM($currentOperation.subformName; Current method name; *; $currentOperation; $param2; True)
 Else 
-	OBJECT SET VISIBLE(*; $currentOperation.target; $2)
+	OBJECT SET VISIBLE(*; $currentOperation.target; $param2)
 End if 

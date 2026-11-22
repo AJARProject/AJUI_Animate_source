@@ -29,8 +29,8 @@ End if
 
 
 
-$operation:=$1
-$animationItem:=$2
+$operation:=$param1
+$animationItem:=$param2
 
   //property that does not evolve during steps
   //global

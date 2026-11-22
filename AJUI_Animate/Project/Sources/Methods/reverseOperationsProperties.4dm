@@ -26,12 +26,12 @@ End if
 
 
 
-$operations_col:=$1.operations.reverse()
+$operations_col:=$param1.operations.reverse()
 $reverse_operations_col:=New collection
 
-$reverseOrder_col:=$1.operations.extract("target").reverse()
+$reverseOrder_col:=$param1.operations.extract("target").reverse()
 $uniqueTarget_col:=$reverseOrder_col.distinct()
-$tempPrev_obj:=OB Copy($1.defEnd)
+$tempPrev_obj:=OB Copy($param1.defEnd)
 
 For each ($target;$reverseOrder_col)
 	
@@ -65,7 +65,7 @@ For each ($target;$reverseOrder_col)
 		$positionNext:=$operations_col.extract("target").indexOf($target;$tempPrev_obj[$target].positionPrev+1)
 		
 		If ($positionNext=-1)  //start def case
-			$tempNext_obj:=OB Copy($1.defStart[$target])
+			$tempNext_obj:=OB Copy($param1.defStart[$target])
 			$tempNext_obj.target:=$target
 			
 		Else 

@@ -27,25 +27,25 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-If (Value type($1)=Is text)
+If (Value type($param1)=Is text)
 	
-	$operationColor:=getColorLong ($1)
+	$operationColor:=getColorLong ($param1)
 Else 
-	$operationColor:=$1
+	$operationColor:=$param1
 End if 
 
 If (Count parameters>1)
-	$animationTiming_obj:=$3
+	$animationTiming_obj:=$param3
 	$steps:=$animationTiming_obj.steps
 	$currentStep:=$animationTiming_obj.current_step
 	
 	If ($currentStep=$steps)
 		$colorToApplied:=$operationColor
 	Else 
-		If (Value type($2)=Is text)
-			$originColor:=getColorLong ($2)
+		If (Value type($param2)=Is text)
+			$originColor:=getColorLong ($param2)
 		Else 
-			$originColor:=$2
+			$originColor:=$param2
 		End if 
 		
 		If ($operationColor<0) & ($originColor<0)  //keep transparent

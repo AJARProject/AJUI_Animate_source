@@ -22,7 +22,7 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$processID:=$1
+$processID:=$param1
 
 $position:=Storage.AJUI_AnimateProcess_col.indexOf($processID)
 

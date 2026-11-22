@@ -2,6 +2,7 @@
 
 #DECLARE() -> $return : Boolean
 var $exist_b : Boolean
+var $left_FLabel; $top_FLabel; $right_FLabel; $bottom_FLabel; $total_l : Integer
 
 OBJECT GET COORDINATES(*;"FLabel_obj";$left_FLabel;$top_FLabel;$right_FLabel;$bottom_FLabel)
 

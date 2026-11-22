@@ -3,6 +3,7 @@
 var $c_formObjects; $coordinates : Collection
 var $o_formObject : Object
 var $foregroundColor; $backgroundColor; $left; $top; $right; $bottom : Integer
+var $i : Integer
 
 ARRAY TEXT($_formObjects;0)
 FORM GET OBJECTS($_formObjects)

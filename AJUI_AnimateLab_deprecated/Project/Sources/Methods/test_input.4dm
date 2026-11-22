@@ -1,5 +1,7 @@
 //%attributes = {}
 
+var $animationItem; $animationItem2; $animationItem3; $animationItem4; $animationItem5; $animationItem6; $animationItem7; $animationItem8; $animationItem9 : Object
+var $left; $top; $right; $bottom : Integer
 Form.colTest:=New collection()
 $animationItem:=New AnimationItem 
 

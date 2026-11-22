@@ -25,8 +25,8 @@ If (False)
 End if 
 
 
-$operation_obj:=$1
-$operation:=$2
+$operation_obj:=$param1
+$operation:=$param2
 
 $type:=$operation_obj.animType
 

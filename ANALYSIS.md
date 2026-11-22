@@ -101,3 +101,7 @@ La page [Compatibilité](https://developer.4d.com/docs/21-R4/settings/compatibil
 6. Plusieurs méthodes déclarent une valeur de retour (`$0`) sans jamais l'affecter. La déclaration est conservée (`-> $return`).
 7. Pas de 4D sur la machine d'analyse : ni ouverture, ni compilation, ni exécution d'un formulaire.
 8. `AJUI_AnimationLab` n'est pas un projet. Son `.4DZ` de 2020 est laissé tel quel.
+
+## Suite (après le premier essai de compilation 21 R4)
+
+Le compilateur 21 R4 (build 21R4.100185) a refusé les locales non déclarées. Elles sont maintenant typées avec `var`. `$1`… dans le corps sont remplacés par les noms `#DECLARE`. `$0` est devenu `$return`. `property animType` est déclaré sur la classe. `New AnimationItem` et `animate` sont partagées pour le labo. Le binaire AJ_Math 19 R8 est remplacé par le build 21 R4. 4D SVG est une dépendance GitHub, parce que 4D 21 ne l'embarque plus.

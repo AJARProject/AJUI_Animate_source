@@ -19,6 +19,11 @@ var $operations : Collection
 var $factor : Real
 var $orientation : Text
 var $duration; $iterations; $offset; $delay : Integer
+var $target; $fontName : Text
+var $left; $top; $right; $bottom; $fontSize; $fontStyle : Integer
+var $width; $height : Integer
+var $centerX; $centerY : Real
+var $animationItem : Object
 
 If (False)
 	  // ----------------------------------------------------

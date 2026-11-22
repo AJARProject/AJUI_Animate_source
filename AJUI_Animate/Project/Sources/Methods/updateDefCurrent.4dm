@@ -23,8 +23,8 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$defCurrent:=$1
-$lastAnimationItem:=$2
+$defCurrent:=$param1
+$lastAnimationItem:=$param2
 $target:=$lastAnimationItem.target
 
 

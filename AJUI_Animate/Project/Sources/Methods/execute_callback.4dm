@@ -4,10 +4,10 @@
 var $method : Text
 var $params : Object
 
-$method:=$1
+$method:=$param1
 
 If (Count parameters=2)
-	$params:=$2
+	$params:=$param2
 	EXECUTE METHOD($method;*;$params)
 Else 
 	EXECUTE METHOD($method)

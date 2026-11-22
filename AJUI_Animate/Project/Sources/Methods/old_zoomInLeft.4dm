@@ -14,6 +14,12 @@ var $o; $params : Object
 var $operations : Collection
 var $factor : Real
 var $duration; $iterations; $offset; $delay; $left; $top; $right; $bottom : Integer
+var $target; $fontName : Text
+var $fontSize; $fontStyle : Integer
+var $width; $height : Integer
+var $width0; $height0; $right0; $bottom0 : Real
+var $centerX; $centerY; $left0; $top0 : Real
+var $animationItem : Object
 
 If (False)
 	  // ----------------------------------------------------

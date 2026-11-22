@@ -25,8 +25,8 @@ If (False)
 	  // ----------------------------------------------------
 End if 
 
-$operation_obj:=$1
-$defCurrent:=$2
+$operation_obj:=$param1
+$defCurrent:=$param2
 $target:=$operation_obj.target
 
 If ($operation_obj.operation#Null) & ($target#Null)

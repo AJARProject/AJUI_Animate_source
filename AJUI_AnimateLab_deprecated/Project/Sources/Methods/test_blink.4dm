@@ -2,6 +2,7 @@
 
 
 
+var $animationItem : Object
 Form.animationBlink:=New collection()
 $animationItem:=New AnimationItem 
 

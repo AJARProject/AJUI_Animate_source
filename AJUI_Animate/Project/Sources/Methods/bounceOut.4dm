@@ -15,6 +15,7 @@
 
 #DECLARE($param1 : Object)
 var $o; $operations : Object
+var $target : Text
 
 If (False)
 	  // ----------------------------------------------------

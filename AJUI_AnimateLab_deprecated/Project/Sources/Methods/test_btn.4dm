@@ -2,6 +2,8 @@
 
 
 
+var $animationItem; $animationItem2 : Object
+var $growWidth; $growHeight : Integer
 Form.colTest:=New collection()
 $animationItem:=New AnimationItem 
 

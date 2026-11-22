@@ -1,5 +1,7 @@
 //%attributes = {}
 
+var $left; $top; $right; $bottom : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4; $animationItem5 : Object
 OBJECT GET COORDINATES(*;"text_test_obj";$left;$top;$right;$bottom)
 
 Form.colTest:=New collection()

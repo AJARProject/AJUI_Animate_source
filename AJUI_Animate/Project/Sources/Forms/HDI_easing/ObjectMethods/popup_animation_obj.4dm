@@ -3,6 +3,9 @@ var $animation; $orientation; $param : Text
 var $params : Collection
 var $o; $o2 : Object
 var $pict : Picture
+var $evt : Integer
+var $pos : Integer
+var $obj_ptr : Pointer
 
 $evt:=Form event code
 

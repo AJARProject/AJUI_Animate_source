@@ -5,6 +5,11 @@ var $evt : Integer
 var $target_input; $target_placeholder : Text
 var $animation : Object
 var $operations : Collection
+var $target_name : Text
+var $float_def; $placeholder_def : Text
+var $left; $top; $right; $bottom : Integer
+var $field_ptr : Pointer
+var $animationItem : Object
 
 $evt:=Form event code
 
@@ -12,7 +17,7 @@ $evt:=Form event code
 If (Count parameters<1)
 	$target_input:=OBJECT Get name(Object current)
 Else 
-	$target_input:=$1
+	$target_input:=$param1
 End if 
 
 $target_name:=Replace string($target_input;"_input";"")

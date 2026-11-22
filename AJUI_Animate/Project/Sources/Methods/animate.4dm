@@ -1,4 +1,4 @@
-//%attributes = {}
+//%attributes = {"invisible":true,"shared":true}
   // animate ( $operations )
   //
   // $operations : (variant) Operation as an object or a collection of operation or a collection of collection
@@ -8,6 +8,7 @@
 #DECLARE($param1 : Variant)
 var $params; $animation_tmp : Variant
 var $animation; $animations : Object
+var $start_ms; $i; $processID : Integer
 
 If (False)
 	  // ----------------------------------------------------
@@ -30,7 +31,7 @@ $start_ms:=Milliseconds
   //LOG EVENT(Into 4D commands log;"start Animate "+String($start_ms);Warning message)
 
 
-$params:=$1
+$params:=$param1
 $animations:=New object
 $animations.items:=New collection()
 

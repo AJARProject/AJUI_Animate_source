@@ -1,5 +1,6 @@
 {
 	"dependencies": {
-		"AJUI_Animate": "../AJUI_Animate"
+		"AJUI_Animate": "../AJUI_Animate",
+		"AJ_Math": "../AJUI_Animate/Components/AJ_Math.4dbase"
 	}
 }

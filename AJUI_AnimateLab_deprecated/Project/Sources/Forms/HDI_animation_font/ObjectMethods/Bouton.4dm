@@ -11,7 +11,7 @@ Case of
 		
 		  // Because we need to get the position of every object, we give a chance to
 		  // let the various object to be placed and sized
-		CALL FORM(Current form window;"formGetObjectsCoordinates")
+		CALL FORM(Current form window;"labFormGetObjectsCoordinates")
 		
 	: ($evt=On Clicked)
 		

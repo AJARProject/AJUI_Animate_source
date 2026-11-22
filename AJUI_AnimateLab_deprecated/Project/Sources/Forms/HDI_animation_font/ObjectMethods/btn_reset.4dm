@@ -12,11 +12,11 @@ Case of
 		OBJECT GET RGB COLORS(*;"text_test_obj";$foregroundColor;$backgroundColor)
 		Form.foregroundColor:=$foregroundColor
 		Form.backgroundColor:=$backgroundColor
-		CALL FORM(Current form window;"formGetObjectsCoordinates")
+		CALL FORM(Current form window;"labFormGetObjectsCoordinates")
 	: ($evt=On Clicked)
 		stopAnimation 
 		DELAY PROCESS(Current process;10)
-		CALL FORM(Current form window;"formResetObjectsCoordinates")
+		CALL FORM(Current form window;"labFormResetObjectsCoordinates")
 		DELAY PROCESS(Current process;30)
 		OBJECT SET FONT SIZE(*;"text_test_obj";Form.fontSize)
 		OBJECT SET FONT STYLE(*;"text_test_obj";Form.fontStyle)

@@ -1,4 +1,6 @@
 //%attributes = {}
+// Lab copy. Restores Form.formObjects, not Form.AJUI_Animate_formObjects.
+// Renamed so it does not mask the shared component method (compiler warning 529.17).
 
 var $left; $top; $right; $bottom : Integer
 var $formObject : Object

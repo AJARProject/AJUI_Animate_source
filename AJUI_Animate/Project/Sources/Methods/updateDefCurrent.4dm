@@ -6,7 +6,11 @@
   //
   // Updates the current target definition for next operations.
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Object)
+var $defCurrent; $lastAnimationItem : Object
+var $target : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 19.03.20, 09:24:44
@@ -18,16 +22,14 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_OBJECT:C1216($1;$2;$defCurrent;$lastAnimationItem)
-C_TEXT:C284($target)
 
-$defCurrent:=$1
-$lastAnimationItem:=$2
+$defCurrent:=$param1
+$lastAnimationItem:=$param2
 $target:=$lastAnimationItem.target
 
 
 
-If ($defCurrent[$target]#Null:C1517)
+If ($defCurrent[$target]#Null)
 	
 	If ($lastAnimationItem.operation="@Move@") | ($lastAnimationItem.operation="@Resize@")
 		$defCurrent[$target].left:=$lastAnimationItem.left

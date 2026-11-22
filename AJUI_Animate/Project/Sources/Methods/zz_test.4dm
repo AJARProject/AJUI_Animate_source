@@ -41,4 +41,3 @@
   //  // Cas 7
   //animate (New collection(New collection($anim3;$anim4);New collection($anim1;$anim2)))
 
-

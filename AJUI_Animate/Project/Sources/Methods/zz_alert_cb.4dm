@@ -1,8 +1,10 @@
 //%attributes = {}
-C_OBJECT:C1216($1;$params)
 
-$params:=$1
+#DECLARE($param1 : Object)
+var $params : Object
+
+$params:=$param1
 
 If ($params.showMessage)
-	ALERT:C41($params.message)
+	ALERT($params.message)
 End if 

@@ -6,7 +6,10 @@
   //
   // Transform hexadecimal form text to longint
 
-If (False:C215)
+#DECLARE($param1 : Text) -> $return : Integer
+var $result; $lLength; $lDigitValue; $i : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 13.03.20, 10:37:07
@@ -19,44 +22,42 @@ If (False:C215)
 End if 
 
 
-C_TEXT:C284($1)
-C_LONGINT:C283($result;$lLength;$lDigitValue;$0;$i)
 
 $result:=0
-$lLength:=Length:C16($1)
+$lLength:=Length($param1)
 
 For ($i;$lLength;1;-1)
 	
 	Case of 
-		: ($1[[$i]]="F")
+		: ($param1[[$i]]="F")
 			$lDigitValue:=15
-		: ($1[[$i]]="E")
+		: ($param1[[$i]]="E")
 			$lDigitValue:=14
-		: ($1[[$i]]="D")
+		: ($param1[[$i]]="D")
 			$lDigitValue:=13
-		: ($1[[$i]]="C")
+		: ($param1[[$i]]="C")
 			$lDigitValue:=12
-		: ($1[[$i]]="B")
+		: ($param1[[$i]]="B")
 			$lDigitValue:=11
-		: ($1[[$i]]="A")
+		: ($param1[[$i]]="A")
 			$lDigitValue:=10
-		: ($1[[$i]]="9")
+		: ($param1[[$i]]="9")
 			$lDigitValue:=9
-		: ($1[[$i]]="8")
+		: ($param1[[$i]]="8")
 			$lDigitValue:=8
-		: ($1[[$i]]="7")
+		: ($param1[[$i]]="7")
 			$lDigitValue:=7
-		: ($1[[$i]]="6")
+		: ($param1[[$i]]="6")
 			$lDigitValue:=6
-		: ($1[[$i]]="5")
+		: ($param1[[$i]]="5")
 			$lDigitValue:=5
-		: ($1[[$i]]="4")
+		: ($param1[[$i]]="4")
 			$lDigitValue:=4
-		: ($1[[$i]]="3")
+		: ($param1[[$i]]="3")
 			$lDigitValue:=3
-		: ($1[[$i]]="2")
+		: ($param1[[$i]]="2")
 			$lDigitValue:=2
-		: ($1[[$i]]="1")
+		: ($param1[[$i]]="1")
 			$lDigitValue:=1
 		Else 
 			$lDigitValue:=0
@@ -68,4 +69,4 @@ For ($i;$lLength;1;-1)
 	
 End for 
 
-$0:=$result
+$return:=$result

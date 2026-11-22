@@ -1,12 +1,13 @@
 //%attributes = {}
-C_LONGINT:C283($1;$2;$3;$4)
-C_LONGINT:C283($left;$top;$right;$bottom)
-C_TEXT:C284($5;$target)
 
-$left:=$1
-$top:=$2
-$right:=$3
-$bottom:=$4
-$target:=$5
+#DECLARE($param1 : Integer; $param2 : Integer; $param3 : Integer; $param4 : Integer; $param5 : Text)
+var $left; $top; $right; $bottom : Integer
+var $target : Text
 
-OBJECT SET COORDINATES:C1248(*;$target;$left;$top;$right;$bottom)
+$left:=$param1
+$top:=$param2
+$right:=$param3
+$bottom:=$param4
+$target:=$param5
+
+OBJECT SET COORDINATES(*;$target;$left;$top;$right;$bottom)

@@ -1,6 +1,7 @@
 //%attributes = {"invisible":true}
-C_LONGINT:C283($width;$height)
 
-OBJECT GET SUBFORM CONTAINER SIZE:C1148($width;$height)
+var $width; $height : Integer
+
+OBJECT GET SUBFORM CONTAINER SIZE($width;$height)
 
   //ALERT("width: "+String($width)+" - height: "+String($height))

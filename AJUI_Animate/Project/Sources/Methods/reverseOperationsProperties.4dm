@@ -6,7 +6,13 @@
   //
   // Get a collection of reverse operations
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $return : Collection
+var $params; $tempNext_obj; $tempPrev_obj : Object
+var $operations_col; $reverse_operations_col; $reverseOrder_col; $uniqueTarget_col : Collection
+var $positionNext; $positionPrevious; $positionUniqueTarget : Integer
+var $operation; $target : Text
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 27.03.20, 09:51:37
@@ -18,24 +24,19 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($1;$params)
-C_COLLECTION:C1488($0;$operations_col;$reverse_operations_col;$reverseOrder_col;$uniqueTarget_col)
-C_OBJECT:C1216($tempNext_obj;$tempPrev_obj)
-C_LONGINT:C283($positionNext;$positionPrevious;$positionUniqueTarget)
-C_TEXT:C284($operation;$target)
 
 
-$operations_col:=$1.operations.reverse()
-$reverse_operations_col:=New collection:C1472
+$operations_col:=$param1.operations.reverse()
+$reverse_operations_col:=New collection
 
-$reverseOrder_col:=$1.operations.extract("target").reverse()
+$reverseOrder_col:=$param1.operations.extract("target").reverse()
 $uniqueTarget_col:=$reverseOrder_col.distinct()
-$tempPrev_obj:=OB Copy:C1225($1.defEnd)
+$tempPrev_obj:=OB Copy($param1.defEnd)
 
 For each ($target;$reverseOrder_col)
 	
-	If (String:C10($target)="")  //if no target or null, use an empty object (reverse collection size = operation collection size)
-		$reverse_operations_col.push(New object:C1471)
+	If (String($target)="")  //if no target or null, use an empty object (reverse collection size = operation collection size)
+		$reverse_operations_col.push(New object)
 	Else 
 		$positionUniqueTarget:=$uniqueTarget_col.indexOf($target)
 		
@@ -64,11 +65,11 @@ For each ($target;$reverseOrder_col)
 		$positionNext:=$operations_col.extract("target").indexOf($target;$tempPrev_obj[$target].positionPrev+1)
 		
 		If ($positionNext=-1)  //start def case
-			$tempNext_obj:=OB Copy:C1225($1.defStart[$target])
+			$tempNext_obj:=OB Copy($param1.defStart[$target])
 			$tempNext_obj.target:=$target
 			
 		Else 
-			$tempNext_obj:=OB Copy:C1225($operations_col[$positionNext])
+			$tempNext_obj:=OB Copy($operations_col[$positionNext])
 		End if 
 		
 		$tempNext_obj.operation:=$tempPrev_obj[$target].operation
@@ -82,7 +83,7 @@ For each ($target;$reverseOrder_col)
 		
 		If (($operation="@Move@") | ($operation="@Resize@"))
 			Case of 
-				: (Value type:C1509($tempPrev_obj[$target].animType)=Is collection:K8:32)
+				: (Value type($tempPrev_obj[$target].animType)=Is collection)
 					$tempNext_obj.animType:=$tempPrev_obj[$target].animType
 				: ($tempPrev_obj[$target].animType="easy-in")
 					$tempNext_obj.animType:="easy-out"
@@ -95,7 +96,7 @@ For each ($target;$reverseOrder_col)
 		End if 
 		
 		If ($operation="@Font@")
-			If (String:C10($tempPrev_obj[$target].FontAnimType)#"")
+			If (String($tempPrev_obj[$target].FontAnimType)#"")
 				Case of 
 					: ($tempPrev_obj[$target].FontAnimType="easy-in")
 						$tempNext_obj.FontAnimType:="easy-out"
@@ -105,13 +106,13 @@ For each ($target;$reverseOrder_col)
 						$tempNext_obj.FontAnimType:=$tempPrev_obj[$target].FontAnimType
 				End case 
 			Else 
-				OB REMOVE:C1226($tempNext_obj;"FontAnimType")
+				OB REMOVE($tempNext_obj;"FontAnimType")
 			End if 
 		End if 
 		
 		If ($operation="@BGColor@")
 			
-			If (String:C10($tempPrev_obj[$target].BGColorAnimType)#"")
+			If (String($tempPrev_obj[$target].BGColorAnimType)#"")
 				Case of 
 					: ($tempPrev_obj[$target].BGColorAnimType="easy-in")
 						$tempNext_obj.BGColorAnimType:="easy-out"
@@ -121,13 +122,13 @@ For each ($target;$reverseOrder_col)
 						$tempNext_obj.BGColorAnimType:=$tempPrev_obj[$target].BGColorAnimType
 				End case 
 			Else 
-				OB REMOVE:C1226($tempNext_obj;"BGColorAnimType")
+				OB REMOVE($tempNext_obj;"BGColorAnimType")
 			End if 
 		End if 
 		
 		If ($operation="@CRadius@")
 			
-			If (String:C10($tempPrev_obj[$target].CRadiusAnimType)#"")
+			If (String($tempPrev_obj[$target].CRadiusAnimType)#"")
 				Case of 
 					: ($tempPrev_obj[$target].CRadiusAnimType="easy-in")
 						$tempNext_obj.CRadiusAnimType:="easy-out"
@@ -137,7 +138,7 @@ For each ($target;$reverseOrder_col)
 						$tempNext_obj.CRadiusAnimType:=$tempPrev_obj[$target].CRadiusAnimType
 				End case 
 			Else 
-				OB REMOVE:C1226($tempNext_obj;"CRadiusAnimType")
+				OB REMOVE($tempNext_obj;"CRadiusAnimType")
 			End if 
 		End if 
 		
@@ -145,7 +146,7 @@ For each ($target;$reverseOrder_col)
 		$reverse_operations_col.push($tempNext_obj)
 		  //update previous if not start
 		If ($positionNext>-1)
-			$tempPrev_obj[$target]:=OB Copy:C1225($operations_col[$positionNext])
+			$tempPrev_obj[$target]:=OB Copy($operations_col[$positionNext])
 			$tempPrev_obj[$target].positionPrev:=$positionNext
 		End if 
 		
@@ -154,4 +155,4 @@ For each ($target;$reverseOrder_col)
 End for each 
 
 
-$0:=$reverse_operations_col
+$return:=$reverse_operations_col

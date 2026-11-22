@@ -1,10 +1,11 @@
-C_LONGINT:C283($evt)
-C_OBJECT:C1216($animationItem;$animationItem2;$animationItem3;$animationItem4;$animationItem5;$animationItem6)
-$evt:=Form event code:C388
+var $evt : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4; $animationItem5; $animationItem6; $animation1; $animation2 : Object
+
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
-		Form:C1466.colTest:=New collection:C1472()
+	: ($evt=On Load)
+		Form.colTest:=New collection()
 		$animationItem:=New AnimationItem 
 		
 		$animationItem.operation:="Move,Resize,BGColor,CRadius,BStyle"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
@@ -30,15 +31,14 @@ Case of
 		
 		$animationItem.borderStyle:=2
 		
-		Form:C1466.colTest.push($animationItem)
+		Form.colTest.push($animationItem)
 		
 		
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Clicked)
 		
-		C_OBJECT:C1216($animation1;$animation2)
-		$animation1:=New object:C1471("direction";"alternate";"iterations";3;"operations";Form:C1466.colTest)
-		$animation2:=New object:C1471("direction";"alternate-reverse";"iterations";3;"operations";Form:C1466.colTest2)
+		$animation1:=New object("direction";"alternate";"iterations";3;"operations";Form.colTest)
+		$animation2:=New object("direction";"alternate-reverse";"iterations";3;"operations";Form.colTest2)
 		
-		animate (New collection:C1472($animation1;$animation2))
+		animate (New collection($animation1;$animation2))
 		
 End case 

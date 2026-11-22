@@ -1,11 +1,15 @@
-$_popup_obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_obj")
-$popup:=$_popup_obj_ptr->{$_popup_obj_ptr->}
+var $_popup_obj_ptr : Pointer
+var $popup : Text
+var $toggle : Boolean
+var $popupIndex : Integer
+$_popup_obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
+$popupIndex:=$_popup_obj_ptr->
+$popup:=$_popup_obj_ptr->{$popupIndex}
 
 
-$toggle:=OBJECT Get visible:C1075(*;$popup)
+$toggle:=OBJECT Get visible(*;$popup)
 
-OBJECT SET VISIBLE:C603(*;$popup;Not:C34($toggle))
-
+OBJECT SET VISIBLE(*;$popup;Not($toggle))
 
 
 

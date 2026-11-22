@@ -6,7 +6,10 @@
   //
   // controls process shutdown
 
-If (False:C215)
+#DECLARE($param1 : Integer) -> $return : Boolean
+var $processID; $position : Integer
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 06.03.20, 10:08:31
@@ -18,16 +21,13 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_LONGINT:C283($1;$processID;$position)
-C_BOOLEAN:C305($0)
 
-$processID:=$1
+$processID:=$param1
 
-$position:=Storage:C1525.AJUI_AnimateProcess_col.indexOf($processID)
+$position:=Storage.AJUI_AnimateProcess_col.indexOf($processID)
 
 If ($position>=0)
-	$0:=False:C215
+	$return:=False
 Else 
-	$0:=True:C214
+	$return:=True
 End if 
-

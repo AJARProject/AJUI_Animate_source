@@ -1,42 +1,47 @@
-$evt:=Form event code:C388
+var $animation_ptr : Pointer
+var $animation; $orientation; $param : Text
+var $params : Collection
+var $o; $o2 : Object
+var $pict : Picture
+var $evt : Integer
+var $pos; $popupIndex : Integer
+var $obj_ptr : Pointer
+
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
+	: ($evt=On Load)
 		
-		C_POINTER:C301($animation_ptr)
-		C_TEXT:C284($animation)
-		$animation_ptr:=OBJECT Get pointer:C1124(Object current:K67:2)
-		$animation:=$animation_ptr->{$animation_ptr->}
+		$animation_ptr:=OBJECT Get pointer(Object current)
+		$popupIndex:=$animation_ptr->
+		$animation:=$animation_ptr->{$popupIndex}
 		
-	: ($evt=On Clicked:K2:4)
-		
+	: ($evt=On Clicked)
 		
 		
-		C_POINTER:C301($animation_ptr)
-		C_TEXT:C284($animation)
-		$animation_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_animation_obj")
-		$animation:=$animation_ptr->{$animation_ptr->}
+		
+		$animation_ptr:=OBJECT Get pointer(Object named;"popup_animation_obj")
+		$popupIndex:=$animation_ptr->
+		$animation:=$animation_ptr->{$popupIndex}
 		
 		If ($animation#"select effect...")
 			
 			reset_HDI_easing_form 
 			
 			
-			C_TEXT:C284($orientation)
 			
-			If (Form:C1466.params_col=Null:C1517)
+			If (Form.params_col=Null)
 				$orientation:=""
 			Else 
-				$pos:=Form:C1466.params_col.extract("saveAs").indexOf("orientation")
+				$pos:=Form.params_col.extract("saveAs").indexOf("orientation")
 				If ($pos=-1)
 					$orientation:=""
 				Else 
-					$orientation:=Form:C1466.params_col[$pos].value
+					$orientation:=Form.params_col[$pos].value
 				End if 
 			End if 
 			
-			C_COLLECTION:C1488($params)
-			$params:=New collection:C1472()
+			$params:=New collection()
 			$params.push("duration")
 			$params.push("delay")
 			$params.push("iterations")
@@ -46,36 +51,32 @@ Case of
 			$params.push("orientation")
 			
 			For each ($param;$params)
-				Form:C1466[$param]:=0
+				Form[$param]:=0
 			End for each 
 			
-			C_OBJECT:C1216($o)
 			$o:=New Animation 
-			$obj_ptr:=OBJECT Get pointer:C1124(Object named:K67:5;"popup_obj")
-			$o.target:=$obj_ptr->{$obj_ptr->}
+			$obj_ptr:=OBJECT Get pointer(Object named;"popup_obj")
+			$popupIndex:=$obj_ptr->
+			$o.target:=$obj_ptr->{$popupIndex}
 			$o.orientation:=$orientation
-			$o.formName:=Current form name:C1298
+			$o.formName:=Current form name
 			$o[$animation].call($o)  // launch animation
 			
 			  // Listbox
-			Form:C1466.params_col:=New collection:C1472()
-			C_OBJECT:C1216($o2)
-			C_TEXT:C284($param)
+			Form.params_col:=New collection()
 			For each ($param;$params)
-				If (String:C10($o[$param])#"")
-					$o2:=New object:C1471()
+				If (String($o[$param])#"")
+					$o2:=New object()
 					$o2.property:=$param
 					$o2.value:=$o[$param]
-					Form:C1466.params_col.push($o2)
+					Form.params_col.push($o2)
 				End if 
 			End for each 
 			
-			C_PICTURE:C286($pict)
 			$pict:=AJUI_draw_easing_graph ($animation)
-			OBJECT Get pointer:C1124(Object named:K67:5;"myGraph_obj")->:=$pict
+			OBJECT Get pointer(Object named;"myGraph_obj")->:=$pict
 		End if 
 End case 
-
 
 
 

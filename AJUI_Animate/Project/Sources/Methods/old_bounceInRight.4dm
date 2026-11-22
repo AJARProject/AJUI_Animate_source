@@ -7,7 +7,16 @@
   //   • duration (longint) : in ms
   //   • offset (longint) : in pixel
 
-If (False:C215)
+#DECLARE($param1 : Object) -> $return : Object
+var $o; $params : Object
+var $operations : Collection
+var $factor : Real
+var $duration; $iterations; $offset; $delay; $width_window : Integer
+var $target : Text
+var $left; $top; $right; $bottom; $width; $height; $left0; $top0; $right0; $bottom0 : Integer
+var $animationItem; $animationItem2; $animationItem3; $animationItem4 : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 19.04.20, 09:38:52
@@ -20,35 +29,30 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$1;$o;$params)
-C_COLLECTION:C1488($operations)
-$o:=This:C1470
+$o:=This
 
-C_REAL:C285($factor)
-C_LONGINT:C283($duration;$iterations;$offset;$delay)
-C_LONGINT:C283($width_window)
 
-If (String:C10($o.offset)="")
+If (String($o.offset)="")
 	$o.offset:=10
 End if 
 $offset:=$o.offset
-If (String:C10($o.duration)="")
+If (String($o.duration)="")
 	$o.duration:=300
 End if 
 $duration:=$o.duration
-If (String:C10($o.target)="")
-	$target:=OBJECT Get name:C1087(Object current:K67:2)  //
+If (String($o.target)="")
+	$target:=OBJECT Get name(Object current)  //
 Else 
 	$target:=$o.target
 End if 
-If (String:C10($o.width_window)="")
+If (String($o.width_window)="")
 	$width_window:=500
 Else 
 	$width_window:=$o.width_window
 End if 
 
-$operations:=New collection:C1472()
-OBJECT GET COORDINATES:C663(*;$target;$left;$top;$right;$bottom)
+$operations:=New collection()
+OBJECT GET COORDINATES(*;$target;$left;$top;$right;$bottom)
 
 $width:=$right-$left
 $height:=$bottom-$top
@@ -58,7 +62,7 @@ $left0:=$width_window
 $top0:=$top
 $right0:=$width_window+$width
 $bottom0:=$bottom
-OBJECT SET COORDINATES:C1248(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
+OBJECT SET COORDINATES(*;$target;$left0;$top0;$right0;$bottom0)  // step 1
 $animationItem:=New AnimationItem 
 $animationItem.operation:="Move"
 $animationItem.target:=$target
@@ -71,20 +75,20 @@ $animationItem.left:=$left-$offset
 $animationItem.top:=$top
 $operations.push($animationItem)
   // left
-$animationItem2:=OB Copy:C1225($animationItem)
+$animationItem2:=OB Copy($animationItem)
 $animationItem2.duration:=$duration/2
 $animationItem2.left:=$left
 $operations.push($animationItem2)
   // right small
-$animationItem3:=OB Copy:C1225($animationItem)
+$animationItem3:=OB Copy($animationItem)
 $animationItem3.duration:=$duration/2
 $animationItem3.left:=$left-($offset/2)
 $operations.push($animationItem3)
   // down small
-$animationItem4:=OB Copy:C1225($animationItem)
+$animationItem4:=OB Copy($animationItem)
 $animationItem4.left:=$left
 $operations.push($animationItem4)
 
-$params:=New object:C1471()
+$params:=New object()
 $params.operations:=$operations
-animate (OB Copy:C1225($params))
+animate (OB Copy($params))

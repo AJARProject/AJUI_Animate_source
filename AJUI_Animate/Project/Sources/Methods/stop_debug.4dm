@@ -1,3 +1,3 @@
 //%attributes = {}
-SET DATABASE PARAMETER:C642(Debug log recording:K37:34;0)
-SHOW ON DISK:C922(Get 4D folder:C485(Logs folder:K5:19))
+SET DATABASE PARAMETER(Debug log recording;0)
+SHOW ON DISK(Get 4D folder(Logs folder))

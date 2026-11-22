@@ -5,7 +5,10 @@
   //
   // Get an object containing all available animation properties and formula
 
-If (False:C215)
+#DECLARE() -> $return : Object
+var $animation : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Maurice Inzirillo
 	  // Date and time: 21.04.20, 11:10:01
@@ -19,9 +22,8 @@ If (False:C215)
 End if 
 
 
-C_OBJECT:C1216($0;$animation)
 
-$animation:=New object:C1471
+$animation:=New object
 
 
   //timing
@@ -29,69 +31,69 @@ $animation.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
 
 
   // effects
-$animation.backIn:=Formula:C1597(backIn )
-$animation.backOut:=Formula:C1597(backOut )
-$animation.backInOut:=Formula:C1597(backInOut )
+$animation.backIn:=Formula(backIn )
+$animation.backOut:=Formula(backOut )
+$animation.backInOut:=Formula(backInOut )
 
-$animation.bounce:=Formula:C1597(bounce )
-$animation.bounceIn:=Formula:C1597(bounceIn )
-$animation.bounceOut:=Formula:C1597(bounceOut )
-$animation.bounceInOut:=Formula:C1597(bounceInOut )
+$animation.bounce:=Formula(bounce )
+$animation.bounceIn:=Formula(bounceIn )
+$animation.bounceOut:=Formula(bounceOut )
+$animation.bounceInOut:=Formula(bounceInOut )
 
-$animation.circIn:=Formula:C1597(circIn )
-$animation.circOut:=Formula:C1597(circOut )
-$animation.circInOut:=Formula:C1597(circInOut )
+$animation.circIn:=Formula(circIn )
+$animation.circOut:=Formula(circOut )
+$animation.circInOut:=Formula(circInOut )
 
-$animation.cubicIn:=Formula:C1597(cubicIn )
-$animation.cubicOut:=Formula:C1597(cubicOut )
-$animation.cubicInOut:=Formula:C1597(cubicInOut )
+$animation.cubicIn:=Formula(cubicIn )
+$animation.cubicOut:=Formula(cubicOut )
+$animation.cubicInOut:=Formula(cubicInOut )
 
-$animation.elastic:=Formula:C1597(elastic )
-$animation.elasticIn:=Formula:C1597(elasticIn )
-$animation.elasticOut:=Formula:C1597(elasticOut )
-$animation.elasticInOut:=Formula:C1597(elasticInOut )
+$animation.elastic:=Formula(elastic )
+$animation.elasticIn:=Formula(elasticIn )
+$animation.elasticOut:=Formula(elasticOut )
+$animation.elasticInOut:=Formula(elasticInOut )
 
-$animation.expoIn:=Formula:C1597(expoIn )
-$animation.expoOut:=Formula:C1597(expoOut )
-$animation.expoInOut:=Formula:C1597(expoInOut )
+$animation.expoIn:=Formula(expoIn )
+$animation.expoOut:=Formula(expoOut )
+$animation.expoInOut:=Formula(expoInOut )
 
-$animation.flash:=Formula:C1597(flash )  //no orientation
-$animation.heartbeat:=Formula:C1597(heartbeat )  //no orientation
-$animation.jump:=Formula:C1597(jump )
-$animation.pulse:=Formula:C1597(pulse )  //no orientation
+$animation.flash:=Formula(flash )  //no orientation
+$animation.heartbeat:=Formula(heartbeat )  //no orientation
+$animation.jump:=Formula(jump )
+$animation.pulse:=Formula(pulse )  //no orientation
 
-$animation.quadIn:=Formula:C1597(quadIn )
-$animation.quadOut:=Formula:C1597(quadOut )
-$animation.quadInOut:=Formula:C1597(quadInOut )
+$animation.quadIn:=Formula(quadIn )
+$animation.quadOut:=Formula(quadOut )
+$animation.quadInOut:=Formula(quadInOut )
 
-$animation.quartIn:=Formula:C1597(quartIn )
-$animation.quartOut:=Formula:C1597(quartOut )
-$animation.quartInOut:=Formula:C1597(quartInOut )
+$animation.quartIn:=Formula(quartIn )
+$animation.quartOut:=Formula(quartOut )
+$animation.quartInOut:=Formula(quartInOut )
 
-$animation.quintIn:=Formula:C1597(quintIn )
-$animation.quintOut:=Formula:C1597(quintOut )
-$animation.quintInOut:=Formula:C1597(quintInOut )
+$animation.quintIn:=Formula(quintIn )
+$animation.quintOut:=Formula(quintOut )
+$animation.quintInOut:=Formula(quintInOut )
 
-$animation.shakeNo:=Formula:C1597(shakeNo )  //no orientation
-$animation.shakeYes:=Formula:C1597(shakeYes )  //no orientation
+$animation.shakeNo:=Formula(shakeNo )  //no orientation
+$animation.shakeYes:=Formula(shakeYes )  //no orientation
 
-$animation.sineIn:=Formula:C1597(sineIn )
-$animation.sineOut:=Formula:C1597(sineOut )
-$animation.sineInOut:=Formula:C1597(sineInOut )
+$animation.sineIn:=Formula(sineIn )
+$animation.sineOut:=Formula(sineOut )
+$animation.sineInOut:=Formula(sineInOut )
 
-$animation.slide:=Formula:C1597(slide )
-$animation.slideIn:=Formula:C1597(slideIn )
-$animation.slideOut:=Formula:C1597(slideOut )
+$animation.slide:=Formula(slide )
+$animation.slideIn:=Formula(slideIn )
+$animation.slideOut:=Formula(slideOut )
 
-$animation.swingFromTo:=Formula:C1597(swingFromTo )
-$animation.swingFrom:=Formula:C1597(swingFrom )
-$animation.swingTo:=Formula:C1597(swingTo )
+$animation.swingFromTo:=Formula(swingFromTo )
+$animation.swingFrom:=Formula(swingFrom )
+$animation.swingTo:=Formula(swingTo )
 
-$animation.zoomIn:=Formula:C1597(zoomIn )
-$animation.zoomOut:=Formula:C1597(zoomOut )
+$animation.zoomIn:=Formula(zoomIn )
+$animation.zoomOut:=Formula(zoomOut )
 
   // Special Animation
-$animation.floatingLabel:=Formula:C1597(floatingLabel )
+$animation.floatingLabel:=Formula(floatingLabel )
 
 
-$0:=$animation
+$return:=$animation

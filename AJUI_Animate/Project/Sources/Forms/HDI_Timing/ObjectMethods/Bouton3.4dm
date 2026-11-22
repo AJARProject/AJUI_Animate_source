@@ -1,39 +1,41 @@
-$evt:=Form event code:C388
+var $animation : Object
+var $operations : Collection
+var $evt : Integer
+
+$evt:=Form event code
 Case of 
-	: ($evt=On Load:K2:1)
+	: ($evt=On Load)
 		
 		
-	: ($evt=On Clicked:K2:4)
+	: ($evt=On Clicked)
 		
 		HDI_Timing 
 		
-		C_OBJECT:C1216($animation)
-		$animation:=New object:C1471("direction";Form:C1466.direction;"iterations";Form:C1466.iteration)
+		$animation:=New object("direction";Form.direction;"iterations";Form.iteration)
 		Case of 
-			: (Form:C1466.animationType="linear")
-				$animation.operations:=Form:C1466.linear
-			: (Form:C1466.animationType="ease")
-				$animation.operations:=Form:C1466.ease
-			: (Form:C1466.animationType="ease-in")
-				$animation.operations:=Form:C1466.easeIn
-			: (Form:C1466.animationType="ease-out")
-				$animation.operations:=Form:C1466.easeOut
-			: (Form:C1466.animationType="ease-in-out")
-				$animation.operations:=Form:C1466.easeInOut
-			: (Form:C1466.animationType="step")
-				$animation.operations:=Form:C1466.step
-			: (Form:C1466.animationType="bezier")
-				$animation.operations:=Form:C1466.bezier
+			: (Form.animationType="linear")
+				$animation.operations:=Form.linear
+			: (Form.animationType="ease")
+				$animation.operations:=Form.ease
+			: (Form.animationType="ease-in")
+				$animation.operations:=Form.easeIn
+			: (Form.animationType="ease-out")
+				$animation.operations:=Form.easeOut
+			: (Form.animationType="ease-in-out")
+				$animation.operations:=Form.easeInOut
+			: (Form.animationType="step")
+				$animation.operations:=Form.step
+			: (Form.animationType="bezier")
+				$animation.operations:=Form.bezier
 			Else 
-				$animation.operations:=Form:C1466.linear  // default linear
+				$animation.operations:=Form.linear  // default linear
 		End case 
 		  //animate ($animation)
 		
-		C_COLLECTION:C1488($operations)
-		$animation.direction:=Form:C1466.direction
-		$animation.iterations:=Form:C1466.iteration
-		$operations:=New collection:C1472()
-		$operations.push(OB Copy:C1225($animation))
+		$animation.direction:=Form.direction
+		$animation.iterations:=Form.iteration
+		$operations:=New collection()
+		$operations.push(OB Copy($animation))
 		
 		animate ($operations)
 		

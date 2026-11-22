@@ -6,7 +6,10 @@
   //
   // Callback used to show/hide an object
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Boolean; $param3 : Boolean)
+var $currentOperation : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 11.03.20, 11:07:43
@@ -17,11 +20,9 @@ If (False:C215)
 	  //
 	  // ----------------------------------------------------
 End if 
-C_OBJECT:C1216($1; $currentOperation)
-C_BOOLEAN:C305($2; $3)
-$currentOperation:=$1
-If (Count parameters:C259=2) && ($currentOperation.subformName#"")
-	EXECUTE METHOD IN SUBFORM:C1085($currentOperation.subformName; Current method name:C684; *; $currentOperation; $2; True:C214)
+$currentOperation:=$param1
+If (Count parameters=2) && (String($currentOperation.subformName)#"")
+	EXECUTE METHOD IN SUBFORM(String($currentOperation.subformName); Current method name; *; $currentOperation; $param2; True)
 Else 
-	OBJECT SET VISIBLE:C603(*; $currentOperation.target; $2)
+	OBJECT SET VISIBLE(*; $currentOperation.target; $param2)
 End if 

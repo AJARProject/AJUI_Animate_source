@@ -15,7 +15,13 @@
   // The method don't retun anything, however, the third parameter is an object that will contain the calculated informations
   // The animation need some informations that will not
 
-If (False:C215)
+#DECLARE($param1 : Object; $param2 : Object; $param3 : Object)
+var $operation; $animationItem; $defTargetCurrent : Object
+var $steps; $step : Integer
+var $animationTiming_obj : Object
+var $left; $top; $width; $height : Real
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): gabriel inzirillo
 	  // Date and time: 01.04.20, 13:27:14
@@ -28,18 +34,15 @@ If (False:C215)
 End if 
 
 
-C_OBJECT:C1216($1;$operation)
-C_OBJECT:C1216($2;$animationItem)  // Used as value to return
-C_OBJECT:C1216($3;$defTargetCurrent)
 
-$operation:=$1
-$animationItem:=$2
-$defTargetCurrent:=$3[$operation.target]
+$operation:=$param1
+$animationItem:=$param2
+$defTargetCurrent:=$param3[$operation.target]
 $steps:=$animationItem.steps
 $step:=$animationItem.step
 
   //setup animation timing object
-$animationTiming_obj:=New object:C1471
+$animationTiming_obj:=New object
 $animationTiming_obj.steps:=$steps
 
 $animationTiming_obj.current_step:=$step
@@ -82,7 +85,7 @@ If ($animationItem.operation="@Font@")
 		$animationTiming_obj.minValue:=$defTargetCurrent.fontSize
 		$animationTiming_obj.maxValue:=$operation.fontSize
 		$animationTiming_obj.animType:=checkSpecificType ($operation;"Font")
-		$animationItem.fontSize:=Round:C94(animationTiming ($animationTiming_obj);0)
+		$animationItem.fontSize:=Round(animationTiming ($animationTiming_obj);0)
 	End if 
 End if 
 
@@ -110,19 +113,19 @@ If ($animationItem.operation="@CRadius@")
 		$animationTiming_obj.minValue:=$defTargetCurrent.radius
 		$animationTiming_obj.maxValue:=$operation.radius
 		$animationTiming_obj.animType:=checkSpecificType ($operation;"CRadius")
-		$animationItem.radius:=Round:C94(animationTiming ($animationTiming_obj);0)
+		$animationItem.radius:=Round(animationTiming ($animationTiming_obj);0)
 	End if 
 End if 
 
   //blink
 If ($animationItem.operation="@Blink@")
-	If ($animationItem.visible=Null:C1517)
-		$animationItem.visible:=False:C215
+	If ($animationItem.visible=Null)
+		$animationItem.visible:=False
 	Else 
 		If ($animationItem.visible)
-			$animationItem.visible:=False:C215
+			$animationItem.visible:=False
 		Else 
-			$animationItem.visible:=True:C214
+			$animationItem.visible:=True
 		End if 
 	End if 
 End if 

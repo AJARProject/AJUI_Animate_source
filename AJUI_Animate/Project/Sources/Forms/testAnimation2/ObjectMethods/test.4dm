@@ -1,11 +1,13 @@
-C_LONGINT:C283($evt)
-$evt:=Form event code:C388
+var $evt : Integer
+var $animationItem : Object
+
+$evt:=Form event code
 
 Case of 
-	: ($evt=On Load:K2:1)
-		OBJECT Get pointer:C1124(Object current:K67:2)->:=10
+	: ($evt=On Load)
+		OBJECT Get pointer(Object current)->:=10
 		
-		Form:C1466.colTest2:=New collection:C1472()
+		Form.colTest2:=New collection()
 		$animationItem:=New AnimationItem 
 		
 		$animationItem.operation:="Move,Resize,BGColor,Font"  //Move, Resize, Font , BGColor, CRadius, Blink; BStyle
@@ -30,6 +32,6 @@ Case of
 		$animationItem.fontName:="Arial"
 		$animationItem.fontStyle:=5
 		
-		Form:C1466.colTest2.push($animationItem)
-		Form:C1466.name:="Salut"
+		Form.colTest2.push($animationItem)
+		Form.name:="Salut"
 End case 

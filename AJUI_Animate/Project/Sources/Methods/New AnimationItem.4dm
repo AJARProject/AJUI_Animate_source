@@ -1,11 +1,14 @@
-//%attributes = {"preemptive":"capable"}
+//%attributes = {"invisible":true,"shared":true,"preemptive":"capable"}
   // New AnimationItem (  ) -> $operationItem
   //
   // $operationItem : (object) (return) operation item
   //
   // Get an object containing all available animation properties
 
-If (False:C215)
+#DECLARE() -> $return : Object
+var $operationItem : Object
+
+If (False)
 	  // ----------------------------------------------------
 	  // User name (OS): Gary Criblez
 	  // Date and time: 06.03.20, 10:25:19
@@ -17,16 +20,15 @@ If (False:C215)
 	  // ----------------------------------------------------
 End if 
 
-C_OBJECT:C1216($0;$operationItem)
 
-$operationItem:=New object:C1471
+$operationItem:=New object
 
 $operationItem[""]:="AnimationItem"
 
   //global
 $operationItem.operation:="Move"  //Move, Resize, Font , BGColor, CRadius, Blink, BStyle
 $operationItem.target:=""
-$operationItem.hideAtTheEnd:=False:C215
+$operationItem.hideAtTheEnd:=False
 
   //timing
 $operationItem.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
@@ -52,7 +54,7 @@ $operationItem.styleSheet:=""
 $operationItem.foregroundColor:=""
 $operationItem.backgroundColor:=""
 $operationItem.altBackgroundColor:=""
-$operationItem.colorTransition:=True:C214
+$operationItem.colorTransition:=True
 
   //CRadius
 $operationItem.radius:=0
@@ -61,4 +63,4 @@ $operationItem.radius:=0
 $operationItem.borderStyle:=6
 
 
-$0:=$operationItem
+$return:=$operationItem

@@ -1,7 +1,11 @@
+// Declared so the 21 R4 compiler accepts This.animType (warning 550.26).
+// https://developer.4d.com/docs/21-R4/Concepts/classes
+property animType : Text
+
 Class constructor
 	
 	  //timing
-	This:C1470.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
+	This.animType:="linear"  // ease, linear, ease-in, ease-out, ease-in-out
 	
 	
 Function backIn

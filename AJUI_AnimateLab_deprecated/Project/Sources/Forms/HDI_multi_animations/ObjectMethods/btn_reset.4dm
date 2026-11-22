@@ -1,13 +1,13 @@
-OBJECT SET VISIBLE:C603(*;"background@";False:C215)
+var $evt : Integer
+OBJECT SET VISIBLE(*;"background@";False)
 
-$evt:=Form event code:C388
+$evt:=Form event code
 Case of 
-	: ($evt=On Load:K2:1)
-		CALL FORM:C1391(Current form window:C827;"formGetObjectsCoordinates")
-	: ($evt=On Clicked:K2:4)
-		DELAY PROCESS:C323(Current process:C322;30)
-		CALL FORM:C1391(Current form window:C827;"formResetObjectsCoordinates")
-		OBJECT SET VISIBLE:C603(*;"btn@_obj";False:C215)
+	: ($evt=On Load)
+		CALL FORM(Current form window;"labFormGetObjectsCoordinates")
+	: ($evt=On Clicked)
+		DELAY PROCESS(Current process;30)
+		CALL FORM(Current form window;"labFormResetObjectsCoordinates")
+		OBJECT SET VISIBLE(*;"btn@_obj";False)
 End case 
-
 
